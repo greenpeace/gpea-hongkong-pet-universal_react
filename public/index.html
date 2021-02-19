@@ -89,7 +89,7 @@
     <!-- MC_FORM_STARTS -->
     <form
       method="post"
-      action="https://cloud.greenhk.greenpeace.org/petition-pp"
+      action="https://cloud.greenhk.greenpeace.org/petition_pp_CampaignData"
       id="mc-form"
       style="display: none"
     >
@@ -107,6 +107,13 @@
         type="text"
         value="852"
       />
+      <!-- Campaign Data -->
+      <input name="CampaignData1__c" type="text" value="" />
+      <input name="CampaignData2__c" type="text" value="" />
+      <input name="CampaignData3__c" type="text" value="" />
+      <input name="CampaignData4__c" type="text" value="" />
+      <input name="CampaignData5__c" type="text" value="" />
+      <!-- Campaign Data -->
       <input placeholder="OptIn" name="OptIn" type="checkbox" value="" />
 
       <input type="hidden" name="req" value="post_data" />
@@ -155,7 +162,5 @@
       <input name="req" type="hidden" value="post_data" />
     </form>
     <!-- MC_FORM_ENDS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
   </body>
 </html>

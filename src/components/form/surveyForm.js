@@ -51,7 +51,7 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
       .maxLength(2, "最多兩項選擇")
       .isRequired(formContent.empty_select_data_alert),
     q3: StringType().isRequired(formContent.empty_select_data_alert),
-    q4: StringType().isRequired(formContent.empty_data_alert),
+    q4: StringType(),
     q5: StringType().isRequired(formContent.empty_select_data_alert),
     email: StringType()
       .isEmail(formContent.invalid_email_alert)
@@ -67,7 +67,7 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
       console.log("formValue--", formValue);
       submitForm({
         ...formValue,
-        OptIn
+        OptIn,
       });
       // submitForm(formValue);
     } else {
@@ -184,7 +184,7 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
                           componentClass="textarea"
                           name="q4"
                           autoComplete="off"
-                          style={{ height: "150px" }}
+                          style={{ height: "80px" }}
                         />
                       </FormGroup>
                     </Col>
@@ -206,7 +206,7 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
                   <h2>個人資料</h2>
 
                   <Row className="show-grid">
-                    <Col xs={24} sm={8}>
+                    <Col xs={24}>
                       <FormGroup>
                         <TextField
                           name="email"
@@ -219,7 +219,7 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
                   </Row>
 
                   <Row className="show-grid">
-                    <Col xs={12} sm={8}>
+                    <Col xs={24}>
                       <FormGroup>
                         <TextField
                           name="lastName"
@@ -232,7 +232,7 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
                   </Row>
 
                   <Row className="show-grid">
-                    <Col xs={12} sm={8}>
+                    <Col xs={24}>
                       <FormGroup>
                         <TextField
                           name="firstName"
@@ -243,22 +243,22 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
                       </FormGroup>
                     </Col>
                   </Row>
-                </div>
 
-                <Row className="show-grid">
-                <Col xs={24}>
-                  <div className="custom-form-reminder">
-                    <Checkbox name="OptIn" ref={refCheckbox} defaultChecked>
-                      {formContent.form_remind}
-                    </Checkbox>
-                  </div>
-                </Col>
-              </Row>
+                  <Row className="show-grid">
+                    <Col xs={24}>
+                      <div className="custom-form-reminder">
+                        <Checkbox name="OptIn" ref={refCheckbox} defaultChecked>
+                          {formContent.form_remind}
+                        </Checkbox>
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
               </Col>
             </Row>
 
             <FlexboxGrid justify="center">
-              <FlexboxGrid.Item colspan={10}>
+              <FlexboxGrid.Item colspan={24}>
                 <button
                   type="submit"
                   className="custom-button custom-button-active"
