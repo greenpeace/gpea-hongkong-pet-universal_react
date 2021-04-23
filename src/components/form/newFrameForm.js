@@ -35,6 +35,7 @@ const MyForm = (props) => {
     setSubmitting,
     setHiddenForm,
     submitted,
+    version
   } = props;
 
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
@@ -130,14 +131,11 @@ const MyForm = (props) => {
               <Input
                 name="Email"
                 type="email"
-                placeholder={
-                  errors.Email && touched.Email
-                    ? errors.Email
-                    : formContent.label_email
-                }
+                placeholder={formContent.label_email}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
+              <FormErrorMessage color="red">{errors.Email}</FormErrorMessage>
             </FormControl>
           </Box>
 
@@ -153,13 +151,10 @@ const MyForm = (props) => {
                 <Input
                   name="LastName"
                   type="text"
-                  placeholder={
-                    errors.LastName && touched.LastName
-                      ? errors.LastName
-                      : formContent.label_last_name
-                  }
+                  placeholder={formContent.label_last_name}
                   onChange={handleChange}
                 />
+                <FormErrorMessage color="red">{errors.LastName}</FormErrorMessage>
               </FormControl>
             </Box>
             <Box flex="1" pb={space}>
@@ -173,13 +168,10 @@ const MyForm = (props) => {
                 <Input
                   name="FirstName"
                   type="text"
-                  placeholder={
-                    errors.FirstName && touched.FirstName
-                      ? errors.FirstName
-                      : formContent.label_first_name
-                  }
+                  placeholder={formContent.label_first_name}
                   onChange={handleChange}
                 />
+                <FormErrorMessage color="red">{errors.FirstName}</FormErrorMessage>
               </FormControl>
             </Box>
           </HStack>
@@ -189,7 +181,7 @@ const MyForm = (props) => {
           </FormControl>
 
           <HStack align="flex-end">
-            <Box pb={space}>
+            <Box pb={space} mb={errors.MobilePhone ? '28px' : 0}>
               <FormControl id="mobileCountryCode">
                 <Select name="MobileCountryCode" onChange={handleChange}>
                   {mobileCountryCode &&
@@ -209,13 +201,10 @@ const MyForm = (props) => {
                 <Input
                   type="number"
                   name="MobilePhone"
-                  placeholder={
-                    errors.MobilePhone && touched.MobilePhone
-                      ? errors.MobilePhone
-                      : formContent.label_phone
-                  }
+                  placeholder={formContent.label_phone}
                   onChange={handleChange}
                 />
+                <FormErrorMessage color="red">{errors.MobilePhone}</FormErrorMessage>
               </FormControl>
             </Box>
           </HStack>
@@ -229,11 +218,7 @@ const MyForm = (props) => {
                 {formContent.label_year_of_birth}
               </FormLabel>
               <Select
-                placeholder={
-                  errors.Birthdate && touched.Birthdate
-                    ? errors.Birthdate
-                    : formContent.select
-                }
+                placeholder={formContent.select}
                 onChange={handleChange}
               >
                 {birthDateYear &&
@@ -243,6 +228,7 @@ const MyForm = (props) => {
                     </option>
                   ))}
               </Select>
+              <FormErrorMessage color="red">{errors.Birthdate}</FormErrorMessage>
             </FormControl>
           </Box>
 
@@ -298,7 +284,10 @@ const MyEnhancedForm = withFormik({
     OptIn: true,
   }),
 
-  validate: (values, { formContent }) => {
+  validate: (values, { formContent, version }) => {
+
+    console.log('version--',version)
+
     const errors = {};
 
     if (!values.Email) {
@@ -317,14 +306,16 @@ const MyEnhancedForm = withFormik({
       errors.LastName = formContent.empty_data_alert;
     }
 
-    if (!values.MobilePhone) {
-      errors.MobilePhone = formContent.empty_data_alert;
-    } else if (values.MobilePhone.toString().length !== 8) {
-      errors.MobilePhone = formContent.minimum_8_characters;
-    }
-
-    if (!values.Birthdate) {
-      errors.Birthdate = formContent.empty_data_alert;
+    if(!version || version && window.version === "A"){
+      if (!values.MobilePhone) {
+        errors.MobilePhone = formContent.empty_data_alert;
+      } else if (values.MobilePhone.toString().length !== 8) {
+        errors.MobilePhone = formContent.minimum_8_characters;
+      }
+  
+      if (!values.Birthdate) {
+        errors.Birthdate = formContent.empty_data_alert;
+      } 
     }
 
     return errors;
