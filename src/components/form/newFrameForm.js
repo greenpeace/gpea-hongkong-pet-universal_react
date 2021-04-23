@@ -177,7 +177,7 @@ const MyForm = (props) => {
           </HStack>
 
           <FormControl>
-            <FormLabel {...labelStyle}>{formContent.label_phone}</FormLabel>
+            <FormLabel {...labelStyle}>{!version || version && window.version === "A" ? formContent.label_phone : formContent.label_phone_optional}</FormLabel>
           </FormControl>
 
           <HStack align="flex-end">
@@ -215,7 +215,7 @@ const MyForm = (props) => {
               isInvalid={errors.Birthdate && touched.Birthdate}
             >
               <FormLabel {...labelStyle}>
-                {formContent.label_year_of_birth}
+                {!version || version && window.version === "A" ? formContent.label_year_of_birth : formContent.label_year_of_birth_optional}
               </FormLabel>
               <Select
                 placeholder={formContent.select}
@@ -285,8 +285,6 @@ const MyEnhancedForm = withFormik({
   }),
 
   validate: (values, { formContent, version }) => {
-
-    console.log('version--',version)
 
     const errors = {};
 
