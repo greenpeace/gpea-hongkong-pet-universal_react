@@ -14,7 +14,7 @@ import formContent from "./data/formContent.json";
 
 import "./app.less";
 
-const Index = ({ initState, fakeSubmit, submitted, petition }) => {
+const Index = ({ initState, fakeSubmit, submitted }) => {
   useEffect(() => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -41,7 +41,7 @@ const Index = ({ initState, fakeSubmit, submitted, petition }) => {
         {submitted ? (
           <SubmittedForm formContent={formContent} />
         ) : (
-          <RegistrationForm />
+          <RegistrationForm version={true}/>
         )}
       </div>
       <Panel formContent={formContent} />

@@ -44,6 +44,7 @@ let RegistrationForm = ({
   submitForm,
   submitted,
   formContent = content,
+  version
 }) => {
   const refForm = useRef();
   const refCheckbox = useRef();
@@ -60,22 +61,12 @@ let RegistrationForm = ({
   });
   const [birthDateYear, setBirthDateYear] = useState([]);
   const { StringType, NumberType } = Schema.Types;
-  const progress = [
-    { bgcolor: "#66cc00", completed: numResponses, target: numSignupTarget },
-  ];
-  const model = Schema.Model({
+  const progress = [{ bgcolor: "#66cc00", completed: numResponses, target: numSignupTarget }];
+
+  const modelVersionA = Schema.Model({
     Email: StringType()
       .isEmail(formContent.invalid_email_alert)
       .isRequired(formContent.empty_data_alert),
-    // .addRule((value, data) => {
-    //   const suggest = mailcheck.run({
-    //     email: value,
-    //     domains: domains,                       // optional
-    //     topLevelDomains: topLevelDomains,       // optional
-    //     suggested: (suggestion) => suggestion
-    //   })
-    //   return suggest === undefined;
-    // }, emailSuggestion),
     LastName: StringType().isRequired(formContent.empty_data_alert),
     FirstName: StringType().isRequired(formContent.empty_data_alert),
     MobileCountryCode: StringType().isRequired(formContent.empty_data_alert),
@@ -88,40 +79,15 @@ let RegistrationForm = ({
     Birthdate: StringType().isRequired(formContent.empty_data_alert),
   });
 
-  useEffect(() => {
-    let getHiddenFields = document.querySelectorAll(
-      'input[value][type="hidden"]:not([value=""])'
-    );
-    setHiddenFormValues(
-      [...getHiddenFields].reduce(
-        (obj, e) => ({ ...obj, [e.name]: e.value }),
-        {}
-      )
-    );
+  const modelVersionB = Schema.Model({
+    Email: StringType()
+      .isEmail(formContent.invalid_email_alert)
+      .isRequired(formContent.empty_data_alert),
+    LastName: StringType().isRequired(formContent.empty_data_alert),
+    FirstName: StringType().isRequired(formContent.empty_data_alert)
+  });
 
-    const signupTarget = document.querySelector(
-      "input[name='numSignupTarget']"
-    );
-    const numResponses = document.querySelector("input[name='numResponses']");
-
-    if (signupTarget) {
-      setNumSignupTarget(signupTarget.value);
-    }
-    if (numResponses) {
-      setNumResponses(numResponses.value);
-    }
-    //
-    let optionYear = [];
-    async function fetchOptionYear() {
-      let nowYear = new Date().getFullYear();
-      let targetYear = nowYear - 110;
-      for (var i = nowYear - 20; i >= targetYear; i--) {
-        await optionYear.push({ label: i, value: i.toString() });
-      }
-      setBirthDateYear(optionYear);
-    }
-    fetchOptionYear(optionYear);
-  }, []);
+  const setModel = version ? window.version === 'A' ? modelVersionA : modelVersionB : modelVersionA
 
   const closeAll = () => {
     togglePanel(false);
@@ -172,6 +138,41 @@ let RegistrationForm = ({
       </FormGroup>
     );
   };
+
+  useEffect(() => {
+    let getHiddenFields = document.querySelectorAll(
+      'input[value][type="hidden"]:not([value=""])'
+    );
+    setHiddenFormValues(
+      [...getHiddenFields].reduce(
+        (obj, e) => ({ ...obj, [e.name]: e.value }),
+        {}
+      )
+    );
+
+    const signupTarget = document.querySelector(
+      "input[name='numSignupTarget']"
+    );
+    const numResponses = document.querySelector("input[name='numResponses']");
+
+    if (signupTarget) {
+      setNumSignupTarget(signupTarget.value);
+    }
+    if (numResponses) {
+      setNumResponses(numResponses.value);
+    }
+    //
+    let optionYear = [];
+    async function fetchOptionYear() {
+      let nowYear = new Date().getFullYear();
+      let targetYear = nowYear - 110;
+      for (var i = nowYear - 20; i >= targetYear; i--) {
+        await optionYear.push({ label: i, value: i.toString() });
+      }
+      setBirthDateYear(optionYear);
+    }
+    fetchOptionYear(optionYear);
+  }, []);
   class CustomField extends React.PureComponent {
     render() {
       const { name, message, label, accepter, error, ...props } = this.props;
@@ -187,6 +188,8 @@ let RegistrationForm = ({
       );
     }
   }
+
+  // console.log('{window.version}--',window.version)
 
   return (
     <div className="custom-gp-form">
@@ -233,7 +236,7 @@ let RegistrationForm = ({
                 */}
           </Grid>
           <Form
-            model={model}
+            model={setModel}
             ref={refForm}
             onSubmit={(d) => handleSubmit(d)}
             checkDelay={800}
@@ -279,8 +282,8 @@ let RegistrationForm = ({
               <Row className="show-grid">
                 <Col xs={24}>
                   <FormGroup>
-                    <ControlLabel>{formContent.label_phone}</ControlLabel>
-                    <Col xs={8} style={{ paddingLeft: 0 }}>
+                    <ControlLabel>{version && window.version === 'A' ? formContent.label_phone : formContent.label_phone_optional}</ControlLabel>
+                    <Col xs={6} style={{ paddingLeft: 0 }}>
                       <CustomField
                         name="MobileCountryCode"
                         searchable={false}
@@ -290,11 +293,11 @@ let RegistrationForm = ({
                         data={mobileCountryCode}
                       />
                     </Col>
-                    <Col xs={16} style={{ paddingRight: 0 }}>
+                    <Col xs={18} style={{ paddingRight: 0 }}>
                       <FormGroup>
                         <TextField
                           type="number"
-                          placeholder={formContent.label_phone}
+                          placeholder={version && window.version === 'A' ? formContent.label_phone : formContent.label_phone_optional}
                           name="MobilePhone"
                           autoComplete="off"
                         />
@@ -308,7 +311,7 @@ let RegistrationForm = ({
                 <Col xs={24}>
                   <FormGroup>
                     <ControlLabel>
-                      {formContent.label_year_of_birth}
+                    {version && window.version === 'A' ? formContent.label_year_of_birth : formContent.label_year_of_birth_optional}
                     </ControlLabel>
                     <CustomField
                       name="Birthdate"
