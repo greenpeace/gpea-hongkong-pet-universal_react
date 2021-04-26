@@ -20,6 +20,7 @@ if (process.env.NODE_ENV === "production") {
 /* Set AB testing version */
 
 window.version = "A";
+console.log("version init");
 
 const rootElement = document.getElementById("root");
 

@@ -44,7 +44,7 @@ let RegistrationForm = ({
   submitForm,
   submitted,
   formContent = content,
-  version
+  version,
 }) => {
   const refForm = useRef();
   const refCheckbox = useRef();
@@ -61,7 +61,9 @@ let RegistrationForm = ({
   });
   const [birthDateYear, setBirthDateYear] = useState([]);
   const { StringType, NumberType } = Schema.Types;
-  const progress = [{ bgcolor: "#66cc00", completed: numResponses, target: numSignupTarget }];
+  const progress = [
+    { bgcolor: "#66cc00", completed: numResponses, target: numSignupTarget },
+  ];
 
   const modelVersionA = Schema.Model({
     Email: StringType()
@@ -84,10 +86,16 @@ let RegistrationForm = ({
       .isEmail(formContent.invalid_email_alert)
       .isRequired(formContent.empty_data_alert),
     LastName: StringType().isRequired(formContent.empty_data_alert),
-    FirstName: StringType().isRequired(formContent.empty_data_alert)
+    FirstName: StringType().isRequired(formContent.empty_data_alert),
   });
 
-  const setModel = version ? window.version === 'A' ? modelVersionA : modelVersionB : modelVersionA
+  const setModel = version
+    ? window.version === "A"
+      ? modelVersionA
+      : modelVersionB
+    : modelVersionA;
+
+  // const setModel = window.version === "B" ? modelVersionA : modelVersionB;
 
   const closeAll = () => {
     togglePanel(false);
@@ -282,7 +290,11 @@ let RegistrationForm = ({
               <Row className="show-grid">
                 <Col xs={24}>
                   <FormGroup>
-                    <ControlLabel>{version && window.version === 'A' ? formContent.label_phone : formContent.label_phone_optional}</ControlLabel>
+                    <ControlLabel>
+                      {version && window.version === "A"
+                        ? formContent.label_phone
+                        : formContent.label_phone_optional}
+                    </ControlLabel>
                     <Col xs={6} style={{ paddingLeft: 0 }}>
                       <CustomField
                         name="MobileCountryCode"
@@ -297,7 +309,11 @@ let RegistrationForm = ({
                       <FormGroup>
                         <TextField
                           type="number"
-                          placeholder={version && window.version === 'A' ? formContent.label_phone : formContent.label_phone_optional}
+                          placeholder={
+                            version && window.version === "A"
+                              ? formContent.label_phone
+                              : formContent.label_phone_optional
+                          }
                           name="MobilePhone"
                           autoComplete="off"
                         />
@@ -311,7 +327,9 @@ let RegistrationForm = ({
                 <Col xs={24}>
                   <FormGroup>
                     <ControlLabel>
-                    {version && window.version === 'A' ? formContent.label_year_of_birth : formContent.label_year_of_birth_optional}
+                      {version && window.version === "A"
+                        ? formContent.label_year_of_birth
+                        : formContent.label_year_of_birth_optional}
                     </ControlLabel>
                     <CustomField
                       name="Birthdate"
