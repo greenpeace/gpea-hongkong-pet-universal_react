@@ -41,7 +41,7 @@ const Index = ({ initState, fakeSubmit, submitted }) => {
         {submitted ? (
           <SubmittedForm formContent={formContent} />
         ) : (
-          <RegistrationForm version={true}/>
+          <RegistrationForm version={true} />
         )}
       </div>
       <Panel formContent={formContent} />

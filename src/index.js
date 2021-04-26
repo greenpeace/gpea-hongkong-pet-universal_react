@@ -17,7 +17,9 @@ if (process.env.NODE_ENV === "production") {
   TagManager.initialize(tagManagerArgs);
 }
 
-window.version = "A"
+/* Set AB testing version */
+
+window.version = "A";
 
 const rootElement = document.getElementById("root");
 
