@@ -14,7 +14,7 @@ import formContent from "./data/formContent.json";
 
 import "./app.less";
 
-const Index = ({ initState, fakeSubmit, submitted }) => {
+const Index = ({ initState, fakeSubmit, submitted, activeABTesting }) => {
   useEffect(() => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -23,6 +23,8 @@ const Index = ({ initState, fakeSubmit, submitted }) => {
     } else {
       initState();
     }
+
+    activeABTesting(true)
   }, []);
 
   return (
@@ -68,6 +70,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     updateSwiperSlide: (data) => {
       dispatch({ type: swiperActions.UPDATE_SWIPER_SLIDE, data });
+    },
+    activeABTesting: (bol) => {
+      dispatch({ type: themeActions.ACTIVE_AB_TESTING, bol });
     },
   };
 };

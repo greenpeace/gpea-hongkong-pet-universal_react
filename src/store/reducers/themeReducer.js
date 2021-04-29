@@ -8,6 +8,7 @@ const initState = {
   displayPanel: false,
   lastAction: null,
   submitted: false,
+  abTesting: false
 };
 
 const themeReducer = (state = initState, action) => {
@@ -67,6 +68,12 @@ const themeReducer = (state = initState, action) => {
       return {
         ...initState,
         lastAction: action.type,
+      };
+
+    case Actions.ACTIVE_AB_TESTING:
+      return {
+        ...state,
+        abTesting: action.bol
       };
 
     default:

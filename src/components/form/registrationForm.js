@@ -44,7 +44,7 @@ let RegistrationForm = ({
   submitForm,
   submitted,
   formContent = content,
-  version,
+  activeABTesting
 }) => {
   const refForm = useRef();
   const refCheckbox = useRef();
@@ -89,11 +89,7 @@ let RegistrationForm = ({
     FirstName: StringType().isRequired(formContent.empty_data_alert),
   });
 
-  const setModel = version
-    ? window.version === "A"
-      ? modelVersionA
-      : modelVersionB
-    : modelVersionA;
+  const setModel = activeABTesting ? window.version === "A" ? modelVersionA : modelVersionB : modelVersionA
 
   const closeAll = () => {
     togglePanel(false);
@@ -289,7 +285,7 @@ let RegistrationForm = ({
                 <Col xs={24}>
                   <FormGroup>
                     <ControlLabel>
-                      {version && window.version === "A"
+                      {activeABTesting && window.version === "A"
                         ? formContent.label_phone
                         : formContent.label_phone_optional}
                     </ControlLabel>
@@ -308,7 +304,7 @@ let RegistrationForm = ({
                         <TextField
                           type="number"
                           placeholder={
-                            version && window.version === "A"
+                            activeABTesting && window.version === "A"
                               ? formContent.label_phone
                               : formContent.label_phone_optional
                           }
@@ -325,7 +321,7 @@ let RegistrationForm = ({
                 <Col xs={24}>
                   <FormGroup>
                     <ControlLabel>
-                      {version && window.version === "A"
+                      {activeABTesting && window.version === "A"
                         ? formContent.label_year_of_birth
                         : formContent.label_year_of_birth_optional}
                     </ControlLabel>
@@ -374,6 +370,7 @@ const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
+    activeABTesting: themeActions.ACTIVE_AB_TESTING,
   };
 };
 
