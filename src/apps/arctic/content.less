@@ -1,15 +1,14 @@
 @nu-yellow: #ffe600;
-@nu-green: #66cc00;
 @nu-black: #221f1d;
 @dark-blue: #141829;
+@nu-arctic: #62cbd7;
 
 .left-header_social ul {
   padding: 0px;
 }
 
 .swiper-wrapper,
-.hero-slider-img .swiper-slide,
-.hero-slider-wrap .swiper-slide {
+.hero-slider-img .swiper-slide, .hero-slider-wrap .swiper-slide{
   width: 100% !important;
 }
 
@@ -36,7 +35,7 @@
     text-align: justify;
   }
   h1 {
-    background: @nu-green;
+    background: @nu-arctic;
     color: @nu-black;
     line-height: 1.2;
     font-weight: bold;
@@ -79,7 +78,7 @@
 
 .form-header {
   h2 {
-    color: @nu-green;
+    color: @nu-arctic;
   }
   p {
     color: #fff;
@@ -152,8 +151,13 @@
   }
 }
 
+.is-yellow {
+  color: @nu-arctic;
+}
+
 .hs_counter .current {
-  color: #eee;
+  // color: @nu-arctic;
+  color: rgba(255, 255, 255, 0.65);
 }
 .hs_counter .total {
   &:before {
@@ -162,45 +166,46 @@
 }
 
 .hc_dec {
+  // background-image: url("../../assets/images/nuclear-icon.png");
   background-size: cover;
-  opacity: 0.7;
+  opacity: 0.1;
 }
 
 .hhw_header {
   font-size: 1rem;
   font-weight: bold;
-  color: @nu-green;
+  color: @nu-arctic;
   padding-left: 8px;
   margin-bottom: 20px;
 }
 
 h1.hhw_title {
-  color: @nu-green;
+  color: @nu-arctic;
   line-height: 1.2;
 }
 
 .hhw_description {
-  max-width: 650px;
+  max-width: 680px;
   padding-top: 0;
   padding: 4px 8px;
-  margin-top: 60px;
+  margin-top: 30px;
   text-align: justify;
   color: #fff;
   font-size: 1rem;
   font-weight: bold;
   letter-spacing: 0.2px;
+  line-height: 30px;
 }
 
-.swiper-slide {
-  .hhw_description {
-    font-size: 1rem;
-    line-height: 1.7;
-  }
-}
+// .swiper-slide:not(:nth-child(1)) {
+//   .hhw_description {
+//     font-size: 1.4rem;
+//     line-height: 1.5;
+//   }
+// }
 
 @media screen and (max-width: 564px) {
-  .hero-slider-wrap,
-  .hero-slider-img {
+  .hero-slider-wrap, .hero-slider-img{
     display: none;
   }
   .half-hero-wrap,

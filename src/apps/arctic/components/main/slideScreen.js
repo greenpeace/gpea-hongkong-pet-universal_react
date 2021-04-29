@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 
-const SlideScreen = ({ togglePanel }) => {
+const SlideScreen = ({ togglePanel, formContent }) => {
   const handleTogglePanel = () => {
     togglePanel(true);
   };
@@ -29,7 +29,7 @@ const SlideScreen = ({ togglePanel }) => {
           className="start-btn cta-custom-display"
           onClick={() => handleTogglePanel()}
         >
-          立即聯署 <FontAwesomeIcon icon={["fas", "pen"]} />
+          {formContent.submit_text} <FontAwesomeIcon icon={["fas", "pen"]} />
         </button>
       </div>
       <div className="hero-scroll-down-notifer">

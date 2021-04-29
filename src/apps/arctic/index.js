@@ -1,4 +1,3 @@
-import "./app.less";
 import React, { useEffect } from "react";
 import * as swiperActions from "store/actions/action-types/swiper-actions";
 import * as themeActions from "store/actions/action-types/theme-actions";
@@ -12,6 +11,8 @@ import Aside from "./components/aside";
 import Header from "./components/header";
 import Panel from "components/panel";
 import formContent from "./data/formContent.json";
+
+import "./app.less";
 
 const Index = ({ initState, fakeSubmit, submitted }) => {
   useEffect(() => {
@@ -32,7 +33,7 @@ const Index = ({ initState, fakeSubmit, submitted }) => {
         <Aside />
         <div id="wrapper">
           <div className="content full-height" data-pagetitle="Home slider">
-            <SlideScreen />
+            <SlideScreen formContent={formContent}/>
           </div>
         </div>
       </div>
@@ -40,7 +41,7 @@ const Index = ({ initState, fakeSubmit, submitted }) => {
         {submitted ? (
           <SubmittedForm formContent={formContent} />
         ) : (
-          <RegistrationForm formContent={formContent} />
+          <RegistrationForm version={true} formContent={formContent} />
         )}
       </div>
       <Panel formContent={formContent} />

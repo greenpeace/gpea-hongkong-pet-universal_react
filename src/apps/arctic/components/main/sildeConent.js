@@ -9,6 +9,8 @@ import swiperContent from "../../data/swiper.json";
 
 import videoBG from "../../../../assets/videos/e96a2abcec677ba251bdd4e8c9ddb5ef.mp4";
 
+console.log('swiperContent--',swiperContent)
+
 const SlideContent = ({
   swiper,
   slideIndex,
@@ -46,13 +48,10 @@ const SlideContent = ({
   return (
     <>
       <div className="hero-wrapper fl-wrap full-height hidden-item">
-        <div className="video-wrap">
+        {/* <div className="video-wrap">
           <div className="videobg">
-            <video autoPlay muted>
-              <source src={videoBG} type="video/mp4" />
-            </video>
           </div>
-        </div>
+        </div> */}
         <span className="hc_dec"></span>
         <div className="hero-slider-wrap home-half-slider fl-wrap full-height">
           <div className="hero-slider fs-gallery-wrap fl-wrap full-height">
