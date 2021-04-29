@@ -315,6 +315,9 @@ const MyEnhancedForm = withFormik({
     }
 
     if (!version || (version && window.version === "A")) {
+      document.querySelector("input[name='CampaignData1__c']").value =
+        "Version A";
+
       if (!values.MobilePhone) {
         errors.MobilePhone = formContent.empty_data_alert;
       } else if (values.MobilePhone.toString().length !== 8) {
@@ -324,6 +327,9 @@ const MyEnhancedForm = withFormik({
       if (!values.Birthdate) {
         errors.Birthdate = formContent.empty_data_alert;
       }
+    } else {
+      document.querySelector("input[name='CampaignData1__c']").value =
+        "Version B";
     }
 
     return errors;

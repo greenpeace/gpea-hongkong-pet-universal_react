@@ -10,23 +10,21 @@ import TagManager from "react-gtm-module";
 import "./index.css";
 import "./fontawesome";
 
+/* GTM is only applicable for production env */
 if (process.env.NODE_ENV === "production") {
-  const tagManagerArgs = {
-    gtmId: "GTM-M6LZL75",
-  };
-  TagManager.initialize(tagManagerArgs);
+  /* GTM is only applicable for cloud page */
+  if (window.location.hostname === "cloud.greenhk.greenpeace.org") {
+    const tagManagerArgs = {
+      gtmId: "GTM-M6LZL75",
+    };
+    TagManager.initialize(tagManagerArgs);
+  }
 }
 
 /* Set AB testing version */
 
 window.version = "A";
 console.log("version init");
-
-if (window.version === "A") {
-  document.querySelector("input[name='CampaignData1__c']").value = "Version A";
-} else {
-  document.querySelector("input[name='CampaignData1__c']").value = "Version B";
-}
 
 const rootElement = document.getElementById("root");
 
