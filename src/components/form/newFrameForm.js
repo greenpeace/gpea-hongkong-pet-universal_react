@@ -35,7 +35,7 @@ const MyForm = (props) => {
     setSubmitting,
     setHiddenForm,
     submitted,
-    version
+    version,
   } = props;
 
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
@@ -154,7 +154,9 @@ const MyForm = (props) => {
                   placeholder={formContent.label_last_name}
                   onChange={handleChange}
                 />
-                <FormErrorMessage color="red">{errors.LastName}</FormErrorMessage>
+                <FormErrorMessage color="red">
+                  {errors.LastName}
+                </FormErrorMessage>
               </FormControl>
             </Box>
             <Box flex="1" pb={space}>
@@ -171,17 +173,23 @@ const MyForm = (props) => {
                   placeholder={formContent.label_first_name}
                   onChange={handleChange}
                 />
-                <FormErrorMessage color="red">{errors.FirstName}</FormErrorMessage>
+                <FormErrorMessage color="red">
+                  {errors.FirstName}
+                </FormErrorMessage>
               </FormControl>
             </Box>
           </HStack>
 
           <FormControl>
-            <FormLabel {...labelStyle}>{!version || version && window.version === "A" ? formContent.label_phone : formContent.label_phone_optional}</FormLabel>
+            <FormLabel {...labelStyle}>
+              {!version || (version && window.version === "A")
+                ? formContent.label_phone
+                : formContent.label_phone_optional}
+            </FormLabel>
           </FormControl>
 
           <HStack align="flex-end">
-            <Box pb={space} mb={errors.MobilePhone ? '28px' : 0}>
+            <Box pb={space} mb={errors.MobilePhone ? "28px" : 0}>
               <FormControl id="mobileCountryCode">
                 <Select name="MobileCountryCode" onChange={handleChange}>
                   {mobileCountryCode &&
@@ -204,7 +212,9 @@ const MyForm = (props) => {
                   placeholder={formContent.label_phone}
                   onChange={handleChange}
                 />
-                <FormErrorMessage color="red">{errors.MobilePhone}</FormErrorMessage>
+                <FormErrorMessage color="red">
+                  {errors.MobilePhone}
+                </FormErrorMessage>
               </FormControl>
             </Box>
           </HStack>
@@ -215,12 +225,11 @@ const MyForm = (props) => {
               isInvalid={errors.Birthdate && touched.Birthdate}
             >
               <FormLabel {...labelStyle}>
-                {!version || version && window.version === "A" ? formContent.label_year_of_birth : formContent.label_year_of_birth_optional}
+                {!version || (version && window.version === "A")
+                  ? formContent.label_year_of_birth
+                  : formContent.label_year_of_birth_optional}
               </FormLabel>
-              <Select
-                placeholder={formContent.select}
-                onChange={handleChange}
-              >
+              <Select placeholder={formContent.select} onChange={handleChange}>
                 {birthDateYear &&
                   birthDateYear.map((d) => (
                     <option key={d.value} value={d.value}>
@@ -228,7 +237,9 @@ const MyForm = (props) => {
                     </option>
                   ))}
               </Select>
-              <FormErrorMessage color="red">{errors.Birthdate}</FormErrorMessage>
+              <FormErrorMessage color="red">
+                {errors.Birthdate}
+              </FormErrorMessage>
             </FormControl>
           </Box>
 
@@ -285,7 +296,6 @@ const MyEnhancedForm = withFormik({
   }),
 
   validate: (values, { formContent, version }) => {
-
     const errors = {};
 
     if (!values.Email) {
@@ -304,16 +314,16 @@ const MyEnhancedForm = withFormik({
       errors.LastName = formContent.empty_data_alert;
     }
 
-    if(!version || version && window.version === "A"){
+    if (!version || (version && window.version === "A")) {
       if (!values.MobilePhone) {
         errors.MobilePhone = formContent.empty_data_alert;
       } else if (values.MobilePhone.toString().length !== 8) {
         errors.MobilePhone = formContent.minimum_8_characters;
       }
-  
+
       if (!values.Birthdate) {
         errors.Birthdate = formContent.empty_data_alert;
-      } 
+      }
     }
 
     return errors;

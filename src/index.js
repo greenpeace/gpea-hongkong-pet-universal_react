@@ -22,6 +22,12 @@ if (process.env.NODE_ENV === "production") {
 window.version = "A";
 console.log("version init");
 
+if (window.version === "A") {
+  document.querySelector("input[name='CampaignData1__c']").value = "Version A";
+} else {
+  document.querySelector("input[name='CampaignData1__c']").value = "Version B";
+}
+
 const rootElement = document.getElementById("root");
 
 const renderApp = (

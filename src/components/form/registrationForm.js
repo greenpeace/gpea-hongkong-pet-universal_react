@@ -95,8 +95,6 @@ let RegistrationForm = ({
       : modelVersionB
     : modelVersionA;
 
-  // const setModel = window.version === "B" ? modelVersionA : modelVersionB;
-
   const closeAll = () => {
     togglePanel(false);
     toggleTheme(false);
