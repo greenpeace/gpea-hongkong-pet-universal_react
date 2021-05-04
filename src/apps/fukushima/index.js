@@ -40,7 +40,7 @@ const Index = ({
       process.env.REACT_APP_EXPERIMENT_ID
     );
     // active AB Testing
-    activeABTesting(true)
+    activeABTesting(true);
     if (window.dataLayer) {
       await window.dataLayer.push({ event: "optimize.activate" });
     }
@@ -48,7 +48,6 @@ const Index = ({
     // let countdown = 10
 
     const intervalId = setInterval(() => {
-
       // For checking loop
 
       // console.log('loop')
@@ -57,18 +56,24 @@ const Index = ({
       //   clearInterval(intervalId);
       // }
 
-      
       if (window.google_optimize !== undefined) {
-        const variant = window.google_optimize.get(process.env.REACT_APP_EXPERIMENT_ID);
+        const variant = window.google_optimize.get(
+          process.env.REACT_APP_EXPERIMENT_ID
+        );
         if (variant === 0 || variant === undefined) {
           setVariant(0);
+          //
+          document.querySelector("input[name='CampaignData1__c']").value =
+            "Version A";
         } else {
           setVariant(1);
+          //
+          document.querySelector("input[name='CampaignData1__c']").value =
+            "Version B";
         }
         clearInterval(intervalId);
       }
     }, 500);
-
 
     // if (window.google_optimize) {
     //   const variant = await window.google_optimize.get(
@@ -99,7 +104,7 @@ const Index = ({
         {submitted ? (
           <SubmittedForm formContent={formContent} />
         ) : (
-          <RegistrationForm version={true} formContent={formContent}/>
+          <RegistrationForm version={true} formContent={formContent} />
         )}
       </div>
       <Panel formContent={formContent} />
