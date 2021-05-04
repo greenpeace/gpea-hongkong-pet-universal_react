@@ -44,17 +44,43 @@ const Index = ({
     if (window.dataLayer) {
       await window.dataLayer.push({ event: "optimize.activate" });
     }
-    if (window.google_optimize) {
-      const variant = await window.google_optimize.get(
-        process.env.REACT_APP_EXPERIMENT_ID
-      );
-      console.log("variant--", variant);
-      if (variant === 0 || variant === undefined) {
-        setVariant(0);
-      } else {
-        setVariant(1);
+
+    // let countdown = 10
+
+    const intervalId = setInterval(() => {
+
+      // For checking loop
+
+      // console.log('loop')
+      // countdown -= 1
+      // if(countdown === 0){
+      //   clearInterval(intervalId);
+      // }
+
+      
+      if (window.google_optimize !== undefined) {
+        const variant = window.google_optimize.get(process.env.REACT_APP_EXPERIMENT_ID);
+        if (variant === 0 || variant === undefined) {
+          setVariant(0);
+        } else {
+          setVariant(1);
+        }
+        clearInterval(intervalId);
       }
-    }
+    }, 500);
+
+
+    // if (window.google_optimize) {
+    //   const variant = await window.google_optimize.get(
+    //     process.env.REACT_APP_EXPERIMENT_ID
+    //   );
+    //   console.log("variant--", variant);
+    //   if (variant === 0 || variant === undefined) {
+    //     setVariant(0);
+    //   } else {
+    //     setVariant(1);
+    //   }
+    // }
   }, []);
 
   return (
