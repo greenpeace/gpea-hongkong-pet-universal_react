@@ -192,6 +192,7 @@ let RegistrationForm = ({
     }
   }
 
+  console.log('activeABTesting--',activeABTesting)
   console.log('variant--',variant)
 
   // console.log('{window.version}--',window.version)
@@ -288,7 +289,7 @@ let RegistrationForm = ({
                 <Col xs={24}>
                   <FormGroup>
                     <ControlLabel>
-                      {activeABTesting && window.version === "A"
+                      {activeABTesting && variant === 0
                         ? formContent.label_phone
                         : formContent.label_phone_optional}
                     </ControlLabel>
@@ -307,7 +308,7 @@ let RegistrationForm = ({
                         <TextField
                           type="number"
                           placeholder={
-                            activeABTesting && window.version === "A"
+                            activeABTesting && variant === 0
                               ? formContent.label_phone
                               : formContent.label_phone_optional
                           }
@@ -324,7 +325,7 @@ let RegistrationForm = ({
                 <Col xs={24}>
                   <FormGroup>
                     <ControlLabel>
-                      {activeABTesting && window.version === "A"
+                      {activeABTesting && variant === 0
                         ? formContent.label_year_of_birth
                         : formContent.label_year_of_birth_optional}
                     </ControlLabel>

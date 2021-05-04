@@ -39,6 +39,8 @@ const Index = ({
       "process.env.REACT_APP_EXPERIMENT_ID--",
       process.env.REACT_APP_EXPERIMENT_ID
     );
+    // active AB Testing
+    activeABTesting(true)
     if (window.dataLayer) {
       await window.dataLayer.push({ event: "optimize.activate" });
     }
@@ -71,7 +73,7 @@ const Index = ({
         {submitted ? (
           <SubmittedForm formContent={formContent} />
         ) : (
-          <RegistrationForm version={true} />
+          <RegistrationForm version={true} formContent={formContent}/>
         )}
       </div>
       <Panel formContent={formContent} />
