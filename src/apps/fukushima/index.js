@@ -14,7 +14,7 @@ import formContent from "./data/formContent.json";
 
 import "./app.less";
 
-const Index = ({ initState, fakeSubmit, submitted, activeABTesting }) => {
+const Index = ({ initState, fakeSubmit, submitted, activeABTesting, setVariant }) => {
   useEffect(() => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -23,8 +23,24 @@ const Index = ({ initState, fakeSubmit, submitted, activeABTesting }) => {
     } else {
       initState();
     }
-
     activeABTesting(true)
+  }, []);
+
+
+  useEffect(async () => {
+    console.log('process.env.REACT_APP_EXPERIMENT_ID--',process.env.REACT_APP_EXPERIMENT_ID)
+    if (window.dataLayer) {
+      await window.dataLayer.push({ event: "optimize.activate" });
+    }
+    if(window.google_optimize){
+      const variant = await window.google_optimize.get(process.env.REACT_APP_EXPERIMENT_ID);
+      console.log('variant--', variant)
+      if(variant === 0){
+        setVariant(1)
+      } else {
+        setVariant(0)
+      }
+    }
   }, []);
 
   return (
@@ -73,6 +89,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     activeABTesting: (bol) => {
       dispatch({ type: themeActions.ACTIVE_AB_TESTING, bol });
+    },
+    setVariant: (value) => {
+      dispatch({ type: themeActions.SET_VARIANT, value });
     },
   };
 };

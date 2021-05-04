@@ -44,7 +44,8 @@ let RegistrationForm = ({
   submitForm,
   submitted,
   formContent = content,
-  activeABTesting
+  activeABTesting,
+  variant
 }) => {
   const refForm = useRef();
   const refCheckbox = useRef();
@@ -89,7 +90,7 @@ let RegistrationForm = ({
     FirstName: StringType().isRequired(formContent.empty_data_alert),
   });
 
-  const setModel = activeABTesting ? window.version === "A" ? modelVersionA : modelVersionB : modelVersionA
+  const setModel = activeABTesting ? variant === 0 ? modelVersionA : modelVersionB : modelVersionA
 
   const closeAll = () => {
     togglePanel(false);
@@ -190,6 +191,8 @@ let RegistrationForm = ({
       );
     }
   }
+
+  console.log('variant--',variant)
 
   // console.log('{window.version}--',window.version)
 
@@ -370,7 +373,8 @@ const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-    activeABTesting: themeActions.ACTIVE_AB_TESTING,
+    activeABTesting: theme.abTesting,
+    variant: theme.variant,
   };
 };
 
