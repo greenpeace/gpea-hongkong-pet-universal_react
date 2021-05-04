@@ -35,7 +35,6 @@ const MyForm = (props) => {
     setSubmitting,
     setHiddenForm,
     submitted,
-    version,
   } = props;
 
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
@@ -182,7 +181,7 @@ const MyForm = (props) => {
 
           <FormControl>
             <FormLabel {...labelStyle}>
-              {!version || (version && window.version === "A")
+              {variant === 0
                 ? formContent.label_phone
                 : formContent.label_phone_optional}
             </FormLabel>
@@ -225,7 +224,7 @@ const MyForm = (props) => {
               isInvalid={errors.Birthdate && touched.Birthdate}
             >
               <FormLabel {...labelStyle}>
-                {!version || (version && window.version === "A")
+                {variant === 0
                   ? formContent.label_year_of_birth
                   : formContent.label_year_of_birth_optional}
               </FormLabel>
@@ -295,7 +294,7 @@ const MyEnhancedForm = withFormik({
     OptIn: true,
   }),
 
-  validate: (values, { formContent, version }) => {
+  validate: (values, { formContent, variant }) => {
     const errors = {};
 
     if (!values.Email) {
@@ -314,7 +313,7 @@ const MyEnhancedForm = withFormik({
       errors.LastName = formContent.empty_data_alert;
     }
 
-    if (!version || (version && window.version === "A")) {
+    if (variant === 0) {
       document.querySelector("input[name='CampaignData1__c']").value =
         "Version A";
 
