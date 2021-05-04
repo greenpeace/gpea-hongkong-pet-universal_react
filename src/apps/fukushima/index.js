@@ -36,9 +36,9 @@ const Index = ({ initState, fakeSubmit, submitted, activeABTesting, setVariant }
       const variant = await window.google_optimize.get(process.env.REACT_APP_EXPERIMENT_ID);
       console.log('variant--', variant)
       if(variant === 0 || variant === undefined){
-        setVariant(0）
+        setVariant(0);
       } else {
-        setVariant(1)
+        setVariant(1);
       }
     }
   }, []);
