@@ -35,6 +35,7 @@ const MyForm = (props) => {
     setSubmitting,
     setHiddenForm,
     submitted,
+    variant = 0
   } = props;
 
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
