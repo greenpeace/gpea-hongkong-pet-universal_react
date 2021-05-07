@@ -10,8 +10,8 @@ const SEO = () => {
         {`
           var dataLayer = (window.dataLayer = window.dataLayer || []);
           dataLayer.push({
-            gCampaign: "climate",
-            gBasket: "earthday",
+            gCampaign: "health",
+            gBasket: "biodiversity",
           });
         `}
       </script>
@@ -35,7 +35,7 @@ const SEO = () => {
       {/* meta image */}
       <meta
         property="og:image"
-        content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/04/1d3a7e7b-earthday_main_banner.jpg"
+        content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/f378964b-artboard-1_2-bd-webinar-final-tinypng.jpg"
       />
     </Helmet>
   );
