@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from "react";
-import SwiperCore, { Mousewheel, Scrollbar, A11y, Autoplay } from "swiper";
-import { Box, Image } from "@chakra-ui/react";
+import SwiperCore, { Mousewheel, Scrollbar, Autoplay } from "swiper";
+import { Image } from "@chakra-ui/react";
 import { useMediaQuery } from "react-responsive";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-SwiperCore.use([Scrollbar, A11y, Autoplay, Mousewheel]);
+SwiperCore.use([Scrollbar, Autoplay, Mousewheel]);
 
-const IMAGES = ['/events/biodiversity/demo_s.jpg', '/events/biodiversity/demo_s.jpg']
+const IMAGES = [
+  "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/951047fe-gif1.jpg",
+  "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/a1c5c211-gif2.jpg",
+  "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/71dbb914-gif3.jpg",
+  "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/293149ef-gif4.jpg",
+  "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/c71a1dcc-gif5.jpg",
+  "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/f904ba4e-gif6.jpg",
+  "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/1f5bd6af-gif7.jpg",
+];
 
 export default function SwiperContent() {
   const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
@@ -29,10 +37,12 @@ export default function SwiperContent() {
   // />
 
   return (
-    <Swiper autoplay={{ delay: 4000 }}>
-        {IMAGES.map((d,i)=><SwiperSlide key={i}>
-          <Image src={ process.env.PUBLIC_URL + d}/>
-        </SwiperSlide>)}
+    <Swiper autoplay={{ delay: 2000 }}>
+      {IMAGES.map((d, i) => (
+        <SwiperSlide key={i}>
+          <Image src={d} />
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 }
