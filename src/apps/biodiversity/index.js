@@ -1,3 +1,4 @@
+import "swiper/swiper.scss";
 import React from "react";
 import { connect } from "react-redux";
 import { useMediaQuery } from "react-responsive";
@@ -17,21 +18,19 @@ import {
   SimpleGrid,
   Stack,
   Icon,
-  Link,
-  Center,
-  HStack
+  HStack,
+  Center
 } from "@chakra-ui/react";
 import SEO from "./SEO";
 import Nav from "./components/header/nav";
 import Countdown from "./components/feature/countdown";
+import ContentSwiper from "./components/feature/swiperContent";
 import Footer from "./components/footer";
 import NewFrameForm from "components/form/newFrameForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
 import Panel from "components/panel/newFormPanel";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "./theme.js";
-import ImageWithColumn from "./components/feature/imageWithColumn";
-
 import { IoCalendarOutline, IoTimeSharp, IoVideocam } from "react-icons/io5";
 
 const Index = ({ submitted, togglePanel }) => {
@@ -80,13 +79,15 @@ const Index = ({ submitted, togglePanel }) => {
       <SEO />
       {isMobile && <Nav />}
       <Flex>
-        <Box flex="1">
-          <Image
+        <Box className="wrap" flex="1" style={{minWidth: '0px'}}>
+        {submitted ? !isMobile ? <ContentSwiper/> : <Image src={process.env.PUBLIC_URL + "/events/biodiversity/Artboard-1_2-BD-webinar-final-tinypng.jpg"}/> : <Image src={process.env.PUBLIC_URL + "/events/biodiversity/Artboard-1_2-BD-webinar-final-tinypng.jpg"}/>}
+          {/* <ContentSwiper/> */}
+          {/* <Image
             src={
               process.env.PUBLIC_URL +
               "/events/biodiversity/Artboard-1_2-BD-webinar-final-tinypng.jpg"
             }
-          />
+          /> */}
 
           <Box p={{ base: 4, sm: 10 }} mt="4">
             <Stack pb={4}>
@@ -204,7 +205,7 @@ const Index = ({ submitted, togglePanel }) => {
           </Box>
 
           <Box p={{ base: 4, sm: 10 }}>
-          <Flex justifyContent="space-between" direction={{base: 'column'}}>            
+          <Flex justifyContent="space-between" direction={{base: 'column'}}>
             <Box>
               <Flex direction={{base: 'column', xl: 'row'}}>
                 <Box maxW={{base: "100%"}}>
@@ -342,9 +343,8 @@ const Index = ({ submitted, togglePanel }) => {
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
             <Box boxShadow="lg" p="6" rounded="md" bg="white">
-              {submitted ? (
-                <NewFrameSubmittedForm formContent={content} />
-              ) : (
+              {submitted ? (<NewFrameSubmittedForm formContent={content}/>) : 
+              (
                 <NewFrameForm
                   formContent={content}
                   version={true}
@@ -387,7 +387,7 @@ const Index = ({ submitted, togglePanel }) => {
           {content.submit_text}
         </Button>
       </Box>
-      <Panel formContent={content} />
+      <Panel formContent={content}>{(submitted && isMobile) && <ContentSwiper/>}</Panel>
       <Footer />
     </ChakraProvider>
   );
