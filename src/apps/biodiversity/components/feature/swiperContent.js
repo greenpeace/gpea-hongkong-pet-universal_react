@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
-import SwiperCore, { Mousewheel, Scrollbar, Autoplay } from "swiper";
+import SwiperCore, {
+  EffectFade,
+  Mousewheel,
+  Scrollbar,
+  Autoplay,
+} from "swiper";
 import { Image } from "@chakra-ui/react";
 import { useMediaQuery } from "react-responsive";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-SwiperCore.use([Scrollbar, Autoplay, Mousewheel]);
+import "swiper/components/effect-fade/effect-fade.scss";
+
+SwiperCore.use([EffectFade, Scrollbar, Autoplay, Mousewheel]);
 
 const IMAGES = [
   "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/951047fe-gif1.jpg",
@@ -37,10 +44,10 @@ export default function SwiperContent() {
   // />
 
   return (
-    <Swiper autoplay={{ delay: 2000 }}>
+    <Swiper autoplay={{ delay: 2000 }} effect="fade">
       {IMAGES.map((d, i) => (
         <SwiperSlide key={i}>
-          <Image src={d} />
+          <Image src={d} borderRadius="8px" objectFit="cover" boxSize="240px" />
         </SwiperSlide>
       ))}
     </Swiper>

@@ -14,11 +14,11 @@ import {
   Flex,
   Text,
   Heading,
+  Link,
   useColorModeValue,
   SimpleGrid,
   Stack,
   Icon,
-  HStack,
   Center,
 } from "@chakra-ui/react";
 import SEO from "./SEO";
@@ -59,10 +59,10 @@ const Index = ({ submitted, togglePanel }) => {
 
   const pStyle = {
     as: "p",
-    marginTop: 8,
-    color: "gray.700",
-    fontSize: { base: "sm", sm: "md" },
+    marginTop: "20px",
+    color: "gray.900",
     lineHeight: "1.7",
+    fontSize: "16px",
   };
 
   const flexBoxStyle = {
@@ -80,6 +80,7 @@ const Index = ({ submitted, togglePanel }) => {
       {isMobile && <Nav />}
       <Flex>
         <Box className="wrap" flex="1" style={{ minWidth: "0px" }}>
+          {/*
           {submitted ? (
             !isMobile ? (
               <ContentSwiper />
@@ -99,13 +100,14 @@ const Index = ({ submitted, togglePanel }) => {
               }
             />
           )}
-          {/* <ContentSwiper/> */}
-          {/* <Image
+            */}
+
+          <Image
             src={
               process.env.PUBLIC_URL +
               "/events/biodiversity/Artboard-1_2-BD-webinar-final-tinypng.jpg"
             }
-          /> */}
+          />
 
           <Box p={{ base: 4, sm: 10 }} mt="4">
             <Stack pb={4}>
@@ -113,21 +115,19 @@ const Index = ({ submitted, togglePanel }) => {
                 <Text
                   as="h1"
                   fontSize={{ base: "2xl", sm: "3xl", xl: "4xl" }}
-                  mt="2"
+                  fontWeight="bold"
                   color="gray.900"
                   lineHeight={1.2}
                 >
-                  與生態專家探索香港「野」
-                  <br />
-                  網上教室
+                  <Text color="brand.500">立即登記</Text>
+                  與生態專家探索香港「野」網上教室
                 </Text>
               </Box>
             </Stack>
-            <Box pt={2}>
-              <Countdown />
-            </Box>
-            <Box p={{ base: 2 }}>
-              <Divider />
+            <Box mb={4}>
+              <Text {...pStyle}>
+                <Countdown />
+              </Text>
             </Box>
             <Flex direction={{ base: "column", sm: "row" }}>
               <Box flex="1">
@@ -161,29 +161,31 @@ const Index = ({ submitted, togglePanel }) => {
                     }
                   />
                 </Stack>
+                {/*
                 <Box d={{ base: "block", sm: "none" }} pt={12} pb={2}>
                   <Flex {...flexBoxStyle} p={3}>
                     <Image
                       src={
-                        process.env.PUBLIC_URL + "/events/biodiversity/Pic1.png"
+                        "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/6389a5bc-vlcsnap-2021-04-23-16h48m08s619.jpg"
                       }
                       borderRadius="8px"
                     />
                   </Flex>
                 </Box>
+                <Box d={{ base: "block", sm: "none" }} pt={12} pb={2}>
+                  <Flex {...flexBoxStyle} p={3}>
+                    <Image
+                      src={
+                        "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/3feb5562-vlcsnap-2021-04-23-16h49m12s648.jpg"
+                      }
+                      borderRadius="8px"
+                    />
+                  </Flex>
+                </Box>
+                    */}
                 <Text {...pStyle}>
                   香港的自然環境蘊含豐富生物多樣性，本地海洋、山林和郊野公園養育的物種繁多，我們的家園同樣是動植物的重要生境。然而，寶貴的生物與大自然正面臨威脅，例如明日大嶼填海工程、開發郊野公園等計劃，均會破壞海洋與陸上野生生物的生存環境。
                 </Text>
-                <Box d={{ base: "block", sm: "none" }} pt={12} pb={2}>
-                  <Flex {...flexBoxStyle} p={3}>
-                    <Image
-                      src={
-                        process.env.PUBLIC_URL + "/events/biodiversity/Pic3.png"
-                      }
-                      borderRadius="8px"
-                    />
-                  </Flex>
-                </Box>
                 <Text {...pStyle}>
                   適逢國際生物多樣性日，綠色和平邀請到環境教育及生態研究學者馬昀祺博士與本地生態攝影師馮漢城，與大家探索香港「野」，帶領你認識香港獨特物種與生境，如盧氏小樹蛙、馬蹄蟹的特性，製作生態紀錄片的挑戰與趣事，並分享許多珍貴的生態攝影作品。另外，兩位也會由環境教育、政策、保育行動、個人習慣等角度出發，談談生態正面臨甚麼危機，填海、興建人工島對環境的禍害，並為我們提供守護香港「野」的方法。
                 </Text>
@@ -277,7 +279,7 @@ const Index = ({ submitted, togglePanel }) => {
 
               <Box flex="1" px={{ base: 0 }}>
                 <Center h="100%">
-                  <Text {...pStyle} mt={8} pr={{ base: 0, xl: "30px" }}>
+                  <Text {...pStyle} mt={4} pr={{ base: 0, xl: "30px" }}>
                     香港少數本地環境教育及生態研究學者、香港戶外生態教育協會創辦人及教育總監，同時為國際樹木學會註冊樹藝師。Dr.
                     Xoni
                     Ma曾參與多項本地植物調查及森林群落研究，以及生物多樣性教育項目，主講講座如《香港林地與植被》等。多年來，Dr.
@@ -343,13 +345,62 @@ const Index = ({ submitted, togglePanel }) => {
 
               <Box flex="1" px={{ base: 0 }}>
                 <Center h="100%">
-                  <Text {...pStyle} mt={8} pr={{ base: 0, xl: "15px" }}>
+                  <Text {...pStyle} mt={4} pr={{ base: 0, xl: "15px" }}>
                     生態攝影師、《Wild Hong
                     Kong》系列生態紀錄片製作人，該系列被譽為「港版Discovery
                     Channel」，他亦曾拍攝與編導香港電台本地生態紀錄片節目《大自然大不同》第二季單元。阿城鏡頭下的野生動物包括灰背燕尾、香港鬥魚、和尚蟹等等，向大眾呈現各類物種的習性、捕食過程等。阿城希望用影像的力量，重新聯繫人類與大自然，紀錄動物們活著的美好一面。
                   </Text>
                 </Center>
               </Box>
+
+              <Box p={{ base: 2 }}>
+                <Divider />
+              </Box>
+
+              <SimpleGrid mt="4" columns={{ base: 1, xl: 2 }} spacing={10}>
+                <Flex direction="column">
+                  <Image
+                    borderRadius="8px"
+                    src={
+                      "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/0f48c407-gif_reg_ty_page.gif"
+                    }
+                  />
+                </Flex>
+                <Stack spacing={4}>
+                  <Heading
+                    as="h2"
+                    size="lg"
+                    color="brand.500"
+                    style={{ lineHeight: "1.5" }}
+                  >
+                    一起守護
+                    <br />
+                    香港珍貴的自然資源！
+                  </Heading>
+                  <Text {...pStyle}>
+                    在高樓與繁忙都市之外，香港蘊含著豐富的生物多樣性，自然山野與遼闊海岸是眾多野生生物的居所。
+                  </Text>
+                  <Text {...pStyle}>
+                    請支持綠色和平以科學角度、調查研究及行動，奮力守護大嶼及保衛郊野，守護香港珍貴的自然資源，為下一代建設宜居的生活環境！
+                  </Text>
+                  <Link href="https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=biodiversity&utm_campaign=biodiversity">
+                    <Button
+                      mt="2"
+                      color="#FFF"
+                      bg="brand.500"
+                      _hover={{ bg: "brand.400" }}
+                      borderRadius="4px"
+                      fontSize="md"
+                      letterSpacing={2}
+                    >
+                      立即捐助
+                    </Button>
+                  </Link>
+                  <Text {...pStyle}>
+                    綠色和平成立50年，從不接受政商界捐助，在環境工作上維持公正獨立！
+                  </Text>
+                </Stack>
+              </SimpleGrid>
 
               {/** Desktop */}
 
@@ -388,13 +439,9 @@ const Index = ({ submitted, togglePanel }) => {
             </Box> */}
             </Flex>
           </Box>
-
-          <Box p={{ base: 2 }}>
-            <Divider />
-          </Box>
         </Box>
         <Box
-          w={{ base: 0, md: "480px", lg: "580px" }}
+          w={{ base: 0, md: "440px", lg: "500px" }}
           p={10}
           d={{ base: "none", md: "block" }}
         >
@@ -435,7 +482,6 @@ const Index = ({ submitted, togglePanel }) => {
           w="80%"
           color="#FFF"
           bg="orange"
-          _hover={{ bg: "campaign.oceans" }}
           borderRadius="24px"
           fontSize="xl"
           letterSpacing={4}

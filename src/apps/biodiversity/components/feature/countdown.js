@@ -1,22 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Box, HStack, Stack } from "@chakra-ui/react";
+import { Text, Box, HStack, Stack } from "@chakra-ui/react";
 
 export default function Countdown() {
-  const countdownDate = new Date("May 22, 2021 12:00:00").getTime();
+  const countdownDate = new Date("May 22, 2021 14:30:00").getTime();
   const [countDown, setCountDown] = useState("Count");
   const renderLayout = (count, unit) => {
     return (
       <HStack align="center">
-        <Box
-          borderRadius="8px"
-          fontSize="18px"
-          fontWeight={700}
-          color="#000"
-          align="center"
-        >
-          {count}
-        </Box>
-        <Box>{unit}</Box>
+        <Text fontSize="lg">{count}</Text>
+        <Text fontSize="md">{unit}</Text>
       </HStack>
     );
   };
@@ -59,10 +51,8 @@ export default function Countdown() {
       direction={{ base: "column", sm: "row" }}
       align={{ base: "left", sm: "center" }}
     >
-      <Box color="gray.900" fontSize="18px">
-        報名時間尚餘:
-      </Box>
-      {countDown}
+      <Box>報名時間尚餘:</Box>
+      <Box>{countDown}</Box>
     </Stack>
   );
 }
