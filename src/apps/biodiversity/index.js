@@ -124,7 +124,7 @@ const Index = ({ submitted, togglePanel }) => {
                 </Text>
               </Box>
             </Stack>
-            <Box mb={4}>
+            <Box mb={4} className="countdown-box">
               <Text {...pStyle}>
                 <Countdown />
               </Text>
