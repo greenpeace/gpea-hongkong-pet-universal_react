@@ -192,8 +192,8 @@ let RegistrationForm = ({
     }
   }
 
-  console.log('activeABTesting--',activeABTesting)
-  console.log('variant--',variant)
+  console.log("activeABTesting--", activeABTesting);
+  console.log("variant--", variant);
 
   // console.log('{window.version}--',window.version)
 
