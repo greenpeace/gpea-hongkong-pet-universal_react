@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { FlexboxGrid, Button, Divider, Row, Col, Grid } from "rsuite";
 import * as themeActions from "apps/pet/actions/index";
 import { connect } from "react-redux";
-// import axios from "axios";
 import Sticky from "react-sticky-el";
 import { animateScroll as scroll, scroller } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -2,13 +2,11 @@ import React, { useEffect } from "react";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 import Header from "components/header";
-import Thanks from "apps/pet/components/thanks";
-import Content from "./components/main/contentScreen";
+import Thanks from "./components/thanks";
 import "styles/theme.less";
 import "./app.less";
 import Panel from "components/panel";
 import Footer from "components/footer";
-import RegistrationForm from "components/form/registrationForm";
 
 const URL = `https://api.greenpeace.org.hk/2021/universal/`;
 
@@ -25,32 +23,27 @@ const Index = ({ initState, fakeSubmit, submitted, petition }) => {
 
   return (
     <>
-      <div id="main" className={submitted ? "custom-main" : ""}>
+      <div id="main" className="custom-main">
         <Header />
         <div className="content">
           <article className="prose lg:prose-lg">
-            {submitted ? <Thanks /> : <Content />}
+            <Thanks />
           </article>
           <br clear="both" />
           <Footer />
         </div>
       </div>
       <div className="custom-form-wrap">
-        {submitted ? (
-          <div className="custom-gp-form custom-gp-form-wrap">
-            <div
-              className="custom-bg"
-              style={{
-                backgroundImage:
-                  "url(" + `${URL}${petition.selectedImage}` + ")",
-              }}
-            ></div>
-          </div>
-        ) : (
-          <RegistrationForm />
-        )}
+        <div className="custom-gp-form custom-gp-form-wrap">
+          <div
+            className="custom-bg"
+            style={{
+              backgroundImage: "url(" + `${URL}${petition.selectedImage}` + ")",
+            }}
+          ></div>
+        </div>
       </div>
-      <Panel closePanel={submitted} />
+      {/* <Panel closePanel={submitted} /> */}
     </>
   );
 };
