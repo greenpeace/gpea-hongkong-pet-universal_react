@@ -12,7 +12,7 @@ import {
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
 
-const NavLink = ({ children }) => (
+const NavLink = ({ children}) => (
   <Link
     px={2}
     py={1}
@@ -27,7 +27,7 @@ const NavLink = ({ children }) => (
   </Link>
 );
 
-const Nav = ({ togglePanel }) => {
+const Nav = ({ togglePanel, showButton = true  }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -56,7 +56,7 @@ const Nav = ({ togglePanel }) => {
                 />
               </Box>
             </HStack>
-            <Flex alignItems={"center"}>
+            {showButton && <Flex alignItems={"center"}>
               <Button
                 d={{ base: "block", md: "none" }}
                 w="100%"
@@ -75,7 +75,7 @@ const Nav = ({ togglePanel }) => {
               >
                 立即登記
               </Button>
-            </Flex>
+            </Flex>}
           </Flex>
         </Container>
         {/*

@@ -144,11 +144,18 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
     borderLeft: "100px solid transparent"
   }
 
+  const mobileDownloadButtonStyle = {
+    bottom: '0px',
+    right: '0px',
+    borderBottom: "50px solid #66cc00",
+    borderLeft: "50px solid transparent"
+  }
+
   return (
     <ChakraProvider theme={themeConfig}>
-      {isMobile && <Nav />}
+      <Nav showButton={false} />
       <Flex>
-        <Box flex="1" style={{ minWidth: "0px" }} py={10} px={6}>
+        <Box flex="1" style={{ minWidth: "0px" }} py={10} px={{base: 4, sm: 8}} maxW="1280px">
           <Heading mb={6} align="center">感謝您的下載！</Heading>
           <Text as="p" {...fontStyle}>您願意進一步行動，捐助支持綠色和平更多環境項目嗎？</Text>
           <Text as="p" {...fontStyle}>
@@ -170,23 +177,41 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               >{d.label_zh}</Button>)}
           </HStack>
           <Box>
-          <SimpleGrid minChildWidth="240px" spacing="20px">
+          {isMobile ? <SimpleGrid minChildWidth="240px" spacing="20px">
+          {current.content?.wallpaperList.map((d, i) => (
+            <Link href={`${process.env.PUBLIC_URL}${d}`} download={d.split("/").pop()} key={i}><Box 
+               bgImage={`url(${process.env.PUBLIC_URL}${d})`} 
+              bgSize="cover" 
+              height={{base: "240px", sm: "180px"}} 
+              _hover={{cursor: 'pointer', opacity: .8}} 
+              pos="relative"
+              >
+              <Box pos="absolute" bottom="6px" right="6px" zIndex={2}><DownloadIcon color="#FFF" w={4} h={4}/></Box>
+              <Box pos="absolute" {...mobileDownloadButtonStyle} zIndex={1}></Box>
+            </Box></Link>
+          ))}
+          </SimpleGrid>
+
+          : <SimpleGrid minChildWidth="240px" spacing="20px">
           {current.content?.wallpaperList.map((d, i) => (
             <Box 
               key={i} bgImage={`url(${process.env.PUBLIC_URL}${d})`} 
               bgSize="cover" 
-              height="180px" 
+              height={{base: "240px", sm: "180px"}} 
               _hover={{cursor: 'pointer', opacity: .8}} 
               onClick={() => handleSetDownload(d)}
               name={d}></Box>
           ))}
           </SimpleGrid>
+          
+          }
+          
           </Box>
         </Box>
         <Box w={{ base: 0, md: "640px", lg: "900px" }} d={{ base: "none", md: "block" }}>
           <Sticky topOffset={0} onFixedToggle={() => setDisplayCate(!displayCate)}>
-            <Box pos="relative" onMouseEnter={()=> setIsShown(true)} onMouseLeave={() => setIsShown(false)}>
-              <Link href={`${process.env.PUBLIC_URL}${download}`} download={download.split("/").pop()}>{isShown && <Box pos="absolute" top={0} bottom={0} left={0} right={0} zIndex={2} bgColor="rgba(255, 255, 255, .3)">
+            <Box pos="relative" onMouseEnter={()=> setIsShown(true)} onMouseLeave={() => setIsShown(false)} my={2}>
+              <Link href={`${process.env.PUBLIC_URL}${download}`} download={download.split("/").pop()}>{isShown && <Box pos="absolute" top={0} bottom={0} left={0} right={0} zIndex={2} bgColor="rgba(0, 0, 0, .3)">
                 <Center w="100%" h="100%">
                   <VStack>
                   <Text as="h3" color="#FFF"><strong>點擊確認下載圖片</strong></Text>
