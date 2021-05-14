@@ -36,6 +36,7 @@ const MyForm = (props) => {
     setHiddenForm,
     submitted,
     variant = 0,
+    birthDate = true
   } = props;
 
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
@@ -219,7 +220,7 @@ const MyForm = (props) => {
             </Box>
           </HStack>
 
-          <Box flex="1" pb={space}>
+          {birthDate && <Box flex="1" pb={space}>
             <FormControl
               id="Birthdate"
               isInvalid={errors.Birthdate && touched.Birthdate}
@@ -241,7 +242,7 @@ const MyForm = (props) => {
                 {errors.Birthdate}
               </FormErrorMessage>
             </FormControl>
-          </Box>
+          </Box>}
 
           <Box flex="1" pt={3} pb={3}>
             <Button

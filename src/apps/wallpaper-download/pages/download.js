@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import Sticky from "react-sticky-el";
-import content from "../data/content";
 import {
   ChakraProvider,
-  Circle,
   Box,
   Button,
   Divider,
@@ -14,17 +12,13 @@ import {
   Text,
   Heading,
   Link,
-  useColorModeValue,
   SimpleGrid,
-  Stack,
-  Icon,
   Center,
   HStack,
   VStack
 } from "@chakra-ui/react";
 import Nav from "../components/header/nav";
 import Footer from "../components/footer";
-import Panel from "components/panel/newFormPanel";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "../theme.js";
 import { animateScroll as scroll, scroller } from "react-scroll";
@@ -39,7 +33,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
   const [current, setCurrent] = useState([]);
   const [displayCate, setDisplayCate] = useState(false);
   const [isShown, setIsShown] = useState(false);
-  const [download, setDownload] = useState(wallpaper.data[0].content.wallpaperList[0]);
+  const [download, setDownload] = useState(wallpaper.data[3].content.wallpaperList[0]);
   const campaignButton = [
     { label_zh: "北極", label: "Arctic", value: Arctic },
     { label_zh: "森林", label: "Forests", value: Forests },
@@ -94,7 +88,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setArctic(wallpaper.data.find((d) => d.issue === "Arctic"));
+    setArctic(wallpaper.data.find((d) => d.issue === "Biodiversity"));
     setForests(wallpaper.data.find((d) => d.issue === "Forests"));
     setOceans(wallpaper.data.find((d) => d.issue === "Oceans"));
   }, []);
@@ -167,7 +161,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
           </HStack>
           <Divider my={4}/>
           <Heading align="center" my={10}>揀選你喜愛的環境照片</Heading>
-          <HStack mb={10}>
+          {/* <HStack mb={10}>
             {campaignButton.map(d=> <Button
               key={d.label} 
               {...SelectButtonStyle} 
@@ -175,7 +169,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               color={current.issue===d.label ? SelectedButtonStyle.color : SelectButtonStyle.color}
               onClick={() => handleSwitchDownload(d.value)}
               >{d.label_zh}</Button>)}
-          </HStack>
+          </HStack> */}
           <Box>
           {isMobile ? <SimpleGrid minChildWidth="240px" spacing="20px">
           {current.content?.wallpaperList.map((d, i) => (
@@ -210,7 +204,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
         </Box>
         <Box w={{ base: 0, md: "640px", lg: "900px" }} d={{ base: "none", md: "block" }}>
           <Sticky topOffset={0} onFixedToggle={() => setDisplayCate(!displayCate)}>
-            <Box pos="relative" onMouseEnter={()=> setIsShown(true)} onMouseLeave={() => setIsShown(false)} my={2}>
+            <Box pos="relative" onMouseEnter={()=> setIsShown(true)} onMouseLeave={() => setIsShown(false)} my={4}>
               <Link href={`${process.env.PUBLIC_URL}${download}`} download={download.split("/").pop()}>{isShown && <Box pos="absolute" top={0} bottom={0} left={0} right={0} zIndex={2} bgColor="rgba(0, 0, 0, .3)">
                 <Center w="100%" h="100%">
                   <VStack>
