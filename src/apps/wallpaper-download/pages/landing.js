@@ -14,8 +14,7 @@ import {
   Heading,
   Link,
   SimpleGrid,
-  Stack,
-  Container
+  Stack
 } from "@chakra-ui/react";
 import SEO from "../SEO";
 import content from "../data/content";

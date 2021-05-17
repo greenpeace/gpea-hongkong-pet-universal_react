@@ -35,8 +35,9 @@ const MyForm = (props) => {
     setSubmitting,
     setHiddenForm,
     submitted,
-    variant = 0,
-    birthDate = true
+    birthDate = true,
+    activeABTesting,
+    variant
   } = props;
 
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
@@ -102,6 +103,9 @@ const MyForm = (props) => {
       setSubmitting(false);
     }
   }, [submitted]);
+
+  console.log('activeABTesting--',activeABTesting)
+  console.log('variant--',variant)
 
   return (
     <>
@@ -183,7 +187,7 @@ const MyForm = (props) => {
 
           <FormControl>
             <FormLabel {...labelStyle}>
-              {variant === 0
+              {activeABTesting && variant === 0
                 ? formContent.label_phone
                 : formContent.label_phone_optional}
             </FormLabel>
@@ -226,7 +230,7 @@ const MyForm = (props) => {
               isInvalid={errors.Birthdate && touched.Birthdate}
             >
               <FormLabel {...labelStyle}>
-                {variant === 0
+                {activeABTesting && variant === 0
                   ? formContent.label_year_of_birth
                   : formContent.label_year_of_birth_optional}
               </FormLabel>
@@ -296,7 +300,7 @@ const MyEnhancedForm = withFormik({
     OptIn: true,
   }),
 
-  validate: (values, { formContent, variant }) => {
+  validate: (values, { formContent, variant, activeABTesting }) => {
     const errors = {};
 
     if (!values.Email) {
@@ -315,7 +319,7 @@ const MyEnhancedForm = withFormik({
       errors.LastName = formContent.empty_data_alert;
     }
 
-    if (variant === 0) {
+    if (activeABTesting && variant === 0) {
       document.querySelector("input[name='CampaignData1__c']").value =
         "Version A";
 
@@ -353,6 +357,8 @@ const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
+    activeABTesting: theme.abTesting,
+    variant: theme.variant
   };
 };
 
