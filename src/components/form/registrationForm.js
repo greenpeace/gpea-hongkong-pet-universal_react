@@ -196,11 +196,6 @@ let RegistrationForm = ({
     }
   }
 
-  console.log("activeABTesting--", activeABTesting);
-  console.log("variant--", variant);
-
-  // console.log('{window.version}--',window.version)
-
   return (
     <div className="custom-gp-form">
       <div className="form-close" onClick={() => closeAll()}>

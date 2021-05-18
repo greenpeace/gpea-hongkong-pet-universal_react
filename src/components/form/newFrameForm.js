@@ -103,10 +103,6 @@ const MyForm = (props) => {
       setSubmitting(false);
     }
   }, [submitted]);
-
-  console.log('activeABTesting--',activeABTesting)
-  console.log('variant--',variant)
-
   return (
     <>
       <Form onSubmit={handleSubmit}>

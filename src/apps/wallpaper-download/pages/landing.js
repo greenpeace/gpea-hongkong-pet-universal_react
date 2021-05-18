@@ -3,23 +3,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import Sticky from "react-sticky-el";
-import {
-  ChakraProvider,
-  Box,
-  Button,
-  Divider,
-  Image,
-  Flex,
-  Text,
-  Heading,
-  Link,
-  SimpleGrid,
-  Stack
-} from "@chakra-ui/react";
+import { ChakraProvider, Box, Button, Divider, Image, Flex, Text, Heading, Link, SimpleGrid, Stack } from "@chakra-ui/react";
 import SEO from "../SEO";
 import content from "../data/content";
 import Nav from "../components/header/nav";
-import ContentSwiper from "../components/feature/swiperContent";
+import HeroSwiper from "../components/feature/heroSwiper";
 import Footer from "../components/footer";
 import NewFrameForm from "components/form/newFrameForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
@@ -31,7 +19,6 @@ import banner from '../assets/images/59.png'
 
 const Landing = ({ submitted, togglePanel }) => {
   const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
-
   const pStyle = {
     as: "p",
     marginTop: "20px",
@@ -45,10 +32,12 @@ const Landing = ({ submitted, togglePanel }) => {
       <SEO />
       {isMobile && <Nav />}
       <Flex>
-
         <Box className="wrap" flex="1" style={{ minWidth: "0px" }}>
-          <Image src={banner}/>
-          <Box p={{ base: 4, sm: 10 }} mt="4">
+          <Box px={{ base: 4, sm: 10 }} my={{base: 8}}>
+          <Box mb={6}>
+            {!submitted && <Image src={banner} borderRadius="8px"/>}
+            {submitted && !isMobile && <HeroSwiper isMobile={isMobile} swiperHeight="480px"/>} {/** Fixed swiper desktop version height, background image will keep ratio and center center position */}
+          </Box>
             <Stack pb={4}>
               <Box>
                 <Text
@@ -184,7 +173,7 @@ const Landing = ({ submitted, togglePanel }) => {
         </Button>
       </Box>
       <Panel formContent={content}>
-        {submitted && isMobile && <ContentSwiper />}
+        {submitted && isMobile && <HeroSwiper isMobile={isMobile} swiperHeight="480px"/>}
       </Panel>
       <Footer />
     </ChakraProvider>
@@ -193,7 +182,8 @@ const Landing = ({ submitted, togglePanel }) => {
 
 const mapStateToProps = ({ theme }) => {
   return {
-    submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
+    // submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
+    submitted: false, // TEST submitted
   };
 };
 
