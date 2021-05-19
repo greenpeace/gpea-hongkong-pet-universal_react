@@ -5,20 +5,13 @@ import { Form, withFormik } from "formik";
 import "rsuite/lib/styles/index.less";
 import ProgressBar from "components/progress";
 
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  Input,
-  Button,
-  Box,
-  Flex,
-  Text,
-  Select,
-  Heading,
-  HStack,
-  Checkbox,
-} from "@chakra-ui/react";
+import Mailcheck from "mailcheck"
+
+import { FormControl, FormLabel, FormErrorMessage, Input, Button, Box, Flex, Text, Select, Heading, HStack, Checkbox} from "@chakra-ui/react";
+
+// For email correctness
+let domains = [ "me.com", "outlook.com", "netvigator.com", "cloud.com", "live.hk", "msn.com", "gmail.com", "hotmail.com", "ymail.com", "yahoo.com", "yahoo.com.tw", "yahoo.com.hk"];
+let topLevelDomains = ["com", "net", "org"];
 
 const MyForm = (props) => {
   const {
@@ -103,6 +96,7 @@ const MyForm = (props) => {
       setSubmitting(false);
     }
   }, [submitted]);
+
   return (
     <>
       <Form onSubmit={handleSubmit}>
@@ -301,10 +295,19 @@ const MyEnhancedForm = withFormik({
 
     if (!values.Email) {
       errors.Email = formContent.empty_data_alert;
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.Email)
-    ) {
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.Email)) {
       errors.Email = formContent.invalid_email_alert;
+    } else {
+      // TODO: NEED CONFIRM ERROR MSG
+      Mailcheck.run({
+        email: values.Email,
+        domains: domains,
+        topLevelDomains: topLevelDomains,
+        suggested: function(suggestion) {
+          if(values.Email !== suggestion.domain)
+          errors.Email = `您是否想輸入${suggestion.full}`
+        }
+      })
     }
 
     if (!values.FirstName) {
