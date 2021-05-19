@@ -2,21 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import Sticky from "react-sticky-el";
-import {
-  ChakraProvider,
-  Box,
-  Button,
-  Divider,
-  Image,
-  Flex,
-  Text,
-  Heading,
-  Link,
-  SimpleGrid,
-  Center,
-  HStack,
-  VStack
-} from "@chakra-ui/react";
+import { ChakraProvider, Box, Button, Divider, Image, Flex, Text, Heading, Link, SimpleGrid, Center, HStack,VStack} from "@chakra-ui/react";
 import Nav from "../components/header/nav";
 import Footer from "../components/footer";
 import * as themeActions from "store/actions/action-types/theme-actions";
@@ -141,8 +127,8 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
   const mobileDownloadButtonStyle = {
     bottom: '0px',
     right: '0px',
-    borderBottom: "50px solid #66cc00",
-    borderLeft: "50px solid transparent"
+    borderBottom: "25px solid #66cc00",
+    borderLeft: "25px solid transparent"
   }
 
   return (
@@ -171,18 +157,25 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               >{d.label_zh}</Button>)}
           </HStack> */}
           <Box>
-          {isMobile ? <SimpleGrid minChildWidth="240px" spacing="20px">
+          {isMobile ? <SimpleGrid columns={2} spacing="20px">
           {current.content?.wallpaperList.map((d, i) => (
-            <Link href={`${process.env.PUBLIC_URL}${d}`} download={d.split("/").pop()} key={i}><Box 
-               bgImage={`url(${process.env.PUBLIC_URL}${d})`} 
-              bgSize="cover" 
-              height={{base: "240px", sm: "180px"}} 
-              _hover={{cursor: 'pointer', opacity: .8}} 
-              pos="relative"
+            <Box pos="relative" key={i}>
+            <Link href={`${process.env.PUBLIC_URL}${d}`} download={d.split("/").pop()}>
+              {/* <Box 
+                bgImage={`url(${process.env.PUBLIC_URL}${d})`} 
+                bgSize="cover" 
+                height={{base: "160px"}} 
+                _hover={{cursor: 'pointer', opacity: .8}} 
+                pos="relative"
               >
               <Box pos="absolute" bottom="6px" right="6px" zIndex={2}><DownloadIcon color="#FFF" w={4} h={4}/></Box>
               <Box pos="absolute" {...mobileDownloadButtonStyle} zIndex={1}></Box>
-            </Box></Link>
+            </Box> */}
+            <Box pos="absolute" bottom="0px" right="2px" zIndex={2}><DownloadIcon color="#FFF" w={2} h={2}/></Box>
+            <Box pos="absolute" {...mobileDownloadButtonStyle} zIndex={1}></Box>
+            <Image src={`${process.env.PUBLIC_URL}${d}`}/>
+            </Link>
+            </Box>
           ))}
           </SimpleGrid>
 
