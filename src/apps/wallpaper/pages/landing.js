@@ -91,9 +91,7 @@ const Landing = ({ submitted, togglePanel }) => {
               </Box>
             </Flex>
 
-            <Box p={{ base: 2 }}>
-              <Divider />
-            </Box>
+            <Divider my={{ base: 8, lg: 10 }} />
 
             <SimpleGrid mt="4" columns={{ base: 1, xl: 2 }} spacing={10}>
               <Flex direction="column">
