@@ -6,16 +6,14 @@ import {
   ChakraProvider,
   Box,
   Button,
-  Divider,
   Image,
-  Flex,
   Text,
   Heading,
   Link,
   SimpleGrid,
   Center,
-  HStack,
   VStack,
+  Fade,
 } from "@chakra-ui/react";
 import Nav from "../components/header/nav";
 import Footer from "../components/footer";
@@ -27,6 +25,8 @@ import { DownloadIcon } from "@chakra-ui/icons";
 import LazyLoad from "react-lazyload";
 
 import wallpaper from "../../../data/wallpaper.json";
+
+import "../index.css";
 
 const Index = ({ submitted, togglePanel, selectedImage }) => {
   const [Arctic, setArctic] = useState([]);
@@ -145,8 +145,8 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
   return (
     <ChakraProvider theme={themeConfig}>
       <Nav showButton={false} />
-      <Flex>
-        <Box flex="1" py={10} px={4}>
+      <SimpleGrid columns={{ base: 1, md: 2 }}>
+        <Box flex="1" pt={10} px="4">
           <Heading size="xl" mb={8}>
             感謝您的登記！
           </Heading>
@@ -162,15 +162,67 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
             href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&ref=wallpaper-thankyou"
             isExternal
           >
-            <Button mt="6" backgroundColor="orange" color="white" px="8" py="4">
+            <Button
+              mt="6"
+              backgroundColor="orange"
+              color="white"
+              px="10"
+              py="4"
+            >
               捐助支持
             </Button>
           </Link>
           {/* <Button onClick={() => mainShare()}>分享</Button> */}
-          <Divider my={{ base: 8, lg: 10 }} />
-          <Heading size="xl" my={10}>
-            揀選你喜愛的環境照片
-          </Heading>
+          <Sticky
+            stickyClassName={"sticky-wallpaper-image"}
+            z-index="99"
+            onFixedToggle={() => setDisplayCate(!displayCate)}
+          >
+            <Box
+              pos="relative"
+              onMouseEnter={() => setIsShown(true)}
+              onMouseLeave={() => setIsShown(false)}
+              my={4}
+            >
+              <Link
+                href={`${process.env.PUBLIC_URL}${download}`}
+                download={download.split("/").pop()}
+              >
+                {isShown && (
+                  <Box
+                    pos="absolute"
+                    top={0}
+                    bottom={0}
+                    left={0}
+                    right={0}
+                    bgColor="rgba(0, 0, 0, .25)"
+                  >
+                    <Center w="100%" h="100%">
+                      <VStack>
+                        <Text as="h3" color="#FFF">
+                          <strong>點擊確認下載圖片</strong>
+                        </Text>
+                        <small style={{ color: "#FFF" }}>
+                          * 如果下載程序沒有自動開始，請長按圖片並選擇下載圖片
+                        </small>
+                      </VStack>
+                    </Center>
+                  </Box>
+                )}
+                <Box pos="absolute" left="8px" top="8px">
+                  <DownloadIcon color="#FFF" w={8} h={8} />
+                </Box>
+                <Box pos="absolute" {...downloadButtonStyle}></Box>
+                <LazyLoad height={200} once offset={100}>
+                  <Image
+                    className="fade-in"
+                    src={`${process.env.PUBLIC_URL}${download}`}
+                    w="100%"
+                  />
+                </LazyLoad>
+              </Link>
+            </Box>
+          </Sticky>
           {/* Category navbar */}
           {/* <HStack mb={10}>
             {campaignButton.map((d) => (
@@ -193,16 +245,20 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               </Button>
             ))}
           </HStack> */}
-          <Box>
-            {isMobile ? (
-              <SimpleGrid columns={2} spacing="20px">
-                {current.content?.wallpaperList.map((d, i) => (
-                  <Box pos="relative" key={i}>
-                    <Link
-                      href={`${process.env.PUBLIC_URL}${d}`}
-                      download={d.split("/").pop()}
-                    >
-                      {/* <Box
+        </Box>
+        <Box flex="1" pt="10" pb="4" px="4">
+          <Heading size="xl" mb={8}>
+            揀選你喜愛的環境照片
+          </Heading>
+          {isMobile ? (
+            <SimpleGrid columns={2} spacing="12px">
+              {current.content?.wallpaperList.map((d, i) => (
+                <Box pos="relative" key={i}>
+                  <Link
+                    href={`${process.env.PUBLIC_URL}${d}`}
+                    download={d.split("/").pop()}
+                  >
+                    {/* <Box
                 bgImage={`url(${process.env.PUBLIC_URL}${d})`}
                 bgSize="cover"
                 height={{base: "160px"}}
@@ -212,111 +268,38 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               <Box pos="absolute" bottom="6px" right="6px" zIndex={2}><DownloadIcon color="#FFF" w={4} h={4}/></Box>
               <Box pos="absolute" {...mobileDownloadButtonStyle} zIndex={1}></Box>
             </Box> */}
-                      <Box pos="absolute" left="4px" top="4px" zIndex={2}>
-                        <DownloadIcon color="#FFF" w={4} h={4} />
-                      </Box>
-                      <Box
-                        pos="absolute"
-                        {...mobileDownloadButtonStyle}
-                        zIndex={1}
-                      ></Box>
-                      <LazyLoad height={200} once offset={100}>
-                        <Image src={`${process.env.PUBLIC_URL}${d}`} />
-                      </LazyLoad>
-                    </Link>
-                  </Box>
-                ))}
-              </SimpleGrid>
-            ) : (
-              <SimpleGrid minChildWidth="240px" spacing="20px">
-                {current.content?.wallpaperList.map((d, i) => (
-                  <Box
-                    name={d}
-                    key={i}
-                    bgImage={`url(${process.env.PUBLIC_URL}${d})`}
-                    bgSize="cover"
-                    height={{ base: "240px", sm: "180px" }}
-                    _hover={{ cursor: "pointer", opacity: 0.8 }}
-                    onClick={() => handleSetDownload(d)}
-                  ></Box>
-                ))}
-              </SimpleGrid>
-            )}
-          </Box>
-        </Box>
-        <Box
-          flex="1"
-          p={4}
-          w={{ base: 0, md: "50%" }}
-          d={{ base: "none", md: "block" }}
-          position="relative"
-          overflow="hidden"
-        >
-          {/* <LazyLoad>
-            <Box
-              position="absolute"
-              left="-1%"
-              top="-1%"
-              width="102%"
-              height="102%"
-              bgImage={`url(${process.env.PUBLIC_URL}${download})`}
-              bgSize="cover"
-              bgPosition="center"
-              opacity="0.15"
-              filter="blur(4px)"
-            ></Box>
-          </LazyLoad> */}
-          <Sticky
-            topOffset={20}
-            onFixedToggle={() => setDisplayCate(!displayCate)}
-          >
-            <Box
-              pos="relative"
-              onMouseEnter={() => setIsShown(true)}
-              onMouseLeave={() => setIsShown(false)}
-              my={4}
-            >
-              <Link
-                href={`${process.env.PUBLIC_URL}${download}`}
-                download={download.split("/").pop()}
-              >
-                {isShown && (
-                  <Box
-                    pos="absolute"
-                    top={0}
-                    bottom={0}
-                    left={0}
-                    right={0}
-                    zIndex={2}
-                    bgColor="rgba(0, 0, 0, .3)"
-                  >
-                    <Center w="100%" h="100%">
-                      <VStack>
-                        <Text as="h3" color="#FFF">
-                          <strong>點擊確認下載圖片</strong>
-                        </Text>
-                        <small style={{ color: "#FFF" }}>
-                          * 如果下載程序沒有自動開始，請長按圖片並選擇下載圖片
-                        </small>
-                      </VStack>
-                    </Center>
-                  </Box>
-                )}
-                <Box pos="absolute" left="8px" top="8px" zIndex={2}>
-                  <DownloadIcon color="#FFF" w={8} h={8} />
+                    <Box pos="absolute" left="4px" top="4px">
+                      <DownloadIcon color="#FFF" w={4} h={4} />
+                    </Box>
+                    <Box pos="absolute" {...mobileDownloadButtonStyle}></Box>
+                    <LazyLoad height={200} once offset={100}>
+                      <Image src={`${process.env.PUBLIC_URL}${d}`} />
+                    </LazyLoad>
+                  </Link>
                 </Box>
-                <Box pos="absolute" {...downloadButtonStyle} zIndex={1}></Box>
-                <LazyLoad height={200} once offset={100}>
-                  <Image
-                    src={`${process.env.PUBLIC_URL}${download}`}
-                    w="100%"
-                  />
-                </LazyLoad>
-              </Link>
-            </Box>
-          </Sticky>
+              ))}
+            </SimpleGrid>
+          ) : (
+            <SimpleGrid minChildWidth="180px" spacing="20px">
+              {current.content?.wallpaperList.map((d, i) => (
+                <Box
+                  name={d}
+                  key={i}
+                  bgImage={`url(${process.env.PUBLIC_URL}${d})`}
+                  bgSize="cover"
+                  height={{ base: "240px", sm: "180px" }}
+                  _hover={{ cursor: "pointer", opacity: 0.8 }}
+                  onClick={() => handleSetDownload(d)}
+                ></Box>
+              ))}
+            </SimpleGrid>
+          )}
+
+          <Text px="4" py="12" fontSize="md" align="center" color="gray.500">
+            - 持續更新中 -
+          </Text>
         </Box>
-      </Flex>
+      </SimpleGrid>
       <Footer />
     </ChakraProvider>
   );
