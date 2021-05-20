@@ -3,7 +3,19 @@ import React from "react";
 import { connect } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import Sticky from "react-sticky-el";
-import { ChakraProvider, Box, Button, Divider, Image, Flex, Text, Heading, Link, SimpleGrid, Stack } from "@chakra-ui/react";
+import {
+  ChakraProvider,
+  Box,
+  Button,
+  Divider,
+  Image,
+  Flex,
+  Text,
+  Heading,
+  Link,
+  SimpleGrid,
+  Stack,
+} from "@chakra-ui/react";
 import SEO from "../SEO";
 import content from "../data/content";
 import Nav from "../components/header/nav";
@@ -15,7 +27,7 @@ import Panel from "components/panel/newFormPanel";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "../theme.js";
 
-import banner from '../assets/images/59.png'
+import banner from "../assets/images/59.png";
 
 const Landing = ({ submitted, togglePanel }) => {
   const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
@@ -33,11 +45,14 @@ const Landing = ({ submitted, togglePanel }) => {
       {isMobile && <Nav />}
       <Flex>
         <Box className="wrap" flex="1" style={{ minWidth: "0px" }}>
-          <Box px={{ base: 4, sm: 10 }} my={{base: 8}}>
-          <Box mb={6}>
-            {!submitted && <Image src={banner} borderRadius="8px"/>}
-            {submitted && !isMobile && <HeroSwiper isMobile={isMobile} swiperHeight="480px"/>} {/** Fixed swiper desktop version height, background image will keep ratio and center center position */}
-          </Box>
+          <Box px={{ base: 4 }} my={{ base: 8 }}>
+            <Box mb={6}>
+              {!submitted && <Image src={banner} borderRadius="8px" />}
+              {submitted && !isMobile && (
+                <HeroSwiper isMobile={isMobile} swiperHeight="480px" />
+              )}{" "}
+              {/** Fixed swiper desktop version height, background image will keep ratio and center center position */}
+            </Box>
             <Stack pb={4}>
               <Box>
                 <Text
@@ -47,7 +62,9 @@ const Landing = ({ submitted, togglePanel }) => {
                   color="gray.900"
                   lineHeight={1.2}
                 >
-                  <Text color="brand.500" mb={2}>精選香港動物奇妙時刻：</Text>
+                  <Text color="brand.500" mb={2}>
+                    精選香港動物奇妙時刻：
+                  </Text>
                   桌布/視像會議寫真大放送！立即免費下載！
                 </Text>
               </Box>
@@ -55,74 +72,82 @@ const Landing = ({ submitted, togglePanel }) => {
             <Flex direction={{ base: "column", sm: "row" }}>
               <Box flex="1">
                 <Text {...pStyle}>
-                香港這個彈丸之地，坐擁山林、河溪、濕地、草地等多種生態環境，造就出香港的生物多樣性。數以千平方公里的海岸線、山脈及郊野公園，令香港成為多種野生生物的居所。這些生活在您身邊的鄰居，跟您一樣是香港的持份者，自認了解香港的您，真的認識牠們嗎？
+                  香港這個彈丸之地，坐擁山林、河溪、濕地、草地等多種生態環境，造就出香港的生物多樣性。數以千平方公里的海岸線、山脈及郊野公園，令香港成為多種野生生物的居所。這些生活在您身邊的鄰居，跟您一樣是香港的持份者，自認了解香港的您，真的認識牠們嗎？
                 </Text>
                 <Text {...pStyle}>
-                因此，綠色和平特別為您搜羅在香港不同生態環境，包括林間、濕地、河溪等拍攝的一系列精彩照片，這些動物「寫真」更是由本地著名生態攝影師馮漢城親自操刀，上山下水為大家拍下一些展現香港生命力的時刻，大家增進了解這些「角落生物」之餘，也讓我們一起認識孕育這些珍貴生物的土地，一起好好守護香港「野」。
+                  因此，綠色和平特別為您搜羅在香港不同生態環境，包括林間、濕地、河溪等拍攝的一系列精彩照片，這些動物「寫真」更是由本地著名生態攝影師馮漢城親自操刀，上山下水為大家拍下一些展現香港生命力的時刻，大家增進了解這些「角落生物」之餘，也讓我們一起認識孕育這些珍貴生物的土地，一起好好守護香港「野」。
                 </Text>
-
+                <Image
+                  borderRadius="8px"
+                  marginTop="8"
+                  src={
+                    "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/14d44f91-hill民story_blog_thumbnail.jpg"
+                  }
+                />
                 <Text {...pStyle}>
-                然而，這些生活在我們身邊的珍貴生物卻正面對各種環境問題威脅。近年，氣候變化不止引發全球生物數量大幅減少，更有研究指出假若氣溫持續升勢，至21世紀末物種將減少六份之一；放眼本地，海平面上升亦可引致新界北面高生態價值土地遭受風暴潮威脅。不僅如此，從明日大嶼前期研究撥款通過隨之而來的大興土木，到開發郊野公園的威脅，不論海洋還是郊野，香港野生動物的生存環境均不能倖免。
+                  然而，這些生活在我們身邊的珍貴生物卻正面對各種環境問題威脅。近年，氣候變化不止引發全球生物數量大幅減少，更有研究指出假若氣溫持續升勢，至21世紀末物種將減少六份之一；放眼本地，海平面上升亦可引致新界北面高生態價值土地遭受風暴潮威脅。不僅如此，從明日大嶼前期研究撥款通過隨之而來的大興土木，到開發郊野公園的威脅，不論海洋還是郊野，香港野生動物的生存環境均不能倖免。
                 </Text>
                 <Text {...pStyle}>
-                這些生物跟您我一樣，每天為香港這個山水相鄰的小城市注入能量，要留住這些寫真中的奇妙時刻，需要您我一同守護美麗的大自然景色、維持香港生物多樣性，支持綠色和平以科學角度調查、研究及行動，奮力守護大嶼及保衛郊野，為下一代建設宜居的香港！
+                  這些生物跟您我一樣，每天為香港這個山水相鄰的小城市注入能量，要留住這些寫真中的奇妙時刻，需要您我一同守護美麗的大自然景色、維持香港生物多樣性，支持綠色和平以科學角度調查、研究及行動，奮力守護大嶼及保衛郊野，為下一代建設宜居的香港！
                 </Text>
               </Box>
             </Flex>
 
             <Box p={{ base: 2 }}>
-                <Divider />
-              </Box>
+              <Divider />
+            </Box>
 
-              <SimpleGrid mt="4" columns={{ base: 1, xl: 2 }} spacing={10}>
-                <Flex direction="column">
-                  <Image
-                    borderRadius="8px"
-                    src={
-                      "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/0f48c407-gif_reg_ty_page.gif"
-                    }
-                  />
-                </Flex>
-                <Stack spacing={4}>
-                  <Heading
-                    as="h2"
-                    size="lg"
-                    color="brand.500"
-                    style={{ lineHeight: "1.5" }}
+            <SimpleGrid mt="4" columns={{ base: 1, xl: 2 }} spacing={10}>
+              <Flex direction="column">
+                <Image
+                  borderRadius="8px"
+                  src={
+                    "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/0f48c407-gif_reg_ty_page.gif"
+                  }
+                />
+              </Flex>
+              <Stack spacing={4}>
+                <Heading
+                  as="h2"
+                  size="lg"
+                  color="brand.500"
+                  style={{ lineHeight: "1.5" }}
+                >
+                  一起守護
+                  <br />
+                  香港珍貴的自然資源！
+                </Heading>
+                <Text {...pStyle}>
+                  在高樓與繁忙都市之外，香港蘊含著豐富的生物多樣性，自然山野與遼闊海岸是眾多野生生物的居所。
+                </Text>
+                <Text {...pStyle}>
+                  請支持綠色和平以科學角度、調查研究及行動，奮力守護大嶼及保衛郊野，守護香港珍貴的自然資源，為下一代建設宜居的生活環境！
+                </Text>
+                <Link href="https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=biodiversity&utm_campaign=biodiversity">
+                  <Button
+                    mt="2"
+                    color="#FFF"
+                    bg="brand.500"
+                    _hover={{ bg: "brand.400" }}
+                    borderRadius="4px"
+                    fontSize="md"
+                    type="button"
+                    letterSpacing={4}
                   >
-                    一起守護
-                    <br />
-                    香港珍貴的自然資源！
-                  </Heading>
-                  <Text {...pStyle}>
-                    在高樓與繁忙都市之外，香港蘊含著豐富的生物多樣性，自然山野與遼闊海岸是眾多野生生物的居所。
-                  </Text>
-                  <Text {...pStyle}>
-                    請支持綠色和平以科學角度、調查研究及行動，奮力守護大嶼及保衛郊野，守護香港珍貴的自然資源，為下一代建設宜居的生活環境！
-                  </Text>
-                  <Link href="https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=biodiversity&utm_campaign=biodiversity">
-                    <Button
-                      mt="2"
-                      color="#FFF"
-                      bg="brand.500"
-                      _hover={{ bg: "brand.400" }}
-                      borderRadius="4px"
-                      fontSize="md"
-                      letterSpacing={2}
-                    >
-                      立即捐助
-                    </Button>
-                  </Link>
-                  <Text {...pStyle}>
-                    綠色和平成立50年，從不接受政商界捐助，在環境工作上維持公正獨立！
-                  </Text>
-                </Stack>
-              </SimpleGrid>
+                    立即捐助
+                  </Button>
+                </Link>
+                <Text {...pStyle}>
+                  綠色和平成立50年，從不接受政商界捐助，在環境工作上維持公正獨立！
+                </Text>
+              </Stack>
+            </SimpleGrid>
           </Box>
         </Box>
         <Box
-          w={{ base: 0, md: "440px", lg: "500px" }}
-          p={10}
+          w={{ base: 0, md: "50%", lg: "500px" }}
+          px={4}
+          py={8}
           d={{ base: "none", md: "block" }}
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
@@ -173,7 +198,9 @@ const Landing = ({ submitted, togglePanel }) => {
         </Button>
       </Box>
       <Panel formContent={content}>
-        {submitted && isMobile && <HeroSwiper isMobile={isMobile} swiperHeight="480px"/>}
+        {submitted && isMobile && (
+          <HeroSwiper isMobile={isMobile} swiperHeight="480px" />
+        )}
       </Panel>
       <Footer />
     </ChakraProvider>
