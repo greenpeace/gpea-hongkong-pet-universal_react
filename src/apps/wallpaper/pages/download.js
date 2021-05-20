@@ -24,7 +24,15 @@ import themeConfig from "../theme.js";
 import { animateScroll as scroll, scroller } from "react-scroll";
 import { DownloadIcon } from "@chakra-ui/icons";
 
+import LazyLoad from "react-lazyload";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+
 import wallpaper from "../../../data/wallpaper.json";
+
+const LazyImage = ({ image }) => (
+  <LazyLoadImage alt={image.alt} effect="blur" src={image.src} />
+);
 
 const Index = ({ submitted, togglePanel, selectedImage }) => {
   const [Arctic, setArctic] = useState([]);
@@ -67,6 +75,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
     scrollTo(d);
   };
 
+  /*
   const whatsAppShare = () => {
     var w = "https://act.gp/39fBmX6";
     window.open(w);
@@ -87,6 +96,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
       // fbShare();
     }
   };
+  */
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -101,10 +111,6 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
     selectedImage(getFirstItem);
   }, [Arctic]);
 
-  const fontStyle = {
-    fontSize: { base: "14px", sm: "18px" },
-  };
-
   const downloadButtonStyle = {
     top: "0px",
     left: "0px",
@@ -113,13 +119,11 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
   };
 
   const mobileDownloadButtonStyle = {
-    bottom: "0px",
-    right: "0px",
-    borderBottom: "25px solid #66cc00",
-    borderLeft: "25px solid transparent",
+    top: "0px",
+    left: "0px",
+    borderTop: "48px solid #66cc00",
+    borderRight: "48px solid transparent",
   };
-
-  /*
 
   const SelectButtonStyle = {
     variant: "outline",
@@ -144,18 +148,14 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
     borderRadius: "20px",
   };
 
-  */
-
   return (
     <ChakraProvider theme={themeConfig}>
       <Nav showButton={false} />
       <Flex>
-        <Box flex="1" style={{ minWidth: "0px" }} py={10} px={4} maxW="1280px">
+        <Box style={{ minWidth: "0px" }} py={10} px={4} maxW="1280px">
           <Heading mb={6}>感謝您的下載！</Heading>
-          <Text as="p" {...fontStyle}>
-            您願意進一步行動，捐助支持綠色和平更多環境項目嗎？
-          </Text>
-          <Text as="p" {...fontStyle}>
+          <Text as="p">您願意進一步行動，捐助支持綠色和平更多環境項目嗎？</Text>
+          <Text as="p">
             守護香港野！我們需要您的支持為環境堅持努力。綠色和平不接受政府、企業捐款，請立刻加入我們的1%會員計畫，以您的1%收入，支持我們的100%財政獨立。
           </Text>
           <HStack mt={6}>
@@ -165,20 +165,33 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
             >
               <Button>捐助支持</Button>
             </Link>
-            <Button onClick={() => mainShare()}>分享</Button>
+            {/* <Button onClick={() => mainShare()}>分享</Button> */}
           </HStack>
           <Divider my={4} />
           <Heading align="center" my={10}>
             揀選你喜愛的環境照片
           </Heading>
+          {/* Category navbar */}
           {/* <HStack mb={10}>
-            {campaignButton.map(d=> <Button
-              key={d.label}
-              {...SelectButtonStyle}
-              bgColor={current.issue===d.label ? SelectedButtonStyle.bgColor : SelectButtonStyle.bgColor}
-              color={current.issue===d.label ? SelectedButtonStyle.color : SelectButtonStyle.color}
-              onClick={() => handleSwitchDownload(d.value)}
-              >{d.label_zh}</Button>)}
+            {campaignButton.map((d) => (
+              <Button
+                key={d.label}
+                {...SelectButtonStyle}
+                bgColor={
+                  current.issue === d.label
+                    ? SelectedButtonStyle.bgColor
+                    : SelectButtonStyle.bgColor
+                }
+                color={
+                  current.issue === d.label
+                    ? SelectedButtonStyle.color
+                    : SelectButtonStyle.color
+                }
+                onClick={() => handleSwitchDownload(d.value)}
+              >
+                {d.label_zh}
+              </Button>
+            ))}
           </HStack> */}
           <Box>
             {isMobile ? (
@@ -199,15 +212,17 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               <Box pos="absolute" bottom="6px" right="6px" zIndex={2}><DownloadIcon color="#FFF" w={4} h={4}/></Box>
               <Box pos="absolute" {...mobileDownloadButtonStyle} zIndex={1}></Box>
             </Box> */}
-                      <Box pos="absolute" bottom="0px" right="2px" zIndex={2}>
-                        <DownloadIcon color="#FFF" w={2} h={2} />
+                      <Box pos="absolute" left="4px" top="4px" zIndex={2}>
+                        <DownloadIcon color="#FFF" w={4} h={4} />
                       </Box>
                       <Box
                         pos="absolute"
                         {...mobileDownloadButtonStyle}
                         zIndex={1}
                       ></Box>
-                      <Image src={`${process.env.PUBLIC_URL}${d}`} />
+                      <LazyLoad height={200} once offset={100}>
+                        <Image src={`${process.env.PUBLIC_URL}${d}`} />
+                      </LazyLoad>
                     </Link>
                   </Box>
                 ))}
@@ -231,7 +246,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
         </Box>
         <Box
           p={4}
-          w={{ base: 0, md: "500px", lg: "780px" }}
+          w={{ base: 0, md: "50%", lg: "780px" }}
           d={{ base: "none", md: "block" }}
         >
           <Sticky
