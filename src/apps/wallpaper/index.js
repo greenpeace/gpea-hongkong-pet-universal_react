@@ -5,11 +5,7 @@ import Landing from "./pages/landing";
 import Download from "./pages/download";
 import * as themeActions from "store/actions/action-types/theme-actions";
 
-const Index = ({
-  submitted,
-  activeABTesting,
-  setVariant,
-}) => {
+const Index = ({ submitted, activeABTesting, setVariant }) => {
   useEffect(() => {
     async function checkVariant() {
       // active AB Testing

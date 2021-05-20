@@ -25,14 +25,8 @@ import { animateScroll as scroll, scroller } from "react-scroll";
 import { DownloadIcon } from "@chakra-ui/icons";
 
 import LazyLoad from "react-lazyload";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
 
 import wallpaper from "../../../data/wallpaper.json";
-
-const LazyImage = ({ image }) => (
-  <LazyLoadImage alt={image.alt} effect="blur" src={image.src} />
-);
 
 const Index = ({ submitted, togglePanel, selectedImage }) => {
   const [Arctic, setArctic] = useState([]);
@@ -152,23 +146,29 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
     <ChakraProvider theme={themeConfig}>
       <Nav showButton={false} />
       <Flex>
-        <Box style={{ minWidth: "0px" }} py={10} px={4} maxW="1280px">
-          <Heading mb={6}>感謝您的下載！</Heading>
-          <Text as="p">您願意進一步行動，捐助支持綠色和平更多環境項目嗎？</Text>
-          <Text as="p">
-            守護香港野！我們需要您的支持為環境堅持努力。綠色和平不接受政府、企業捐款，請立刻加入我們的1%會員計畫，以您的1%收入，支持我們的100%財政獨立。
+        <Box flex="1" py={10} px={4}>
+          <Heading size="xl" mb={8}>
+            感謝您的登記！
+          </Heading>
+          <Text as="p" fontSize="md">
+            您願意進一步行動，捐助支持綠色和平更多環境項目嗎？
           </Text>
-          <HStack mt={6}>
-            <Link
-              href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK"
-              isExternal
-            >
-              <Button>捐助支持</Button>
-            </Link>
-            {/* <Button onClick={() => mainShare()}>分享</Button> */}
-          </HStack>
-          <Divider my={4} />
-          <Heading align="center" my={10}>
+          <Text as="p" fontSize="md">
+            守護香港野！我們需要您的支持為環境堅持努力。
+            <br />
+            綠色和平不接受政府、企業捐款，請立刻加入我們的1%會員計畫，以您的1%收入，支持我們的100%財政獨立。
+          </Text>
+          <Link
+            href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&ref=wallpaper-thankyou"
+            isExternal
+          >
+            <Button mt="6" backgroundColor="orange" color="white" px="8" py="4">
+              捐助支持
+            </Button>
+          </Link>
+          {/* <Button onClick={() => mainShare()}>分享</Button> */}
+          <Divider my={{ base: 8, lg: 10 }} />
+          <Heading size="xl" my={10}>
             揀選你喜愛的環境照片
           </Heading>
           {/* Category navbar */}
@@ -231,13 +231,13 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               <SimpleGrid minChildWidth="240px" spacing="20px">
                 {current.content?.wallpaperList.map((d, i) => (
                   <Box
+                    name={d}
                     key={i}
                     bgImage={`url(${process.env.PUBLIC_URL}${d})`}
                     bgSize="cover"
                     height={{ base: "240px", sm: "180px" }}
                     _hover={{ cursor: "pointer", opacity: 0.8 }}
                     onClick={() => handleSetDownload(d)}
-                    name={d}
                   ></Box>
                 ))}
               </SimpleGrid>
@@ -245,12 +245,29 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
           </Box>
         </Box>
         <Box
+          flex="1"
           p={4}
-          w={{ base: 0, md: "50%", lg: "780px" }}
+          w={{ base: 0, md: "50%" }}
           d={{ base: "none", md: "block" }}
+          position="relative"
+          overflow="hidden"
         >
+          {/* <LazyLoad>
+            <Box
+              position="absolute"
+              left="-1%"
+              top="-1%"
+              width="102%"
+              height="102%"
+              bgImage={`url(${process.env.PUBLIC_URL}${download})`}
+              bgSize="cover"
+              bgPosition="center"
+              opacity="0.15"
+              filter="blur(4px)"
+            ></Box>
+          </LazyLoad> */}
           <Sticky
-            topOffset={0}
+            topOffset={20}
             onFixedToggle={() => setDisplayCate(!displayCate)}
           >
             <Box
@@ -289,7 +306,12 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                   <DownloadIcon color="#FFF" w={8} h={8} />
                 </Box>
                 <Box pos="absolute" {...downloadButtonStyle} zIndex={1}></Box>
-                <Image src={`${process.env.PUBLIC_URL}${download}`} w="100%" />
+                <LazyLoad height={200} once offset={100}>
+                  <Image
+                    src={`${process.env.PUBLIC_URL}${download}`}
+                    w="100%"
+                  />
+                </LazyLoad>
               </Link>
             </Box>
           </Sticky>
