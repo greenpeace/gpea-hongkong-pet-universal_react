@@ -6,21 +6,11 @@ import Download from "./pages/download";
 import * as themeActions from "store/actions/action-types/theme-actions";
 
 const Index = ({
-  initState,
-  fakeSubmit,
   submitted,
   activeABTesting,
   setVariant,
 }) => {
   useEffect(() => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    if (urlParams.get("page") === "2") {
-      fakeSubmit();
-    } else {
-      initState();
-    }
-
     async function checkVariant() {
       // active AB Testing
       activeABTesting(true);
@@ -63,12 +53,6 @@ const mapStateToProps = ({ theme }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fakeSubmit: () => {
-      dispatch({ type: themeActions.SUBMIT_FORM_SUCCESS });
-    },
-    initState: () => {
-      dispatch({ type: themeActions.INIT_STATE });
-    },
     togglePanel: (bol) => {
       dispatch({ type: themeActions.TOGGLE_PANEL, bol });
     },

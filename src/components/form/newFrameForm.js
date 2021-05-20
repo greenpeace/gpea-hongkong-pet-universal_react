@@ -184,7 +184,7 @@ const MyForm = (props) => {
           </FormControl>
 
           <HStack align="flex-end">
-            <Box pb={space} mb={errors.MobilePhone ? "28px" : 0}>
+            <Box pb={space} mb={errors.MobilePhone && touched.MobilePhone ? "28px" : 0}>
               <FormControl id="mobileCountryCode">
                 <Select name="MobileCountryCode" onChange={handleChange}>
                   {mobileCountryCode &&
@@ -299,15 +299,15 @@ const MyEnhancedForm = withFormik({
       errors.Email = formContent.invalid_email_alert;
     } else {
       // TODO: NEED CONFIRM ERROR MSG
-      Mailcheck.run({
-        email: values.Email,
-        domains: domains,
-        topLevelDomains: topLevelDomains,
-        suggested: function(suggestion) {
-          if(values.Email !== suggestion.domain)
-          errors.Email = `您是否想輸入${suggestion.full}`
-        }
-      })
+      // Mailcheck.run({
+      //   email: values.Email,
+      //   domains: domains,
+      //   topLevelDomains: topLevelDomains,
+      //   suggested: function(suggestion) {
+      //     if(values.Email !== suggestion.domain)
+      //     errors.Email = `您是否想輸入${suggestion.full}`
+      //   }
+      // })
     }
 
     if (!values.FirstName) {
