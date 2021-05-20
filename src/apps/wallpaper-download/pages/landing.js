@@ -27,7 +27,8 @@ import Panel from "components/panel/newFormPanel";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "../theme.js";
 
-import banner from "../assets/images/59.png";
+import banner from "../assets/images/73.jpg";
+import subImage from "../assets/images/wallpaper.jpg";
 
 const Landing = ({ submitted, togglePanel }) => {
   const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
@@ -77,13 +78,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 <Text {...pStyle}>
                   因此，綠色和平特別為您搜羅在香港不同生態環境，包括林間、濕地、河溪等拍攝的一系列精彩照片，這些動物「寫真」更是由本地著名生態攝影師馮漢城親自操刀，上山下水為大家拍下一些展現香港生命力的時刻，大家增進了解這些「角落生物」之餘，也讓我們一起認識孕育這些珍貴生物的土地，一起好好守護香港「野」。
                 </Text>
-                <Image
-                  borderRadius="8px"
-                  marginTop="8"
-                  src={
-                    "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/14d44f91-hill民story_blog_thumbnail.jpg"
-                  }
-                />
+                <Image borderRadius="8px" marginTop="8" src={subImage} />
                 <Text {...pStyle}>
                   然而，這些生活在我們身邊的珍貴生物卻正面對各種環境問題威脅。近年，氣候變化不止引發全球生物數量大幅減少，更有研究指出假若氣溫持續升勢，至21世紀末物種將減少六份之一；放眼本地，海平面上升亦可引致新界北面高生態價值土地遭受風暴潮威脅。不僅如此，從明日大嶼前期研究撥款通過隨之而來的大興土木，到開發郊野公園的威脅，不論海洋還是郊野，香港野生動物的生存環境均不能倖免。
                 </Text>
@@ -151,7 +146,14 @@ const Landing = ({ submitted, togglePanel }) => {
           d={{ base: "none", md: "block" }}
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
-            <Box boxShadow="lg" p="6" rounded="md" bg="white">
+            <Box
+              borderTop="4px solid #66cc00"
+              boxShadow="lg"
+              p="6"
+              rounded="md"
+              bg="white"
+              overflow="hidden"
+            >
               {submitted ? (
                 <NewFrameSubmittedForm formContent={content} />
               ) : (

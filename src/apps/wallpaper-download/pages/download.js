@@ -101,14 +101,25 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
     selectedImage(getFirstItem);
   }, [Arctic]);
 
-  const ButtonStyle = {
-    flex: "1",
-    fontWeight: 700,
-  };
-
   const fontStyle = {
     fontSize: { base: "14px", sm: "18px" },
   };
+
+  const downloadButtonStyle = {
+    top: "0px",
+    left: "0px",
+    borderTop: "80px solid #66cc00",
+    borderRight: "80px solid transparent",
+  };
+
+  const mobileDownloadButtonStyle = {
+    bottom: "0px",
+    right: "0px",
+    borderBottom: "25px solid #66cc00",
+    borderLeft: "25px solid transparent",
+  };
+
+  /*
 
   const SelectButtonStyle = {
     variant: "outline",
@@ -133,49 +144,28 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
     borderRadius: "20px",
   };
 
-  const downloadButtonStyle = {
-    top: "0px",
-    left: "0px",
-    borderTop: "80px solid #66cc00",
-    borderRight: "80px solid transparent",
-  };
-
-  const mobileDownloadButtonStyle = {
-    bottom: "0px",
-    right: "0px",
-    borderBottom: "25px solid #66cc00",
-    borderLeft: "25px solid transparent",
-  };
+  */
 
   return (
     <ChakraProvider theme={themeConfig}>
       <Nav showButton={false} />
       <Flex>
         <Box flex="1" style={{ minWidth: "0px" }} py={10} px={4} maxW="1280px">
-          <Heading mb={6} align="center">
-            感謝您的下載！
-          </Heading>
+          <Heading mb={6}>感謝您的下載！</Heading>
           <Text as="p" {...fontStyle}>
             您願意進一步行動，捐助支持綠色和平更多環境項目嗎？
           </Text>
           <Text as="p" {...fontStyle}>
-            守護海洋，保衛森林，我們需要您的支持為環境堅持努力。綠色和平不接受政府、企業捐款，請立刻加入我們的
-            <b>1%會員計畫，以您的1%收入，支持我們的100%財政獨立。</b>
+            守護香港野！我們需要您的支持為環境堅持努力。綠色和平不接受政府、企業捐款，請立刻加入我們的1%會員計畫，以您的1%收入，支持我們的100%財政獨立。
           </Text>
           <HStack mt={6}>
-            <Button
-              {...ButtonStyle}
-              onClick={() =>
-                window.open(
-                  "https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK"
-                )
-              }
+            <Link
+              href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK"
+              isExternal
             >
-              捐助支持
-            </Button>
-            <Button {...ButtonStyle} onClick={() => mainShare()}>
-              分享
-            </Button>
+              <Button>捐助支持</Button>
+            </Link>
+            <Button onClick={() => mainShare()}>分享</Button>
           </HStack>
           <Divider my={4} />
           <Heading align="center" my={10}>
