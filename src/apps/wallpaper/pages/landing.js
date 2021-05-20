@@ -43,7 +43,10 @@ const Landing = ({ submitted, togglePanel }) => {
   return (
     <ChakraProvider theme={themeConfig}>
       <SEO />
+      {/*}
       {isMobile && <Nav />}
+  */}
+      <Nav showButton={false} />
       <Flex>
         <Box className="wrap" flex="1" style={{ minWidth: "0px" }}>
           <Box px={{ base: 4 }} my={{ base: 8 }}>
@@ -64,9 +67,9 @@ const Landing = ({ submitted, togglePanel }) => {
                   lineHeight={1.2}
                 >
                   <Text color="brand.500" mb={2}>
-                    精選香港動物奇妙時刻：
+                    精選香港動物奇妙時刻
                   </Text>
-                  桌布/視像會議寫真大放送！立即免費下載！
+                  桌布 / 視像會議 Wallpaper 大放送
                 </Text>
               </Box>
             </Stack>

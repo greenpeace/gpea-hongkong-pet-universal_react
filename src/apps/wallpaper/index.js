@@ -1,68 +1,66 @@
+import "swiper/swiper.scss";
 import React, { useEffect } from "react";
-import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
-import Header from "components/header";
-import Thanks from "./components/thanks";
-import "styles/theme.less";
-import "./app.less";
-import Panel from "components/panel";
-import Footer from "components/footer";
+import Landing from "./pages/landing";
+import Download from "./pages/download";
+import * as themeActions from "store/actions/action-types/theme-actions";
 
-const URL = `https://api.greenpeace.org.hk/2021/universal/`;
-
-const Index = ({ initState, fakeSubmit, submitted, petition }) => {
+const Index = ({
+  submitted,
+  activeABTesting,
+  setVariant,
+}) => {
   useEffect(() => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    if (urlParams.get("page") === "download") {
-      fakeSubmit();
-    } else {
-      initState();
+    async function checkVariant() {
+      // active AB Testing
+      activeABTesting(true);
+      if (window.dataLayer) {
+        await window.dataLayer.push({ event: "optimize.activate" });
+      }
+
+      const intervalId = setInterval(() => {
+        if (window.google_optimize !== undefined) {
+          const variant = window.google_optimize.get(
+            process.env.REACT_APP_EXPERIMENT_ID
+          );
+          if (variant === 0 || variant === undefined) {
+            setVariant(0);
+            //
+            document.querySelector("input[name='CampaignData1__c']").value =
+              "Version A";
+          } else {
+            setVariant(1);
+            //
+            document.querySelector("input[name='CampaignData1__c']").value =
+              "Version B";
+          }
+          clearInterval(intervalId);
+        }
+      }, 500);
     }
+
+    checkVariant();
   }, []);
 
-  return (
-    <>
-      <div id="main" className="custom-main">
-        <Header />
-        <div className="content">
-          <article className="prose lg:prose-lg">
-            <Thanks />
-          </article>
-          <br clear="both" />
-          <Footer />
-        </div>
-      </div>
-      <div className="custom-form-wrap">
-        <div className="custom-gp-form custom-gp-form-wrap">
-          <div
-            className="custom-bg"
-            style={{
-              backgroundImage: "url(" + `${URL}${petition.selectedImage}` + ")",
-            }}
-          ></div>
-        </div>
-      </div>
-      {/* <Panel closePanel={submitted} /> */}
-    </>
-  );
+  return submitted ? <Download /> : <Landing />;
 };
 
-const mapStateToProps = ({ theme, petition }) => {
+const mapStateToProps = ({ theme }) => {
   return {
-    theme: theme,
-    petition: petition,
-    submitted: theme.submitted,
+    submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fakeSubmit: () => {
-      dispatch({ type: themeActions.SUBMIT_FORM_SUCCESS });
+    togglePanel: (bol) => {
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
     },
-    initState: () => {
-      dispatch({ type: themeActions.INIT_STATE });
+    activeABTesting: (bol) => {
+      dispatch({ type: themeActions.ACTIVE_AB_TESTING, bol });
+    },
+    setVariant: (value) => {
+      dispatch({ type: themeActions.SET_VARIANT, value });
     },
   };
 };
