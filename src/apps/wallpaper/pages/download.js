@@ -163,7 +163,8 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
             isExternal
           >
             <Button
-              mt="6"
+              mt="8"
+              mb="8"
               backgroundColor="orange"
               color="white"
               px="10"
@@ -209,7 +210,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                     </Center>
                   </Box>
                 )}
-                <Box pos="absolute" left="8px" top="8px">
+                <Box pos="absolute" left="8px" top="8px" zIndex="1">
                   <DownloadIcon color="#FFF" w={8} h={8} />
                 </Box>
                 <Box pos="absolute" {...downloadButtonStyle}></Box>
@@ -253,12 +254,17 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
           {isMobile ? (
             <SimpleGrid columns={2} spacing="12px">
               {current.content?.wallpaperList.map((d, i) => (
-                <Box pos="relative" key={i}>
-                  <Link
+                <Box
+                  pos="relative"
+                  key={i}
+                  _hover={{ cursor: "pointer", opacity: 0.8 }}
+                  onClick={() => handleSetDownload(d)}
+                >
+                  {/* <Link
                     href={`${process.env.PUBLIC_URL}${d}`}
                     download={d.split("/").pop()}
-                  >
-                    {/* <Box
+                  ></Link> */}
+                  {/* <Box
                 bgImage={`url(${process.env.PUBLIC_URL}${d})`}
                 bgSize="cover"
                 height={{base: "160px"}}
@@ -268,14 +274,14 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               <Box pos="absolute" bottom="6px" right="6px" zIndex={2}><DownloadIcon color="#FFF" w={4} h={4}/></Box>
               <Box pos="absolute" {...mobileDownloadButtonStyle} zIndex={1}></Box>
             </Box> */}
-                    <Box pos="absolute" left="4px" top="4px">
+                  <LazyLoad height={240} once offset={100}>
+                    {/* <Box pos="absolute" left="4px" top="4px">
                       <DownloadIcon color="#FFF" w={4} h={4} />
                     </Box>
                     <Box pos="absolute" {...mobileDownloadButtonStyle}></Box>
-                    <LazyLoad height={200} once offset={100}>
-                      <Image src={`${process.env.PUBLIC_URL}${d}`} />
-                    </LazyLoad>
-                  </Link>
+                    */}
+                    <Image src={`${process.env.PUBLIC_URL}${d}`} />
+                  </LazyLoad>
                 </Box>
               ))}
             </SimpleGrid>
@@ -294,8 +300,14 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               ))}
             </SimpleGrid>
           )}
-
-          <Text px="4" py="12" fontSize="md" align="center" color="gray.500">
+          <Text
+            mt="4"
+            px="4"
+            py="10"
+            fontSize="md"
+            align="center"
+            color="gray.500"
+          >
             - 持續更新中 -
           </Text>
         </Box>

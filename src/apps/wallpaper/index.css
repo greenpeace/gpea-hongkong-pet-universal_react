@@ -14,3 +14,7 @@
     opacity: 1;
   }
 }
+
+.slide-pane_from_bottom {
+  margin-top: 8vh;
+}

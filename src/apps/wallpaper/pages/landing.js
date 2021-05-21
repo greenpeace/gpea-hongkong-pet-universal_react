@@ -49,7 +49,7 @@ const Landing = ({ submitted, togglePanel }) => {
       <Nav showButton={false} />
       <Flex>
         <Box className="wrap" flex="1" style={{ minWidth: "0px" }}>
-          <Box px={{ base: 4 }} my={{ base: 8 }}>
+          <Box px="4" py={{ base: 4, md: 8 }}>
             <Box mb={6}>
               {!submitted && <Image src={banner} borderRadius="8px" />}
               {submitted && !isMobile && (
@@ -66,7 +66,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   color="gray.900"
                   lineHeight={1.2}
                 >
-                  <Text color="brand.500" mb={2}>
+                  <Text color="brand.500" mt={4} mb={2}>
                     精選香港動物奇妙時刻
                   </Text>
                   桌布 / 視像會議 Wallpaper 大放送
@@ -76,17 +76,14 @@ const Landing = ({ submitted, togglePanel }) => {
             <Flex direction={{ base: "column", sm: "row" }}>
               <Box flex="1">
                 <Text {...pStyle}>
-                  香港這個彈丸之地，坐擁山林、河溪、濕地、草地等多種生態環境，造就出香港的生物多樣性。數以千平方公里的海岸線、山脈及郊野公園，令香港成為多種野生生物的居所。這些生活在您身邊的鄰居，跟您一樣是香港的持份者，自認了解香港的您，真的認識牠們嗎？
-                </Text>
-                <Text {...pStyle}>
-                  因此，綠色和平特別為您搜羅在香港不同生態環境，包括林間、濕地、河溪等拍攝的一系列精彩照片，這些動物「寫真」更是由本地著名生態攝影師馮漢城親自操刀，上山下水為大家拍下一些展現香港生命力的時刻，大家增進了解這些「角落生物」之餘，也讓我們一起認識孕育這些珍貴生物的土地，一起好好守護香港「野」。
+                  綠色和平邀請本地著名生態攝影師馮漢城，上山下水為大家拍下一些展現香港生命力的時刻，大家增進了解這些「角落生物」之餘，也讓我們一起認識孕育這些珍貴生物的土地，一起好好守護香港「野」。
                 </Text>
                 <Image borderRadius="8px" marginTop="8" src={subImage} />
                 <Text {...pStyle}>
-                  然而，這些生活在我們身邊的珍貴生物卻正面對各種環境問題威脅。近年，氣候變化不止引發全球生物數量大幅減少，更有研究指出假若氣溫持續升勢，至21世紀末物種將減少六份之一；放眼本地，海平面上升亦可引致新界北面高生態價值土地遭受風暴潮威脅。不僅如此，從明日大嶼前期研究撥款通過隨之而來的大興土木，到開發郊野公園的威脅，不論海洋還是郊野，香港野生動物的生存環境均不能倖免。
+                  然而，這些生活在我們身邊的珍貴生物卻正面對各種環境問題威脅，從明日大嶼前期研究撥款通過有機會隨之而來的大興土木，到郊野公園面臨的開發威脅，不論海洋還是郊野遭受破壞，香港野生動物均不能倖免於難。
                 </Text>
                 <Text {...pStyle}>
-                  這些生物跟您我一樣，每天為香港這個山水相鄰的小城市注入能量，要留住這些寫真中的奇妙時刻，需要您我一同守護美麗的大自然景色、維持香港生物多樣性，支持綠色和平以科學角度調查、研究及行動，奮力守護大嶼及保衛郊野，為下一代建設宜居的香港！
+                  這些生物為香港這個山水相鄰的小城市注入能量，要留住這些寫真中的奇妙時刻，需要您我一同守護美麗的大自然景色、維持香港生物多樣性，請支持綠色和平以科學角度調查、研究及行動，守護大嶼及保衛郊野，為下一代建設宜居的香港！
                 </Text>
               </Box>
             </Flex>
@@ -142,8 +139,8 @@ const Landing = ({ submitted, togglePanel }) => {
         </Box>
         <Box
           w={{ base: 0, md: "50%", lg: "500px" }}
-          px={4}
-          py={8}
+          px="4"
+          py={{ base: 4, md: 8 }}
           d={{ base: "none", md: "block" }}
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
