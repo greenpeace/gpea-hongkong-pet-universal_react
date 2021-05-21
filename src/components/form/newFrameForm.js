@@ -30,7 +30,8 @@ const MyForm = (props) => {
     submitted,
     birthDate = true,
     activeABTesting,
-    variant
+    variant,
+    togglePanel
   } = props;
 
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
@@ -250,6 +251,7 @@ const MyForm = (props) => {
               letterSpacing={4}
               bg="#ff8100"
               _hover={{ bg: "campaign.climate" }}
+              type="submit"
             >
               {formContent.submit_text}
             </Button>
@@ -290,25 +292,26 @@ const MyEnhancedForm = withFormik({
     OptIn: true,
   }),
 
-  validate: (values, { formContent, variant, activeABTesting }) => {
+  validate: (values, { formContent, variant, activeABTesting, birthDate }) => {
     const errors = {};
 
     if (!values.Email) {
       errors.Email = formContent.empty_data_alert;
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.Email)) {
       errors.Email = formContent.invalid_email_alert;
-    } else {
-      // TODO: NEED CONFIRM ERROR MSG
-      // Mailcheck.run({
-      //   email: values.Email,
-      //   domains: domains,
-      //   topLevelDomains: topLevelDomains,
-      //   suggested: function(suggestion) {
-      //     if(values.Email !== suggestion.domain)
-      //     errors.Email = `您是否想輸入${suggestion.full}`
-      //   }
-      // })
-    }
+    } 
+    // else {
+    //   TODO: NEED CONFIRM ERROR MSG
+    //   Mailcheck.run({
+    //     email: values.Email,
+    //     domains: domains,
+    //     topLevelDomains: topLevelDomains,
+    //     suggested: function(suggestion) {
+    //       if(values.Email !== suggestion.domain)
+    //       errors.Email = `您是否想輸入${suggestion.full}`
+    //     }
+    //   })
+    // }
 
     if (!values.FirstName) {
       errors.FirstName = formContent.empty_data_alert;
@@ -328,7 +331,7 @@ const MyEnhancedForm = withFormik({
         errors.MobilePhone = formContent.minimum_8_characters;
       }
 
-      if (!values.Birthdate) {
+      if (birthDate && !values.Birthdate) {
         errors.Birthdate = formContent.empty_data_alert;
       }
     } else {
