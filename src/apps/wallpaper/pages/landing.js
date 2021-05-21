@@ -3,7 +3,19 @@ import React from "react";
 import { connect } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import Sticky from "react-sticky-el";
-import { ChakraProvider, Box, Button, Divider, Image, Flex, Text, Heading, Link, SimpleGrid, Stack} from "@chakra-ui/react";
+import {
+  ChakraProvider,
+  Box,
+  Button,
+  Divider,
+  Image,
+  Flex,
+  Text,
+  Heading,
+  Link,
+  SimpleGrid,
+  Stack,
+} from "@chakra-ui/react";
 import SEO from "../SEO";
 import content from "../data/content";
 import Nav from "../components/header/nav";
@@ -16,7 +28,7 @@ import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "../theme.js";
 
 import banner from "../assets/images/73.jpg";
-import subImage from "../assets/images/wallpaper.jpg";
+import subImage from "../assets/images/wallpaper_removed.jpg";
 
 const Landing = ({ submitted, togglePanel }) => {
   const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
@@ -186,11 +198,12 @@ const Landing = ({ submitted, togglePanel }) => {
           {content.submit_text}
         </Button>
       </Box>
-      <Panel 
+      <Panel
         formContent={content}
         showProgress={false}
         newsLetter={false}
-        birthDate={false}>
+        birthDate={false}
+      >
         {submitted && isMobile && (
           <HeroSwiper isMobile={isMobile} swiperHeight="480px" />
         )}
