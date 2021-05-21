@@ -13,7 +13,7 @@ import {
   SimpleGrid,
   Center,
   VStack,
-  Fade,
+  HStack,
 } from "@chakra-ui/react";
 import Nav from "../components/header/nav";
 import Footer from "../components/footer";
@@ -69,7 +69,6 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
     scrollTo(d);
   };
 
-  /*
   const whatsAppShare = () => {
     var w = "https://act.gp/39fBmX6";
     window.open(w);
@@ -80,17 +79,16 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
       navigator
         .share({
           title: "",
-          text: "👉 ",
+          text:
+            "精選香港動物奇妙時刻：桌布 / 視像會議寫真大放送！立即免費下載！👉 ",
           url: "https://act.gp/2YaXfQW",
         })
         .then()
         .catch();
     } else {
       whatsAppShare();
-      // fbShare();
     }
   };
-  */
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -158,27 +156,33 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
             <br />
             綠色和平不接受政府、企業捐款，請立刻加入我們的1%會員計畫，以您的1%收入，支持我們的100%財政獨立。
           </Text>
-          <Link
-            href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&ref=wallpaper-thankyou"
-            isExternal
-          >
+          <HStack align="center" pt="6" pb="4" spacing="4">
+            <Link
+              href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&ref=wallpaper-thankyou"
+              isExternal
+            >
+              <Button backgroundColor="orange" color="white" px="10" py="4">
+                捐助支持
+              </Button>
+            </Link>
             <Button
-              mt="8"
-              mb="8"
-              backgroundColor="orange"
+              backgroundColor="brand.500"
               color="white"
               px="10"
               py="4"
+              onClick={() => mainShare()}
             >
-              捐助支持
+              分享
             </Button>
-          </Link>
-          {/* <Button onClick={() => mainShare()}>分享</Button> */}
+          </HStack>
           <Sticky
             stickyClassName={"sticky-wallpaper-image"}
             z-index="99"
             onFixedToggle={() => setDisplayCate(!displayCate)}
           >
+            <Heading size="lg" pt={4} mb={8}>
+              點擊確認下載圖片
+            </Heading>
             <Box
               pos="relative"
               onMouseEnter={() => setIsShown(true)}
@@ -188,6 +192,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               <Link
                 href={`${process.env.PUBLIC_URL}${download}`}
                 download={download.split("/").pop()}
+                isExternal
               >
                 {isShown && (
                   <Box
