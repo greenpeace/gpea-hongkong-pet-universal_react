@@ -156,19 +156,19 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
             <br />
             綠色和平不接受政府、企業捐款，請立刻加入我們的1%會員計畫，以您的1%收入，支持我們的100%財政獨立。
           </Text>
-          <HStack align="center" pt="6" pb="4" spacing="6">
+          <HStack align="center" pt="6" pb="4" spacing="4">
             <Link
               href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&ref=wallpaper-thankyou"
               isExternal
             >
-              <Button backgroundColor="orange" color="white" px="8" py="4">
+              <Button backgroundColor="orange" color="white" px="10" py="4">
                 捐助支持
               </Button>
             </Link>
             <Button
               backgroundColor="brand.500"
               color="white"
-              px="8"
+              px="10"
               py="4"
               onClick={() => mainShare()}
             >
@@ -192,6 +192,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               <Link
                 href={`${process.env.PUBLIC_URL}${download}`}
                 download={download.split("/").pop()}
+                isExternal
               >
                 {isShown && (
                   <Box
