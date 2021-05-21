@@ -1,11 +1,12 @@
 import "swiper/swiper.scss";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import Landing from "./pages/landing";
 import Download from "./pages/download";
 import * as themeActions from "store/actions/action-types/theme-actions";
 
-const Index = ({ submitted, activeABTesting, setVariant }) => {
+const Index = ({ submitted, activeABTesting, setVariant, togglePanel }) => {
+  const [submittedForm, setSubmittedForm] = useState(submitted);
   useEffect(() => {
     async function checkVariant() {
       // active AB Testing
@@ -38,7 +39,15 @@ const Index = ({ submitted, activeABTesting, setVariant }) => {
     checkVariant();
   }, []);
 
-  return submitted ? <Download /> : <Landing />;
+  useEffect( async () => {
+    // Close panel layer
+    if(submitted){
+      await togglePanel(false)
+      setSubmittedForm(true)
+    }
+  }, [submitted]);
+
+  return submittedForm ? <Download /> : <Landing />
 };
 
 const mapStateToProps = ({ theme }) => {
