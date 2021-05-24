@@ -10,15 +10,13 @@ const SEO = () => {
         {`
           var dataLayer = (window.dataLayer = window.dataLayer || []);
           dataLayer.push({
-            gCampaign: "health",
-            gBasket: "biodiversity",
+            gCampaign: "plastics",
+            gBasket: "plastics-pfc",
           });
         `}
       </script>
       {/* title */}
-      <title>
-        「綠色社區點做起？達人同你渾身解塑」網上共學教室 | 香港
-      </title>
+      <title>「綠色社區點做起？達人同你渾身解塑」網上共學教室 | 香港</title>
       <meta
         property="og:title"
         content="「綠色社區點做起？達人同你渾身解塑」網上共學教室 | 香港"
@@ -35,7 +33,7 @@ const SEO = () => {
       {/* meta image */}
       <meta
         property="og:image"
-        content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/2963bd89-73_preview.jpg"
+        content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/768ce5c6-pfc-webinar-preview.jpg"
       />
     </Helmet>
   );
