@@ -30,7 +30,7 @@ import NewFrameForm from "components/form/newFrameForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
 import Panel from "components/panel/newFormPanel";
 import * as themeActions from "store/actions/action-types/theme-actions";
-import themeConfig from "../theme.js";
+import themeConfig from "../../../theme";
 
 import banner from "../assets/images/PFC-webinar-banner-5.png";
 import Dalu from "../assets/images/Dalu.png";
@@ -57,6 +57,16 @@ const Landing = ({ submitted, togglePanel }) => {
       </Stack>
     );
   };
+
+  const subHeadline = {
+    color: "gray.700",
+    fontSize: "sm",
+    lineHeight: "1.5",
+    mt: "10",
+    mb: "4",
+    pl: "2",
+  };
+
   const pStyle = {
     as: "p",
     marginTop: "20px",
@@ -71,7 +81,6 @@ const Landing = ({ submitted, togglePanel }) => {
     roundedTop: "md",
     pt: { base: 2, sm: 4 },
     pb: { base: 2, sm: 4 },
-    boxShadow: "xl",
     cursor: "pointer",
     h: { base: "auto", sm: "auto" },
     align: "center",
@@ -86,6 +95,7 @@ const Landing = ({ submitted, togglePanel }) => {
     border: "2px solid #FFF",
     pb: 10,
   };
+
   const authorContent = [
     {
       name: "Dalu",
@@ -156,6 +166,7 @@ const Landing = ({ submitted, togglePanel }) => {
 
           <Box px={{ base: 4, lg: 6 }}>
             <Box>
+              <Text {...subHeadline}>WEBINAR</Text>
               <Text
                 as="h1"
                 fontSize={{ base: "2xl", sm: "3xl", xl: "4xl" }}
@@ -163,9 +174,6 @@ const Landing = ({ submitted, togglePanel }) => {
                 color="gray.900"
                 lineHeight={1.2}
               >
-                <Text color="gray.300" fontSize="md" mt={4} mb={2}>
-                  WEBINAR 網上教室
-                </Text>
                 <Text color="brand.500" mb={2} maxWidth="780px">
                   「綠色社區點做起？達人同你渾身解塑」<Text>網上共學教室</Text>
                 </Text>
@@ -174,7 +182,7 @@ const Landing = ({ submitted, togglePanel }) => {
             <Flex direction={{ base: "column", sm: "row" }}>
               <Box flex="1">
                 <Heading
-                  color="gray.700"
+                  color="gray.900"
                   fontSize={{ base: "lg", sm: "2xl" }}
                   mt={4}
                 >
@@ -183,6 +191,7 @@ const Landing = ({ submitted, togglePanel }) => {
 
                 <Divider my={{ base: 8 }} />
                 <Box>
+                  <Text {...subHeadline}>WEBINAR STARTS IN</Text>
                   <Stack spacing={4}>
                     <Feature
                       icon={
@@ -221,6 +230,8 @@ const Landing = ({ submitted, togglePanel }) => {
                 </Box>
 
                 <Divider my={{ base: 8 }} />
+
+                <Text {...subHeadline}>ABOUT</Text>
 
                 <Text as="p" {...pStyle}>
                   自己社區自己救！走塑不是一個人的事，是整個社區的事！我們的日常生活與社區密不可分，每人都是社區不可或缺的一分子。想自備餐盒買外賣？想走塑購物？總不能單靠個人力量，還需餐廳、企業的合作，一起建構走塑社區，讓大家日常生活都「有得揀」！
@@ -267,6 +278,7 @@ const Landing = ({ submitted, togglePanel }) => {
             </Flex>
 
             <Box pt={{ base: 10 }}>
+              <Text {...subHeadline}>SPEAKERS</Text>
               <Flex direction="column">
                 <Flex direction="row">
                   {authorContent.map((d, i) => (
