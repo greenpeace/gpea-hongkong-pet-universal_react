@@ -42,12 +42,12 @@ const Index = ({ submitted, activeABTesting, setVariant, togglePanel }) => {
   useEffect( async () => {
     // Close panel layer
     if(submitted){
-      await togglePanel(false)
+      // await togglePanel(false)
       setSubmittedForm(true)
     }
   }, [submitted]);
 
-  return submittedForm ? <Download /> : <Landing />
+  return <Landing/>
 };
 
 const mapStateToProps = ({ theme }) => {
