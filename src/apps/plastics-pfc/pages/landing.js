@@ -339,9 +339,9 @@ const Landing = ({ submitted, togglePanel }) => {
         newsLetter={false}
         birthDate={false}
       >
-        {submitted && isMobile && (
+        {/* {submitted && isMobile && (
           <HeroSwiper isMobile={isMobile} swiperHeight="480px" />
-        )}
+        )} */}
       </Panel>
       <Footer />
     </ChakraProvider>
