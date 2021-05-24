@@ -18,7 +18,7 @@ import {
 import Nav from "../components/header/nav";
 import Footer from "../components/footer";
 import * as themeActions from "store/actions/action-types/theme-actions";
-import themeConfig from "../theme.js";
+import themeConfig from "../../../theme";
 import { animateScroll as scroll, scroller } from "react-scroll";
 import { DownloadIcon } from "@chakra-ui/icons";
 
