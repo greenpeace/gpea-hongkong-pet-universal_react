@@ -414,7 +414,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   version={true}
                   showProgress={false}
                   newsLetter={false}
-                  birthDate={false}
+                  birthDate={true}
                 />
               )}
             </Box>
@@ -455,7 +455,7 @@ const Landing = ({ submitted, togglePanel }) => {
         formContent={content}
         showProgress={false}
         newsLetter={false}
-        birthDate={false}
+        birthDate={true}
       >
         {/* {submitted && isMobile && (
           <HeroSwiper isMobile={isMobile} swiperHeight="480px" />
