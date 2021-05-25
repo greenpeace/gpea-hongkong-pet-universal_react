@@ -16,10 +16,10 @@ const SEO = () => {
         `}
       </script>
       {/* title */}
-      <title>「綠色社區點做起？達人同你渾身解塑」網上共學教室 | 香港</title>
+      <title>立即報名：「綠色社區點做起？達人同你渾身解塑」網上共學教室 - Greenpeace 綠色和平 | 香港</title>
       <meta
         property="og:title"
-        content="「綠色社區點做起？達人同你渾身解塑」網上共學教室 | 香港"
+        content="立即報名：「綠色社區點做起？達人同你渾身解塑」網上共學教室 - Greenpeace 綠色和平 | 香港"
       />
       {/* description */}
       <meta

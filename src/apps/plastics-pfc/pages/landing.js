@@ -190,13 +190,6 @@ const Landing = ({ submitted, togglePanel }) => {
                 >
                   覺得自己只是被動的一方？見到社會好多事都看似沒可能改變？
                 </Heading>
-                <Heading
-                  color="gray.900"
-                  fontSize={{ base: "lg", sm: "2xl" }}
-                  mt={4}
-                >
-                  一齊集思廣益！有你，有可能！
-                </Heading>
                 <Divider my={{ base: 8 }} />
                 <Box>
                   <Text {...subHeadline}>WEBINAR STARTS IN</Text>
@@ -328,13 +321,14 @@ const Landing = ({ submitted, togglePanel }) => {
                   px={{ base: 2, sm: 8 }}
                   borderTop="1px solid #F9BC81"
                 >
-                  <Box py={{ base: 4, sm: 12 }}>
-                    <Flex justify="center" align="center">
+                  <Box py={6}>
+                    <SimpleGrid columns={{ base: 1, xl: 2 }} spacing="8px">
                       <Box flex="1" pr={{ base: 0, sm: 12 }}>
                         <Stack
                           direction={["column", "row"]}
                           columns={{ base: 1, xl: 2 }}
-                          spacing="12px"
+                          alignItems="center"
+                          spacing="8px"
                           mb={4}
                         >
                           <Avatar
@@ -346,7 +340,7 @@ const Landing = ({ submitted, togglePanel }) => {
                             <Heading fontSize="2xl" mb={2}>
                               <Text color="#005F89">{current.nameZH}</Text>
                             </Heading>
-                            <Heading color="gray.500" fontSize="md" mb={6}>
+                            <Heading color="gray.500" fontSize="md">
                               {current.title}
                             </Heading>
                           </Box>
@@ -356,7 +350,7 @@ const Landing = ({ submitted, togglePanel }) => {
                           {current.content}
                         </Text>
                         {current.imageDescription && (
-                          <Text {...pStyle} color="brand.500">
+                          <Text {...pStyle} color="brand.500" fontWeight="bold">
                             {current.imageDescription}
                           </Text>
                         )}
@@ -366,7 +360,7 @@ const Landing = ({ submitted, togglePanel }) => {
                           <Image src={current.image} borderRadius="8px" />
                         </Box>
                       )}
-                    </Flex>
+                    </SimpleGrid>
                   </Box>
                 </Box>
               </Flex>
