@@ -16,7 +16,10 @@ const SEO = () => {
         `}
       </script>
       {/* title */}
-      <title>立即報名：「綠色社區點做起？達人同你渾身解塑」網上共學教室 - Greenpeace 綠色和平 | 香港</title>
+      <title>
+        立即報名：「綠色社區點做起？達人同你渾身解塑」網上共學教室 - Greenpeace
+        綠色和平 | 香港
+      </title>
       <meta
         property="og:title"
         content="立即報名：「綠色社區點做起？達人同你渾身解塑」網上共學教室 - Greenpeace 綠色和平 | 香港"
@@ -33,7 +36,7 @@ const SEO = () => {
       {/* meta image */}
       <meta
         property="og:image"
-        content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/768ce5c6-pfc-webinar-preview.jpg"
+        content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/c6ed7dbc-pfc-webinar-banner-2-preview.jpg"
       />
     </Helmet>
   );

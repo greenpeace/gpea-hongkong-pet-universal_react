@@ -35,7 +35,7 @@ import themeConfig from "../../../theme";
 
 import { IoCalendarOutline, IoTimeSharp, IoVideocam } from "react-icons/io5";
 
-import banner from "../assets/images/PFC-webinar-banner-5.png";
+import banner from "../assets/images/PFC-webinar-banner-2-banner.jpg";
 import Dalu from "../assets/images/Dalu.png";
 import DaluImage from "../assets/images/123.jpg";
 import Ann from "../assets/images/Ann.png";
@@ -243,7 +243,6 @@ const Landing = ({ submitted, togglePanel }) => {
 
                 <Grid
                   templateColumns="repeat(6, 1fr)"
-                  gap={4}
                   mt={10}
                   mb={10}
                   textAlign="center"
