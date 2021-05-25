@@ -106,7 +106,7 @@ const MyForm = (props) => {
     async function fetchOptionYear() {
       let nowYear = new Date().getFullYear();
       let targetYear = nowYear - 110;
-      for (var i = nowYear; i >= targetYear; i--) {
+      for (var i = nowYear - 20; i >= targetYear; i--) {
         await optionYear.push({ label: i, value: i.toString() });
       }
       setBirthDateYear(optionYear);
@@ -389,8 +389,7 @@ const MyEnhancedForm = withFormik({
   handleSubmit: (values, { setSubmitting, props }) => {
     const { hiddenFormValue } = props.theme;
     let birthdateValue = values.Birthdate ? `${values.Birthdate}-01-01` : "";
-    // issue:
-    // form submit with '-01-01' will cause submission error
+    // issue: form submit with '-01-01' will cause submission error
     const submitData = {
       ...hiddenFormValue,
       ...values,

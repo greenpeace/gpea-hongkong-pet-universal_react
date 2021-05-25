@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import Sticky from "react-sticky-el";
 import {
+  Avatar,
   ChakraProvider,
   Box,
   Button,
@@ -32,6 +33,8 @@ import Panel from "components/panel/newFormPanel";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "../../../theme";
 
+import { IoCalendarOutline, IoTimeSharp, IoVideocam } from "react-icons/io5";
+
 import banner from "../assets/images/PFC-webinar-banner-5.png";
 import Dalu from "../assets/images/Dalu.png";
 import DaluImage from "../assets/images/123.jpg";
@@ -41,7 +44,7 @@ import Kaman from "../assets/images/Kaman.png";
 import KamanImage from "../assets/images/20210508_SSPHunting_17_square.jpg";
 import Leanne from "../assets/images/Leanne.png";
 import LeanneImage from "../assets/images/news-sns-plastics-pfc.jpg";
-import { IoCalendarOutline, IoTimeSharp, IoVideocam } from "react-icons/io5";
+import frBanner from "../assets/images/20210508_SSPHunting_17.jpg";
 
 const Landing = ({ submitted, togglePanel }) => {
   const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
@@ -90,10 +93,9 @@ const Landing = ({ submitted, togglePanel }) => {
     borderRadius: "50%",
     overflow: "hidden",
     pos: "relative",
-    w: { base: "50px", sm: "90px" },
-    h: { base: "50px", sm: "90px" },
-    border: "2px solid #FFF",
-    pb: 10,
+    w: { base: "58px", sm: "96px" },
+    h: { base: "58px", sm: "96px" },
+    pb: 8,
   };
 
   const authorContent = [
@@ -188,7 +190,13 @@ const Landing = ({ submitted, togglePanel }) => {
                 >
                   覺得自己只是被動的一方？見到社會好多事都看似沒可能改變？
                 </Heading>
-
+                <Heading
+                  color="gray.900"
+                  fontSize={{ base: "lg", sm: "2xl" }}
+                  mt={4}
+                >
+                  一齊集思廣益！有你，有可能！
+                </Heading>
                 <Divider my={{ base: 8 }} />
                 <Box>
                   <Text {...subHeadline}>WEBINAR STARTS IN</Text>
@@ -296,14 +304,18 @@ const Landing = ({ submitted, togglePanel }) => {
                         </Box>
                         <Box d={{ base: "none", xl: "block" }} align="center">
                           <Text
-                            fontSize={"xl"}
+                            fontSize={"md"}
                             pt={2}
                             fontWeight={700}
                             color={`${
                               current.name === d.name ? "#FFF" : "#F9BC81"
                             }`}
                           >
-                            {d.name}
+                            <Text>
+                              {d.nameZH}
+                              <br />
+                              {d.name}
+                            </Text>
                           </Text>
                         </Box>
                       </Box>
@@ -317,20 +329,29 @@ const Landing = ({ submitted, togglePanel }) => {
                   borderTop="1px solid #F9BC81"
                 >
                   <Box py={{ base: 4, sm: 12 }}>
-                    <Flex
-                      direction={{ base: "column", sm: "row" }}
-                      justify="center"
-                      align="center"
-                    >
+                    <Flex justify="center" align="center">
                       <Box flex="1" pr={{ base: 0, sm: 12 }}>
-                        <Flex direction={{ base: "column", sm: "row" }}>
-                          <Heading fontSize={"2xl"} mb={4}>
-                            {current.title}&nbsp;
-                          </Heading>
-                          <Heading fontSize={"2xl"} mb={4}>
-                            <Text color="#005F89"> {current.nameZH}</Text>
-                          </Heading>
-                        </Flex>
+                        <Stack
+                          direction={["column", "row"]}
+                          columns={{ base: 1, xl: 2 }}
+                          spacing="12px"
+                          mb={4}
+                        >
+                          <Avatar
+                            size="2xl"
+                            name={current.nameZH}
+                            src={current.avatar}
+                          />
+                          <Box pt={4}>
+                            <Heading fontSize="2xl" mb={2}>
+                              <Text color="#005F89">{current.nameZH}</Text>
+                            </Heading>
+                            <Heading color="gray.500" fontSize="md" mb={6}>
+                              {current.title}
+                            </Heading>
+                          </Box>
+                        </Stack>
+
                         <Text as="p" {...pStyle}>
                           {current.content}
                         </Text>
@@ -357,12 +378,7 @@ const Landing = ({ submitted, togglePanel }) => {
 
             <SimpleGrid mt="4" columns={{ base: 1, xl: 2 }} spacing={10}>
               <Flex direction="column">
-                <Image
-                  borderRadius="8px"
-                  src={
-                    "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/0f48c407-gif_reg_ty_page.gif"
-                  }
-                />
+                <Image borderRadius="8px" src={frBanner} />
               </Flex>
               <Stack spacing={4}>
                 <Heading
@@ -371,17 +387,17 @@ const Landing = ({ submitted, togglePanel }) => {
                   color="brand.500"
                   style={{ lineHeight: "1.5" }}
                 >
-                  一起守護
+                  推動全港走塑
                   <br />
-                  香港珍貴的自然資源！
+                  需要你的熱心支持！
                 </Heading>
                 <Text {...pStyle}>
-                  在高樓與繁忙都市之外，香港蘊含著豐富的生物多樣性，自然山野與遼闊海岸是眾多野生生物的居所。
+                  請幫助綠色和平組織走塑小隊，身體力行走遍全港社區！您的捐助，將讓我們在2021年有足夠資源與學校合辦「走塑學堂」、延續「尋找走塑店鋪」活動，達成全港1,100間店鋪提供走塑友善措施。
                 </Text>
-                <Text {...pStyle}>
-                  請支持綠色和平以科學角度、調查研究及行動，奮力守護大嶼及保衛郊野，守護香港珍貴的自然資源，為下一代建設宜居的生活環境！
-                </Text>
-                <Link href="https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=biodiversity&utm_campaign=biodiversity">
+                <Link
+                  href="https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=plastics&ref=plastics-pfc-page"
+                  isExternal
+                >
                   <Button
                     mt="2"
                     color="#FFF"
