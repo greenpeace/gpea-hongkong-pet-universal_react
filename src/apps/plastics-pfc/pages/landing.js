@@ -27,7 +27,6 @@ import {
 import SEO from "../SEO";
 import content from "../data/content";
 import Nav from "../components/header/nav";
-import useIntersection from '../components/feature/useIntersection'
 import Footer from "../components/footer";
 import NewFrameForm from "components/form/newFrameForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
@@ -47,6 +46,7 @@ import KamanImage from "../assets/images/20210508_SSPHunting_17_square.jpg";
 import Leanne from "../assets/images/Leanne.png";
 import LeanneImage from "../assets/images/news-sns-plastics-pfc.jpg";
 import frBanner from "../assets/images/20210508_SSPHunting_17.jpg";
+import meeting from "../assets/images/meeting.svg";
 
 const Landing = ({ submitted, togglePanel }) => {
   const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
@@ -156,17 +156,14 @@ const Landing = ({ submitted, togglePanel }) => {
       if(!isMobile){
         return
       }
-
-      // debounce(() => window.addEventListener('scroll', _.debounce(scrollHandler, 600)))
-
-      // window.addEventListener('scroll', _.debounce(scrollHandler, 600))
+        
+      window.addEventListener('scroll', scrollHandler);
     
       return () => window.removeEventListener('scroll', scrollHandler);
         
     }, [isMobile]);
     
     const scrollHandler = () => {
-
       if(isMobile && applyButtonRef.current){   
         if(window.pageYOffset > applyButtonRef.current.offsetTop + applyButtonRef.current.clientHeight){
           setShowApplyButtonAtBottom(true)
@@ -174,8 +171,7 @@ const Landing = ({ submitted, togglePanel }) => {
           setShowApplyButtonAtBottom(false)
         }
       }
-    }
-    
+    }    
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -226,41 +222,47 @@ const Landing = ({ submitted, togglePanel }) => {
                 <Divider my={{ base: 8 }} />
                 <Box>
                   <Text {...subHeadline}>WEBINAR STARTS IN</Text>
-                  <Stack spacing={4}>
-                    <Feature
-                      icon={
-                        <Icon
-                          as={IoCalendarOutline}
-                          color={"yellow.500"}
-                          w={5}
-                          h={5}
-                        />
-                      }
-                      iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                      text={"日期：2021年6月7日（星期一）"}
-                    />
-                    <Feature
-                      icon={
-                        <Icon
-                          as={IoTimeSharp}
-                          color={"yellow.500"}
-                          w={5}
-                          h={5}
-                        />
-                      }
-                      iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                      text={"時間：晚上8時至9時"}
-                    />
-                    <Feature
-                      icon={
-                        <Icon as={IoVideocam} color={"brand.400"} w={5} h={5} />
-                      }
-                      iconBg={useColorModeValue("green.100", "green.900")}
-                      text={
-                        "線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）"
-                      }
-                    />
+                  <Stack direction={{base: 'column', sm: 'row'}} align="center">
+                    <Box w="100%" maxW={{sm: '320px'}}>
+                      <Image src={meeting} w="100%"/>
+                    </Box>
+                    <Stack spacing={4}>
+                      <Feature
+                        icon={
+                          <Icon
+                            as={IoCalendarOutline}
+                            color={"yellow.500"}
+                            w={5}
+                            h={5}
+                          />
+                        }
+                        iconBg={useColorModeValue("yellow.100", "yellow.900")}
+                        text={"日期：2021年6月7日（星期一）"}
+                      />
+                      <Feature
+                        icon={
+                          <Icon
+                            as={IoTimeSharp}
+                            color={"yellow.500"}
+                            w={5}
+                            h={5}
+                          />
+                        }
+                        iconBg={useColorModeValue("yellow.100", "yellow.900")}
+                        text={"時間：晚上8時至9時"}
+                      />
+                      <Feature
+                        icon={
+                          <Icon as={IoVideocam} color={"brand.400"} w={5} h={5} />
+                        }
+                        iconBg={useColorModeValue("green.100", "green.900")}
+                        text={
+                          "線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）"
+                        }
+                      />
+                    </Stack>
                   </Stack>
+                 
 
                   {isMobile && <Center pt={10} ref={applyButtonRef}>
                     <Button
