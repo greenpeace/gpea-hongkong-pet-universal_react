@@ -30,7 +30,7 @@ import NewFrameForm from "components/form/newFrameForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
 import Panel from "components/panel/newFormPanel";
 import * as themeActions from "store/actions/action-types/theme-actions";
-import themeConfig from "./theme.js";
+import themeConfig from "../../../theme";
 import { IoCalendarOutline, IoTimeSharp, IoVideocam } from "react-icons/io5";
 
 const Index = ({ submitted, togglePanel }) => {
@@ -220,9 +220,7 @@ const Index = ({ submitted, togglePanel }) => {
             </Box>
           </Box>
 
-          <Box px={{ base: 6, sm: 10 }}>
-            <Divider />
-          </Box>
+          <Divider my={{ base: 8, lg: 10 }} />
 
           <Box p={{ base: 4, sm: 10 }}>
             <Flex justifyContent="space-between" direction={{ base: "column" }}>
@@ -291,9 +289,7 @@ const Index = ({ submitted, togglePanel }) => {
             </Flex>
           </Box>
 
-          <Box p={{ base: 2 }}>
-            <Divider />
-          </Box>
+          <Divider my={{ base: 8, lg: 10 }} />
 
           <Box p={{ base: 4, sm: 10 }}>
             <Flex justifyContent="space-between" direction={{ base: "column" }}>
@@ -353,9 +349,7 @@ const Index = ({ submitted, togglePanel }) => {
                 </Center>
               </Box>
 
-              <Box p={{ base: 2 }}>
-                <Divider />
-              </Box>
+              <Divider my={{ base: 8, lg: 10 }} />
 
               <SimpleGrid mt="4" columns={{ base: 1, xl: 2 }} spacing={10}>
                 <Flex direction="column">
