@@ -22,7 +22,7 @@ import {
   Icon,
   Grid,
   GridItem,
-  Center
+  Center,
 } from "@chakra-ui/react";
 import SEO from "../SEO";
 import content from "../data/content";
@@ -46,7 +46,6 @@ import KamanImage from "../assets/images/20210508_SSPHunting_17_square.jpg";
 import Leanne from "../assets/images/Leanne.png";
 import LeanneImage from "../assets/images/news-sns-plastics-pfc.jpg";
 import frBanner from "../assets/images/20210508_SSPHunting_17.jpg";
-import meeting from "../assets/images/meeting.svg";
 
 const Landing = ({ submitted, togglePanel }) => {
   const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
@@ -147,31 +146,32 @@ const Landing = ({ submitted, togglePanel }) => {
   ];
 
   const [current, setCurrent] = useState(authorContent[0]);
-  const [showApplyButtonAtBottom, setShowApplyButtonAtBottom] = useState(false)
+  const [showApplyButtonAtBottom, setShowApplyButtonAtBottom] = useState(false);
 
   // https://erikmartinjordan.com/visible-element-react
-    
-    useEffect(() => {
 
-      if(!isMobile){
-        return
+  useEffect(() => {
+    if (!isMobile) {
+      return;
+    }
+
+    window.addEventListener("scroll", scrollHandler);
+
+    return () => window.removeEventListener("scroll", scrollHandler);
+  }, [isMobile]);
+
+  const scrollHandler = () => {
+    if (isMobile && applyButtonRef.current) {
+      if (
+        window.pageYOffset >
+        applyButtonRef.current.offsetTop + applyButtonRef.current.clientHeight
+      ) {
+        setShowApplyButtonAtBottom(true);
+      } else {
+        setShowApplyButtonAtBottom(false);
       }
-        
-      window.addEventListener('scroll', scrollHandler);
-    
-      return () => window.removeEventListener('scroll', scrollHandler);
-        
-    }, [isMobile]);
-    
-    const scrollHandler = () => {
-      if(isMobile && applyButtonRef.current){   
-        if(window.pageYOffset > applyButtonRef.current.offsetTop + applyButtonRef.current.clientHeight){
-          setShowApplyButtonAtBottom(true)
-        } else {
-          setShowApplyButtonAtBottom(false)
-        }
-      }
-    }    
+    }
+  };
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -198,7 +198,7 @@ const Landing = ({ submitted, togglePanel }) => {
           <Box px={{ base: 4, lg: 6 }}>
             <Box>
               <Text {...subHeadline}>WEBINAR</Text>
-              <Text
+              <Heading
                 as="h1"
                 fontSize={{ base: "2xl", sm: "3xl", xl: "4xl" }}
                 fontWeight="bold"
@@ -208,7 +208,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 <Text color="brand.500" mb={2} maxWidth="780px">
                   「綠色社區點做起？達人同你渾身解塑」<Text>網上共學教室</Text>
                 </Text>
-              </Text>
+              </Heading>
             </Box>
             <Flex direction={{ base: "column", sm: "row" }}>
               <Box flex="1">
@@ -219,14 +219,13 @@ const Landing = ({ submitted, togglePanel }) => {
                 >
                   覺得自己只是被動的一方？見到社會好多事都看似沒可能改變？
                 </Heading>
-                <Divider my={{ base: 8 }} />
                 <Box>
                   <Text {...subHeadline}>WEBINAR STARTS IN</Text>
-                  <Stack direction={{base: 'column', sm: 'row'}} align="center">
-                    <Box w="100%" maxW={{sm: '320px'}}>
-                      <Image src={meeting} w="100%"/>
-                    </Box>
-                    <Stack spacing={4}>
+                  <Stack
+                    direction={{ base: "column", sm: "row" }}
+                    align="center"
+                  >
+                    <Stack spacing="12px">
                       <Feature
                         icon={
                           <Icon
@@ -253,7 +252,12 @@ const Landing = ({ submitted, togglePanel }) => {
                       />
                       <Feature
                         icon={
-                          <Icon as={IoVideocam} color={"brand.400"} w={5} h={5} />
+                          <Icon
+                            as={IoVideocam}
+                            color={"brand.400"}
+                            w={5}
+                            h={5}
+                          />
                         }
                         iconBg={useColorModeValue("green.100", "green.900")}
                         text={
@@ -262,27 +266,26 @@ const Landing = ({ submitted, togglePanel }) => {
                       />
                     </Stack>
                   </Stack>
-                 
 
-                  {isMobile && <Center pt={10} ref={applyButtonRef}>
-                    <Button
-                      w="80%"
-                      color="#FFF"
-                      bg="orange"
-                      borderRadius="24px"
-                      fontSize="xl"
-                      letterSpacing={4}
-                      style={{ zIndex: 999 }}
-                      onClick={() => togglePanel(true)}
-                    >
-                      {content.submit_text}
-                    </Button>
-                  </Center>}
-
-
+                  {isMobile && (
+                    <Center pt={10} ref={applyButtonRef}>
+                      <Button
+                        w="80%"
+                        color="#FFF"
+                        bg="orange"
+                        borderRadius="24px"
+                        fontSize="xl"
+                        letterSpacing={4}
+                        style={{ zIndex: 999 }}
+                        onClick={() => togglePanel(true)}
+                      >
+                        {content.submit_text}
+                      </Button>
+                    </Center>
+                  )}
                 </Box>
 
-                <Divider my={{ base: 8 }}/>
+                <Divider my={{ base: 8 }} />
 
                 <Text {...subHeadline}>ABOUT</Text>
 
@@ -494,43 +497,44 @@ const Landing = ({ submitted, togglePanel }) => {
           </Sticky>
         </Box>
       </Flex>
-      {showApplyButtonAtBottom && <Box
-        pos="fixed"
-        bottom={0}
-        zIndex={9}
-        p="4"
-        w="100%"
-        style={{
-          background: "rgba(255, 255, 255, 0.8)",
-          borderColor: "rgba(255, 255, 255, 0.8)",
-          boxShadow: "0px 0px 20px 0px rgb(0 0 0 / 10%)",
-          paddingTop: "6px",
-          paddingBottom: "8px",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-        d={{ base: "flex", md: "none" }}
-      >
-        <Button
-          w="80%"
-          color="#FFF"
-          bg="orange"
-          borderRadius="24px"
-          fontSize="xl"
-          letterSpacing={4}
-          style={{ zIndex: 999 }}
-          onClick={() => togglePanel(true)}
+      {showApplyButtonAtBottom && (
+        <Box
+          pos="fixed"
+          bottom={0}
+          zIndex={9}
+          p="4"
+          w="100%"
+          style={{
+            background: "rgba(255, 255, 255, 0.8)",
+            borderColor: "rgba(255, 255, 255, 0.8)",
+            boxShadow: "0px 0px 20px 0px rgb(0 0 0 / 10%)",
+            paddingTop: "6px",
+            paddingBottom: "8px",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          d={{ base: "flex", md: "none" }}
         >
-          {content.submit_text}
-        </Button>
-      </Box>}
+          <Button
+            w="80%"
+            color="#FFF"
+            bg="orange"
+            borderRadius="24px"
+            fontSize="xl"
+            letterSpacing={4}
+            style={{ zIndex: 999 }}
+            onClick={() => togglePanel(true)}
+          >
+            {content.submit_text}
+          </Button>
+        </Box>
+      )}
       <Panel
         formContent={content}
         showProgress={false}
         newsLetter={false}
         birthDate={true}
-      >
-      </Panel>
+      ></Panel>
       <Footer />
     </ChakraProvider>
   );
