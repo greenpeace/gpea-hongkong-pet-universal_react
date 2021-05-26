@@ -204,7 +204,7 @@ const MyForm = (props) => {
 
           <FormControl>
             <FormLabel {...labelStyle}>
-              {activeABTesting && variant === 0
+              {activeABTesting && variant == 0
                 ? formContent.label_phone
                 : formContent.label_phone_optional}
             </FormLabel>
@@ -251,7 +251,7 @@ const MyForm = (props) => {
                 isInvalid={errors.Birthdate && touched.Birthdate}
               >
                 <FormLabel {...labelStyle}>
-                  {activeABTesting && variant === 0
+                  {activeABTesting && variant == 0
                     ? formContent.label_year_of_birth
                     : formContent.label_year_of_birth_optional}
                 </FormLabel>
@@ -357,23 +357,29 @@ const MyEnhancedForm = withFormik({
       errors.LastName = formContent.empty_data_alert;
     }
 
-    if (activeABTesting && variant === 0) {
+    if (activeABTesting && variant == 0) {
       if (!values.MobilePhone) {
         errors.MobilePhone = formContent.empty_data_alert;
       } else if (values.MobilePhone.toString().length !== 8) {
         errors.MobilePhone = formContent.minimum_8_characters;
-      } 
+      }
 
-      if(values.MobilePhone.toString().length === 8 && values.MobileCountryCode === "852"){
+      if (
+        values.MobilePhone.toString().length === 8 &&
+        values.MobileCountryCode === "852"
+      ) {
         const regex = /^[2,3,5,6,8,9]{1}[0-9]{7}$/i;
-        if(!regex.test(values.MobilePhone)){
+        if (!regex.test(values.MobilePhone)) {
           errors.MobilePhone = formContent.invalid_format_alert;
         }
       }
 
-      if(values.MobilePhone.toString().length === 8 && values.MobileCountryCode === "853"){
+      if (
+        values.MobilePhone.toString().length === 8 &&
+        values.MobileCountryCode === "853"
+      ) {
         const regex = /^[6]{1}[0-9]{7}$/i;
-        if(!regex.test(values.MobilePhone)){
+        if (!regex.test(values.MobilePhone)) {
           errors.MobilePhone = formContent.invalid_format_alert;
         }
       }
