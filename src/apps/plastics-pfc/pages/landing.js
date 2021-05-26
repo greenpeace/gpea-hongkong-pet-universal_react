@@ -1,9 +1,8 @@
 import "swiper/swiper.scss";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import Sticky from "react-sticky-el";
-
 import {
   Avatar,
   ChakraProvider,
@@ -22,11 +21,11 @@ import {
   Icon,
   Grid,
   GridItem,
-  Center,
 } from "@chakra-ui/react";
 import SEO from "../SEO";
 import content from "../data/content";
 import Nav from "../components/header/nav";
+import HeroSwiper from "../components/feature/heroSwiper";
 import Footer from "../components/footer";
 import NewFrameForm from "components/form/newFrameForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
@@ -49,8 +48,6 @@ import frBanner from "../assets/images/20210508_SSPHunting_17.jpg";
 
 const Landing = ({ submitted, togglePanel }) => {
   const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
-  const applyButtonRef = React.useRef();
-
   const Feature = ({ text, icon, iconBg }) => {
     return (
       <Stack direction={"row"} align={"center"}>
@@ -146,32 +143,6 @@ const Landing = ({ submitted, togglePanel }) => {
   ];
 
   const [current, setCurrent] = useState(authorContent[0]);
-  const [showApplyButtonAtBottom, setShowApplyButtonAtBottom] = useState(false);
-
-  // https://erikmartinjordan.com/visible-element-react
-
-  useEffect(() => {
-    if (!isMobile) {
-      return;
-    }
-
-    window.addEventListener("scroll", scrollHandler);
-
-    return () => window.removeEventListener("scroll", scrollHandler);
-  }, [isMobile]);
-
-  const scrollHandler = () => {
-    if (isMobile && applyButtonRef.current) {
-      if (
-        window.pageYOffset >
-        applyButtonRef.current.offsetTop + applyButtonRef.current.clientHeight
-      ) {
-        setShowApplyButtonAtBottom(true);
-      } else {
-        setShowApplyButtonAtBottom(false);
-      }
-    }
-  };
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -198,7 +169,7 @@ const Landing = ({ submitted, togglePanel }) => {
           <Box px={{ base: 4, lg: 6 }}>
             <Box>
               <Text {...subHeadline}>WEBINAR</Text>
-              <Heading
+              <Text
                 as="h1"
                 fontSize={{ base: "2xl", sm: "3xl", xl: "4xl" }}
                 fontWeight="bold"
@@ -208,7 +179,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 <Text color="brand.500" mb={2} maxWidth="780px">
                   「綠色社區點做起？達人同你渾身解塑」<Text>網上共學教室</Text>
                 </Text>
-              </Heading>
+              </Text>
             </Box>
             <Flex direction={{ base: "column", sm: "row" }}>
               <Box flex="1">
@@ -219,70 +190,44 @@ const Landing = ({ submitted, togglePanel }) => {
                 >
                   覺得自己只是被動的一方？見到社會好多事都看似沒可能改變？
                 </Heading>
+                <Divider my={{ base: 8 }} />
                 <Box>
                   <Text {...subHeadline}>WEBINAR STARTS IN</Text>
-                  <Stack
-                    direction={{ base: "column", sm: "row" }}
-                    align="center"
-                  >
-                    <Stack spacing="12px">
-                      <Feature
-                        icon={
-                          <Icon
-                            as={IoCalendarOutline}
-                            color={"yellow.500"}
-                            w={5}
-                            h={5}
-                          />
-                        }
-                        iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                        text={"日期：2021年6月7日（星期一）"}
-                      />
-                      <Feature
-                        icon={
-                          <Icon
-                            as={IoTimeSharp}
-                            color={"yellow.500"}
-                            w={5}
-                            h={5}
-                          />
-                        }
-                        iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                        text={"時間：晚上8時至9時"}
-                      />
-                      <Feature
-                        icon={
-                          <Icon
-                            as={IoVideocam}
-                            color={"brand.400"}
-                            w={5}
-                            h={5}
-                          />
-                        }
-                        iconBg={useColorModeValue("green.100", "green.900")}
-                        text={
-                          "線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）"
-                        }
-                      />
-                    </Stack>
+                  <Stack spacing={4}>
+                    <Feature
+                      icon={
+                        <Icon
+                          as={IoCalendarOutline}
+                          color={"yellow.500"}
+                          w={5}
+                          h={5}
+                        />
+                      }
+                      iconBg={useColorModeValue("yellow.100", "yellow.900")}
+                      text={"日期：2021年6月7日（星期一）"}
+                    />
+                    <Feature
+                      icon={
+                        <Icon
+                          as={IoTimeSharp}
+                          color={"yellow.500"}
+                          w={5}
+                          h={5}
+                        />
+                      }
+                      iconBg={useColorModeValue("yellow.100", "yellow.900")}
+                      text={"時間：晚上8時至9時"}
+                    />
+                    <Feature
+                      icon={
+                        <Icon as={IoVideocam} color={"brand.400"} w={5} h={5} />
+                      }
+                      iconBg={useColorModeValue("green.100", "green.900")}
+                      text={
+                        "線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）"
+                      }
+                    />
                   </Stack>
-
-                  {isMobile && (
-                    <Center pt={10} ref={applyButtonRef}>
-                      <Button
-                        w="80%"
-                        color="#FFF"
-                        bg="orange"
-                        borderRadius="24px"
-                        fontSize="xl"
-                        letterSpacing={4}
-                        style={{ zIndex: 999 }}
-                        onClick={() => togglePanel(true)}
-                      >
-                        {content.submit_text}
-                      </Button>
-                    </Center>
-                  )}
                 </Box>
 
                 <Divider my={{ base: 8 }} />
@@ -497,44 +442,46 @@ const Landing = ({ submitted, togglePanel }) => {
           </Sticky>
         </Box>
       </Flex>
-      {showApplyButtonAtBottom && (
-        <Box
-          pos="fixed"
-          bottom={0}
-          zIndex={9}
-          p="4"
-          w="100%"
-          style={{
-            background: "rgba(255, 255, 255, 0.8)",
-            borderColor: "rgba(255, 255, 255, 0.8)",
-            boxShadow: "0px 0px 20px 0px rgb(0 0 0 / 10%)",
-            paddingTop: "6px",
-            paddingBottom: "8px",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          d={{ base: "flex", md: "none" }}
+      <Box
+        pos="fixed"
+        bottom={0}
+        zIndex={9}
+        p="4"
+        w="100%"
+        style={{
+          background: "rgba(255, 255, 255, 0.8)",
+          borderColor: "rgba(255, 255, 255, 0.8)",
+          boxShadow: "0px 0px 20px 0px rgb(0 0 0 / 10%)",
+          paddingTop: "6px",
+          paddingBottom: "8px",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        d={{ base: "flex", md: "none" }}
+      >
+        <Button
+          w="80%"
+          color="#FFF"
+          bg="orange"
+          borderRadius="24px"
+          fontSize="xl"
+          letterSpacing={4}
+          style={{ zIndex: 999 }}
+          onClick={() => togglePanel(true)}
         >
-          <Button
-            w="80%"
-            color="#FFF"
-            bg="orange"
-            borderRadius="24px"
-            fontSize="xl"
-            letterSpacing={4}
-            style={{ zIndex: 999 }}
-            onClick={() => togglePanel(true)}
-          >
-            {content.submit_text}
-          </Button>
-        </Box>
-      )}
+          {content.submit_text}
+        </Button>
+      </Box>
       <Panel
         formContent={content}
         showProgress={false}
         newsLetter={false}
         birthDate={true}
-      ></Panel>
+      >
+        {/* {submitted && isMobile && (
+          <HeroSwiper isMobile={isMobile} swiperHeight="480px" />
+        )} */}
+      </Panel>
       <Footer />
     </ChakraProvider>
   );

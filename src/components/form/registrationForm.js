@@ -114,13 +114,17 @@ let RegistrationForm = ({
 
   const handleSubmit = (isValid) => {
     const OptIn = refCheckbox.current.state?.checked;
+
     if (isValid) {
       const { formValue } = refForm.current.state;
+      let birthdateValue = formValue.Birthdate
+        ? `${formValue.Birthdate}-01-01`
+        : "";
       submitForm({
         ...hiddenFormValues,
         ...formValue,
         OptIn,
-        Birthdate: `${formValue.Birthdate}-01-01`,
+        Birthdate: birthdateValue,
       });
       // Check submit value
       /*
