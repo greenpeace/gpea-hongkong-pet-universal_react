@@ -59,7 +59,7 @@ const Landing = ({ submitted, togglePanel }) => {
   const WebinarContent = {
     date: "日期：2021年6月19日（星期六）",
     time: "時間：下午2時半至3時半",
-    description: "線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）注意事項：嘉賓將以普通話進行分享，主持人會以粵語輔助",
+    description: "線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）",
     other: "注意事項：嘉賓將以普通話進行分享，主持人會以粵語輔助"
   }
 
@@ -122,7 +122,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 </Text>
 
                 <Box py={8}>
-                  <Stack direction="row" spacing={12}>
+                  <Stack direction={{base: 'column', sm: 'row'}} spacing={12} h={{base: '1080px', sm: "360px"}}>
                   {thumbnailContent.map((d,i)=>
                     <Box key={i} pos="relative" bgImage={`url(${d.thumbnail})`} borderRadius="8px" flex="1" h="360px" bgSize={'cover'}>
                       <Box pos="absolute" bgColor="#FFF" bottom={'20px'} w="80%" py={2} borderTopRightRadius={'8px'} borderBottomRightRadius={'8px'}>
@@ -161,18 +161,6 @@ const Landing = ({ submitted, togglePanel }) => {
                         ml={{ base: "0px", xl: "-110px" }}
                         mt={{ base: "-80px", xl: "0px" }}
                       >
-                        {/* <Box
-                          maxW="120px"
-                          borderColor="brand.600"
-                          borderWidth="1px"
-                          borderRadius="8px"
-                          overflow="hidden"
-                          mb="6"
-                        >
-                          <Image
-                            src={avatar}
-                          />
-                        </Box> */}
                         <Heading
                           fontSize={{ base: "md", xl: "2xl" }}
                           color="brand.600"

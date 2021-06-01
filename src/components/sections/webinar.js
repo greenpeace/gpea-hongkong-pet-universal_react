@@ -71,7 +71,7 @@ const Webinar = ({content}) => {
           <Icon as={GoBook} color={"#FFF"} w={5} h={5} />
         }
         iconBg={"gray.500"}
-        text={content.description}
+        text={content.other}
       />}
     </Stack>
   </Box>
