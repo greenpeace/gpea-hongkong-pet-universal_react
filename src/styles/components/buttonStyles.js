@@ -9,6 +9,15 @@ export const ButtonStyles = {
       fontSize: {base: "18px"},
       color: "#FFF",
       fontWeight: 'bold'
+    },
+    formSubmitButton: {
+      fontSize: {base: "18px"},
+      color: "#FFF",
+      bgColor: "brand.500",
+      fontWeight: 'bold',
+      w: "100%",
+      _hover: { bg: "brand.700", color: "#FFF" },
+      py: 6
     }
   },
   // default values for `size` and `variant`

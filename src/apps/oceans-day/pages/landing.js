@@ -28,12 +28,11 @@ import Nav from "../components/header/nav";
 import Footer from "../components/footer";
 import Webinar from "components/sections/webinar";
 import NewFrameForm from "components/form/newFrameForm";
+import DonateForm from "components/form/donateForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
 import Panel from "components/panel/newFormPanel";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "../../../theme";
-
-import { IoCalendarOutline, IoTimeSharp, IoVideocam } from "react-icons/io5";
 
 import banner from "../assets/images/PFC-webinar-banner-2-banner.jpg";
 import Dalu from "../assets/images/Dalu.png";
@@ -389,15 +388,7 @@ const Landing = ({ submitted, togglePanel }) => {
           d={{ base: "none", md: "block" }}
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
-            <Box
-              borderTop="4px solid #66cc00"
-              boxShadow="lg"
-              p={6}
-              rounded="md"
-              bg="white"
-              overflow="hidden"
-            >
-            <NewFrameSubmittedForm formContent={content} />
+            <DonateForm formContent={content} />
               {/* {submitted ? (
                 <NewFrameSubmittedForm formContent={content} />
               ) : (
@@ -409,7 +400,6 @@ const Landing = ({ submitted, togglePanel }) => {
                   birthDate={true}
                 />
               )} */}
-            </Box>
           </Sticky>
         </Box>
       </Flex>

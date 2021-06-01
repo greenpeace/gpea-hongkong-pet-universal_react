@@ -125,7 +125,14 @@ const MyForm = (props) => {
   }, [submitted]);
 
   return (
-    <>
+    <Box
+    borderTop="4px solid #66cc00"
+    boxShadow="lg"
+    p={6}
+    rounded="md"
+    bg="white"
+    overflow="hidden"
+  >
       <Form onSubmit={handleSubmit}>
         <Heading
           pt="4"
@@ -311,7 +318,7 @@ const MyForm = (props) => {
           </Box>
         </Flex>
       </Form>
-    </>
+    </Box>
   );
 };
 
