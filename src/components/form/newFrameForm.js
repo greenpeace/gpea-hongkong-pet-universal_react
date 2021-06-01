@@ -126,13 +126,13 @@ const MyForm = (props) => {
 
   return (
     <Box
-    borderTop="4px solid #66cc00"
-    boxShadow="lg"
-    p={6}
-    rounded="md"
-    bg="white"
-    overflow="hidden"
-  >
+      borderTop={{base: null, sm: "4px solid #66cc00"}}
+      boxShadow={{base: null, sm: "lg"}}
+      p={{base:0, sm: 6}}
+      rounded={{base: 0, sm: "md"}}
+      bg="white"
+      overflow="hidden"
+    >
       <Form onSubmit={handleSubmit}>
         <Heading
           pt="4"
