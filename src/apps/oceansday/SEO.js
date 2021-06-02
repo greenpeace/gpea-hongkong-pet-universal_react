@@ -10,14 +10,15 @@ const SEO = () => {
         {`
           var dataLayer = (window.dataLayer = window.dataLayer || []);
           dataLayer.push({
-            gCampaign: "plastics",
-            gBasket: "plastics-pfc",
+            gCampaign: "oceans",
+            gBasket: "oceansday",
           });
         `}
       </script>
       {/* title */}
       <title>
-        立即報名：直擊「彩虹勇士號」工作：三個月的海上任務 - Greenpeace 綠色和平 | 香港
+        立即報名：直擊「彩虹勇士號」工作：三個月的海上任務 - Greenpeace 綠色和平
+        | 香港
       </title>
       <meta
         property="og:title"
@@ -35,7 +36,7 @@ const SEO = () => {
       {/* meta image */}
       <meta
         property="og:image"
-        content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/c6ed7dbc-pfc-webinar-banner-2-preview.jpg"
+        content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/06/b5c28d4e-artboard-1-od-webinar-main.jpg"
       />
     </Helmet>
   );
