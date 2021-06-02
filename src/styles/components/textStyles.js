@@ -7,13 +7,13 @@ export const TextStyles = {
   variants: {
     heading: {
       color: "brand.500",
-      fontSize: {base: "4xl"},
-      fontWeight: 700,
-      lineHeight: '42px'
+      fontSize: {base: "2xl", sm: "3xl"},
+      fontWeight: 700
     },
     description: {
       fontSize: {base: "18px"},
       lineHeight: {base: "30px"},
+      m: 0
     }
   },
   // default values for `size` and `variant`

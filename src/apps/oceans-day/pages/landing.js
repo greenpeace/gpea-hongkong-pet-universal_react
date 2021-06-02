@@ -300,7 +300,7 @@ const Landing = ({ submitted, togglePanel }) => {
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-    // submitted: false, // TEST submitted
+    // submitted: true, // TEST submitted
   };
 };
 
