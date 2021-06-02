@@ -8,7 +8,9 @@ export const ButtonStyles = {
     donateButton: {
       fontSize: {base: "18px"},
       color: "#FFF",
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      height: '50px',
+      my: 4
     },
     formSubmitButton: {
       fontSize: {base: "18px"},
