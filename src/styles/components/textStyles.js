@@ -10,10 +10,22 @@ export const TextStyles = {
       fontSize: {base: "2xl", sm: "3xl"},
       fontWeight: 700
     },
-    description: {
-      fontSize: {base: "18px"},
-      lineHeight: {base: "30px"},
-      m: 0
+    paragraph: {
+      color: "gray.900",
+      fontSize: {base: "sm", sm: "18px"},
+      fontWeight: 500,
+      lineHeight: '30px'
+    },
+    authorName: {
+      color: "brand.500",
+      fontSize: {base: "2xl", sm: "3xl"},
+      fontWeight: 700
+    },
+    authorTitle: {
+      color: "gray.500",
+      fontSize: {base: "sm", sm: "md"},
+      fontWeight: 500,
+      lineHeight: '24px'
     }
   },
   // default values for `size` and `variant`

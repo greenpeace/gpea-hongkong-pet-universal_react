@@ -1,7 +1,6 @@
 import "swiper/swiper.scss";
-import React from "react";
+import React, {useRef} from "react";
 import { connect } from "react-redux";
-import { useMediaQuery } from "react-responsive";
 import Sticky from "react-sticky-el";
 import {
   ChakraProvider,
@@ -26,17 +25,30 @@ import NewFrameForm from "components/form/newFrameForm";
 import DonateForm from "components/form/donateForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
 import Panel from "components/panel/newFormPanel";
+import SwiperContent from "../components/carousal"
+
 import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "../../../theme";
+import { HiArrowNarrowRight, HiArrowNarrowLeft } from "react-icons/hi";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import "swiper/swiper.min.css";
+import "swiper/components/navigation/navigation.min.css"
+
+// import Swiper core and required modules
+import SwiperCore, {
+  Navigation
+} from 'swiper/core';
 
 import banner from "../assets/images/hero.jpg";
 import thumbnail from "../assets/images/GP0STUTFE_Medium_res.jpg";
 import thumbnailTwo from "../assets/images/GP1SUZTO_Medium_res.jpg";
 import thumbnailThree from "../assets/images/GP1SV4UD_High_res.jpg";
-import avatar from "../assets/images/MD-GP-PORTRAITKELLYHUANG001.jpg";
-import frBanner from "../assets/images/20210508_SSPHunting_17.jpg";
 
 const Landing = ({ submitted, togglePanel }) => {
+  const swiperRef = useRef(null);
   const subHeadline = {
     color: "gray.700",
     fontSize: "sm",
@@ -45,14 +57,6 @@ const Landing = ({ submitted, togglePanel }) => {
     mb: "4",
     pl: "2",
     borderLeft: "4px solid #00b474",
-  };
-
-  const pStyle = {
-    as: "p",
-    marginTop: "20px",
-    color: "gray.900",
-    lineHeight: "1.7",
-    fontSize: "16px",
   };
 
   const WebinarContent = {
@@ -80,7 +84,8 @@ const Landing = ({ submitted, togglePanel }) => {
     },
   ];
 
-  // const [current, setCurrent] = useState();
+  // install Swiper modules
+  SwiperCore.use([Navigation]);
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -128,98 +133,97 @@ const Landing = ({ submitted, togglePanel }) => {
 
                 <Text {...subHeadline}>ABOUT</Text>
 
-                <Text as="p" {...pStyle}>
+                <Text variant="paragraph">
                   綠色和平全球守護海洋專員黃毓琪Kelly在年頭登上「彩虹勇士號」船艦，任務地點極為偏遠，航行近三個月，見證並抗議太平洋深海採礦測試，更揭露GSR採礦機器墜海第一手消息，向世界說出企業破壞海洋生態的真相。
                 </Text>
 
-                <Text as="p" {...pStyle}>
+                <Text variant="paragraph">
                   綠色和平今次請來這位「海洋鬥士」和大家介紹「彩虹勇士號」，認識船艙與駕駛室，並了解綠色和平行動團隊的任務。Kelly將講述海洋行動實錄，分享公海環境實況，在太平洋遇上海豚等珍貴經歷。她亦會透過親身見證，解說綠色和平進行海洋獨立調查成果、拯救海洋免於污染的方法，以及成立全球海洋公約的必要性。
                 </Text>
               </Box>
             </Flex>
+          </Box>
 
+          <Box mt={'-30px'}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 240">
+              <path fill="#DEECFF" fill-opacity="1" d="M0,224L48,208C96,192,192,160,288,165.3C384,171,480,213,576,229.3C672,245,768,235,864,202.7C960,171,1056,117,1152,96C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+          </Box>
+
+          <Box bgColor="#DEECFF" px={6} mt={0}>
             <Box py={{ base: 4, sm: 10 }}>
-              <Flex
-                justifyContent="space-between"
-                direction={{ base: "column" }}
-              >
-                <Box>
-                  <Flex direction={{ base: "column", xl: "row" }}>
-                    <Box flex="1">
-                      <Image src={thumbnailThree} borderRadius="8px" w="100%" />
-                    </Box>
-                    <Box align="center">
-                      <Center h="100%">
-                        <Box
-                          bgColor="#FFF"
-                          borderRadius="8px"
-                          p={6}
-                          ml={{ base: "0px", xl: "-110px" }}
-                          mt={{ base: "-80px", xl: "0px" }}
-                        >
-                          <Heading
-                            fontSize={{ base: "md", xl: "2xl" }}
-                            color="brand.600"
-                            mb="2"
-                          >
-                            黃毓琪 Kelly
-                          </Heading>
-                          <Text size="sm" color="gray.500">
-                            守護海洋專員
-                          </Text>
-                        </Box>
-                      </Center>
-                    </Box>
-
-                    <Box flex="1" px={{ base: 0 }}>
-                      <Center h="100%">
-                        <Text {...pStyle} mt={4} pr={{ base: 0, xl: "30px" }}>
-                          來自台灣的綠色和平全球守護海洋專員，曾於綠色和平台北及香港辦公室工作。Kelly在2021年登上「彩虹勇士號」，與24位行動者、船員在太平洋展開為期三個月的守護海洋任務。Kelly與團隊曾見證並阻止企業深海採礦測試，24小時輪流監察採礦機器，行動者更駕駛快艇到企業巨輪旁，抗議破壞海洋的活動。在這三個月中，Kelly亦穿越巴拿馬運河、駐守太平洋、遇見海豚、記錄採礦機墜海第一手消息⋯⋯日以繼夜地守護海洋，為推動成立海洋公約、杜絕海洋破壞而奮鬥。
-                        </Text>
-                      </Center>
-                    </Box>
-                  </Flex>
-                </Box>
-              </Flex>
-
-              {/* Album */}
-              <Box py={8}>
-                <Stack
-                  direction={{ base: "column", sm: "row" }}
-                  spacing={12}
-                  h={{ base: "1080px", sm: "360px" }}
-                >
-                  {thumbnailContent.map((d, i) => (
-                    <Box
-                      key={i}
-                      pos="relative"
-                      bgImage={`url(${d.thumbnail})`}
-                      borderRadius="8px"
-                      flex="1"
-                      h="360px"
-                      bgSize={"cover"}
-                    >
-                      <Box
-                        pos="absolute"
-                        bgColor="#FFF"
-                        bottom={"20px"}
-                        w="80%"
-                        py={2}
-                        borderTopRightRadius={"8px"}
-                        borderBottomRightRadius={"8px"}
-                      >
-                        <Text>{d.content}</Text>
+              <Box boxShadow="xl" borderRadius="8px" bgColor="#FFF">
+                <Flex direction={{base: 'column', sm: 'row'}} justify="center" align="center" minWidth="0px">
+                  <Box w={{base: '100%',sm: '40%' }} h={{base: '240px', md: "480px"}}  pos="relative">
+                    <Image src={thumbnailThree} borderTopRadius="8px" d={{base: 'block',sm: 'none' }} />
+                    <Center d={{base: 'none',sm: 'block' }} bgImage={`url(${thumbnailThree})`} pos={{base: 'relative', sm: 'absolute'}} top={0} left={0} right={0} bottom={0} h="100%" w="100%" bgSize={"cover"} bgPosition="center center" borderLeftRadius="8px"/>
+                  </Box>
+                  <Box w={{base: '100%',sm: '60%' }}>
+                    <Stack direction="column" p={{base: 4, sm: 8}}>
+                      <Box mb={{base: 2, sm: 6}}>
+                        <Text variant="authorName">黃毓琪 Kelly</Text>
+                        <Text variant="authorTitle">守護海洋專員</Text>
                       </Box>
-                    </Box>
-                  ))}
-                </Stack>
+                      
+                      <Text variant="paragraph">
+                        來自台灣的綠色和平全球守護海洋專員，曾於綠色和平台北及香港辦公室工作。Kelly在2021年登上「彩虹勇士號」，與24位行動者、船員在太平洋展開為期三個月的守護海洋任務。Kelly與團隊曾見證並阻止企業深海採礦測試，24小時輪流監察採礦機器，行動者更駕駛快艇到企業巨輪旁，抗議破壞海洋的活動。在這三個月中，Kelly亦穿越巴拿馬運河、駐守太平洋、遇見海豚、記錄採礦機墜海第一手消息⋯⋯日以繼夜地守護海洋，為推動成立海洋公約、杜絕海洋破壞而奮鬥。
+                      </Text>
+                      
+                    </Stack>
+                  </Box>
+                </Flex>
               </Box>
             </Box>
+          </Box>
+          <Box mt={0}>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100">
+              <path
+                fill="#DEECFF"
+                d="M0,96L48,85.3C96,75,192,53,288,48C384,43,480,53,576,53.3C672,53,768,43,864,42.7C960,43,1056,53,1152,58.7C1248,64,1344,64,1392,64L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+              ></path>
+            </svg>
+          </Box>
+          
+          
+            <Box pt={6} px={6}>
+              <Swiper
+                spaceBetween={20}
+                slidesPerView={2}
+                onSwiper={(swiper) => console.log(swiper)}
+                // navigation={true}
+                ref={swiperRef}
+                breakpoints={{
+                  320: {
+                    slidesPerView: 1,
+                  },
+                  991: {
+                    slidesPerView: 2,
+                  },
+                }}
+              >
+                {thumbnailContent.map((d, i) => (<SwiperSlide>
+                    <Box key={i} pos="relative" borderRadius="8px" flex="1">
+                      <Image src={d.thumbnail} borderRadius="8px"/>
+                      <Text pt={2}>{d.content}</Text>
+                    </Box>
+                    </SwiperSlide>
+                  ))}
+                  <Box align="right" justify="right" textAlign="right">
+                  <Flex direction="row" justifyContent="flex-end">
+                    <Box px={2} opacity={.6} _hover={{cursor: 'pointer', opacity: 1}} onClick={() => swiperRef.current.swiper.slidePrev()}><HiArrowNarrowLeft fontSize={24}/></Box>
+                    <Box px={2} opacity={.6} _hover={{cursor: 'pointer', opacity: 1}} onClick={() => swiperRef.current.swiper.slideNext()} ><HiArrowNarrowRight fontSize={24}/></Box>
+                  </Flex>
+                  </Box>
+                  
+              </Swiper>
+            </Box>
 
-            <Box pb={12}>
+
+
+            <Box pb={12} px={6}>
               <Divider my={{ base: 8, lg: 10 }} />
 
-              <Stack direction={{base: "column", sm: "row"}} mt="4" spacing={{base: 10, sm: 20}}>
+              <Stack direction={{base: "column", sm: "row"}} mt="4" spacing={{base: 10}}>
                 <Box flex="1">
                   <Image borderRadius="8px" src={thumbnail} />
                 </Box>
@@ -234,7 +238,7 @@ const Landing = ({ submitted, togglePanel }) => {
                     <br />
                     急需您的支持！
                   </Heading>
-                  <Text {...pStyle}>
+                  <Text>
                     此刻，全球公海只有約1%受保護，要有效管制破壞海洋的行為，以保護、維持、復育海洋。
                     <br />
                     綠色和平急需您的支持，在今年爭取訂立「全球海洋公約」，大步邁向擴展全球海洋保護區至30%的目標。
@@ -256,13 +260,14 @@ const Landing = ({ submitted, togglePanel }) => {
                       立即捐助
                     </Button>
                   </Link>
-                  <Text {...pStyle}>
+                  <Text>
                     綠色和平成立50年，從不接受政商界捐助，在環境工作上維持公正獨立！
                   </Text>
                 </Stack>
               </Stack>
             </Box>
-          </Box>
+
+
         </Box>
         <Box
           w={{ base: 0, md: "50%", lg: "500px" }}
@@ -285,6 +290,7 @@ const Landing = ({ submitted, togglePanel }) => {
             )}
           </Sticky>
         </Box>
+
       </Flex>
       <Box
         pos="fixed"
