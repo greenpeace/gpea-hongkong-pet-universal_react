@@ -190,11 +190,11 @@ const Landing = ({ submitted, togglePanel }) => {
             <Box pb={12}>
               <Divider my={{ base: 8, lg: 10 }} />
 
-              <SimpleGrid mt="4" columns={{ base: 1, xl: 2 }} spacing={10}>
-                <Flex direction="column">
-                  <Image borderRadius="8px" src={frBanner} />
-                </Flex>
-                <Stack spacing={4}>
+              <Stack direction={{base: "column", sm: "row"}} mt="4" spacing={{base: 10, sm: 20}}>
+                <Box flex="1">
+                  <Image borderRadius="8px" src={thumbnail} />
+                </Box>
+                <Stack spacing={4} flex="1">
                   <Heading
                     as="h2"
                     size="lg"
@@ -229,7 +229,7 @@ const Landing = ({ submitted, togglePanel }) => {
                     綠色和平成立50年，從不接受政商界捐助，在環境工作上維持公正獨立！
                   </Text>
                 </Stack>
-              </SimpleGrid>
+              </Stack>
             </Box>
           </Box>
         </Box>
@@ -300,7 +300,6 @@ const Landing = ({ submitted, togglePanel }) => {
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-    // submitted: true, // TEST submitted
   };
 };
 
