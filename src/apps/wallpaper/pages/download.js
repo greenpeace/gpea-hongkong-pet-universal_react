@@ -36,7 +36,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
   const [displayCate, setDisplayCate] = useState(false);
   const [isShown, setIsShown] = useState(false);
   const [download, setDownload] = useState(
-    wallpaper.data[3].content.wallpaperList[0]
+    wallpaper.data[3].content.wallpaperList[0].source
   );
   const campaignButton = [
     { label_zh: "北極", label: "Arctic", value: Arctic },
@@ -139,6 +139,8 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
     flex: "1",
     borderRadius: "20px",
   };
+
+  console.log('download--',download)
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -258,12 +260,13 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
           </Heading>
           {isMobile ? (
             <SimpleGrid columns={2} spacing="12px">
-              {current.content?.wallpaperList.map((d, i) => (
+              {current.content?.wallpaperList.map((d, i) => {
+              return(
                 <Box
                   pos="relative"
                   key={i}
                   _hover={{ cursor: "pointer", opacity: 0.8 }}
-                  onClick={() => handleSetDownload(d)}
+                  onClick={() => handleSetDownload(d.source)}
                 >
                   {/* <Link
                     href={`${process.env.PUBLIC_URL}${d}`}
@@ -285,23 +288,27 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                     </Box>
                     <Box pos="absolute" {...mobileDownloadButtonStyle}></Box>
                     */}
-                    <Image src={`${process.env.PUBLIC_URL}${d}`} />
+                    <Image src={`${process.env.PUBLIC_URL}${d.source}`} />
                   </LazyLoad>
+                  <Text align="center" pt={1}>{d.label_zh}</Text>
                 </Box>
-              ))}
+              )})}
             </SimpleGrid>
           ) : (
             <SimpleGrid minChildWidth="180px" spacing="20px">
               {current.content?.wallpaperList.map((d, i) => (
+              <Box>
                 <Box
                   name={d}
                   key={i}
-                  bgImage={`url(${process.env.PUBLIC_URL}${d})`}
+                  bgImage={`url(${process.env.PUBLIC_URL}${d.source})`}
                   bgSize="cover"
                   height={{ base: "240px", sm: "180px" }}
                   _hover={{ cursor: "pointer", opacity: 0.8 }}
-                  onClick={() => handleSetDownload(d)}
-                ></Box>
+                  onClick={() => handleSetDownload(d.source)}
+                />
+                <Text align="center" pt={1}>{d.label_zh}</Text>
+              </Box>
               ))}
             </SimpleGrid>
           )}

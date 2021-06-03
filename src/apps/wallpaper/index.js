@@ -47,7 +47,7 @@ const Index = ({ submitted, activeABTesting, setVariant, togglePanel }) => {
     }
   }, [submitted]);
 
-  return submittedForm ? <Download /> : <Landing />;
+  return true ? <Download /> : <Landing />;
 };
 
 const mapStateToProps = ({ theme }) => {
