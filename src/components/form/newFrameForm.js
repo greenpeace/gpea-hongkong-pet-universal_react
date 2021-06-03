@@ -125,15 +125,25 @@ const MyForm = (props) => {
   }, [submitted]);
 
   return (
-    <>
+    <Box
+      borderTop={{base: null, sm: "4px solid #66cc00"}}
+      boxShadow={{base: null, sm: "lg"}}
+      p={{base:0, sm: 6}}
+      rounded={{base: 0, sm: "md"}}
+      bg="white"
+      overflow="hidden"
+    >
       <Form onSubmit={handleSubmit}>
-        <Heading
+      <Text py={4} variant="heading" fontSize="2xl" color="gray.900" py={2}>
+        <span dangerouslySetInnerHTML={{ __html: formContent.form_header }}/>
+      </Text>
+        {/* <Heading
           pt="4"
           mb="6"
           size="md"
           color="gray.900"
           dangerouslySetInnerHTML={{ __html: formContent.form_header }}
-        ></Heading>
+        ></Heading> */}
         {formContent.form_description && (
           <Text pb={4}>{formContent.form_description}</Text>
         )}
@@ -204,7 +214,7 @@ const MyForm = (props) => {
 
           <FormControl>
             <FormLabel {...labelStyle}>
-              {activeABTesting && variant === 0
+              {activeABTesting && variant == 0
                 ? formContent.label_phone
                 : formContent.label_phone_optional}
             </FormLabel>
@@ -251,7 +261,7 @@ const MyForm = (props) => {
                 isInvalid={errors.Birthdate && touched.Birthdate}
               >
                 <FormLabel {...labelStyle}>
-                  {activeABTesting && variant === 0
+                  {activeABTesting && variant == 0
                     ? formContent.label_year_of_birth
                     : formContent.label_year_of_birth_optional}
                 </FormLabel>
@@ -311,7 +321,7 @@ const MyForm = (props) => {
           </Box>
         </Flex>
       </Form>
-    </>
+    </Box>
   );
 };
 
@@ -357,7 +367,7 @@ const MyEnhancedForm = withFormik({
       errors.LastName = formContent.empty_data_alert;
     }
 
-    if (activeABTesting && variant === 0) {
+    if (activeABTesting && variant == 0) {
       if (!values.MobilePhone) {
         errors.MobilePhone = formContent.empty_data_alert;
       } else if (values.MobilePhone.toString().length !== 8) {
