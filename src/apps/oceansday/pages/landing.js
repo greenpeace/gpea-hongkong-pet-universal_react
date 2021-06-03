@@ -12,7 +12,6 @@ import {
   Text,
   Heading,
   Link,
-  SimpleGrid,
   Stack,
   Center,
 } from "@chakra-ui/react";
@@ -67,11 +66,6 @@ const Landing = ({ submitted, togglePanel }) => {
 
   const thumbnailContent = [
     {
-      thumbnail: thumbnail,
-      content:
-        "綠色和平團隊駕駛橡皮艇靠近巨大的採礦機器，舉起橫額與畫上「RISK」字眼抗議。",
-    },
-    {
       thumbnail: thumbnailTwo,
       content:
         "Kelly在航程中遇見野生海豚、吞拿魚、極度瀕危的欖蠵龜等海洋生物。",
@@ -80,6 +74,11 @@ const Landing = ({ submitted, togglePanel }) => {
       thumbnail: thumbnailThree,
       content:
         "Kelly與團隊24小時站崗，觀察採礦機器的一舉一動，揭露企業污染海洋的真相。",
+    },
+    {
+      thumbnail: thumbnail,
+      content:
+        "綠色和平團隊駕駛橡皮艇靠近巨大的採礦機器，舉起橫額與畫上「RISK」字眼抗議。",
     },
   ];
 
