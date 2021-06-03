@@ -218,7 +218,7 @@ const Landing = ({ submitted, togglePanel }) => {
             <Swiper
               spaceBetween={20}
               slidesPerView={2}
-              onSwiper={(swiper) => console.log(swiper)}
+              // onSwiper={(swiper) => console.log(swiper)}
               // navigation={true}
               ref={swiperRef}
               breakpoints={{
