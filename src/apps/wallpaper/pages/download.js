@@ -14,6 +14,9 @@ import {
   Center,
   VStack,
   HStack,
+  Stack,
+  Avatar,
+  Flex
 } from "@chakra-ui/react";
 import Nav from "../components/header/nav";
 import Footer from "../components/footer";
@@ -22,8 +25,11 @@ import themeConfig from "../../../theme";
 import { animateScroll as scroll, scroller } from "react-scroll";
 import { DownloadIcon } from "@chakra-ui/icons";
 
+import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
+
 import LazyLoad from "react-lazyload";
 
+import shing from "../assets/images/shing_2x.png";
 import wallpaper from "../../../data/wallpaper.json";
 
 import "../index.css";
@@ -140,8 +146,6 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
     borderRadius: "20px",
   };
 
-  console.log('download--',download)
-
   return (
     <ChakraProvider theme={themeConfig}>
       <Nav showButton={false} />
@@ -158,6 +162,94 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
             <br />
             綠色和平不接受政府、企業捐款，請立刻加入我們的1%會員計畫，以您的1%收入，支持我們的100%財政獨立。
           </Text>
+
+          {/* <Box align="center">
+            <Center h="100%">
+              <Box
+                bgColor="#FFF"
+                borderRadius="8px"
+                p={6}
+                ml={{ base: "0px", xl: "-110px" }}
+                mt={{ base: "-80px", xl: "0px" }}
+                w={{ base: "230px" }}
+              >
+                <Box
+                  maxW="120px"
+                  borderColor="brand.600"
+                  borderWidth="1px"
+                  borderRadius="full"
+                  overflow="hidden"
+                  mb="6"
+                >
+                  <Image src={shing}/>
+                </Box>
+                <Heading
+                  fontSize={{ base: "md", xl: "2xl" }}
+                  color="brand.600"
+                  mb="2"
+                >
+                  馮漢城（阿城）
+                </Heading>
+                <Text size="sm" color="gray.500">
+                  本地生態攝影師
+                </Text>
+              </Box>
+            </Center>
+          </Box> */}
+
+
+          {/* <Flex direction="column">
+                <Box
+                  bgColor="#FFF"
+                  py={6}
+                  px={{ base: 2, sm: 8 }}
+                  borderTop="1px solid #F9BC81"
+                >
+                  <Box py={6}>
+                    <SimpleGrid columns={{ base: 1, xl: 2 }} spacing="8px">
+                      <Box flex="1" pr={{ base: 0, sm: 12 }}>
+                        <Stack
+                          direction={["column", "row"]}
+                          columns={{ base: 1, xl: 2 }}
+                          alignItems="center"
+                          spacing="8px"
+                          mb={4}
+                        >
+                          <Avatar
+                            size="2xl"
+                            name={current.nameZH}
+                            src={current.avatar}
+                          />
+                          <Box pt={4}>
+                            <Heading fontSize="2xl" mb={2}>
+                              <Text color="#005F89">{current.nameZH}</Text>
+                            </Heading>
+                            <Heading color="gray.500" fontSize="md">
+                              {current.title}
+                            </Heading>
+                          </Box>
+                        </Stack>
+
+                        <Text as="p" {...pStyle}>
+                          {current.content}
+                        </Text>
+                        {current.imageDescription && (
+                          <Text {...pStyle} color="brand.500" fontWeight="bold">
+                            {current.imageDescription}
+                          </Text>
+                        )}
+                      </Box>
+                      {current.image && (
+                        <Box maxW="320px" pt={{ base: 6, sm: 0 }}>
+                          <Image src={current.image} borderRadius="8px" />
+                        </Box>
+                      )}
+                    </SimpleGrid>
+                  </Box>
+                </Box>
+              </Flex> */}
+
+
           <HStack align="center" pt="6" pb="4" spacing="4">
             <Link
               href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&ref=wallpaper-thankyou"
@@ -230,6 +322,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                 </LazyLoad>
               </Link>
             </Box>
+
           </Sticky>
           {/* Category navbar */}
           {/* <HStack mb={10}>
@@ -312,6 +405,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               ))}
             </SimpleGrid>
           )}
+          
           <Text
             mt="4"
             px="4"
@@ -322,6 +416,45 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
           >
             - 持續更新中 -
           </Text>
+          <Box py={4}>
+            <SimpleGrid columns={{ base: 1}} p={6} borderRadius={'md'} borderType="solid" borderWidth="1px" borderColor="gray.100">
+              <Box flex="1">
+                <Stack
+                  direction={["column", "row"]}
+                  columns={{ base: 1, xl: 2 }}
+                  alignItems="center"
+                  spacing="8px"
+                  mb={4}
+                >
+                  <Avatar
+                    size="xl"
+                    name={'Shing'}
+                    src={shing}
+                  />
+                  <Box pt={4}>
+                    <Heading fontSize="2xl" mb={2}>
+                      <Text color="brand.900">馮漢城（阿城）</Text>
+                    </Heading>
+                    <Heading color="gray.500" fontSize="md">
+                    香港生態攝影師
+                    </Heading>
+                  </Box>
+                </Stack>
+
+                <Text variant="paragraph" pb={4}>
+                  獨立生態紀錄片製作人。香港電台本地生態紀錄片節目《大自然大不同》第二季單元編導、攝影、剪接。
+                </Text>
+                <Flex justifyContent="flex-end" fontSize={{base: '10px', sm: '12px'}}>
+                  <HStack spacing={1} pr={4}>
+                    <FaInstagram/><Box><Text>fhs.f</Text></Box>
+                  </HStack>
+                  <HStack spacing={1}>
+                    <FaFacebookSquare/><Box><Text>FHS Wildlife</Text></Box>
+                  </HStack>
+                </Flex>
+              </Box>
+            </SimpleGrid>
+            </Box>
         </Box>
       </SimpleGrid>
       <Footer />
