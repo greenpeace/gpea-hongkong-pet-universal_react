@@ -146,6 +146,14 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
     borderRadius: "20px",
   };
 
+  const photoCaption = {
+    position: "absolute",
+    left: 0,
+    top: 0,
+    backgroundColor: "rgba(255,255,255,0.65)",
+    padding: "2px",
+  };
+
   return (
     <ChakraProvider theme={themeConfig}>
       <Nav showButton={false} />
@@ -380,7 +388,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                     */}
                       <Image src={`${process.env.PUBLIC_URL}${d.source}`} />
                     </LazyLoad>
-                    <Text align="center" pt={1}>
+                    <Text as="span" {...photoCaption}>
                       {d.label_zh}
                     </Text>
                   </Box>
@@ -390,7 +398,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
           ) : (
             <SimpleGrid minChildWidth="180px" spacing="20px">
               {current.content?.wallpaperList.map((d, i) => (
-                <Box>
+                <Box pos="relative">
                   <Box
                     name={d}
                     key={i}
@@ -400,7 +408,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                     _hover={{ cursor: "pointer", opacity: 0.8 }}
                     onClick={() => handleSetDownload(d.source)}
                   />
-                  <Text align="center" pt={1}>
+                  <Text as="span" {...photoCaption}>
                     {d.label_zh}
                   </Text>
                 </Box>
