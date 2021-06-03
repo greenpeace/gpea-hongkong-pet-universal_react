@@ -5,6 +5,9 @@ export const TextStyles = {
   sizes: {},
   // styles for different visual variants ("outline", "solid")
   variants: {
+    heading1: {},
+    headline2: {},
+    headline3: {},
     heading: {
       color: "brand.500",
       fontSize: { base: "2xl", sm: "3xl" },
@@ -20,6 +23,7 @@ export const TextStyles = {
       fontSize: { base: "sm" },
       lineHeight: "1.5",
     },
+    overline: {},
     authorName: {
       color: "brand.500",
       fontSize: { base: "2xl", sm: "3xl" },
