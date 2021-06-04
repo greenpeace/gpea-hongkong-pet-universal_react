@@ -60,6 +60,9 @@ const Landing = ({ submitted, togglePanel }) => {
     pl: "2",
     borderLeft: "4px solid #00b474",
   };
+  const creditLine = {
+    mt: "4",
+  };
 
   const WebinarContent = {
     title: "分享會詳情",
@@ -72,18 +75,21 @@ const Landing = ({ submitted, togglePanel }) => {
   const thumbnailContent = [
     {
       thumbnail: thumbnailTwo,
+      credit: "© Marten van Dijl / Greenpeace",
       content:
         "Kelly在航程中遇見野生海豚、吞拿魚、極度瀕危的欖蠵龜等海洋生物。",
     },
     {
-      thumbnail: thumbnailThree,
-      content:
-        "Kelly與團隊24小時站崗，觀察採礦機器的一舉一動，揭露企業污染海洋的真相。",
-    },
-    {
       thumbnail: thumbnail,
+      credit: "© Marten van Dijl / Greenpeace",
       content:
         "綠色和平團隊駕駛橡皮艇靠近巨大的採礦機器，舉起橫額與畫上「RISK」字眼抗議。",
+    },
+    {
+      thumbnail: thumbnailThree,
+      credit: "© Marten van Dijl / Greenpeace",
+      content:
+        "Kelly與團隊24小時站崗，觀察採礦機器的一舉一動，揭露企業污染海洋的真相。",
     },
   ];
 
@@ -238,6 +244,9 @@ const Landing = ({ submitted, togglePanel }) => {
                   <Box pos="relative" borderRadius="8px" flex="1">
                     <Image src={d.thumbnail} borderRadius="8px" />
                     <Text pt={2}>{d.content}</Text>
+                    <Text as="span" fontSize="xs" mt={4}>
+                      {d.credit}
+                    </Text>
                   </Box>
                 </SwiperSlide>
               ))}
