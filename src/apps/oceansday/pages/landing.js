@@ -138,7 +138,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 <Text {...subHeadline}>活動簡介</Text>
 
                 <Text variant="paragraph">
-                  綠色和平全球守護海洋專員黃毓琪Kelly在年頭登上「彩虹勇士號」船艦，任務地點極為偏遠，航行近三個月，見證並抗議太平洋深海採礦測試，更揭露GSR採礦機器墜海第一手消息，向世界說出企業破壞海洋生態的真相。
+                  綠色和平全球守護海洋專員黃毓琪Kelly在年頭登上「彩虹勇士號」船艦，任務地點極為偏遠，航行近3個月，見證並抗議太平洋深海採礦測試，更揭露GSR採礦機器墜海第一手消息，向世界說出企業破壞海洋生態的真相。
                 </Text>
 
                 <Text variant="paragraph">
