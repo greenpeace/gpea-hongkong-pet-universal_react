@@ -17,12 +17,12 @@ const SEO = () => {
       </script>
       {/* title */}
       <title>
-        立即報名：直擊「彩虹勇士號」工作：三個月的海上任務 - Greenpeace 綠色和平
+        立即報名：直擊「彩虹勇士號」工作：3個月的海上任務 - Greenpeace 綠色和平
         | 香港
       </title>
       <meta
         property="og:title"
-        content="立即報名：直擊「彩虹勇士號」工作：三個月的海上任務 - Greenpeace 綠色和平 | 香港"
+        content="立即報名：直擊「彩虹勇士號」工作：3個月的海上任務 - Greenpeace 綠色和平 | 香港"
       />
       {/* description */}
       <meta

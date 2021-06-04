@@ -19,7 +19,7 @@ import SEO from "../SEO";
 import content from "../data/content";
 import Nav from "../components/header/nav";
 import Footer from "../components/footer";
-import SimpleCarousel from "components/banner/imageCarousel"
+import SimpleCarousel from "components/banner/imageCarousel";
 import Webinar from "components/sections/webinar";
 import NewFrameForm from "components/form/newFrameForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
@@ -43,6 +43,11 @@ import kellyProfile from "../assets/images/MD-GP-PORTRAITKELLYHUANG001.jpg";
 import thumbnail from "../assets/images/GP0STUTFE_Medium_res.jpg";
 import thumbnailTwo from "../assets/images/GP1SUZTO_Medium_res.jpg";
 import thumbnailThree from "../assets/images/GP1SV4UD_High_res.jpg";
+import swiper1 from "../assets/images/swiper1.jpg";
+import swiper2 from "../assets/images/swiper2.jpg";
+import swiper3 from "../assets/images/swiper3.jpg";
+import swiper4 from "../assets/images/swiper4.jpg";
+import swiper5 from "../assets/images/swiper5.jpg";
 
 const Landing = ({ submitted, togglePanel }) => {
   const swiperRef = useRef(null);
@@ -82,7 +87,7 @@ const Landing = ({ submitted, togglePanel }) => {
     },
   ];
 
-  const simpleSwiperData = [thumbnail] // thumbnailTwo, thumbnailThree...
+  const simpleSwiperData = [swiper1, swiper2, swiper3, swiper4, swiper5];
 
   // install Swiper modules
   SwiperCore.use([Navigation]);
@@ -118,7 +123,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 lineHeight={1.2}
               >
                 <Text color="brand.500" mb={2} maxWidth="780px">
-                  直擊「彩虹勇士號」工作：三個月的海上任務
+                  直擊「彩虹勇士號」工作：3個月的海上任務
                 </Text>
               </Text>
             </Box>
@@ -194,10 +199,10 @@ const Landing = ({ submitted, togglePanel }) => {
                         <Text variant="authorTitle">全球守護海洋專員</Text>
                       </Box>
                       <Text variant="paragraph">
-                        來自台灣的綠色和平全球守護海洋專員，曾於綠色和平台北及香港辦公室工作。Kelly在2021年登上「彩虹勇士號」，與24位行動者、船員在太平洋展開為期三個月的守護海洋任務。Kelly與團隊曾見證並阻止企業深海採礦測試，24小時輪流監察採礦機器，行動者更駕駛快艇到企業巨輪旁，抗議破壞海洋的活動。
+                        來自台灣的綠色和平全球守護海洋專員，曾於綠色和平台北及香港辦公室工作。Kelly在2021年登上「彩虹勇士號」，與24位行動者、船員在太平洋展開為期3個月的守護海洋任務。Kelly與團隊曾見證並阻止企業深海採礦測試，24小時輪流監察採礦機器，行動者更駕駛快艇到企業巨輪旁，抗議破壞海洋的活動。
                       </Text>
                       <Text variant="paragraph">
-                        在這三個月中，Kelly亦穿越巴拿馬運河、駐守太平洋、遇見海豚、記錄採礦機墜海第一手消息⋯⋯日以繼夜地守護海洋，為推動成立海洋公約、杜絕海洋破壞而奮鬥。
+                        在這3個月中，Kelly亦穿越巴拿馬運河、駐守太平洋、遇見海豚、記錄採礦機墜海第一手消息⋯⋯日以繼夜地守護海洋，為推動成立海洋公約、杜絕海洋破壞而奮鬥。
                       </Text>
                     </Stack>
                   </Box>
@@ -268,7 +273,10 @@ const Landing = ({ submitted, togglePanel }) => {
               spacing={{ base: 10 }}
             >
               <Box flex="1" minWidth="0px">
-                <SimpleCarousel swiperData={simpleSwiperData} style={{borderRadius: '8px'}}/>
+                <SimpleCarousel
+                  swiperData={simpleSwiperData}
+                  style={{ borderRadius: "8px" }}
+                />
               </Box>
               <Stack spacing={4} flex="1">
                 <Heading
