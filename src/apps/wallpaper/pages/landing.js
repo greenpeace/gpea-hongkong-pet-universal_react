@@ -30,7 +30,7 @@ import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "../../../theme";
 
-import shing from "../assets/images/shing_2x.png";
+import shing from "../assets/images/shing_2x_icon.png";
 import banner from "../assets/images/73.jpg";
 import subImage from "../assets/images/wallpaper_removed.jpg";
 
