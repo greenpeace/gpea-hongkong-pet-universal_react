@@ -20,11 +20,11 @@
 
   "submit_text": "立即登記",
 
-  "thanks_title": "<span style='color:#000'>感謝您報名參加</span><br/>直擊「彩虹勇士號」工作：3個月的海上任務！",
-  "thanks_content": "<strong>您將會收到電郵確認。<br/>期待在 Zoom 網上教室見到您！</strong><br/><br/>守護全球海洋，急需您的支持！<br/><br/>此刻，全球公海只有約1%受保護，要有效管制破壞海洋的行為，以保護、維持、復育海洋。<b>綠色和平急需您的支持，在今年爭取訂立「全球海洋公約」</b>，大步邁向擴展全球海洋保護區至30%的目標。 <br/><br/>您願意以每月$100 [每日約$3] 小額捐助，支持綠色和平團隊的工作，將更多您關心的社區建成走塑社區，擴大全港走塑版圖嗎？",
+  "thanks_title": "<span style='color:#000'>感謝您報名參加</span><br/>直擊「彩虹勇士號」工作：<br/>3個月的海上任務！",
+  "thanks_content": "<p><strong>您將會收到電郵確認。<br/>期待在 Zoom 網上教室見到您！</strong></p><p>守護全球海洋，急需您的支持！<br/><br/>此刻，全球公海只有約1%受保護，要有效管制破壞海洋的行為，以保護、維持、復育海洋。<strong>>綠色和平急需您的支持，在今年爭取訂立「全球海洋公約」</strong>，大步邁向擴展全球海洋保護區至30%的目標。 </p><p>您願意以每月$100 [每日約$3] 小額捐助，支持綠色和平團隊的工作，將更多您關心的社區建成走塑社區，擴大全港走塑版圖嗎？</p>",
   "thanks_content_top_section": "<strong>您將會收到電郵確認。<br/>期待在 Zoom 網上教室見到您！</strong>",
-  "thanks_content_center_section": "守護全球海洋，急需您的支持！<br/>此刻，全球公海只有約1%受保護，要有效管制破壞海洋的行為，以保護、維持、復育海洋。<b>綠色和平急需您的支持，在今年爭取訂立「全球海洋公約」</b>，大步邁向擴展全球海洋保護區至30%的目標。 ",
-  "thanks_content_bottom_section": "懇請您在這關鍵時刻伸出援手，以每月$100 [約每日$3]小額捐助，支持綠色和平守護海洋的工作！",
+  "thanks_content_center_section": "守護全球海洋，急需您的支持！此刻，全球公海只有約1%受保護，要有效管制破壞海洋的行為，以保護、維持、復育海洋。",
+  "thanks_content_bottom_section": "<strong>綠色和平急需您的支持，在今年爭取訂立「全球海洋公約」</strong>，大步邁向擴展全球海洋保護區至30%的目標。懇請您在這關鍵時刻伸出援手，以每月$100 [約每日$3]小額捐助，支持綠色和平守護海洋的工作！",
   "share_button": "分享出去",
   "donate_button": "捐助支持",
   "donateURL": "https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=oceans&ref=oceansday-registration-thankyou",

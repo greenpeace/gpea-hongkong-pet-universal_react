@@ -294,7 +294,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   color="brand.500"
                   style={{ lineHeight: "1.5" }}
                 >
-                  守護全球
+                  守護全球海洋
                   <br />
                   急需您的支持！
                 </Heading>
