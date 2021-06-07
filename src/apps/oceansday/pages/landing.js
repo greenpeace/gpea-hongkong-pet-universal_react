@@ -298,13 +298,13 @@ const Landing = ({ submitted, togglePanel }) => {
                   <br />
                   急需您的支持！
                 </Heading>
-                <Text>
+                <Text variant="paragraph">
                   此刻，全球公海只有約1%受保護，要有效管制破壞海洋的行為，以保護、維持、復育海洋。
                   <br />
                   綠色和平急需您的支持，在今年爭取訂立「全球海洋公約」，大步邁向擴展全球海洋保護區至30%的目標。
                 </Text>
                 <Link
-                  href="https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=plastics&ref=plastics-pfc-page"
+                  href="https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=oceans&ref=oceansday-page"
                   isExternal
                 >
                   <Button
@@ -320,7 +320,7 @@ const Landing = ({ submitted, togglePanel }) => {
                     立即捐助
                   </Button>
                 </Link>
-                <Text>
+                <Text variant="paragraph">
                   綠色和平成立50年，從不接受政商界捐助，在環境工作上維持公正獨立！
                 </Text>
               </Stack>
