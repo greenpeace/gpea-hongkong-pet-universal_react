@@ -1,44 +1,15 @@
-import React, { useRef, useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
 import whatsapp from "assets/images/social/whatsapp_icon.svg";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
-import { Form, withFormik } from "formik";
-import ProgressBar from "components/progress";
 import { mainShare, whatsAppShare } from "../../share";
 import content from "./newFormContent.json";
+import { Button, Flex, Heading, Text, Box } from "@chakra-ui/react";
+import DonateForm from "./donateForm"
 
-import {
-  FormControl,
-  FormLabel,
-  Input,
-  Button,
-  Box,
-  Flex,
-  Text,
-  Select,
-  Heading,
-  Checkbox,
-} from "@chakra-ui/react";
-
-const buttonStyle = {
-  fontSize: "18px",
-  color: "#FFFFFF",
-  fontWeight: "bold",
-  marginTop: "10px",
-  marginBottom: "20px",
-  padding: "12px 20px",
-};
-
-const MyForm = ({ formContent = content, submitted }) => {
-  const [hiddenFormValues, setHiddenFormValues] = useState([]);
+const MyForm = ({ formContent = content }) => {
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
   const [numResponses, setNumResponses] = useState(0);
-
-  const progress = [
-    { bgcolor: "#66cc00", completed: numResponses, target: numSignupTarget },
-  ];
-  const space = 8;
 
   useEffect(() => {
     const signupTarget = document.querySelector(
@@ -55,32 +26,28 @@ const MyForm = ({ formContent = content, submitted }) => {
   }, []);
 
   return (
+    <Box
+      borderTop={{base: null, sm: "4px solid #66cc00"}}
+      boxShadow={{base: null, sm: "lg"}}
+      px={{base:0, sm: 6}}
+      py={2}
+      rounded={{base: 0, sm: "md"}}
+      bg="white"
+      overflow="hidden"
+    >
     <Flex direction="column">
-      <Heading pt="4" pb="4" fontSize="2xl" color="brand.500">
-        {formContent.thanks_title}
-      </Heading>
-      {/* <Text pb={3}>{formContent.thanks_content}</Text> */}
-      <p
-        style={{
-          fontSize: "18px",
-          paddingTop: "10px",
-          paddingBottom: "10px",
-          lineHeight: "30px",
-        }}
-        dangerouslySetInnerHTML={{ __html: formContent.thanks_content }}
-      />
-
+      <Text py={4} variant="heading" py={2}>
+        <span dangerouslySetInnerHTML={{ __html: formContent.thanks_title }}/>
+      </Text>
+      <Text as="p" variant="description" py={2}>
+        <span dangerouslySetInnerHTML={{ __html: formContent.thanks_content_top_section }}/>
+      </Text>
+      <Text as="p" variant="description" py={2}>
+        <span dangerouslySetInnerHTML={{ __html: formContent.thanks_content_center_section }}/>
+      </Text>
       <Button
-        style={{ backgroundColor: "#fda22f", ...buttonStyle }}
-        onClick={() => window.open(formContent.donateURL)}
-        target="_blank"
-        rel="noreferrer"
-      >
-        {formContent.donate_button}
-      </Button>
-
-      <Button
-        style={{ backgroundColor: "#3b5998", ...buttonStyle }}
+        variant="donateButton"
+        style={{ backgroundColor: "#3b5998"}}
         onClick={() =>
           mainShare(
             formContent.shareMessage,
@@ -93,15 +60,37 @@ const MyForm = ({ formContent = content, submitted }) => {
         {formContent.share_button}
       </Button>
       <Button
-        style={{ backgroundColor: "#25d366", ...buttonStyle }}
+        variant="donateButton"
+        style={{ backgroundColor: "#25d366"}}
         onClick={() =>
           whatsAppShare(formContent.shareMessage, formContent.whatsappURL)
         }
         rel="noreferrer"
       >
-        <img src={whatsapp} alt="whatsapp" style={{ height: "24px" }} />
+        <img
+          loading="lazy"
+          src={whatsapp}
+          alt="whatsapp"
+          style={{ height: "24px" }}
+        />
       </Button>
+      <Text as="p" variant="description" py={1}>
+        <span dangerouslySetInnerHTML={{ __html: formContent.thanks_content_bottom_section }}/>
+      </Text>
+      <Button
+        variant="donateButton"
+        style={{ backgroundColor: "#fda22f" }}
+        onClick={() => window.open(formContent.donateURL)}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {formContent.donate_button}
+      </Button>
+
+      {/* <DonateForm/> */}
+
     </Flex>
+    </Box>
   );
 };
 

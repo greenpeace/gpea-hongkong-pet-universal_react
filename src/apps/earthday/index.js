@@ -26,7 +26,7 @@ import NewFrameForm from "components/form/newFrameForm";
 import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
 import Panel from "components/panel/newFormPanel";
 import * as themeActions from "store/actions/action-types/theme-actions";
-import themeConfig from "./theme.js";
+import themeConfig from "../../../theme";
 import ImageWithColumn from "./components/feature/imageWithColumn";
 
 import { IoCalendarOutline, IoTimeSharp, IoVideocam } from "react-icons/io5";
@@ -96,9 +96,7 @@ const Index = ({ submitted, togglePanel }) => {
                 氣候與環境繪本線上共讀會
               </Text>
             </Heading>
-            <Box p={{ base: 2 }}>
-              <Divider />
-            </Box>
+            <Divider my={{ base: 8, lg: 10 }} />
             <Box>
               <Stack pt={4} spacing={4}>
                 <Feature
@@ -171,10 +169,7 @@ const Index = ({ submitted, togglePanel }) => {
             </Box>
           </Box>
 
-          <Box p={{ base: 2 }}>
-            <Divider />
-          </Box>
-
+          <Divider my={{ base: 8, lg: 10 }} />
           <Box p={{ base: 4, sm: 10 }}>
             <Box
               maxW="120px"
@@ -201,13 +196,11 @@ const Index = ({ submitted, togglePanel }) => {
 
             <ImageWithColumn pStyle={pStyle} captionStyle={{ captionStyle }} />
 
-            <Box p={{ base: 2 }}>
-              <Divider />
-            </Box>
+            <Divider my={{ base: 8, lg: 10 }} />
             <SimpleGrid mt="4" columns={{ base: 1, md: 2 }} spacing={10}>
               <Flex direction="column">
                 <Image
-                  rounded={"md"}
+                  borderRadius="8px"
                   alt={"feature image"}
                   src={
                     "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/04/86661c3b-說故事-storytelling-pic.jpg"

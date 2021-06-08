@@ -142,7 +142,7 @@ const Thanks = ({ selectedImage }) => {
                 </Col>
               </Row>
             </Grid>
-            <Divider />
+            <Divider my={{ base: 8, lg: 10 }} />
             <div className="cate-switcher">
               <h2 className="cate-headline">揀選你喜愛的環境照片</h2>
               <Grid fluid className="cate-grid">
@@ -190,6 +190,7 @@ const Thanks = ({ selectedImage }) => {
                   </p>
                 </div>
                 <img
+                  loading="lazy"
                   src={`${process.env.PUBLIC_URL}${download}`}
                   className="img"
                   alt=""

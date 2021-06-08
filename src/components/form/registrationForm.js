@@ -44,10 +44,12 @@ let RegistrationForm = ({
   submitForm,
   submitted,
   formContent = content,
-  version,
+  activeABTesting,
+  variant,
 }) => {
   const refForm = useRef();
   const refCheckbox = useRef();
+  const refMobileCountryCode = useRef();
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
   const [emailSuggestion, setEmailSuggestion] = useState("內容");
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
@@ -77,7 +79,17 @@ let RegistrationForm = ({
       .isRequired(formContent.empty_data_alert)
       .addRule((value) => {
         return value.toString().length === 8;
-      }, formContent.minimum_8_characters),
+      }, formContent.minimum_8_characters)
+      .addRule((value) => {
+        let regex;
+        const { MobileCountryCode } = refForm.current.state.formValue;
+        if (!MobileCountryCode || MobileCountryCode === "852") {
+          regex = /^[2,3,5,6,8,9]{1}[0-9]{7}$/i;
+        } else if (MobileCountryCode === "853") {
+          regex = /^[6]{1}[0-9]{7}$/i;
+        }
+        return regex.test(value);
+      }, formContent.invalid_format_alert),
     Birthdate: StringType().isRequired(formContent.empty_data_alert),
   });
 
@@ -89,13 +101,11 @@ let RegistrationForm = ({
     FirstName: StringType().isRequired(formContent.empty_data_alert),
   });
 
-  const setModel = version
-    ? window.version === "A"
+  const setModel = activeABTesting
+    ? variant == 0
       ? modelVersionA
       : modelVersionB
     : modelVersionA;
-
-  // const setModel = window.version === "B" ? modelVersionA : modelVersionB;
 
   const closeAll = () => {
     togglePanel(false);
@@ -104,13 +114,17 @@ let RegistrationForm = ({
 
   const handleSubmit = (isValid) => {
     const OptIn = refCheckbox.current.state?.checked;
+
     if (isValid) {
       const { formValue } = refForm.current.state;
+      let birthdateValue = formValue.Birthdate
+        ? `${formValue.Birthdate}-01-01`
+        : "";
       submitForm({
         ...hiddenFormValues,
         ...formValue,
         OptIn,
-        Birthdate: `${formValue.Birthdate}-01-01`,
+        Birthdate: birthdateValue,
       });
       // Check submit value
       /*
@@ -291,7 +305,7 @@ let RegistrationForm = ({
                 <Col xs={24}>
                   <FormGroup>
                     <ControlLabel>
-                      {version && window.version === "A"
+                      {activeABTesting && variant == 0
                         ? formContent.label_phone
                         : formContent.label_phone_optional}
                     </ControlLabel>
@@ -303,6 +317,7 @@ let RegistrationForm = ({
                         placeholder={formContent.select}
                         accepter={SelectPicker}
                         data={mobileCountryCode}
+                        ref={refMobileCountryCode}
                       />
                     </Col>
                     <Col xs={18} style={{ paddingRight: 0 }}>
@@ -310,7 +325,7 @@ let RegistrationForm = ({
                         <TextField
                           type="number"
                           placeholder={
-                            version && window.version === "A"
+                            activeABTesting && variant == 0
                               ? formContent.label_phone
                               : formContent.label_phone_optional
                           }
@@ -327,7 +342,7 @@ let RegistrationForm = ({
                 <Col xs={24}>
                   <FormGroup>
                     <ControlLabel>
-                      {version && window.version === "A"
+                      {activeABTesting && variant == 0
                         ? formContent.label_year_of_birth
                         : formContent.label_year_of_birth_optional}
                     </ControlLabel>
@@ -376,6 +391,8 @@ const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
+    activeABTesting: theme.abTesting,
+    variant: theme.variant,
   };
 };
 

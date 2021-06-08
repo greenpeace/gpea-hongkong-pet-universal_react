@@ -25,6 +25,10 @@ const NewFormPanel = ({
   togglePanel,
   formContent,
   submitted,
+  children,
+  showProgress,
+  newsLetter,
+  birthDate,
 }) => {
   const prevClosePanel = usePrevious(closePanel);
 
@@ -38,10 +42,19 @@ const NewFormPanel = ({
   }, [prevClosePanel, togglePanel, closePanel]);
 
   return (
-    <div>
-    {theme.displayPanel && <Box pos="fixed" style={{top: 10, right: 10, zIndex: 9999}} p={2} bgColor="#FFF" borderRadius={'20px'} onClick={()=>togglePanel(false)}>
-      <SmallCloseIcon w={6} h={6}/>
-    </Box>}
+    <>
+      {theme.displayPanel && (
+        <Box
+          pos="fixed"
+          style={{ top: 10, right: 10, zIndex: 9999 }}
+          p={2}
+          bgColor="#FFF"
+          borderRadius={"20px"}
+          onClick={() => togglePanel(false)}
+        >
+          <SmallCloseIcon w={6} h={6} />
+        </Box>
+      )}
       <SlidingPane
         isOpen={theme.displayPanel}
         from="bottom"
@@ -51,9 +64,19 @@ const NewFormPanel = ({
         hideHeader={true}
         onRequestClose={() => null}
       >
-        {submitted ? <NewFrameSubmittedForm formContent={formContent} /> : <NewFrameForm formContent={formContent} showProgress={false} newsLetter={false}/>}
+        {children}
+        {submitted ? (
+          <NewFrameSubmittedForm formContent={formContent} />
+        ) : (
+          <NewFrameForm
+            formContent={formContent}
+            showProgress={showProgress}
+            newsLetter={newsLetter}
+            birthDate={birthDate}
+          />
+        )}
       </SlidingPane>
-    </div>
+    </>
   );
 };
 
