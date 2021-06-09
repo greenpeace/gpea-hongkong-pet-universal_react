@@ -63,16 +63,10 @@ const DonateForm = () => {
   return (
     <Box>
       <Box>
-        <Heading as="h2" py={4} align={"center"} variant="heading">
+        <Heading as="h2" py={4} align={"center"}>
           守護地球，分秒必爭
         </Heading>
-        <Text
-          as="p"
-          py={2}
-          align={"center"}
-          variant="paragraph"
-          color="gray.700"
-        >
+        <Text as="p" py={2} align={"center"} variant="paragraph">
           <p
             dangerouslySetInnerHTML={{
               __html:
@@ -81,7 +75,7 @@ const DonateForm = () => {
           />
         </Text>
       </Box>
-      <Box py={4}>
+      <Box py={2}>
         <Stack
           direction="row"
           spacing={1}
@@ -135,7 +129,7 @@ const DonateForm = () => {
             </Grid>
           </Box>
 
-          <Box align="center" pt={4} pb={6}>
+          <Box align="center" py={8}>
             <Text as="p" variant="paragraph" color="gray.700">
               您的捐款，將幫助綠色和平為環境問題找到出路，並在全球各地落實環保工作。謝謝！
             </Text>

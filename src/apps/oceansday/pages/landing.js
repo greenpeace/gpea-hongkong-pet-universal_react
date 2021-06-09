@@ -69,7 +69,7 @@ const Landing = ({ submitted, togglePanel }) => {
     date: "日期：2021年6月19日（星期六）",
     time: "時間：下午2時半至3時半",
     description: "線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）",
-    other: "注意事項：嘉賓將以普通話進行分享，主持人會以粵語輔助",
+    other: "注意事項：活動將以普通話及粵語進行",
   };
 
   const thumbnailContent = [
@@ -199,15 +199,17 @@ const Landing = ({ submitted, togglePanel }) => {
                     />
                   </Box>
                   <Box w={{ base: "100%", sm: "60%" }}>
-                    <Stack direction="column" p={{ base: 4, sm: 8 }}>
+                    <Stack direction="column" px={4} py={8}>
                       <Box mb={{ base: 2, sm: 6 }}>
                         <Text variant="authorName">黃毓琪 Kelly</Text>
-                        <Text variant="authorTitle">全球守護海洋專員</Text>
+                        <Text variant="authorTitle" fontSize="sm">
+                          全球守護海洋專員
+                        </Text>
                       </Box>
-                      <Text variant="paragraph">
+                      <Text variant="paragraph" fontSize="sm">
                         來自台灣的綠色和平全球守護海洋專員，曾於綠色和平台北及香港辦公室工作。Kelly在2021年登上「彩虹勇士號」，與24位行動者、船員在太平洋展開為期3個月的守護海洋任務。Kelly與團隊曾見證並阻止企業深海採礦測試，24小時輪流監察採礦機器，行動者更駕駛快艇到企業巨輪旁，抗議破壞海洋的活動。
                       </Text>
-                      <Text variant="paragraph">
+                      <Text variant="paragraph" fontSize="sm">
                         在這3個月中，Kelly亦穿越巴拿馬運河、駐守太平洋、遇見海豚、記錄採礦機墜海第一手消息⋯⋯日以繼夜地守護海洋，為推動成立海洋公約、杜絕海洋破壞而奮鬥。
                       </Text>
                     </Stack>
@@ -242,7 +244,11 @@ const Landing = ({ submitted, togglePanel }) => {
               {thumbnailContent.map((d, i) => (
                 <SwiperSlide key={i}>
                   <Box pos="relative" borderRadius="8px" flex="1">
-                    <Image src={d.thumbnail} borderRadius="8px" />
+                    <Image
+                      src={d.thumbnail}
+                      alt={d.content}
+                      borderRadius="8px"
+                    />
                     <Text pt={2}>{d.content}</Text>
                     <Text as="span" fontSize="xs" mt={4}>
                       {d.credit}
@@ -292,7 +298,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   as="h2"
                   size="lg"
                   color="brand.500"
-                  style={{ lineHeight: "1.5" }}
+                  style={{ lineHeight: "1.2" }}
                 >
                   守護全球海洋
                   <br />
@@ -334,7 +340,6 @@ const Landing = ({ submitted, togglePanel }) => {
           d={{ base: "none", md: "block" }}
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
-            {/* <DonateForm formContent={content} /> */}
             {submitted ? (
               <NewFrameSubmittedForm formContent={content} />
             ) : (

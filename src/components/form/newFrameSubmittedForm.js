@@ -9,7 +9,7 @@ import {
   Flex,
   Fade,
   ScaleFade,
-  Heading,
+  Stack,
   Text,
   Box,
 } from "@chakra-ui/react";
@@ -42,7 +42,7 @@ const MyForm = ({ formContent = content }) => {
       py={4}
       rounded={{ base: 0, sm: "md" }}
       bg="white"
-      overflow="hidden"
+      overflow="auto"
     >
       {showDonate && (
         <Fade in={showDonate}>
@@ -51,55 +51,61 @@ const MyForm = ({ formContent = content }) => {
       )}
       {!showDonate && (
         <Flex direction="column">
-          <Text py={4} variant="heading">
-            <span
-              dangerouslySetInnerHTML={{ __html: formContent.thanks_title }}
-            />
-          </Text>
-          <Text as="p" variant="paragraph" py={2}>
-            <span
-              dangerouslySetInnerHTML={{
-                __html: formContent.thanks_content_top_section,
-              }}
-            />
-          </Text>
-          <Text as="p" variant="paragraph" py={2}>
-            <span
-              dangerouslySetInnerHTML={{
-                __html: formContent.thanks_content_center_section,
-              }}
-            />
-          </Text>
-          <Button
-            variant="donateButton"
-            style={{ backgroundColor: "#3b5998" }}
-            onClick={() =>
-              mainShare(
-                formContent.shareMessage,
-                formContent.fbURL,
-                formContent.mainURL
-              )
-            }
-            rel="noreferrer"
-            mb={2}
-          >
-            {formContent.share_button}
-          </Button>
-          <Button
-            variant="donateButton"
-            style={{ backgroundColor: "#eee" }}
-            onClick={() =>
-              whatsAppShare(formContent.shareMessage, formContent.whatsappURL)
-            }
-            rel="noreferrer"
-          >
-            <img
-              loading="lazy"
-              src={whatsapp}
-              alt="whatsapp"
-              style={{ height: "32px" }}
-            />
-          </Button>
+          <Text
+            variant="heading"
+            dangerouslySetInnerHTML={{ __html: formContent.thanks_title }}
+          />
+          <Text
+            as="p"
+            variant="paragraph"
+            py={2}
+            dangerouslySetInnerHTML={{
+              __html: formContent.thanks_content_top_section,
+            }}
+          />
+          <Text
+            as="p"
+            variant="paragraph"
+            py={2}
+            dangerouslySetInnerHTML={{
+              __html: formContent.thanks_content_center_section,
+            }}
+          />
+          {/* CTAs */}
+          <Stack direction={"row"} align={"center"} spacing="12px">
+            <Button
+              variant="donateButton"
+              px={8}
+              style={{ backgroundColor: "#3b5998" }}
+              onClick={() =>
+                mainShare(
+                  formContent.shareMessage,
+                  formContent.fbURL,
+                  formContent.mainURL
+                )
+              }
+              rel="noreferrer"
+              mb={2}
+            >
+              {formContent.share_button}
+            </Button>
+            <Button
+              variant="donateButton"
+              px={8}
+              style={{ backgroundColor: "#eee" }}
+              onClick={() =>
+                whatsAppShare(formContent.shareMessage, formContent.whatsappURL)
+              }
+              rel="noreferrer"
+            >
+              <img
+                loading="lazy"
+                src={whatsapp}
+                alt="whatsapp"
+                style={{ height: "32px" }}
+              />
+            </Button>
+          </Stack>
           <Text as="p" variant="paragraph" py={2}>
             <span
               dangerouslySetInnerHTML={{
@@ -107,6 +113,7 @@ const MyForm = ({ formContent = content }) => {
               }}
             />
           </Text>
+          {/* <DonateForm /> */}
           <Button
             variant="donateButton"
             style={{ backgroundColor: "#66cc00" }}
