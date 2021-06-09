@@ -13,10 +13,10 @@ import {
   Divider,
   HStack,
   Link,
-  CircularProgress, 
+  CircularProgress,
   CircularProgressLabel,
   Grid,
-  GridItem
+  GridItem,
 } from "@chakra-ui/react";
 export default function Banner({
   title,
@@ -29,21 +29,24 @@ export default function Banner({
   return (
     <Container maxW={"7xl"}>
       <Flex
-        align="center"
+        align='center'
         justify={{ base: "center", md: "space-around", xl: "space-between" }}
         direction={{ base: "column", md: "row" }}
-        wrap="no-wrap"
-        minH="35vh"
+        wrap='no-wrap'
+        minH='35vh'
         maxW={"6xl"}
-        mb={{base: 8, sm: 24}}
-        mt={{base: 8, sm: 24}}
+        mb={{ base: 8, sm: 24 }}
+        mt={{ base: 8, sm: 24 }}
         {...rest}
       >
-        <Box
-          pt={{ base: 8 }}
-          w={{ base: "100%", sm: "100%", md: "70%" }}
-        >
-          <Image src={"https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0439.50ce887e.jpg"} size="100%" rounded="5px" />
+        <Box pt={{ base: 8 }} w={{ base: "100%", sm: "100%", md: "70%" }}>
+          <Image
+            src={
+              "https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0439.50ce887e.jpg"
+            }
+            size='100%'
+            rounded='5px'
+          />
         </Box>
         <Stack
           spacing={4}
@@ -51,15 +54,24 @@ export default function Banner({
           pt={{ base: 8 }}
           align={["center", "center", "flex-start", "flex-start"]}
         >
-          <HStack spacing="12px">
-            <Box borderWidth="0px" d="flex" alignItems="center" textAlign="center" fontWeight="normal">
-              <Text fontSize="2xl">
-              具生態價值
-            </Text>
+          <HStack spacing='12px'>
+            <Box
+              borderWidth='0px'
+              d='flex'
+              alignItems='center'
+              textAlign='center'
+              fontWeight='normal'
+            >
+              <Text fontSize='2xl'>具生態價值</Text>
             </Box>
             <Box>
-              <Heading as="h2" size="sm" color="primary.400" fontWeight="normal">
-              絕不應被刻意低估
+              <Heading
+                as='h2'
+                size='sm'
+                color='primary.400'
+                fontWeight='normal'
+              >
+                絕不應被刻意低估
               </Heading>
             </Box>
           </HStack>
@@ -87,11 +99,11 @@ export default function Banner({
             {content}
           </Text> */}
           <Text
-            fontSize={{base: 'sm', sm: 'md'}}
+            fontSize={{ base: "sm", sm: "md" }}
             mt={2}
-            textAlign="left"
-            color="primary.800"
-            opacity="0.6"
+            textAlign='left'
+            color='primary.800'
+            opacity='0.6'
           >
             我們與6個環保及關注團體發佈的生態調查發現，鄰近填海選址的周公島，具國家二級保護野生動物白腹海鵰的鳥巢，全球獨有的鮑氏雙足蜥，更在中部水域錄得一種稀有的軟珊瑚海筆，生態價值絕不應被刻意低估。
           </Text>
@@ -128,7 +140,6 @@ export default function Banner({
   <Box w="100%" h="10" bg="blue.500" />
 </Grid> */}
 
-
           {/* <Stack direction={["column"]} spacing="12px">
             <Box h="10px">
             <Text fontSize="xs">
@@ -147,7 +158,6 @@ export default function Banner({
             </Text>
             </Box>
           </Stack> */}
-        
         </Stack>
       </Flex>
     </Container>
@@ -164,5 +174,6 @@ Banner.defaultProps = {
   title: "守護香港未來",
   // content: "香港海洋孕育近6千種海洋生物，東大嶼水域生態豐富多樣，是國家重點保護野生動物白腹海雕的繁殖及棲息地，更錄得全球獨有的鮑氏雙足蜥，附近水域亦發現稀有的軟珊瑚海筆。",
   content: "堅守香港海洋最後一道防線",
-  image: "https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0409.89f89e20.jpg",
+  image:
+    "https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0409.89f89e20.jpg",
 };

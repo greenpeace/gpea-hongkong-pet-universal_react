@@ -41,8 +41,8 @@ const MyForm = ({ formContent = content }) => {
       px={4}
       py={4}
       rounded={{ base: 0, sm: "md" }}
-      bg="white"
-      overflow="auto"
+      bg='white'
+      overflow='auto'
     >
       {showDonate && (
         <Fade in={showDonate}>
@@ -50,31 +50,31 @@ const MyForm = ({ formContent = content }) => {
         </Fade>
       )}
       {!showDonate && (
-        <Flex direction="column">
+        <Flex direction='column'>
           <Text
-            variant="heading"
+            variant='heading'
             dangerouslySetInnerHTML={{ __html: formContent.thanks_title }}
           />
           <Text
-            as="p"
-            variant="paragraph"
+            as='p'
+            variant='paragraph'
             py={2}
             dangerouslySetInnerHTML={{
               __html: formContent.thanks_content_top_section,
             }}
           />
           <Text
-            as="p"
-            variant="paragraph"
+            as='p'
+            variant='paragraph'
             py={2}
             dangerouslySetInnerHTML={{
               __html: formContent.thanks_content_center_section,
             }}
           />
           {/* CTAs */}
-          <Stack direction={"row"} align={"center"} spacing="12px">
+          <Stack direction={"row"} align={"center"} spacing='12px'>
             <Button
-              variant="donateButton"
+              variant='donateButton'
               px={8}
               style={{ backgroundColor: "#3b5998" }}
               onClick={() =>
@@ -84,29 +84,29 @@ const MyForm = ({ formContent = content }) => {
                   formContent.mainURL
                 )
               }
-              rel="noreferrer"
+              rel='noreferrer'
               mb={2}
             >
               {formContent.share_button}
             </Button>
             <Button
-              variant="donateButton"
+              variant='donateButton'
               px={8}
               style={{ backgroundColor: "#eee" }}
               onClick={() =>
                 whatsAppShare(formContent.shareMessage, formContent.whatsappURL)
               }
-              rel="noreferrer"
+              rel='noreferrer'
             >
               <img
-                loading="lazy"
+                loading='lazy'
                 src={whatsapp}
-                alt="whatsapp"
+                alt='whatsapp'
                 style={{ height: "32px" }}
               />
             </Button>
           </Stack>
-          <Text as="p" variant="paragraph" py={2}>
+          <Text as='p' variant='paragraph' py={2}>
             <span
               dangerouslySetInnerHTML={{
                 __html: formContent.thanks_content_bottom_section,
@@ -115,10 +115,10 @@ const MyForm = ({ formContent = content }) => {
           </Text>
           {/* <DonateForm /> */}
           <Button
-            variant="donateButton"
+            variant='donateButton'
             style={{ backgroundColor: "#66cc00" }}
-            target="_blank"
-            rel="noreferrer"
+            target='_blank'
+            rel='noreferrer'
             /* onClick={() => window.open(formContent.donateURL)} */
             onClick={() => {
               setShowDonate(true);

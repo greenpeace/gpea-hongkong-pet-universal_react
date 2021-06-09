@@ -103,18 +103,18 @@ const Landing = ({ submitted, togglePanel }) => {
       <SEO />
       <Nav showButton={false} />
       <Flex>
-        <Box flex="1" style={{ minWidth: "0px" }}>
-          <Box px={4} py={{ base: 4, md: 8 }} bgColor="#DEECFF">
+        <Box flex='1' style={{ minWidth: "0px" }}>
+          <Box px={4} py={{ base: 4, md: 8 }} bgColor='#DEECFF'>
             <Box>
               <Image src={banner} borderRadius={8} />
             </Box>
           </Box>
 
           <Box mt={0}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 140">
+            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 140'>
               <path
-                fill="#DEECFF"
-                d="M0,96L48,85.3C96,75,192,53,288,48C384,43,480,53,576,53.3C672,53,768,43,864,42.7C960,43,1056,53,1152,58.7C1248,64,1344,64,1392,64L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+                fill='#DEECFF'
+                d='M0,96L48,85.3C96,75,192,53,288,48C384,43,480,53,576,53.3C672,53,768,43,864,42.7C960,43,1056,53,1152,58.7C1248,64,1344,64,1392,64L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'
               ></path>
             </svg>
           </Box>
@@ -122,19 +122,19 @@ const Landing = ({ submitted, togglePanel }) => {
           <Box px={{ base: 4, lg: 6 }}>
             <Box>
               <Text
-                as="h1"
+                as='h1'
                 fontSize={{ base: "2xl", sm: "3xl", xl: "4xl" }}
-                fontWeight="bold"
-                color="gray.900"
+                fontWeight='bold'
+                color='gray.900'
                 lineHeight={1.2}
               >
-                <Text color="brand.500" mb={2} maxWidth="780px">
+                <Text color='brand.500' mb={2} maxWidth='780px'>
                   直擊「彩虹勇士號」工作：3個月的海上任務
                 </Text>
               </Text>
             </Box>
             <Flex direction={{ base: "column", sm: "row" }}>
-              <Box flex="1" style={{ minWidth: "0px" }}>
+              <Box flex='1' style={{ minWidth: "0px" }}>
                 <Divider my={{ base: 8 }} />
 
                 <Webinar content={WebinarContent} />
@@ -143,11 +143,11 @@ const Landing = ({ submitted, togglePanel }) => {
 
                 <Text {...subHeadline}>活動簡介</Text>
 
-                <Text variant="paragraph">
+                <Text variant='paragraph'>
                   綠色和平全球守護海洋專員黃毓琪Kelly在年頭登上「彩虹勇士號」船艦，任務地點極為偏遠，航行近3個月，見證並抗議太平洋深海採礦測試，更揭露GSR採礦機器墜海第一手消息，向世界說出企業破壞海洋生態的真相。
                 </Text>
 
-                <Text variant="paragraph">
+                <Text variant='paragraph'>
                   綠色和平今次請來這位「海洋鬥士」和大家介紹「彩虹勇士號」，認識船艙與駕駛室，並了解綠色和平行動團隊的任務。Kelly將講述海洋行動實錄，分享公海環境實況，在太平洋遇上海豚等珍貴經歷。她亦會透過親身見證，解說綠色和平進行海洋獨立調查成果、拯救海洋免於污染的方法，以及成立全球海洋公約的必要性。
                 </Text>
               </Box>
@@ -155,32 +155,32 @@ const Landing = ({ submitted, togglePanel }) => {
           </Box>
 
           <Box mt={"-30px"}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 240">
+            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 240'>
               <path
-                fill="#DEECFF"
-                fillOpacity="1"
-                d="M0,224L48,208C96,192,192,160,288,165.3C384,171,480,213,576,229.3C672,245,768,235,864,202.7C960,171,1056,117,1152,96C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                fill='#DEECFF'
+                fillOpacity='1'
+                d='M0,224L48,208C96,192,192,160,288,165.3C384,171,480,213,576,229.3C672,245,768,235,864,202.7C960,171,1056,117,1152,96C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'
               ></path>
             </svg>
           </Box>
 
-          <Box bgColor="#DEECFF" px={6} mt={0}>
+          <Box bgColor='#DEECFF' px={6} mt={0}>
             <Box py={{ base: 4, sm: 10 }}>
-              <Box boxShadow="xl" borderRadius="8px" bgColor="#FFF">
+              <Box boxShadow='xl' borderRadius='8px' bgColor='#FFF'>
                 <Flex
                   direction={{ base: "column", sm: "row" }}
-                  justify="center"
-                  align="center"
-                  minWidth="0px"
+                  justify='center'
+                  align='center'
+                  minWidth='0px'
                 >
                   <Box
                     w={{ base: "100%", sm: "40%" }}
                     h={{ base: "240px", md: "480px" }}
-                    pos="relative"
+                    pos='relative'
                   >
                     <Image
                       src={thumbnailThree}
-                      borderTopRadius="8px"
+                      borderTopRadius='8px'
                       d={{ base: "block", sm: "none" }}
                     />
                     <Center
@@ -191,25 +191,25 @@ const Landing = ({ submitted, togglePanel }) => {
                       left={0}
                       right={0}
                       bottom={0}
-                      h="100%"
-                      w="100%"
+                      h='100%'
+                      w='100%'
                       bgSize={"cover"}
-                      bgPosition="center center"
-                      borderLeftRadius="8px"
+                      bgPosition='center center'
+                      borderLeftRadius='8px'
                     />
                   </Box>
                   <Box w={{ base: "100%", sm: "60%" }}>
-                    <Stack direction="column" px={4} py={8}>
+                    <Stack direction='column' px={4} py={8}>
                       <Box mb={{ base: 2, sm: 6 }}>
-                        <Text variant="authorName">黃毓琪 Kelly</Text>
-                        <Text variant="authorTitle" fontSize="sm">
+                        <Text variant='authorName'>黃毓琪 Kelly</Text>
+                        <Text variant='authorTitle' fontSize='sm'>
                           全球守護海洋專員
                         </Text>
                       </Box>
-                      <Text variant="paragraph" fontSize="sm">
+                      <Text variant='paragraph' fontSize='sm'>
                         來自台灣的綠色和平全球守護海洋專員，曾於綠色和平台北及香港辦公室工作。Kelly在2021年登上「彩虹勇士號」，與24位行動者、船員在太平洋展開為期3個月的守護海洋任務。Kelly與團隊曾見證並阻止企業深海採礦測試，24小時輪流監察採礦機器，行動者更駕駛快艇到企業巨輪旁，抗議破壞海洋的活動。
                       </Text>
-                      <Text variant="paragraph" fontSize="sm">
+                      <Text variant='paragraph' fontSize='sm'>
                         在這3個月中，Kelly亦穿越巴拿馬運河、駐守太平洋、遇見海豚、記錄採礦機墜海第一手消息⋯⋯日以繼夜地守護海洋，為推動成立海洋公約、杜絕海洋破壞而奮鬥。
                       </Text>
                     </Stack>
@@ -219,10 +219,10 @@ const Landing = ({ submitted, togglePanel }) => {
             </Box>
           </Box>
           <Box mt={0}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100">
+            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'>
               <path
-                fill="#DEECFF"
-                d="M0,96L48,85.3C96,75,192,53,288,48C384,43,480,53,576,53.3C672,53,768,43,864,42.7C960,43,1056,53,1152,58.7C1248,64,1344,64,1392,64L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+                fill='#DEECFF'
+                d='M0,96L48,85.3C96,75,192,53,288,48C384,43,480,53,576,53.3C672,53,768,43,864,42.7C960,43,1056,53,1152,58.7C1248,64,1344,64,1392,64L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'
               ></path>
             </svg>
           </Box>
@@ -243,21 +243,21 @@ const Landing = ({ submitted, togglePanel }) => {
             >
               {thumbnailContent.map((d, i) => (
                 <SwiperSlide key={i}>
-                  <Box pos="relative" borderRadius="8px" flex="1">
+                  <Box pos='relative' borderRadius='8px' flex='1'>
                     <Image
                       src={d.thumbnail}
                       alt={d.content}
-                      borderRadius="8px"
+                      borderRadius='8px'
                     />
                     <Text pt={2}>{d.content}</Text>
-                    <Text as="span" fontSize="xs" mt={4}>
+                    <Text as='span' fontSize='xs' mt={4}>
                       {d.credit}
                     </Text>
                   </Box>
                 </SwiperSlide>
               ))}
-              <Box align="right" justify="right" textAlign="right">
-                <Flex direction="row" justifyContent="flex-end">
+              <Box align='right' justify='right' textAlign='right'>
+                <Flex direction='row' justifyContent='flex-end'>
                   <Box
                     px={2}
                     opacity={0.6}
@@ -284,49 +284,49 @@ const Landing = ({ submitted, togglePanel }) => {
 
             <Stack
               direction={{ base: "column", sm: "row" }}
-              mt="4"
+              mt='4'
               spacing={{ base: 10 }}
             >
-              <Box flex="1" minWidth="0px">
+              <Box flex='1' minWidth='0px'>
                 <SimpleCarousel
                   swiperData={simpleSwiperData}
                   style={{ borderRadius: "8px" }}
                 />
               </Box>
-              <Stack spacing={4} flex="1">
+              <Stack spacing={4} flex='1'>
                 <Heading
-                  as="h2"
-                  size="lg"
-                  color="brand.500"
+                  as='h2'
+                  size='lg'
+                  color='brand.500'
                   style={{ lineHeight: "1.2" }}
                 >
                   守護全球海洋
                   <br />
                   急需您的支持！
                 </Heading>
-                <Text variant="paragraph">
+                <Text variant='paragraph'>
                   此刻，全球公海只有約1%受保護，要有效管制破壞海洋的行為，以保護、維持、復育海洋。
                   <br />
                   綠色和平急需您的支持，在今年爭取訂立「全球海洋公約」，大步邁向擴展全球海洋保護區至30%的目標。
                 </Text>
                 <Link
-                  href="https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=oceans&ref=oceansday-page"
+                  href='https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=oceans&ref=oceansday-page'
                   isExternal
                 >
                   <Button
-                    mt="2"
-                    color="#FFF"
-                    bg="brand.500"
+                    mt='2'
+                    color='#FFF'
+                    bg='brand.500'
                     _hover={{ bg: "brand.400" }}
-                    borderRadius="4px"
-                    fontSize="md"
-                    type="button"
+                    borderRadius='4px'
+                    fontSize='md'
+                    type='button'
                     letterSpacing={4}
                   >
                     立即捐助
                   </Button>
                 </Link>
-                <Text variant="paragraph">
+                <Text variant='paragraph'>
                   綠色和平成立50年，從不接受政商界捐助，在環境工作上維持公正獨立！
                 </Text>
               </Stack>
@@ -335,7 +335,7 @@ const Landing = ({ submitted, togglePanel }) => {
         </Box>
         <Box
           w={{ base: 0, md: "50%", lg: "500px" }}
-          px="4"
+          px='4'
           py={{ base: 4, md: 8 }}
           d={{ base: "none", md: "block" }}
         >
@@ -355,11 +355,11 @@ const Landing = ({ submitted, togglePanel }) => {
         </Box>
       </Flex>
       <Box
-        pos="fixed"
+        pos='fixed'
         bottom={0}
         zIndex={9}
-        p="4"
-        w="100%"
+        p='4'
+        w='100%'
         style={{
           background: "rgba(255, 255, 255, 0.8)",
           borderColor: "rgba(255, 255, 255, 0.8)",
@@ -372,11 +372,11 @@ const Landing = ({ submitted, togglePanel }) => {
         d={{ base: "flex", md: "none" }}
       >
         <Button
-          w="80%"
-          color="#FFF"
-          bg="orange"
-          borderRadius="24px"
-          fontSize="xl"
+          w='80%'
+          color='#FFF'
+          bg='orange'
+          borderRadius='24px'
+          fontSize='xl'
           letterSpacing={4}
           style={{ zIndex: 999 }}
           onClick={() => togglePanel(true)}

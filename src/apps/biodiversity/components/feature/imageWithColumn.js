@@ -4,7 +4,7 @@ export default function SplitWithImage({ pStyle, captionStyle }) {
   return (
     <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
       <Stack spacing={4}>
-        <Text {...pStyle} mt="0">
+        <Text {...pStyle} mt='0'>
           Fa La La老師是「Fa La La
           繪本遊世界」網上平台的創辦人，她喜愛運用繪本打開孩子心扉，透過與孩子共讀，向他們分享許多生命的正能量和反思。
         </Text>
@@ -14,7 +14,7 @@ export default function SplitWithImage({ pStyle, captionStyle }) {
           Turtle》繪本，並與海龜玩偶上演小劇場，和親子參加者宣傳保護海洋的訊息。
         </Text>
       </Stack>
-      <Flex direction="column">
+      <Flex direction='column'>
         <Image
           rounded={"md"}
           alt={"feature image"}

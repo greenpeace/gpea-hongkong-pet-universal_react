@@ -35,10 +35,10 @@ const Index = ({ submitted, togglePanel }) => {
   const Feature = ({ text, icon, iconBg }) => {
     return (
       <Stack direction={"row"} align={"center"}>
-        <Circle size="40px" color="white" bg={iconBg}>
+        <Circle size='40px' color='white' bg={iconBg}>
           {icon}
         </Circle>
-        <Text pl="2" fontSize="lg" color="gray.900">
+        <Text pl='2' fontSize='lg' color='gray.900'>
           {text}
         </Text>
       </Stack>
@@ -77,22 +77,22 @@ const Index = ({ submitted, togglePanel }) => {
       <SEO />
       {isMobile && <Nav />}
       <Flex>
-        <Box flex="1">
+        <Box flex='1'>
           <Image
             src={
               "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/04/1d3a7e7b-earthday_main_banner.jpg"
             }
           />
 
-          <Box p={{ base: 4, sm: 10 }} mt="4">
+          <Box p={{ base: 4, sm: 10 }} mt='4'>
             <Heading
-              as="h1"
+              as='h1'
               fontSize={{ base: "2xl", md: "4xl" }}
-              color="brand.500"
+              color='brand.500'
             >
               立即報名 「童你講故事」
               <br />
-              <Text mt="2" color="gray.900">
+              <Text mt='2' color='gray.900'>
                 氣候與環境繪本線上共讀會
               </Text>
             </Heading>
@@ -172,12 +172,12 @@ const Index = ({ submitted, togglePanel }) => {
           <Divider my={{ base: 8, lg: 10 }} />
           <Box p={{ base: 4, sm: 10 }}>
             <Box
-              maxW="120px"
-              borderColor="brand.600"
-              borderWidth="1px"
-              borderRadius="full"
-              overflow="hidden"
-              mb="6"
+              maxW='120px'
+              borderColor='brand.600'
+              borderWidth='1px'
+              borderRadius='full'
+              overflow='hidden'
+              mb='6'
             >
               <Image
                 src={`${process.env.PUBLIC_URL}/events/falala/Miss Falala profile picture.png`}
@@ -185,22 +185,22 @@ const Index = ({ submitted, togglePanel }) => {
             </Box>
             <Heading
               fontSize={{ base: "md", sm: "2xl" }}
-              color="brand.600"
-              mb="2"
+              color='brand.600'
+              mb='2'
             >
               故事導師 Fa La La老師
             </Heading>
-            <Text size="sm" color="gray.500" mb="8">
+            <Text size='sm' color='gray.500' mb='8'>
               資深幼兒教育工作者，並於公共圖書館擔任故事導師。
             </Text>
 
             <ImageWithColumn pStyle={pStyle} captionStyle={{ captionStyle }} />
 
             <Divider my={{ base: 8, lg: 10 }} />
-            <SimpleGrid mt="4" columns={{ base: 1, md: 2 }} spacing={10}>
-              <Flex direction="column">
+            <SimpleGrid mt='4' columns={{ base: 1, md: 2 }} spacing={10}>
+              <Flex direction='column'>
                 <Image
-                  borderRadius="8px"
+                  borderRadius='8px'
                   alt={"feature image"}
                   src={
                     "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/04/86661c3b-說故事-storytelling-pic.jpg"
@@ -213,9 +213,9 @@ const Index = ({ submitted, togglePanel }) => {
               </Flex>
               <Stack spacing={4}>
                 <Heading
-                  as="h2"
-                  size="md"
-                  color="brand.500"
+                  as='h2'
+                  size='md'
+                  color='brand.500'
                   style={{ lineHeight: "1.5" }}
                 >
                   &nbsp;&nbsp;立即支持
@@ -228,14 +228,14 @@ const Index = ({ submitted, togglePanel }) => {
                 <Text {...pStyle}>
                   為感謝您的支持，我們也另外贈送一本繪本給您。
                 </Text>
-                <Link href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=earthday&utm_campaign=earthday">
+                <Link href='https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=earthday&utm_campaign=earthday'>
                   <Button
-                    mt="2"
-                    color="#FFF"
-                    bg="brand.500"
+                    mt='2'
+                    color='#FFF'
+                    bg='brand.500'
                     _hover={{ bg: "brand.400" }}
-                    borderRadius="24px"
-                    fontSize="md"
+                    borderRadius='24px'
+                    fontSize='md'
                     letterSpacing={2}
                   >
                     立即支持
@@ -251,7 +251,7 @@ const Index = ({ submitted, togglePanel }) => {
           d={{ base: "none", md: "block" }}
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
-            <Box boxShadow="lg" p="6" rounded="md" bg="white">
+            <Box boxShadow='lg' p='6' rounded='md' bg='white'>
               {submitted ? (
                 <NewFrameSubmittedForm formContent={content} />
               ) : (
@@ -267,11 +267,11 @@ const Index = ({ submitted, togglePanel }) => {
         </Box>
       </Flex>
       <Box
-        pos="fixed"
+        pos='fixed'
         bottom={0}
         zIndex={9}
-        p="4"
-        w="100%"
+        p='4'
+        w='100%'
         style={{
           background: "rgba(255, 255, 255, 0.8)",
           borderColor: "rgba(255, 255, 255, 0.8)",
@@ -284,12 +284,12 @@ const Index = ({ submitted, togglePanel }) => {
         d={{ base: "flex", md: "none" }}
       >
         <Button
-          w="80%"
-          color="#FFF"
-          bg="orange"
+          w='80%'
+          color='#FFF'
+          bg='orange'
           _hover={{ bg: "campaign.oceans" }}
-          borderRadius="24px"
-          fontSize="xl"
+          borderRadius='24px'
+          fontSize='xl'
           letterSpacing={4}
           style={{ zIndex: 999 }}
           onClick={() => togglePanel(true)}

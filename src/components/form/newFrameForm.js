@@ -126,17 +126,17 @@ const MyForm = (props) => {
 
   return (
     <Box
-      borderTop={{base: null, sm: "4px solid #66cc00"}}
-      boxShadow={{base: null, sm: "lg"}}
-      p={{base:0, sm: 6}}
-      rounded={{base: 0, sm: "md"}}
-      bg="white"
-      overflow="hidden"
+      borderTop={{ base: null, sm: "4px solid #66cc00" }}
+      boxShadow={{ base: null, sm: "lg" }}
+      p={{ base: 0, sm: 6 }}
+      rounded={{ base: 0, sm: "md" }}
+      bg='white'
+      overflow='hidden'
     >
       <Form onSubmit={handleSubmit}>
-      <Text py={4} variant="heading" fontSize="2xl" color="gray.900" py={2}>
-        <span dangerouslySetInnerHTML={{ __html: formContent.form_header }}/>
-      </Text>
+        <Text py={4} variant='heading' fontSize='2xl' color='gray.900' py={2}>
+          <span dangerouslySetInnerHTML={{ __html: formContent.form_header }} />
+        </Text>
         {/* <Heading
           pt="4"
           mb="6"
@@ -156,56 +156,56 @@ const MyForm = (props) => {
               target={item.target}
             />
           ))}
-        <Flex direction="column">
-          <Box flex="1" pb={space}>
-            <FormControl id="email" isInvalid={errors.Email && touched.Email}>
+        <Flex direction='column'>
+          <Box flex='1' pb={space}>
+            <FormControl id='email' isInvalid={errors.Email && touched.Email}>
               <FormLabel {...labelStyle}>{formContent.label_email}</FormLabel>
               <Input
-                name="Email"
-                type="email"
+                name='Email'
+                type='email'
                 placeholder={formContent.label_email}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              <FormErrorMessage color="red">{errors.Email}</FormErrorMessage>
+              <FormErrorMessage color='red'>{errors.Email}</FormErrorMessage>
             </FormControl>
           </Box>
 
           <HStack>
             <Box flex={1} pb={space}>
               <FormControl
-                id="lastName"
+                id='lastName'
                 isInvalid={errors.LastName && touched.LastName}
               >
                 <FormLabel {...labelStyle}>
                   {formContent.label_last_name}
                 </FormLabel>
                 <Input
-                  name="LastName"
-                  type="text"
+                  name='LastName'
+                  type='text'
                   placeholder={formContent.label_last_name}
                   onChange={handleChange}
                 />
-                <FormErrorMessage color="red">
+                <FormErrorMessage color='red'>
                   {errors.LastName}
                 </FormErrorMessage>
               </FormControl>
             </Box>
-            <Box flex="1" pb={space}>
+            <Box flex='1' pb={space}>
               <FormControl
-                id="firstName"
+                id='firstName'
                 isInvalid={errors.FirstName && touched.FirstName}
               >
                 <FormLabel {...labelStyle}>
                   {formContent.label_first_name}
                 </FormLabel>
                 <Input
-                  name="FirstName"
-                  type="text"
+                  name='FirstName'
+                  type='text'
                   placeholder={formContent.label_first_name}
                   onChange={handleChange}
                 />
-                <FormErrorMessage color="red">
+                <FormErrorMessage color='red'>
                   {errors.FirstName}
                 </FormErrorMessage>
               </FormControl>
@@ -220,13 +220,13 @@ const MyForm = (props) => {
             </FormLabel>
           </FormControl>
 
-          <HStack align="flex-end">
+          <HStack align='flex-end'>
             <Box
               pb={space}
               mb={errors.MobilePhone && touched.MobilePhone ? "28px" : 0}
             >
-              <FormControl id="mobileCountryCode">
-                <Select name="MobileCountryCode" onChange={handleChange}>
+              <FormControl id='mobileCountryCode'>
+                <Select name='MobileCountryCode' onChange={handleChange}>
                   {mobileCountryCode &&
                     mobileCountryCode.map((d) => (
                       <option key={d.value} value={d.value}>
@@ -236,18 +236,18 @@ const MyForm = (props) => {
                 </Select>
               </FormControl>
             </Box>
-            <Box flex="1" pb={space}>
+            <Box flex='1' pb={space}>
               <FormControl
-                id="mobilePhone"
+                id='mobilePhone'
                 isInvalid={errors.MobilePhone && touched.MobilePhone}
               >
                 <Input
-                  type="number"
-                  name="MobilePhone"
+                  type='number'
+                  name='MobilePhone'
                   placeholder={formContent.label_phone}
                   onChange={handleChange}
                 />
-                <FormErrorMessage color="red">
+                <FormErrorMessage color='red'>
                   {errors.MobilePhone}
                 </FormErrorMessage>
               </FormControl>
@@ -255,9 +255,9 @@ const MyForm = (props) => {
           </HStack>
 
           {birthDate && (
-            <Box flex="1" pb={space}>
+            <Box flex='1' pb={space}>
               <FormControl
-                id="Birthdate"
+                id='Birthdate'
                 isInvalid={errors.Birthdate && touched.Birthdate}
               >
                 <FormLabel {...labelStyle}>
@@ -276,41 +276,41 @@ const MyForm = (props) => {
                       </option>
                     ))}
                 </Select>
-                <FormErrorMessage color="red">
+                <FormErrorMessage color='red'>
                   {errors.Birthdate}
                 </FormErrorMessage>
               </FormControl>
             </Box>
           )}
 
-          <Box flex="1" pt={3} pb={3}>
+          <Box flex='1' pt={3} pb={3}>
             <Button
-              w="100%"
+              w='100%'
               isLoading={isSubmitting}
-              type="submit"
-              height="48px"
-              borderRadius="8"
-              fontSize="xl"
-              color="#FFF"
+              type='submit'
+              height='48px'
+              borderRadius='8'
+              fontSize='xl'
+              color='#FFF'
               letterSpacing={4}
-              bg="#ff8100"
+              bg='#ff8100'
               _hover={{ bg: "campaign.climate" }}
-              type="submit"
+              type='submit'
             >
               {formContent.submit_text}
             </Button>
           </Box>
 
           <Box>
-            <HStack align="flex-start">
+            <HStack align='flex-start'>
               <Box pt={5} pb={4}>
-                <FormControl id="optIn">
+                <FormControl id='optIn'>
                   {newsLetter ? (
-                    <Checkbox name="OptIn" onChange={handleChange}>
-                      <Text fontSize="xs">{formContent.form_remind}</Text>
+                    <Checkbox name='OptIn' onChange={handleChange}>
+                      <Text fontSize='xs'>{formContent.form_remind}</Text>
                     </Checkbox>
                   ) : (
-                    <Text fontSize="xs" color="gray.500">
+                    <Text fontSize='xs' color='gray.500'>
                       <sup> * </sup>
                       {formContent.form_remind}
                     </Text>

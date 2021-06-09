@@ -63,10 +63,10 @@ const DonateForm = () => {
   return (
     <Box>
       <Box>
-        <Heading as="h2" py={4} align={"center"}>
+        <Heading as='h2' py={4} align={"center"}>
           守護地球，分秒必爭
         </Heading>
-        <Text as="p" py={2} align={"center"} variant="paragraph">
+        <Text as='p' py={2} align={"center"} variant='paragraph'>
           <p
             dangerouslySetInnerHTML={{
               __html:
@@ -77,19 +77,19 @@ const DonateForm = () => {
       </Box>
       <Box py={2}>
         <Stack
-          direction="row"
+          direction='row'
           spacing={1}
           borderWidth={1}
-          borderColor="brand.500"
+          borderColor='brand.500'
           borderRadius={"md"}
           overflow={"hidden"}
         >
           {TYPES.map((d, i) => (
             <Button
               key={d.value}
-              flex="1"
-              h="40px"
-              fontWeight="400"
+              flex='1'
+              h='40px'
+              fontWeight='400'
               borderRadius={0}
               bg={donateType === d.value ? "brand.500" : "#FFF"}
               color={donateType === d.value ? "#FFF" : "brand.500"}
@@ -101,10 +101,10 @@ const DonateForm = () => {
           ))}
         </Stack>
       </Box>
-      <Box py={4} overflow="hidden">
-        <Flex direction="column">
+      <Box py={4} overflow='hidden'>
+        <Flex direction='column'>
           <Box>
-            <Grid templateColumns="repeat(3, 1fr)" gap={2}>
+            <Grid templateColumns='repeat(3, 1fr)' gap={2}>
               {amountOption.map((d, i) => {
                 const colSpan = amountOption.length === i + 1 ? 3 : 1;
 
@@ -112,13 +112,13 @@ const DonateForm = () => {
                   <GridItem colSpan={colSpan} key={i}>
                     <Button
                       key={d.value}
-                      flex="1"
+                      flex='1'
                       bg={amount === d.value ? "brand.500" : "gray.300"}
                       color={amount === d.value ? "#FFF" : "gray.500"}
                       borderRadius={"md"}
                       _hover={{ bg: "brand.500", color: "#FFF" }}
                       onClick={() => setAmount(d.value)}
-                      w="100%"
+                      w='100%'
                       {...buttonStyle}
                     >
                       {d.label}
@@ -129,15 +129,15 @@ const DonateForm = () => {
             </Grid>
           </Box>
 
-          <Box align="center" py={8}>
-            <Text as="p" variant="paragraph" color="gray.700">
+          <Box align='center' py={8}>
+            <Text as='p' variant='paragraph' color='gray.700'>
               您的捐款，將幫助綠色和平為環境問題找到出路，並在全球各地落實環保工作。謝謝！
             </Text>
           </Box>
 
           <Box onClick={() => handleOpenLink()}>
             <Button
-              variant="formSubmitButton"
+              variant='formSubmitButton'
               {...buttonStyle}
               fontWeight={700}
             >
@@ -145,7 +145,7 @@ const DonateForm = () => {
             </Button>
           </Box>
 
-          <Text align="center" pt={4} pb={2} color="gray.500" fontSize={"sm"}>
+          <Text align='center' pt={4} pb={2} color='gray.500' fontSize={"sm"}>
             安全付款・您的信用卡資料將以SSL安全模式加密
           </Text>
         </Flex>

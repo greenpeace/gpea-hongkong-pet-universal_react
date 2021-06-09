@@ -104,10 +104,10 @@ const Thanks = ({ selectedImage }) => {
   }, [Arctic]);
 
   return (
-    <div className="show-grid full-height">
-      <FlexboxGrid align="middle" className="full-height">
+    <div className='show-grid full-height'>
+      <FlexboxGrid align='middle' className='full-height'>
         <FlexboxGrid.Item componentClass={Col} xs={24} sm={10} md={12} lg={10}>
-          <div className="thanks-content">
+          <div className='thanks-content'>
             <h2>感謝您的下載！</h2>
             <p>您願意進一步行動，捐助支持綠色和平更多環境項目嗎？</p>
             <p>
@@ -118,22 +118,22 @@ const Thanks = ({ selectedImage }) => {
               <Row gutter={12}>
                 <Col xs={12}>
                   <Button
-                    className="donate-button"
-                    size="lg"
-                    appearance="default"
+                    className='donate-button'
+                    size='lg'
+                    appearance='default'
                     block
-                    href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK"
-                    target="_blank"
-                    rel="noreferrer"
+                    href='https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK'
+                    target='_blank'
+                    rel='noreferrer'
                   >
                     <b>捐助支持</b>
                   </Button>
                 </Col>
                 <Col xs={12}>
                   <Button
-                    className="share-button share-button__main"
-                    size="lg"
-                    appearance="default"
+                    className='share-button share-button__main'
+                    size='lg'
+                    appearance='default'
                     block
                     onClick={() => mainShare()}
                   >
@@ -143,9 +143,9 @@ const Thanks = ({ selectedImage }) => {
               </Row>
             </Grid>
             <Divider my={{ base: 8, lg: 10 }} />
-            <div className="cate-switcher">
-              <h2 className="cate-headline">揀選你喜愛的環境照片</h2>
-              <Grid fluid className="cate-grid">
+            <div className='cate-switcher'>
+              <h2 className='cate-headline'>揀選你喜愛的環境照片</h2>
+              <Grid fluid className='cate-grid'>
                 <Row gutter={16}>
                   {(campaignButton || []).map((d) => (
                     <Col
@@ -171,16 +171,16 @@ const Thanks = ({ selectedImage }) => {
         </FlexboxGrid.Item>
         <FlexboxGrid.Item componentClass={Col} xs={24} sm={14} md={12} lg={12}>
           <Sticky
-            className="thanks-download-sticky mobile-sticky"
+            className='thanks-download-sticky mobile-sticky'
             topOffset={0}
             onFixedToggle={() => setDisplayCate(!displayCate)}
           >
-            <div className="thanks-download-image-wrap">
+            <div className='thanks-download-image-wrap'>
               <a
                 href={`${process.env.PUBLIC_URL}${download}`}
                 download={download.split("/").pop()}
               >
-                <div className="download-reminder-overlay">
+                <div className='download-reminder-overlay'>
                   <p>
                     <strong>點擊確認下載圖片</strong>
                     <br />
@@ -190,24 +190,24 @@ const Thanks = ({ selectedImage }) => {
                   </p>
                 </div>
                 <img
-                  loading="lazy"
+                  loading='lazy'
                   src={`${process.env.PUBLIC_URL}${download}`}
-                  className="img"
-                  alt=""
+                  className='img'
+                  alt=''
                 />
                 <div
-                  className="thanks-mobile-background-image"
+                  className='thanks-mobile-background-image'
                   style={{
                     backgroundImage: `url(${process.env.PUBLIC_URL}${download})`,
                   }}
                 ></div>
               </a>
 
-              <div className="mobile-download-html5">
+              <div className='mobile-download-html5'>
                 <FontAwesomeIcon icon={["fas", "download"]} />
               </div>
 
-              <div className="mobile-download">
+              <div className='mobile-download'>
                 {/* <ButtonToolbar>
                   <IconButton
                     icon={<Icon icon="download" />}
@@ -229,9 +229,9 @@ const Thanks = ({ selectedImage }) => {
           sm={10}
           md={12}
           lg={10}
-          align="bottom"
+          align='bottom'
         >
-          <div className="thanks-slider-wrap">
+          <div className='thanks-slider-wrap'>
             <Grid fluid>
               <Row gutter={16}>
                 {current.content?.wallpaperList.map((d, i) => (
@@ -239,12 +239,12 @@ const Thanks = ({ selectedImage }) => {
                     key={i}
                     xs={12}
                     md={8}
-                    className="wallpaper-thumbnail-col"
+                    className='wallpaper-thumbnail-col'
                     onClick={() => handleSetDownload(d)}
                     name={d}
                   >
                     <div
-                      className="img wallpaper-thumbnail wallpaper-thumbnail-mobile"
+                      className='img wallpaper-thumbnail wallpaper-thumbnail-mobile'
                       style={{
                         backgroundImage: `url(${process.env.PUBLIC_URL}${d})`,
                       }}

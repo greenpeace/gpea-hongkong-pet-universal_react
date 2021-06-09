@@ -6,9 +6,9 @@ export default function Countdown() {
   const [countDown, setCountDown] = useState("Count");
   const renderLayout = (count, unit) => {
     return (
-      <HStack align="center">
-        <Text fontSize="lg">{count}</Text>
-        <Text fontSize="md">{unit}</Text>
+      <HStack align='center'>
+        <Text fontSize='lg'>{count}</Text>
+        <Text fontSize='md'>{unit}</Text>
       </HStack>
     );
   };

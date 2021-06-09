@@ -23,12 +23,12 @@ const IMAGES = [
   "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/1f5bd6af-gif7.jpg",
 ];
 
-const HeroSwiper = ({isMobile,swiperHeight }) => {
+const HeroSwiper = ({ isMobile, swiperHeight }) => {
   const [swiper, setSwiper] = useState(null);
   useEffect(() => {
     const mySwiper = document.querySelector(".hero-banner").swiper;
     setSwiper(mySwiper);
-    console.log('mySwiper-',mySwiper)
+    console.log("mySwiper-", mySwiper);
   }, []);
 
   // const swiperProps = {
@@ -43,25 +43,39 @@ const HeroSwiper = ({isMobile,swiperHeight }) => {
   //   }
   // />
 
-  const swiperStyle = !isMobile ? {
-    top:'50%',
-    transform: 'translateY(-50%)'
-  } : { position: 'relative'}
+  const swiperStyle = !isMobile
+    ? {
+        top: "50%",
+        transform: "translateY(-50%)",
+      }
+    : { position: "relative" };
 
-  const height = isMobile ? 'auto' : swiperHeight
+  const height = isMobile ? "auto" : swiperHeight;
 
   return (
-  <Box pos="relative" h={height} w="100%" overflow="hidden" borderRadius="8px">
-    <Swiper autoplay={{ delay: 3000 }} effect="fade" className="hero-banner" style={swiperStyle}>
-      {IMAGES.map((d, i) => {
-      return (
-        <SwiperSlide key={i} >
-          <Image src={d} w="100%" />
-        </SwiperSlide>
-      )})}
-    </Swiper>
-  </Box>
+    <Box
+      pos='relative'
+      h={height}
+      w='100%'
+      overflow='hidden'
+      borderRadius='8px'
+    >
+      <Swiper
+        autoplay={{ delay: 3000 }}
+        effect='fade'
+        className='hero-banner'
+        style={swiperStyle}
+      >
+        {IMAGES.map((d, i) => {
+          return (
+            <SwiperSlide key={i}>
+              <Image src={d} w='100%' />
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+    </Box>
   );
-}
+};
 
-export default HeroSwiper
+export default HeroSwiper;

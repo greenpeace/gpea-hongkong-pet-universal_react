@@ -19,9 +19,9 @@ const ParallaxImage = ({ sub, content, src, ...style }) => {
   }, [ref]);
 
   return (
-    <div ref={ref} className="image-container">
-      <motion.div className="overlay" style={{ ...style, y }}>
-        {sub && <img loading="lazy" src={sub} />}
+    <div ref={ref} className='image-container'>
+      <motion.div className='overlay' style={{ ...style, y }}>
+        {sub && <img loading='lazy' src={sub} />}
         {/* {content && <Box alignItems="center" textAlign="center" fontWeight="normal" color="#fff" p="7">
         <Text fontSize="3xl">
           {content}

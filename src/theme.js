@@ -1,7 +1,7 @@
 // 1. Import `extendTheme`
 import { extendTheme } from "@chakra-ui/react";
-import { TextStyles as Text } from "../src/styles/components/textStyles"
-import { ButtonStyles as Button } from "../src/styles/components/buttonStyles"
+import { TextStyles as Text } from "../src/styles/components/textStyles";
+import { ButtonStyles as Button } from "../src/styles/components/buttonStyles";
 
 const theme = extendTheme({
   fonts: {
@@ -58,8 +58,8 @@ const theme = extendTheme({
   },
   components: {
     Text,
-    Button
-  }
+    Button,
+  },
 });
 
 export default theme;

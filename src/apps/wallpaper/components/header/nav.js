@@ -12,7 +12,7 @@ import {
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
 
-const NavLink = ({ children}) => (
+const NavLink = ({ children }) => (
   <Link
     px={2}
     py={1}
@@ -27,12 +27,12 @@ const NavLink = ({ children}) => (
   </Link>
 );
 
-const Nav = ({ togglePanel, showButton = true  }) => {
+const Nav = ({ togglePanel, showButton = true }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
-      <Box borderBottom="1px" borderColor="gray.100">
+      <Box borderBottom='1px' borderColor='gray.100'>
         <Container maxW={"12xl"}>
           <Flex
             h={16}
@@ -51,31 +51,33 @@ const Nav = ({ togglePanel, showButton = true  }) => {
               <Box>
                 <Image
                   maxW={{ base: "180px", sm: "220px" }}
-                  objectFit="contain"
-                  src="https://api.greenpeace.org.hk/general/logo/GP-logo-2019-TC-green-%5bweb%5d-01.png"
+                  objectFit='contain'
+                  src='https://api.greenpeace.org.hk/general/logo/GP-logo-2019-TC-green-%5bweb%5d-01.png'
                 />
               </Box>
             </HStack>
-            {showButton && <Flex alignItems={"center"}>
-              <Button
-                d={{ base: "block", md: "none" }}
-                w="100%"
-                color="#FFF"
-                bg="#ff8100"
-                _hover={{ bg: "campaign.climate" }}
-                height={{ base: "40px", sm: "50px" }}
-                borderRadius="24px"
-                px={{ base: 4, sm: 6 }}
-                fontSize={{ base: "md", sm: "xl" }}
-                bottom={0}
-                zIndex={9}
-                onClick={() => togglePanel(true)}
-                style={{ zIndex: 999 }}
-                letterSpacing={2}
-              >
-                立即登記
-              </Button>
-            </Flex>}
+            {showButton && (
+              <Flex alignItems={"center"}>
+                <Button
+                  d={{ base: "block", md: "none" }}
+                  w='100%'
+                  color='#FFF'
+                  bg='#ff8100'
+                  _hover={{ bg: "campaign.climate" }}
+                  height={{ base: "40px", sm: "50px" }}
+                  borderRadius='24px'
+                  px={{ base: 4, sm: 6 }}
+                  fontSize={{ base: "md", sm: "xl" }}
+                  bottom={0}
+                  zIndex={9}
+                  onClick={() => togglePanel(true)}
+                  style={{ zIndex: 999 }}
+                  letterSpacing={2}
+                >
+                  立即登記
+                </Button>
+              </Flex>
+            )}
           </Flex>
         </Container>
         {/*

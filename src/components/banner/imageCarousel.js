@@ -22,11 +22,16 @@ const Index = ({ swiperData, slideIndex, style }) => {
   }, []);
 
   return (
-    <Swiper allowTouchMove={false} autoplay={{ delay: 3000 }} slidesPerView={1} className={'simple-swiper'}>
+    <Swiper
+      allowTouchMove={false}
+      autoplay={{ delay: 3000 }}
+      slidesPerView={1}
+      className={"simple-swiper"}
+    >
       {(swiperData || []).map((d, i) => {
         return (
           <SwiperSlide key={i}>
-            <Image src={d} style={style}/>
+            <Image src={d} style={style} />
           </SwiperSlide>
         );
       })}
