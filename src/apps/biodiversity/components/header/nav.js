@@ -32,7 +32,7 @@ const Nav = ({ togglePanel }) => {
 
   return (
     <>
-      <Box borderBottom="1px" borderColor="gray.100">
+      <Box borderBottom='1px' borderColor='gray.100'>
         <Container maxW={"12xl"}>
           <Flex
             h={16}
@@ -51,20 +51,20 @@ const Nav = ({ togglePanel }) => {
               <Box>
                 <Image
                   maxW={{ base: "180px", sm: "220px" }}
-                  objectFit="contain"
-                  src="https://api.greenpeace.org.hk/general/logo/GP-logo-2019-TC-green-%5bweb%5d-01.png"
+                  objectFit='contain'
+                  src='https://api.greenpeace.org.hk/general/logo/GP-logo-2019-TC-green-%5bweb%5d-01.png'
                 />
               </Box>
             </HStack>
             <Flex alignItems={"center"}>
               <Button
                 d={{ base: "block", md: "none" }}
-                w="100%"
-                color="#FFF"
-                bg="#ff8100"
+                w='100%'
+                color='#FFF'
+                bg='#ff8100'
                 _hover={{ bg: "campaign.climate" }}
                 height={{ base: "40px", sm: "50px" }}
-                borderRadius="24px"
+                borderRadius='24px'
                 px={{ base: 4, sm: 6 }}
                 fontSize={{ base: "md", sm: "xl" }}
                 bottom={0}

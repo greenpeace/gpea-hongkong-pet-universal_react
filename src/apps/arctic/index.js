@@ -27,16 +27,16 @@ const Index = ({ initState, fakeSubmit, submitted }) => {
   return (
     <>
       <SEO />
-      <div id="main">
+      <div id='main'>
         <Header />
         <Aside />
-        <div id="wrapper">
-          <div className="content full-height" data-pagetitle="Home slider">
+        <div id='wrapper'>
+          <div className='content full-height' data-pagetitle='Home slider'>
             <SlideScreen />
           </div>
         </div>
       </div>
-      <div className="custom-form-wrap">
+      <div className='custom-form-wrap'>
         {submitted ? (
           <SubmittedForm formContent={formContent} />
         ) : (

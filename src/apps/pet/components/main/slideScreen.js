@@ -40,39 +40,39 @@ const SlideScreen = ({
   };
 
   return (
-    <div className="hero-wrapper fl-wrap full-height hidden-item">
-      <span className="hc_dec"></span>
-      <div className="hero-slider-wrap home-half-slider fl-wrap full-height">
-        <div className="hero-slider fs-gallery-wrap fl-wrap full-height">
+    <div className='hero-wrapper fl-wrap full-height hidden-item'>
+      <span className='hc_dec'></span>
+      <div className='hero-slider-wrap home-half-slider fl-wrap full-height'>
+        <div className='hero-slider fs-gallery-wrap fl-wrap full-height'>
           <Banner />
         </div>
       </div>
-      <div className="hero-slider-img hero-slider-wrap_halftwo hidden-item">
+      <div className='hero-slider-img hero-slider-wrap_halftwo hidden-item'>
         <Carousel />
-        <div className="hero-corner-dec"></div>
+        <div className='hero-corner-dec'></div>
       </div>
       {/* <div className="clone-counter">
         <div className="current">{currentSlide}</div>
       </div> */}
-      <div className="swiper-counter hs_counter">
-        <div className="current">{currentSlide}</div>
-        <div className="total">{totalSlide}</div>
+      <div className='swiper-counter hs_counter'>
+        <div className='current'>{currentSlide}</div>
+        <div className='total'>{totalSlide}</div>
       </div>
-      <div className="hero-slider_control-wrap">
-        <div className="hsc hsc-prev" onClick={() => handleUpdateSlide("prev")}>
+      <div className='hero-slider_control-wrap'>
+        <div className='hsc hsc-prev' onClick={() => handleUpdateSlide("prev")}>
           <span>
             <FontAwesomeIcon icon={["fas", "arrow-left"]} />
           </span>{" "}
         </div>
-        <div className="hsc hsc-next" onClick={() => handleUpdateSlide("next")}>
+        <div className='hsc hsc-next' onClick={() => handleUpdateSlide("next")}>
           <span>
             <FontAwesomeIcon icon={["fas", "arrow-right"]} />
           </span>
         </div>
       </div>
       <a
-        href="#"
-        className="start-btn cta-custom-display"
+        href='#'
+        className='start-btn cta-custom-display'
         onClick={() => handleTogglePanel()}
       >
         <span>

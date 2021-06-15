@@ -32,8 +32,8 @@ const Panel = ({ theme, closePanel, togglePanel, formContent }) => {
     <div>
       <SlidingPane
         isOpen={theme.displayPanel}
-        from="bottom"
-        width="100%"
+        from='bottom'
+        width='100%'
         onRequestClose={() => null}
       >
         <RegistrationForm formContent={formContent} />

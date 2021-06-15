@@ -25,12 +25,12 @@ const Index = ({ swiperData, slideIndex }) => {
       {(swiperData || []).map((d) => (
         <SwiperSlide key={d.id}>
           <div
-            className="bg"
+            className='bg'
             data-bg={d.image_url}
             style={{ backgroundImage: "url(" + d.image_url + ")" }}
-            data-swiper-parallax="40%"
+            data-swiper-parallax='40%'
           ></div>
-          <div className="overlay"></div>
+          <div className='overlay'></div>
         </SwiperSlide>
       ))}
     </Swiper>

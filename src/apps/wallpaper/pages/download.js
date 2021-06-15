@@ -85,8 +85,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
       navigator
         .share({
           title: "",
-          text:
-            "精選香港動物奇妙時刻：桌布 / 視像會議寫真大放送！立即免費下載！👉 ",
+          text: "精選香港動物奇妙時刻：桌布 / 視像會議寫真大放送！立即免費下載！👉 ",
           url: "https://act.gp/2YaXfQW",
         })
         .then()
@@ -158,14 +157,14 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
     <ChakraProvider theme={themeConfig}>
       <Nav showButton={false} />
       <SimpleGrid columns={{ base: 1, md: 2 }}>
-        <Box flex="1" pt={10} px="4">
-          <Heading size="xl" mb={8}>
+        <Box flex='1' pt={10} px='4'>
+          <Heading size='xl' mb={8}>
             感謝您的登記！
           </Heading>
-          <Text as="p" fontSize="md">
+          <Text as='p' fontSize='md'>
             您願意進一步行動，捐助支持綠色和平更多環境項目嗎？
           </Text>
-          <Text as="p" fontSize="md">
+          <Text as='p' fontSize='md'>
             守護香港野！我們需要您的支持為環境堅持努力。
             <br />
             綠色和平不接受政府、企業捐款，請立刻加入我們的1%會員計畫，以您的1%收入，支持我們的100%財政獨立。
@@ -256,20 +255,20 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                 </Box>
               </Flex> */}
 
-          <HStack align="center" pt="6" pb="4" spacing="4">
+          <HStack align='center' pt='6' pb='4' spacing='4'>
             <Link
-              href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&ref=wallpaper-thankyou"
+              href='https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&ref=wallpaper-thankyou'
               isExternal
             >
-              <Button backgroundColor="orange" color="white" px="10" py="4">
+              <Button backgroundColor='orange' color='white' px='10' py='4'>
                 捐助支持
               </Button>
             </Link>
             <Button
-              backgroundColor="brand.500"
-              color="white"
-              px="10"
-              py="4"
+              backgroundColor='brand.500'
+              color='white'
+              px='10'
+              py='4'
               onClick={() => mainShare()}
             >
               分享
@@ -277,14 +276,14 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
           </HStack>
           <Sticky
             stickyClassName={"sticky-wallpaper-image"}
-            z-index="99"
+            z-index='99'
             onFixedToggle={() => setDisplayCate(!displayCate)}
           >
-            <Heading size="lg" pt={4} mb={8}>
+            <Heading size='lg' pt={4} mb={8}>
               點擊確認下載圖片
             </Heading>
             <Box
-              pos="relative"
+              pos='relative'
               onMouseEnter={() => setIsShown(true)}
               onMouseLeave={() => setIsShown(false)}
               my={4}
@@ -296,16 +295,16 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               >
                 {isShown && (
                   <Box
-                    pos="absolute"
+                    pos='absolute'
                     top={0}
                     bottom={0}
                     left={0}
                     right={0}
-                    bgColor="rgba(0, 0, 0, .25)"
+                    bgColor='rgba(0, 0, 0, .25)'
                   >
-                    <Center w="100%" h="100%">
+                    <Center w='100%' h='100%'>
                       <VStack>
-                        <Text as="h3" color="#FFF">
+                        <Text as='h3' color='#FFF'>
                           <strong>點擊確認下載圖片</strong>
                         </Text>
                         <small style={{ color: "#FFF" }}>
@@ -315,15 +314,15 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                     </Center>
                   </Box>
                 )}
-                <Box pos="absolute" left="8px" top="8px" zIndex="1">
-                  <DownloadIcon color="#FFF" w={8} h={8} />
+                <Box pos='absolute' left='8px' top='8px' zIndex='1'>
+                  <DownloadIcon color='#FFF' w={8} h={8} />
                 </Box>
-                <Box pos="absolute" {...downloadButtonStyle}></Box>
+                <Box pos='absolute' {...downloadButtonStyle}></Box>
                 <LazyLoad height={200} once offset={100}>
                   <Image
-                    className="fade-in"
+                    className='fade-in'
                     src={`${process.env.PUBLIC_URL}${download}`}
-                    w="100%"
+                    w='100%'
                   />
                 </LazyLoad>
               </Link>
@@ -352,16 +351,16 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
             ))}
           </HStack> */}
         </Box>
-        <Box flex="1" pt="10" pb="4" px="4">
-          <Heading size="xl" mb={8}>
+        <Box flex='1' pt='10' pb='4' px='4'>
+          <Heading size='xl' mb={8}>
             揀選你喜愛的環境照片
           </Heading>
           {isMobile ? (
-            <SimpleGrid columns={2} spacing="12px">
+            <SimpleGrid columns={2} spacing='12px'>
               {current.content?.wallpaperList.map((d, i) => {
                 return (
                   <Box
-                    pos="relative"
+                    pos='relative'
                     key={i}
                     _hover={{ cursor: "pointer", opacity: 0.8 }}
                     onClick={() => handleSetDownload(d.source)}
@@ -388,7 +387,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                     */}
                       <Image src={`${process.env.PUBLIC_URL}${d.source}`} />
                     </LazyLoad>
-                    <Text as="span" {...photoCaption}>
+                    <Text as='span' {...photoCaption}>
                       {d.label_zh}
                     </Text>
                   </Box>
@@ -396,19 +395,19 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               })}
             </SimpleGrid>
           ) : (
-            <SimpleGrid minChildWidth="180px" spacing="20px">
+            <SimpleGrid minChildWidth='180px' spacing='20px'>
               {current.content?.wallpaperList.map((d, i) => (
-                <Box pos="relative">
+                <Box pos='relative'>
                   <Box
                     name={d}
                     key={i}
                     bgImage={`url(${process.env.PUBLIC_URL}${d.source})`}
-                    bgSize="cover"
+                    bgSize='cover'
                     height={{ base: "240px", sm: "180px" }}
                     _hover={{ cursor: "pointer", opacity: 0.8 }}
                     onClick={() => handleSetDownload(d.source)}
                   />
-                  <Text as="span" {...photoCaption}>
+                  <Text as='span' {...photoCaption}>
                     {d.label_zh}
                   </Text>
                 </Box>
@@ -417,12 +416,12 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
           )}
 
           <Text
-            mt="4"
-            px="4"
-            py="10"
-            fontSize="md"
-            align="center"
-            color="gray.500"
+            mt='4'
+            px='4'
+            py='10'
+            fontSize='md'
+            align='center'
+            color='gray.500'
           >
             - 持續更新中 -
           </Text>
@@ -431,34 +430,34 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               columns={{ base: 1 }}
               p={6}
               borderRadius={"md"}
-              borderType="solid"
-              borderWidth="1px"
-              borderColor="brand.400"
+              borderType='solid'
+              borderWidth='1px'
+              borderColor='brand.400'
             >
-              <Box flex="1">
+              <Box flex='1'>
                 <Stack
                   direction={["column", "row"]}
                   columns={{ base: 1, xl: 2 }}
-                  alignItems="center"
-                  spacing="8px"
+                  alignItems='center'
+                  spacing='8px'
                   mb={4}
                 >
-                  <Avatar size="xl" name={"Shing"} src={shing} />
+                  <Avatar size='xl' name={"Shing"} src={shing} />
                   <Box pt={4}>
-                    <Heading fontSize="2xl" mb={2}>
-                      <Text color="brand.900">馮漢城（阿城）</Text>
+                    <Heading fontSize='2xl' mb={2}>
+                      <Text color='brand.900'>馮漢城（阿城）</Text>
                     </Heading>
-                    <Heading color="gray.500" fontSize="md">
+                    <Heading color='gray.500' fontSize='md'>
                       香港生態攝影師
                     </Heading>
                   </Box>
                 </Stack>
 
-                <Text variant="paragraph" pb={4}>
+                <Text variant='paragraph' pb={4}>
                   獨立生態紀錄片製作人。香港電台本地生態紀錄片節目《大自然大不同》第二季單元編導、攝影、剪接。
                 </Text>
                 <Flex
-                  justifyContent="flex-end"
+                  justifyContent='flex-end'
                   fontSize={{ base: "10px", sm: "12px" }}
                 >
                   <HStack spacing={1} pr={4}>

@@ -1,113 +1,155 @@
 import React, { useEffect, useState } from "react";
-import whatsapp from "assets/images/social/whatsapp_icon.svg";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
-import { mainShare, whatsAppShare } from "../../share";
-import content from "./newFormContent.json";
-import { Button, Flex, Heading, Text, Stack, Box, SimpleGrid, Grid, GridItem } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Heading,
+  Flex,
+  Text,
+  Stack,
+  Grid,
+  GridItem,
+} from "@chakra-ui/react";
+import { faBox } from "@fortawesome/free-solid-svg-icons";
 
 const buttonStyle = {
-  h: "50px",
-  fontWeight: 500
+  h: "48px",
+  fontWeight: 500,
 };
 
-const TYPES = [{label: '每月捐款', value: 'monthly'}, {label: '單次捐款', value: 'onetime'}]
-const AMOUNT_ONETIME = [{label: 'HKD 1,000', value: 1000}, {label: 'HKD 2,000', value: 2000}, {label: 'HKD 3,000', value: 3000}, {label: '其他 Amount', value: 'other'}]
-const AMOUNT_MONTHLY = [{label: 'HKD 200', value: 200}, {label: 'HKD 400', value: 400}, {label: 'HKD 600', value: 600}, {label: '其他 Amount', value: 'other'}]
+// Donation types
+const TYPES = [
+  { label: "每月捐款", value: "monthly" },
+  { label: "單次捐款", value: "single" },
+];
+const AMOUNT_ONETIME = [
+  { label: "HKD 500", value: 500 },
+  { label: "HKD 700", value: 700 },
+  { label: "HKD 900", value: 900 },
+  { label: "其他金額", value: "" },
+];
+const AMOUNT_MONTHLY = [
+  { label: "HKD 100", value: 100 },
+  { label: "HKD 150", value: 150 },
+  { label: "HKD 200", value: 200 },
+  { label: "其他金額", value: "" },
+];
 
 const DonateForm = () => {
-
-  const [donateType, setDonateType] = useState('monthly');
+  const [donateType, setDonateType] = useState("monthly");
   const [amount, setAmount] = useState(200);
-  const [url, setURL] = useState({type: donateType, amount: amount})
-  const amountOption = donateType === 'monthly' ?  AMOUNT_MONTHLY : AMOUNT_ONETIME
-
+  const [url, setURL] = useState({ type: donateType, amount: amount });
+  const amountOption =
+    donateType === "monthly" ? AMOUNT_MONTHLY : AMOUNT_ONETIME;
 
   const handleSetDonateType = (value) => {
-    setDonateType(value)
-    setAmount(value === 'monthly' ? AMOUNT_MONTHLY[0].value : AMOUNT_ONETIME[0].value)
-    setURL({...url, type: value})
-  }
+    setDonateType(value);
+    setAmount(
+      value === "monthly" ? AMOUNT_MONTHLY[0].value : AMOUNT_ONETIME[0].value
+    );
+    setURL({ ...url, type: value });
+  };
+
+  const targetDonateURL =
+    "https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=oceans";
 
   const handleOpenLink = (value) => {
-    window.open(`https://www.greenpeace.org/hongkong?type=${donateType}&amount=${amount}`);
-  }
+    window.open(
+      `${targetDonateURL}&donate_amt=${donateType}:${amount}&ref=oceansday-donate-form`
+    );
+  };
 
   return (
     <Box>
       <Box>
-        <Text py={2} align={'center'} variant="heading">
+        <Heading as='h2' py={4} align={"center"}>
           守護地球，分秒必爭
-        </Text>
-        <Text as="p" align={'center'} variant="description" color="gray.700">
-          <span dangerouslySetInnerHTML={{ __html: "綠色和飄實地研究和見證環境問題，請幫助我們繼續保護珍貴的自然環境" }}/>
+        </Heading>
+        <Text as='p' py={2} align={"center"} variant='paragraph'>
+          <p
+            dangerouslySetInnerHTML={{
+              __html:
+                "綠色和平成立以來，堅持不接受政府、企業捐助，您捐助的一分一毫，能支持我們以公正獨立的身份，持續推動環境工作！",
+            }}
+          />
         </Text>
       </Box>
-      <Box py={4}>
-        <Stack direction="row" spacing={1} borderWidth={1} borderColor="brand.500" borderRadius={'md'} overflow={'hidden'}>
-          {TYPES.map((d,i)=><Button
-            key={d.value}
-            flex="1"
-            h="50px"
-            borderRadius={0}
-            bg={donateType===d.value ? "brand.500" : "#FFF"}
-            color={donateType===d.value ? "#FFF" : "brand.500"}
-            _hover={{ bg: "brand.500", color: "#FFF" }}
-            onClick={()=>handleSetDonateType(d.value)}
+      <Box py={2}>
+        <Stack
+          direction='row'
+          spacing={1}
+          borderWidth={1}
+          borderColor='brand.500'
+          borderRadius={"md"}
+          overflow={"hidden"}
+        >
+          {TYPES.map((d, i) => (
+            <Button
+              key={d.value}
+              flex='1'
+              h='40px'
+              fontWeight='400'
+              borderRadius={0}
+              bg={donateType === d.value ? "brand.500" : "#FFF"}
+              color={donateType === d.value ? "#FFF" : "brand.500"}
+              _hover={{ bg: "brand.500", color: "#FFF" }}
+              onClick={() => handleSetDonateType(d.value)}
             >
-            {d.label}
-          </Button>)}
+              {d.label}
+            </Button>
+          ))}
         </Stack>
       </Box>
-    <Box
-        border="1px solid #f1f1f1"
-        boxShadow={"xl"}
-        py={4}
-        px={6}
-        rounded="md"
-        bg="white"
-        overflow="hidden"
-      >
+      <Box py={4} overflow='hidden'>
+        <Flex direction='column'>
+          <Box>
+            <Grid templateColumns='repeat(3, 1fr)' gap={2}>
+              {amountOption.map((d, i) => {
+                const colSpan = amountOption.length === i + 1 ? 3 : 1;
 
-    <Flex direction="column">
-      <Box py={4}>
-        <Grid templateColumns="repeat(3, 1fr)" gap={2}>
-          {amountOption.map((d,i)=>{
+                return (
+                  <GridItem colSpan={colSpan} key={i}>
+                    <Button
+                      key={d.value}
+                      flex='1'
+                      bg={amount === d.value ? "brand.500" : "gray.300"}
+                      color={amount === d.value ? "#FFF" : "gray.500"}
+                      borderRadius={"md"}
+                      _hover={{ bg: "brand.500", color: "#FFF" }}
+                      onClick={() => setAmount(d.value)}
+                      w='100%'
+                      {...buttonStyle}
+                    >
+                      {d.label}
+                    </Button>
+                  </GridItem>
+                );
+              })}
+            </Grid>
+          </Box>
 
-            const colSpan = amountOption.length === i+1 ? 3 : 1
+          <Box align='center' py={8}>
+            <Text as='p' variant='paragraph' color='gray.700'>
+              您的捐款，將幫助綠色和平為環境問題找到出路，並在全球各地落實環保工作。謝謝！
+            </Text>
+          </Box>
 
-            return(
-              <GridItem colSpan={colSpan} key={i}>
-              <Button
-                key={d.value}
-                flex="1"
-                bg={amount===d.value ? "brand.500" : "gray.300"}
-                color={amount===d.value ? "#FFF" : "gray.500"}
-                borderRadius={'md'}
-                _hover={{ bg: "brand.500", color: "#FFF" }}
-                onClick={()=>setAmount(d.value)}
-                w="100%"
-                {...buttonStyle}
-                >
-                {d.label}
-              </Button>
-              </GridItem>
-            )
-          })}
-        </Grid>
+          <Box onClick={() => handleOpenLink()}>
+            <Button
+              variant='formSubmitButton'
+              {...buttonStyle}
+              fontWeight={700}
+            >
+              立即捐款
+            </Button>
+          </Box>
+
+          <Text align='center' pt={4} pb={2} color='gray.500' fontSize={"sm"}>
+            安全付款・您的信用卡資料將以SSL安全模式加密
+          </Text>
+        </Flex>
       </Box>
-
-      <Box align="center" py={6}>
-        <Text color="gray.700">您的每月捐款，將幫助綠色和平為環境問題找到出路，並在全球各地落實環保工作。謝謝！</Text>
-      </Box>
-
-      <Box onClick={()=> handleOpenLink()}>
-        <Button variant="formSubmitButton" {...buttonStyle} fontWeight={700}>立即捐款</Button>
-      </Box>
-
-      <Text align="center" pt={4} pb={2} color="gray.500" fontSize={'xs'}>Secure Payment Powered by Worldpay</Text>
-    </Flex>
-    </Box>
     </Box>
   );
 };

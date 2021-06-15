@@ -36,33 +36,33 @@ const Index = ({ swiperData, updateSwiperSlide, slideIndex, toggleTheme }) => {
         const { header, title, description, cta } = d.content;
         return (
           <SwiperSlide key={d.id}>
-            <div className="swiper-container">
-              <div className="swiper-wrapper">
-                <div className="swiper-slide">
-                  <div className="half-hero-wrap">
+            <div className='swiper-container'>
+              <div className='swiper-wrapper'>
+                <div className='swiper-slide'>
+                  <div className='half-hero-wrap'>
                     <div>
-                      {header && <div className="hhw_header">{header}</div>}
+                      {header && <div className='hhw_header'>{header}</div>}
                       {title && (
                         <h1
-                          className="hhw_title"
+                          className='hhw_title'
                           dangerouslySetInnerHTML={{ __html: title }}
                         ></h1>
                       )}
                       {description && (
                         <div
-                          className="hhw_description"
+                          className='hhw_description'
                           dangerouslySetInnerHTML={{ __html: description }}
                         ></div>
                       )}
                       {cta.link && (
                         <button
-                          className="btn fl-btn color-bg"
+                          className='btn fl-btn color-bg'
                           onClick={() => toggleTheme(true)}
                         >
                           <span>{cta.content}</span>
                         </button>
                       )}
-                      <div className="clearfix"></div>
+                      <div className='clearfix'></div>
                     </div>
                   </div>
                 </div>

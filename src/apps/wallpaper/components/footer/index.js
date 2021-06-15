@@ -13,9 +13,9 @@ const Logo = (props) => {
   return (
     <Box>
       <Image
-        maxW="200px"
-        objectFit="contain"
-        src="https://api.greenpeace.org.hk/general/logo/GP-logo-2019-TC-white-%5bweb%5d-01.png"
+        maxW='200px'
+        objectFit='contain'
+        src='https://api.greenpeace.org.hk/general/logo/GP-logo-2019-TC-white-%5bweb%5d-01.png'
       />
     </Box>
   );
@@ -42,11 +42,11 @@ export default function SmallCentered() {
         justify={{ base: "right", md: "space-between" }}
         align={{ base: "right", md: "center" }}
       >
-        <Box maxWidth="480px">
+        <Box maxWidth='480px'>
           <Logo />
           <Text
-            as="p"
-            color="#FFF"
+            as='p'
+            color='#FFF'
             style={{
               lineHeight: "24px",
               paddingTop: "18px",
@@ -55,19 +55,19 @@ export default function SmallCentered() {
           >
             綠色和平是獨立的國際環保組織，通過科學研究、政策倡議及和平行動，揭露全球環境問題並提出相應解決方案。我們從不接受任何政府、企業或政治團體的資助，只接受個人的直接捐款，以維持公正獨立。
           </Text>
-          <Text color="#FFF">© GREENPEACE 2021</Text>
+          <Text color='#FFF'>© GREENPEACE 2021</Text>
         </Box>
         <Box>
           <Stack
             direction={{ base: "column" }}
             spacing={6}
-            color="#FFF"
+            color='#FFF'
             textAlign={{ base: "right" }}
           >
             <Link
               href={"https://www.greenpeace.org/hongkong"}
-              target="_blank"
-              rel="noreferrer"
+              target='_blank'
+              rel='noreferrer'
             >
               首頁
             </Link>
@@ -75,22 +75,22 @@ export default function SmallCentered() {
               href={
                 "https://www.greenpeace.org/hongkong/policies/privacy-and-cookies/"
               }
-              target="_blank"
-              rel="noreferrer"
+              target='_blank'
+              rel='noreferrer'
             >
               私隱政策與個人資料收集聲明
             </Link>
             <Link
               href={"https://www.greenpeace.org/hongkong/about/contact/"}
-              target="_blank"
-              rel="noreferrer"
+              target='_blank'
+              rel='noreferrer'
             >
               聯絡我們
             </Link>
             <Link
               href={"https://www.greenpeace.org/hongkong/about/overview/"}
-              target="_blank"
-              rel="noreferrer"
+              target='_blank'
+              rel='noreferrer'
             >
               關於綠色和平
             </Link>
