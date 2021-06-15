@@ -26,14 +26,14 @@ function FadeInSection(props) {
 const Content = ({ togglePanel }) => {
   return (
     <>
-      <div className="main-content-wrap">
+      <div className='main-content-wrap'>
         <section>
-          <div className="container">
+          <div className='container'>
             <Grid fluid>
               <FadeInSection>
-                <Row className="show-grid">
+                <Row className='show-grid'>
                   <Col xs={24}>
-                    <div className="section-title">
+                    <div className='section-title'>
                       <h2>
                         2020年度照片桌布/視像會議背景大放送！立即免費下載！
                       </h2>
@@ -46,13 +46,14 @@ const Content = ({ togglePanel }) => {
               </FadeInSection>
 
               <FadeInSection>
-                <Row className="show-grid">
+                <Row className='show-grid'>
                   <Col xs={24}>
-                    <div className="dec-img fl-wrap">
+                    <div className='dec-img fl-wrap'>
                       <img
+                        loading='lazy'
                         src={Banner}
                         alt={"Banner"}
-                        className="img respimg"
+                        className='img respimg'
                       />
                     </div>
                   </Col>
@@ -60,9 +61,9 @@ const Content = ({ togglePanel }) => {
               </FadeInSection>
 
               <FadeInSection>
-                <Row className="show-grid">
+                <Row className='show-grid'>
                   <Col xs={24}>
-                    <div className="main-visual-content fl-wrap">
+                    <div className='main-visual-content fl-wrap'>
                       <h2>
                         2020年度照片桌布/視像會議背景大放送！立即免費下載！
                       </h2>
@@ -75,9 +76,9 @@ const Content = ({ togglePanel }) => {
               </FadeInSection>
 
               <FadeInSection>
-                <Row className="show-grid">
+                <Row className='show-grid'>
                   <Col xs={24}>
-                    <div className="main-visual-content fl-wrap">
+                    <div className='main-visual-content fl-wrap'>
                       <h2>
                         2020年度照片桌布/視像會議背景大放送！立即免費下載！
                       </h2>
@@ -89,9 +90,9 @@ const Content = ({ togglePanel }) => {
                 </Row>
               </FadeInSection>
               <FadeInSection>
-                <Row className="show-grid">
+                <Row className='show-grid'>
                   <Col xs={24}>
-                    <div className="main-visual-content fl-wrap">
+                    <div className='main-visual-content fl-wrap'>
                       <h2>
                         2020年度照片桌布/視像會議背景大放送！立即免費下載！
                       </h2>
@@ -104,15 +105,15 @@ const Content = ({ togglePanel }) => {
               </FadeInSection>
             </Grid>
           </div>
-          <div className="section-number">
+          <div className='section-number'>
             <span>2020</span>
           </div>
         </section>
       </div>
 
       <a
-        href="#"
-        className="start-btn cta-custom-display"
+        href='#'
+        className='start-btn cta-custom-display'
         onClick={() => togglePanel(true)}
       >
         <span>立即聯署</span>

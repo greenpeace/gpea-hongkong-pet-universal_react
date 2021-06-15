@@ -1,44 +1,24 @@
-import React, { useRef, useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
 import whatsapp from "assets/images/social/whatsapp_icon.svg";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
-import { Form, withFormik } from "formik";
-import ProgressBar from "components/progress";
 import { mainShare, whatsAppShare } from "../../share";
 import content from "./newFormContent.json";
-
 import {
-  FormControl,
-  FormLabel,
-  Input,
   Button,
-  Box,
   Flex,
+  Fade,
+  ScaleFade,
+  Stack,
   Text,
-  Select,
-  Heading,
-  Checkbox,
+  Box,
 } from "@chakra-ui/react";
+import DonateForm from "./donateForm";
 
-const buttonStyle = {
-  fontSize: "18px",
-  color: "#FFFFFF",
-  fontWeight: "bold",
-  marginTop: "10px",
-  marginBottom: "20px",
-  padding: "12px 20px",
-};
-
-const MyForm = ({ formContent = content, submitted }) => {
-  const [hiddenFormValues, setHiddenFormValues] = useState([]);
+const MyForm = ({ formContent = content }) => {
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
   const [numResponses, setNumResponses] = useState(0);
-
-  const progress = [
-    { bgcolor: "#66cc00", completed: numResponses, target: numSignupTarget },
-  ];
-  const space = 8;
+  const [showDonate, setShowDonate] = useState(false);
 
   useEffect(() => {
     const signupTarget = document.querySelector(
@@ -55,53 +35,100 @@ const MyForm = ({ formContent = content, submitted }) => {
   }, []);
 
   return (
-    <Flex direction="column">
-      <Heading pt="4" pb="4" fontSize="2xl" color="brand.500">
-        {formContent.thanks_title}
-      </Heading>
-      {/* <Text pb={3}>{formContent.thanks_content}</Text> */}
-      <p
-        style={{
-          fontSize: "18px",
-          paddingTop: "10px",
-          paddingBottom: "10px",
-          lineHeight: "30px",
-        }}
-        dangerouslySetInnerHTML={{ __html: formContent.thanks_content }}
-      />
-
-      <Button
-        style={{ backgroundColor: "#fda22f", ...buttonStyle }}
-        onClick={() => window.open(formContent.donateURL)}
-        target="_blank"
-        rel="noreferrer"
-      >
-        {formContent.donate_button}
-      </Button>
-
-      <Button
-        style={{ backgroundColor: "#3b5998", ...buttonStyle }}
-        onClick={() =>
-          mainShare(
-            formContent.shareMessage,
-            formContent.fbURL,
-            formContent.mainURL
-          )
-        }
-        rel="noreferrer"
-      >
-        {formContent.share_button}
-      </Button>
-      <Button
-        style={{ backgroundColor: "#25d366", ...buttonStyle }}
-        onClick={() =>
-          whatsAppShare(formContent.shareMessage, formContent.whatsappURL)
-        }
-        rel="noreferrer"
-      >
-        <img src={whatsapp} alt="whatsapp" style={{ height: "24px" }} />
-      </Button>
-    </Flex>
+    <Box
+      borderTop={{ base: null, sm: "4px solid #66cc00" }}
+      boxShadow={{ base: null, sm: "lg" }}
+      px={4}
+      py={4}
+      rounded={{ base: 0, sm: "md" }}
+      bg='white'
+      overflow='auto'
+    >
+      {showDonate && (
+        <Fade in={showDonate}>
+          <DonateForm />
+        </Fade>
+      )}
+      {!showDonate && (
+        <Flex direction='column'>
+          <Text
+            variant='heading'
+            dangerouslySetInnerHTML={{ __html: formContent.thanks_title }}
+          />
+          <Text
+            as='p'
+            variant='paragraph'
+            py={2}
+            dangerouslySetInnerHTML={{
+              __html: formContent.thanks_content_top_section,
+            }}
+          />
+          <Text
+            as='p'
+            variant='paragraph'
+            py={2}
+            dangerouslySetInnerHTML={{
+              __html: formContent.thanks_content_center_section,
+            }}
+          />
+          {/* CTAs */}
+          <Stack direction={"row"} align={"center"} spacing='12px'>
+            <Button
+              variant='donateButton'
+              px={8}
+              style={{ backgroundColor: "#3b5998" }}
+              onClick={() =>
+                mainShare(
+                  formContent.shareMessage,
+                  formContent.fbURL,
+                  formContent.mainURL
+                )
+              }
+              rel='noreferrer'
+              mb={2}
+            >
+              {formContent.share_button}
+            </Button>
+            <Button
+              variant='donateButton'
+              px={8}
+              style={{ backgroundColor: "#eee" }}
+              onClick={() =>
+                whatsAppShare(formContent.shareMessage, formContent.whatsappURL)
+              }
+              rel='noreferrer'
+            >
+              <img
+                loading='lazy'
+                src={whatsapp}
+                alt='whatsapp'
+                style={{ height: "32px" }}
+              />
+            </Button>
+          </Stack>
+          <Text as='p' variant='paragraph' py={2}>
+            <span
+              dangerouslySetInnerHTML={{
+                __html: formContent.thanks_content_bottom_section,
+              }}
+            />
+          </Text>
+          {/* <DonateForm /> */}
+          <Button
+            variant='donateButton'
+            style={{ backgroundColor: "#66cc00" }}
+            target='_blank'
+            rel='noreferrer'
+            /* onClick={() => window.open(formContent.donateURL)} */
+            onClick={() => {
+              setShowDonate(true);
+            }}
+          >
+            {formContent.donate_button}
+          </Button>
+        </Flex>
+      )}
+    </Box>
   );
 };
 

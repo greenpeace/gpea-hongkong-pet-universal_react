@@ -19,20 +19,20 @@ const Index = ({ initState, fakeSubmit, submitted }) => {
 
   return (
     <>
-      <div id="main" className={submitted ? "custom-main" : ""}>
+      <div id='main' className={submitted ? "custom-main" : ""}>
         <Header />
-        <div className="content">
-          <article className="prose lg:prose-lg">
+        <div className='content'>
+          <article className='prose lg:prose-lg'>
             <Content />
           </article>
-          <br clear="both" />
+          <br clear='both' />
           <Footer />
         </div>
       </div>
-      <div className="custom-form-wrap">
-        <div className="custom-gp-form custom-gp-form-wrap">
+      <div className='custom-form-wrap'>
+        <div className='custom-gp-form custom-gp-form-wrap'>
           <div
-            className="custom-bg"
+            className='custom-bg'
             style={{
               backgroundImage:
                 "url(" +

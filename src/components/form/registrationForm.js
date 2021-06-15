@@ -44,9 +44,12 @@ let RegistrationForm = ({
   submitForm,
   submitted,
   formContent = content,
+  activeABTesting,
+  variant,
 }) => {
   const refForm = useRef();
   const refCheckbox = useRef();
+  const refMobileCountryCode = useRef();
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
   const [emailSuggestion, setEmailSuggestion] = useState("內容");
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
@@ -63,19 +66,11 @@ let RegistrationForm = ({
   const progress = [
     { bgcolor: "#66cc00", completed: numResponses, target: numSignupTarget },
   ];
-  const model = Schema.Model({
+
+  const modelVersionA = Schema.Model({
     Email: StringType()
       .isEmail(formContent.invalid_email_alert)
       .isRequired(formContent.empty_data_alert),
-    // .addRule((value, data) => {
-    //   const suggest = mailcheck.run({
-    //     email: value,
-    //     domains: domains,                       // optional
-    //     topLevelDomains: topLevelDomains,       // optional
-    //     suggested: (suggestion) => suggestion
-    //   })
-    //   return suggest === undefined;
-    // }, emailSuggestion),
     LastName: StringType().isRequired(formContent.empty_data_alert),
     FirstName: StringType().isRequired(formContent.empty_data_alert),
     MobileCountryCode: StringType().isRequired(formContent.empty_data_alert),
@@ -84,9 +79,81 @@ let RegistrationForm = ({
       .isRequired(formContent.empty_data_alert)
       .addRule((value) => {
         return value.toString().length === 8;
-      }, formContent.minimum_8_characters),
+      }, formContent.minimum_8_characters)
+      .addRule((value) => {
+        let regex;
+        const { MobileCountryCode } = refForm.current.state.formValue;
+        if (!MobileCountryCode || MobileCountryCode === "852") {
+          regex = /^[2,3,5,6,8,9]{1}[0-9]{7}$/i;
+        } else if (MobileCountryCode === "853") {
+          regex = /^[6]{1}[0-9]{7}$/i;
+        }
+        return regex.test(value);
+      }, formContent.invalid_format_alert),
     Birthdate: StringType().isRequired(formContent.empty_data_alert),
   });
+
+  const modelVersionB = Schema.Model({
+    Email: StringType()
+      .isEmail(formContent.invalid_email_alert)
+      .isRequired(formContent.empty_data_alert),
+    LastName: StringType().isRequired(formContent.empty_data_alert),
+    FirstName: StringType().isRequired(formContent.empty_data_alert),
+  });
+
+  const setModel = activeABTesting
+    ? variant == 0
+      ? modelVersionA
+      : modelVersionB
+    : modelVersionA;
+
+  const closeAll = () => {
+    togglePanel(false);
+    toggleTheme(false);
+  };
+
+  const handleSubmit = (isValid) => {
+    const OptIn = refCheckbox.current.state?.checked;
+
+    if (isValid) {
+      const { formValue } = refForm.current.state;
+      let birthdateValue = formValue.Birthdate
+        ? `${formValue.Birthdate}-01-01`
+        : "";
+      submitForm({
+        ...hiddenFormValues,
+        ...formValue,
+        OptIn,
+        Birthdate: birthdateValue,
+      });
+      // Check submit value
+      /*
+      console.log("Submitting", {
+        ...hiddenFormValues,
+        ...formValue,
+        OptIn,
+        Birthdate: `${formValue.Birthdate}-01-01`,
+      });
+      */
+    }
+  };
+
+  const TextField = (props) => {
+    const { name, label, placeholder, accepter, handleOnChange, ...rest } =
+      props;
+    return (
+      <FormGroup>
+        {label && <ControlLabel>{label} </ControlLabel>}
+        <FormControl
+          name={name}
+          accepter={accepter}
+          placeholder={placeholder}
+          {...rest}
+          checkTrigger={"blur"}
+        />
+      </FormGroup>
+    );
+  };
 
   useEffect(() => {
     let getHiddenFields = document.querySelectorAll(
@@ -122,56 +189,6 @@ let RegistrationForm = ({
     }
     fetchOptionYear(optionYear);
   }, []);
-
-  const closeAll = () => {
-    togglePanel(false);
-    toggleTheme(false);
-  };
-
-  const handleSubmit = (isValid) => {
-    const OptIn = refCheckbox.current.state?.checked;
-    if (isValid) {
-      const { formValue } = refForm.current.state;
-      submitForm({
-        ...hiddenFormValues,
-        ...formValue,
-        OptIn,
-        Birthdate: `${formValue.Birthdate}-01-01`,
-      });
-      // Check submit value
-      /*
-      console.log("Submitting", {
-        ...hiddenFormValues,
-        ...formValue,
-        OptIn,
-        Birthdate: `${formValue.Birthdate}-01-01`,
-      });
-      */
-    }
-  };
-
-  const TextField = (props) => {
-    const {
-      name,
-      label,
-      placeholder,
-      accepter,
-      handleOnChange,
-      ...rest
-    } = props;
-    return (
-      <FormGroup>
-        {label && <ControlLabel>{label} </ControlLabel>}
-        <FormControl
-          name={name}
-          accepter={accepter}
-          placeholder={placeholder}
-          {...rest}
-          checkTrigger={"blur"}
-        />
-      </FormGroup>
-    );
-  };
   class CustomField extends React.PureComponent {
     render() {
       const { name, message, label, accepter, error, ...props } = this.props;
@@ -189,12 +206,12 @@ let RegistrationForm = ({
   }
 
   return (
-    <div className="custom-gp-form">
-      <div className="form-close" onClick={() => closeAll()}>
+    <div className='custom-gp-form'>
+      <div className='form-close' onClick={() => closeAll()}>
         <FontAwesomeIcon
           icon={["fas", "times-circle"]}
-          size="lg"
-          color="lime"
+          size='lg'
+          color='lime'
         />
       </div>
       {submitted ? (
@@ -202,15 +219,15 @@ let RegistrationForm = ({
       ) : (
         <>
           <Grid fluid>
-            <Row className="show-grid">
+            <Row className='show-grid'>
               <Col xs={24}>
                 {formContent.form_header && (
-                  <div className="form-header">
+                  <div className='form-header'>
                     <h2>{formContent.form_header}</h2>
                   </div>
                 )}
                 {formContent.form_description && (
-                  <div className="form-description">
+                  <div className='form-description'>
                     <p>{formContent.form_description}</p>
                   </div>
                 )}
@@ -233,70 +250,79 @@ let RegistrationForm = ({
                 */}
           </Grid>
           <Form
-            model={model}
+            model={setModel}
             ref={refForm}
             onSubmit={(d) => handleSubmit(d)}
             checkDelay={800}
             formDefaultValue={formDefaultValue}
           >
             <Grid fluid>
-              <Row className="show-grid">
+              <Row className='show-grid'>
                 <Col xs={24}>
                   <FormGroup>
                     <TextField
-                      name="Email"
+                      name='Email'
                       placeholder={formContent.label_email}
                       label={formContent.label_email}
-                      autoComplete="off"
+                      autoComplete='off'
                     />
                   </FormGroup>
                 </Col>
               </Row>
 
-              <Row className="show-grid">
+              <Row className='show-grid'>
                 <Col xs={12}>
                   <FormGroup>
                     <TextField
-                      name="LastName"
+                      name='LastName'
                       placeholder={formContent.label_last_name}
                       label={formContent.label_last_name}
-                      autoComplete="off"
+                      autoComplete='off'
                     />
                   </FormGroup>
                 </Col>
                 <Col xs={12}>
                   <FormGroup>
                     <TextField
-                      name="FirstName"
+                      name='FirstName'
                       placeholder={formContent.label_first_name}
                       label={formContent.label_first_name}
-                      autoComplete="off"
+                      autoComplete='off'
                     />
                   </FormGroup>
                 </Col>
               </Row>
 
-              <Row className="show-grid">
+              <Row className='show-grid'>
                 <Col xs={24}>
                   <FormGroup>
-                    <ControlLabel>{formContent.label_phone}</ControlLabel>
-                    <Col xs={8} style={{ paddingLeft: 0 }}>
+                    <ControlLabel>
+                      {activeABTesting && variant == 0
+                        ? formContent.label_phone
+                        : formContent.label_phone_optional}
+                    </ControlLabel>
+                    <Col xs={6} style={{ paddingLeft: 0 }}>
                       <CustomField
-                        name="MobileCountryCode"
+                        name='MobileCountryCode'
                         searchable={false}
                         cleanable={false}
                         placeholder={formContent.select}
                         accepter={SelectPicker}
                         data={mobileCountryCode}
+                        ref={refMobileCountryCode}
                       />
                     </Col>
-                    <Col xs={16} style={{ paddingRight: 0 }}>
+                    <Col xs={18} style={{ paddingRight: 0 }}>
                       <FormGroup>
                         <TextField
-                          type="number"
-                          placeholder={formContent.label_phone}
-                          name="MobilePhone"
-                          autoComplete="off"
+                          type='number'
+                          placeholder={
+                            activeABTesting && variant == 0
+                              ? formContent.label_phone
+                              : formContent.label_phone_optional
+                          }
+                          name='MobilePhone'
+                          autoComplete='off'
                         />
                       </FormGroup>
                     </Col>
@@ -304,14 +330,16 @@ let RegistrationForm = ({
                 </Col>
               </Row>
 
-              <Row className="show-grid">
+              <Row className='show-grid'>
                 <Col xs={24}>
                   <FormGroup>
                     <ControlLabel>
-                      {formContent.label_year_of_birth}
+                      {activeABTesting && variant == 0
+                        ? formContent.label_year_of_birth
+                        : formContent.label_year_of_birth_optional}
                     </ControlLabel>
                     <CustomField
-                      name="Birthdate"
+                      name='Birthdate'
                       searchable={false}
                       cleanable={false}
                       placeholder={formContent.select}
@@ -322,21 +350,21 @@ let RegistrationForm = ({
                 </Col>
               </Row>
 
-              <Row className="show-grid">
+              <Row className='show-grid'>
                 <Col xs={24}>
-                  <div className="custom-form-reminder">
-                    <Checkbox name="OptIn" ref={refCheckbox} defaultChecked>
+                  <div className='custom-form-reminder'>
+                    <Checkbox name='OptIn' ref={refCheckbox} defaultChecked>
                       {formContent.form_remind}
                     </Checkbox>
                   </div>
                 </Col>
               </Row>
 
-              <Row className="show-grid">
+              <Row className='show-grid'>
                 <Col xs={24}>
                   <button
-                    type="submit"
-                    className="custom-button custom-button-active"
+                    type='submit'
+                    className='custom-button custom-button-active'
                   >
                     {formContent.submit_text}{" "}
                     <FontAwesomeIcon icon={["fas", "pen"]} />
@@ -355,6 +383,8 @@ const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
+    activeABTesting: theme.abTesting,
+    variant: theme.variant,
   };
 };
 

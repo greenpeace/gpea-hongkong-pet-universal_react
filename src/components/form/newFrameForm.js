@@ -5,6 +5,8 @@ import { Form, withFormik } from "formik";
 import "rsuite/lib/styles/index.less";
 import ProgressBar from "components/progress";
 
+import Mailcheck from "mailcheck";
+
 import {
   FormControl,
   FormLabel,
@@ -19,6 +21,23 @@ import {
   HStack,
   Checkbox,
 } from "@chakra-ui/react";
+
+// For email correctness
+let domains = [
+  "me.com",
+  "outlook.com",
+  "netvigator.com",
+  "cloud.com",
+  "live.hk",
+  "msn.com",
+  "gmail.com",
+  "hotmail.com",
+  "ymail.com",
+  "yahoo.com",
+  "yahoo.com.tw",
+  "yahoo.com.hk",
+];
+let topLevelDomains = ["com", "net", "org"];
 
 const MyForm = (props) => {
   const {
@@ -35,6 +54,10 @@ const MyForm = (props) => {
     setSubmitting,
     setHiddenForm,
     submitted,
+    birthDate = true,
+    activeABTesting,
+    variant,
+    togglePanel,
   } = props;
 
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
@@ -83,7 +106,7 @@ const MyForm = (props) => {
     async function fetchOptionYear() {
       let nowYear = new Date().getFullYear();
       let targetYear = nowYear - 110;
-      for (var i = nowYear; i >= targetYear; i--) {
+      for (var i = nowYear - 20; i >= targetYear; i--) {
         await optionYear.push({ label: i, value: i.toString() });
       }
       setBirthDateYear(optionYear);
@@ -102,15 +125,25 @@ const MyForm = (props) => {
   }, [submitted]);
 
   return (
-    <>
+    <Box
+      borderTop={{ base: null, sm: "4px solid #66cc00" }}
+      boxShadow={{ base: null, sm: "lg" }}
+      p={{ base: 0, sm: 6 }}
+      rounded={{ base: 0, sm: "md" }}
+      bg='white'
+      overflow='hidden'
+    >
       <Form onSubmit={handleSubmit}>
-        <Heading
+        <Text py={4} variant='heading' fontSize='2xl' color='gray.900' py={2}>
+          <span dangerouslySetInnerHTML={{ __html: formContent.form_header }} />
+        </Text>
+        {/* <Heading
           pt="4"
           mb="6"
-          size="xl"
+          size="md"
           color="gray.900"
           dangerouslySetInnerHTML={{ __html: formContent.form_header }}
-        ></Heading>
+        ></Heading> */}
         {formContent.form_description && (
           <Text pb={4}>{formContent.form_description}</Text>
         )}
@@ -123,75 +156,77 @@ const MyForm = (props) => {
               target={item.target}
             />
           ))}
-        <Flex direction="column">
-          <Box flex="1" pb={space}>
-            <FormControl id="email" isInvalid={errors.Email && touched.Email}>
+        <Flex direction='column'>
+          <Box flex='1' pb={space}>
+            <FormControl id='email' isInvalid={errors.Email && touched.Email}>
               <FormLabel {...labelStyle}>{formContent.label_email}</FormLabel>
               <Input
-                name="Email"
-                type="email"
-                placeholder={
-                  errors.Email && touched.Email
-                    ? errors.Email
-                    : formContent.label_email
-                }
+                name='Email'
+                type='email'
+                placeholder={formContent.label_email}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
+              <FormErrorMessage color='red'>{errors.Email}</FormErrorMessage>
             </FormControl>
           </Box>
 
           <HStack>
             <Box flex={1} pb={space}>
               <FormControl
-                id="lastName"
+                id='lastName'
                 isInvalid={errors.LastName && touched.LastName}
               >
                 <FormLabel {...labelStyle}>
                   {formContent.label_last_name}
                 </FormLabel>
                 <Input
-                  name="LastName"
-                  type="text"
-                  placeholder={
-                    errors.LastName && touched.LastName
-                      ? errors.LastName
-                      : formContent.label_last_name
-                  }
+                  name='LastName'
+                  type='text'
+                  placeholder={formContent.label_last_name}
                   onChange={handleChange}
                 />
+                <FormErrorMessage color='red'>
+                  {errors.LastName}
+                </FormErrorMessage>
               </FormControl>
             </Box>
-            <Box flex="1" pb={space}>
+            <Box flex='1' pb={space}>
               <FormControl
-                id="firstName"
+                id='firstName'
                 isInvalid={errors.FirstName && touched.FirstName}
               >
                 <FormLabel {...labelStyle}>
                   {formContent.label_first_name}
                 </FormLabel>
                 <Input
-                  name="FirstName"
-                  type="text"
-                  placeholder={
-                    errors.FirstName && touched.FirstName
-                      ? errors.FirstName
-                      : formContent.label_first_name
-                  }
+                  name='FirstName'
+                  type='text'
+                  placeholder={formContent.label_first_name}
                   onChange={handleChange}
                 />
+                <FormErrorMessage color='red'>
+                  {errors.FirstName}
+                </FormErrorMessage>
               </FormControl>
             </Box>
           </HStack>
 
           <FormControl>
-            <FormLabel {...labelStyle}>{formContent.label_phone}</FormLabel>
+            <FormLabel {...labelStyle}>
+              {activeABTesting && variant == 0
+                ? formContent.label_phone
+                : formContent.label_phone_optional}
+            </FormLabel>
           </FormControl>
 
-          <HStack align="flex-end">
-            <Box pb={space}>
-              <FormControl id="mobileCountryCode">
-                <Select name="MobileCountryCode" onChange={handleChange}>
+          <HStack align='flex-end'>
+            <Box
+              pb={space}
+              mb={errors.MobilePhone && touched.MobilePhone ? "28px" : 0}
+            >
+              <FormControl id='mobileCountryCode'>
+                <Select name='MobileCountryCode' onChange={handleChange}>
                   {mobileCountryCode &&
                     mobileCountryCode.map((d) => (
                       <option key={d.value} value={d.value}>
@@ -201,78 +236,81 @@ const MyForm = (props) => {
                 </Select>
               </FormControl>
             </Box>
-            <Box flex="1" pb={space}>
+            <Box flex='1' pb={space}>
               <FormControl
-                id="mobilePhone"
+                id='mobilePhone'
                 isInvalid={errors.MobilePhone && touched.MobilePhone}
               >
                 <Input
-                  type="number"
-                  name="MobilePhone"
-                  placeholder={
-                    errors.MobilePhone && touched.MobilePhone
-                      ? errors.MobilePhone
-                      : formContent.label_phone
-                  }
+                  type='number'
+                  name='MobilePhone'
+                  placeholder={formContent.label_phone}
                   onChange={handleChange}
                 />
+                <FormErrorMessage color='red'>
+                  {errors.MobilePhone}
+                </FormErrorMessage>
               </FormControl>
             </Box>
           </HStack>
 
-          <Box flex="1" pb={space}>
-            <FormControl
-              id="Birthdate"
-              isInvalid={errors.Birthdate && touched.Birthdate}
-            >
-              <FormLabel {...labelStyle}>
-                {formContent.label_year_of_birth}
-              </FormLabel>
-              <Select
-                placeholder={
-                  errors.Birthdate && touched.Birthdate
-                    ? errors.Birthdate
-                    : formContent.select
-                }
-                onChange={handleChange}
+          {birthDate && (
+            <Box flex='1' pb={space}>
+              <FormControl
+                id='Birthdate'
+                isInvalid={errors.Birthdate && touched.Birthdate}
               >
-                {birthDateYear &&
-                  birthDateYear.map((d) => (
-                    <option key={d.value} value={d.value}>
-                      {d.value}
-                    </option>
-                  ))}
-              </Select>
-            </FormControl>
-          </Box>
+                <FormLabel {...labelStyle}>
+                  {activeABTesting && variant == 0
+                    ? formContent.label_year_of_birth
+                    : formContent.label_year_of_birth_optional}
+                </FormLabel>
+                <Select
+                  placeholder={formContent.select}
+                  onChange={handleChange}
+                >
+                  {birthDateYear &&
+                    birthDateYear.map((d) => (
+                      <option key={d.value} value={d.value}>
+                        {d.value}
+                      </option>
+                    ))}
+                </Select>
+                <FormErrorMessage color='red'>
+                  {errors.Birthdate}
+                </FormErrorMessage>
+              </FormControl>
+            </Box>
+          )}
 
-          <Box flex="1" pt={3} pb={3}>
+          <Box flex='1' pt={3} pb={3}>
             <Button
-              w="100%"
+              w='100%'
               isLoading={isSubmitting}
-              type="submit"
-              height="48px"
-              borderRadius="8"
-              fontSize="xl"
-              color="#FFF"
+              type='submit'
+              height='48px'
+              borderRadius='8'
+              fontSize='xl'
+              color='#FFF'
               letterSpacing={4}
-              bg="#ff8100"
+              bg='#ff8100'
               _hover={{ bg: "campaign.climate" }}
+              type='submit'
             >
               {formContent.submit_text}
             </Button>
           </Box>
 
           <Box>
-            <HStack align="flex-start">
+            <HStack align='flex-start'>
               <Box pt={5} pb={4}>
-                <FormControl id="optIn">
+                <FormControl id='optIn'>
                   {newsLetter ? (
-                    <Checkbox name="OptIn" onChange={handleChange}>
-                      <Text fontSize="xs">{formContent.form_remind}</Text>
+                    <Checkbox name='OptIn' onChange={handleChange}>
+                      <Text fontSize='xs'>{formContent.form_remind}</Text>
                     </Checkbox>
                   ) : (
-                    <Text fontSize="xs" color="gray.500">
+                    <Text fontSize='xs' color='gray.500'>
                       <sup> * </sup>
                       {formContent.form_remind}
                     </Text>
@@ -283,7 +321,7 @@ const MyForm = (props) => {
           </Box>
         </Flex>
       </Form>
-    </>
+    </Box>
   );
 };
 
@@ -298,7 +336,7 @@ const MyEnhancedForm = withFormik({
     OptIn: true,
   }),
 
-  validate: (values, { formContent }) => {
+  validate: (values, { formContent, variant, activeABTesting, birthDate }) => {
     const errors = {};
 
     if (!values.Email) {
@@ -308,6 +346,18 @@ const MyEnhancedForm = withFormik({
     ) {
       errors.Email = formContent.invalid_email_alert;
     }
+    // else {
+    //   TODO: NEED CONFIRM ERROR MSG
+    //   Mailcheck.run({
+    //     email: values.Email,
+    //     domains: domains,
+    //     topLevelDomains: topLevelDomains,
+    //     suggested: function(suggestion) {
+    //       if(values.Email !== suggestion.domain)
+    //       errors.Email = `您是否想輸入${suggestion.full}`
+    //     }
+    //   })
+    // }
 
     if (!values.FirstName) {
       errors.FirstName = formContent.empty_data_alert;
@@ -317,14 +367,36 @@ const MyEnhancedForm = withFormik({
       errors.LastName = formContent.empty_data_alert;
     }
 
-    if (!values.MobilePhone) {
-      errors.MobilePhone = formContent.empty_data_alert;
-    } else if (values.MobilePhone.toString().length !== 8) {
-      errors.MobilePhone = formContent.minimum_8_characters;
-    }
+    if (activeABTesting && variant == 0) {
+      if (!values.MobilePhone) {
+        errors.MobilePhone = formContent.empty_data_alert;
+      } else if (values.MobilePhone.toString().length !== 8) {
+        errors.MobilePhone = formContent.minimum_8_characters;
+      }
 
-    if (!values.Birthdate) {
-      errors.Birthdate = formContent.empty_data_alert;
+      if (
+        values.MobilePhone.toString().length === 8 &&
+        values.MobileCountryCode === "852"
+      ) {
+        const regex = /^[2,3,5,6,8,9]{1}[0-9]{7}$/i;
+        if (!regex.test(values.MobilePhone)) {
+          errors.MobilePhone = formContent.invalid_format_alert;
+        }
+      }
+
+      if (
+        values.MobilePhone.toString().length === 8 &&
+        values.MobileCountryCode === "853"
+      ) {
+        const regex = /^[6]{1}[0-9]{7}$/i;
+        if (!regex.test(values.MobilePhone)) {
+          errors.MobilePhone = formContent.invalid_format_alert;
+        }
+      }
+
+      if (birthDate && !values.Birthdate) {
+        errors.Birthdate = formContent.empty_data_alert;
+      }
     }
 
     return errors;
@@ -332,10 +404,13 @@ const MyEnhancedForm = withFormik({
 
   handleSubmit: (values, { setSubmitting, props }) => {
     const { hiddenFormValue } = props.theme;
+    let birthdateValue = values.Birthdate ? `${values.Birthdate}-01-01` : "";
+    // issue: form submit with '-01-01' will cause submission error
     const submitData = {
       ...hiddenFormValue,
       ...values,
-      Birthdate: `${values.Birthdate}-01-01`,
+      Birthdate: birthdateValue,
+      // Birthdate: `${values.Birthdate}-01-01`,
     };
     props.submitForm(submitData);
   },
@@ -347,6 +422,8 @@ const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
+    activeABTesting: theme.abTesting,
+    variant: theme.variant,
   };
 };
 

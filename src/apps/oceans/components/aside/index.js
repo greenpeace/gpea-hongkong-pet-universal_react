@@ -15,8 +15,7 @@ const mainShare = () => {
     navigator
       .share({
         title: "",
-        text:
-          "多年來，綠色和平以建立30%海洋保護區為目標，立即聯署守護海洋，攜手成立全球海洋保護區！👉 ",
+        text: "多年來，綠色和平以建立30%海洋保護區為目標，立即聯署守護海洋，攜手成立全球海洋保護區！👉 ",
         url: "https://act.gp/3l2XZCq",
       })
       .then()
@@ -40,12 +39,12 @@ const Index = () => {
           </div>
       </aside> */}
       {/* MOBILE */}
-      <div className="share-btn showshare color-bg">
+      <div className='share-btn showshare color-bg'>
         <span onClick={() => mainShare()}>分享</span>
       </div>
       {/* DESKTOP */}
-      <div className="hc_dec_color">
-        <div className="page-subtitle page-subtitle-custom share-btn-desktop">
+      <div className='hc_dec_color'>
+        <div className='page-subtitle page-subtitle-custom share-btn-desktop'>
           <span onClick={() => mainShare()}>分享</span>
         </div>
       </div>
