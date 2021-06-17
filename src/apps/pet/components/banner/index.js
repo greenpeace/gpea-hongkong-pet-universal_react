@@ -34,12 +34,12 @@ const Index = ({ swiperData, updateSwiperSlide, slideIndex, toggleTheme }) => {
     >
       {(swiperData || []).map((d) => (
         <SwiperSlide key={d.id}>
-          <div className="swiper-container">
-            <div className="swiper-wrapper">
-              <div className="swiper-slide">
-                <div className="half-hero-wrap">
+          <div className='swiper-container'>
+            <div className='swiper-wrapper'>
+              <div className='swiper-slide'>
+                <div className='half-hero-wrap'>
                   {d.content?.header && (
-                    <div className="hhw_header">{d.content.header}</div>
+                    <div className='hhw_header'>{d.content.header}</div>
                   )}
                   {d.content?.title && (
                     <h1>
@@ -53,11 +53,11 @@ const Index = ({ swiperData, updateSwiperSlide, slideIndex, toggleTheme }) => {
                       }}
                     ></h4>
                   )}
-                  <div className="clearfix"></div>
+                  <div className='clearfix'></div>
                   {d.content?.cta && (
                     <a
                       href={void 0}
-                      className="btn fl-btn color-bg"
+                      className='btn fl-btn color-bg'
                       onClick={() => toggleTheme(true)}
                     >
                       <span>{d.content?.cta.content}</span>

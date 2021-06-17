@@ -51,10 +51,10 @@ const Landing = ({ submitted, togglePanel }) => {
   const Feature = ({ text, icon, iconBg }) => {
     return (
       <Stack direction={"row"} align={"center"}>
-        <Circle size="40px" color="white" bg={iconBg}>
+        <Circle size='40px' color='white' bg={iconBg}>
           {icon}
         </Circle>
-        <Text pl="2" fontSize="lg" color="gray.900">
+        <Text pl='2' fontSize='lg' color='gray.900'>
           {text}
         </Text>
       </Stack>
@@ -155,8 +155,8 @@ const Landing = ({ submitted, togglePanel }) => {
       <SEO />
       <Nav showButton={false} />
       <Flex>
-        <Box flex="1" style={{ minWidth: "0px" }}>
-          <Box px={4} py={{ base: 4, md: 8 }} bgColor="#F9BC81">
+        <Box flex='1' style={{ minWidth: "0px" }}>
+          <Box px={4} py={{ base: 4, md: 8 }} bgColor='#F9BC81'>
             <Box>
               <Image src={banner} borderRadius={8} />
             </Box>
@@ -164,10 +164,10 @@ const Landing = ({ submitted, togglePanel }) => {
 
           {/** https://getwaves.io/ */}
           <Box mt={0}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 140">
+            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 140'>
               <path
-                fill="#F9BC81"
-                d="M0,96L48,85.3C96,75,192,53,288,48C384,43,480,53,576,53.3C672,53,768,43,864,42.7C960,43,1056,53,1152,58.7C1248,64,1344,64,1392,64L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+                fill='#F9BC81'
+                d='M0,96L48,85.3C96,75,192,53,288,48C384,43,480,53,576,53.3C672,53,768,43,864,42.7C960,43,1056,53,1152,58.7C1248,64,1344,64,1392,64L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z'
               ></path>
             </svg>
           </Box>
@@ -176,21 +176,21 @@ const Landing = ({ submitted, togglePanel }) => {
             <Box>
               <Text {...subHeadline}>WEBINAR</Text>
               <Text
-                as="h1"
+                as='h1'
                 fontSize={{ base: "2xl", sm: "3xl", xl: "4xl" }}
-                fontWeight="bold"
-                color="gray.900"
+                fontWeight='bold'
+                color='gray.900'
                 lineHeight={1.2}
               >
-                <Text color="brand.500" mb={2} maxWidth="780px">
+                <Text color='brand.500' mb={2} maxWidth='780px'>
                   「綠色社區點做起？達人同你渾身解塑」<Text>網上共學教室</Text>
                 </Text>
               </Text>
             </Box>
             <Flex direction={{ base: "column", sm: "row" }}>
-              <Box flex="1">
+              <Box flex='1'>
                 <Heading
-                  color="gray.900"
+                  color='gray.900'
                   fontSize={{ base: "lg", sm: "2xl" }}
                   mt={4}
                 >
@@ -204,7 +204,7 @@ const Landing = ({ submitted, togglePanel }) => {
 
                 <Text {...subHeadline}>ABOUT</Text>
 
-                <Text as="p" {...pStyle}>
+                <Text as='p' {...pStyle}>
                   自己社區自己救！走塑不是一個人的事，是整個社區的事！我們的日常生活與社區密不可分，每人都是社區不可或缺的一分子。想自備餐盒買外賣？想走塑購物？總不能單靠個人力量，還需餐廳、企業的合作，一起建構走塑社區，讓大家日常生活都「有得揀」！
                   <br />
                   <br />
@@ -212,36 +212,36 @@ const Landing = ({ submitted, togglePanel }) => {
                 </Text>
 
                 <Grid
-                  templateColumns="repeat(6, 1fr)"
+                  templateColumns='repeat(6, 1fr)'
                   mt={10}
                   mb={10}
-                  textAlign="center"
+                  textAlign='center'
                 >
                   <GridItem colSpan={{ base: 6, sm: 6 }}>
                     <Text
-                      color="#005F89"
+                      color='#005F89'
                       fontSize={"4xl"}
                       fontWeight={700}
-                      bgGradient="linear(to-l, #FF725C,#F9BC81)"
-                      bgClip="text"
+                      bgGradient='linear(to-l, #FF725C,#F9BC81)'
+                      bgClip='text'
                     >
                       有你，有可能！
                     </Text>
                   </GridItem>
-                  <GridItem colSpan={{ base: 6, sm: 6 }} w="100%">
+                  <GridItem colSpan={{ base: 6, sm: 6 }} w='100%'>
                     <Text
-                      color="#FF725C"
+                      color='#FF725C'
                       fontSize={{ base: "3xl", sm: "4xl" }}
                       fontWeight={700}
-                      bgGradient="linear(to-l, #FF725C,#F9BC81)"
-                      bgClip="text"
+                      bgGradient='linear(to-l, #FF725C,#F9BC81)'
+                      bgClip='text'
                     >
                       集齊腦袋，集思廣益！
                     </Text>
                   </GridItem>
                 </Grid>
 
-                <Text as="p" {...pStyle}>
+                <Text as='p' {...pStyle}>
                   是次共學教室只是頭炮活動！目標是召集各路人馬加入「全城走塑社區小隊」，一起討論、研究、分享、交流，一起設計社區走塑計劃，改變膠運，共建全城走塑的理想社區。想知道之後一連串的全城走塑社區小隊共學活動及行動？想跟綠色和平一起推動社區項目？6月7日，約定你！
                 </Text>
               </Box>
@@ -249,8 +249,8 @@ const Landing = ({ submitted, togglePanel }) => {
 
             <Box pt={{ base: 10 }}>
               <Text {...subHeadline}>SPEAKERS</Text>
-              <Flex direction="column">
-                <Flex direction="row">
+              <Flex direction='column'>
+                <Flex direction='row'>
                   {authorContent.map((d, i) => (
                     <Box
                       onClick={() => setCurrent(d)}
@@ -262,9 +262,9 @@ const Landing = ({ submitted, togglePanel }) => {
                     >
                       <Box>
                         <Box {...switchButton}>
-                          <Image src={d.avatar} pos="absolute" />
+                          <Image src={d.avatar} pos='absolute' />
                         </Box>
-                        <Box d={{ base: "none", xl: "block" }} align="center">
+                        <Box d={{ base: "none", xl: "block" }} align='center'>
                           <Text
                             fontSize={"md"}
                             pt={2}
@@ -285,48 +285,48 @@ const Landing = ({ submitted, togglePanel }) => {
                   ))}
                 </Flex>
                 <Box
-                  bgColor="#FFF"
+                  bgColor='#FFF'
                   py={6}
                   px={{ base: 2, sm: 8 }}
-                  borderTop="1px solid #F9BC81"
+                  borderTop='1px solid #F9BC81'
                 >
                   <Box py={6}>
-                    <SimpleGrid columns={{ base: 1, xl: 2 }} spacing="8px">
-                      <Box flex="1" pr={{ base: 0, sm: 12 }}>
+                    <SimpleGrid columns={{ base: 1, xl: 2 }} spacing='8px'>
+                      <Box flex='1' pr={{ base: 0, sm: 12 }}>
                         <Stack
                           direction={["column", "row"]}
                           columns={{ base: 1, xl: 2 }}
-                          alignItems="center"
-                          spacing="8px"
+                          alignItems='center'
+                          spacing='8px'
                           mb={4}
                         >
                           <Avatar
-                            size="2xl"
+                            size='2xl'
                             name={current.nameZH}
                             src={current.avatar}
                           />
                           <Box pt={4}>
-                            <Heading fontSize="2xl" mb={2}>
-                              <Text color="#005F89">{current.nameZH}</Text>
+                            <Heading fontSize='2xl' mb={2}>
+                              <Text color='#005F89'>{current.nameZH}</Text>
                             </Heading>
-                            <Heading color="gray.500" fontSize="md">
+                            <Heading color='gray.500' fontSize='md'>
                               {current.title}
                             </Heading>
                           </Box>
                         </Stack>
 
-                        <Text as="p" {...pStyle}>
+                        <Text as='p' {...pStyle}>
                           {current.content}
                         </Text>
                         {current.imageDescription && (
-                          <Text {...pStyle} color="brand.500" fontWeight="bold">
+                          <Text {...pStyle} color='brand.500' fontWeight='bold'>
                             {current.imageDescription}
                           </Text>
                         )}
                       </Box>
                       {current.image && (
-                        <Box maxW="320px" pt={{ base: 6, sm: 0 }}>
-                          <Image src={current.image} borderRadius="8px" />
+                        <Box maxW='320px' pt={{ base: 6, sm: 0 }}>
+                          <Image src={current.image} borderRadius='8px' />
                         </Box>
                       )}
                     </SimpleGrid>
@@ -339,15 +339,15 @@ const Landing = ({ submitted, togglePanel }) => {
           <Box px={{ base: 4, sm: 8 }} pb={12}>
             <Divider my={{ base: 8, lg: 10 }} />
 
-            <SimpleGrid mt="4" columns={{ base: 1, xl: 2 }} spacing={10}>
-              <Flex direction="column">
-                <Image borderRadius="8px" src={frBanner} />
+            <SimpleGrid mt='4' columns={{ base: 1, xl: 2 }} spacing={10}>
+              <Flex direction='column'>
+                <Image borderRadius='8px' src={frBanner} />
               </Flex>
               <Stack spacing={4}>
                 <Heading
-                  as="h2"
-                  size="lg"
-                  color="brand.500"
+                  as='h2'
+                  size='lg'
+                  color='brand.500'
                   style={{ lineHeight: "1.5" }}
                 >
                   推動全港走塑
@@ -358,17 +358,17 @@ const Landing = ({ submitted, togglePanel }) => {
                   請幫助綠色和平組織走塑小隊，身體力行走遍全港社區！您的捐助，將讓我們在2021年有足夠資源與學校合辦「走塑學堂」、延續「尋找走塑店鋪」活動，達成全港1,100間店鋪提供走塑友善措施。
                 </Text>
                 <Link
-                  href="https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=plastics&ref=plastics-pfc-page"
+                  href='https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=plastics&ref=plastics-pfc-page'
                   isExternal
                 >
                   <Button
-                    mt="2"
-                    color="#FFF"
-                    bg="brand.500"
+                    mt='2'
+                    color='#FFF'
+                    bg='brand.500'
                     _hover={{ bg: "brand.400" }}
-                    borderRadius="4px"
-                    fontSize="md"
-                    type="button"
+                    borderRadius='4px'
+                    fontSize='md'
+                    type='button'
                     letterSpacing={4}
                   >
                     立即捐助
@@ -384,18 +384,18 @@ const Landing = ({ submitted, togglePanel }) => {
 
         <Box
           w={{ base: 0, md: "50%", lg: "500px" }}
-          px="4"
+          px='4'
           py={{ base: 4, md: 8 }}
           d={{ base: "none", md: "block" }}
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
             <Box
-              borderTop="4px solid #66cc00"
-              boxShadow="lg"
+              borderTop='4px solid #66cc00'
+              boxShadow='lg'
               p={6}
-              rounded="md"
-              bg="white"
-              overflow="hidden"
+              rounded='md'
+              bg='white'
+              overflow='hidden'
             >
               {submitted ? (
                 <NewFrameSubmittedForm formContent={content} />
@@ -413,11 +413,11 @@ const Landing = ({ submitted, togglePanel }) => {
         </Box>
       </Flex>
       <Box
-        pos="fixed"
+        pos='fixed'
         bottom={0}
         zIndex={9}
-        p="4"
-        w="100%"
+        p='4'
+        w='100%'
         style={{
           background: "rgba(255, 255, 255, 0.8)",
           borderColor: "rgba(255, 255, 255, 0.8)",
@@ -430,11 +430,11 @@ const Landing = ({ submitted, togglePanel }) => {
         d={{ base: "flex", md: "none" }}
       >
         <Button
-          w="80%"
-          color="#FFF"
-          bg="orange"
-          borderRadius="24px"
-          fontSize="xl"
+          w='80%'
+          color='#FFF'
+          bg='orange'
+          borderRadius='24px'
+          fontSize='xl'
           letterSpacing={4}
           style={{ zIndex: 999 }}
           onClick={() => togglePanel(true)}

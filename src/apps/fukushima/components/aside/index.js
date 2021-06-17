@@ -17,8 +17,7 @@ const mainShare = () => {
     navigator
       .share({
         title: "",
-        text:
-          "立即聯署與綠色和平一起敦促其長期、妥善地存置這批危害生態和人體的廢水，使大家的海洋免於進一步的破壞。👉 ",
+        text: "立即聯署與綠色和平一起敦促其長期、妥善地存置這批危害生態和人體的廢水，使大家的海洋免於進一步的破壞。👉 ",
         url: "https://act.gp/3uK2A0S",
       })
       .then()
@@ -42,12 +41,12 @@ const Index = () => {
           </div>
       </aside> */}
       {/* MOBILE */}
-      <div className="share-btn showshare color-bg">
+      <div className='share-btn showshare color-bg'>
         <span onClick={() => mainShare()}>分享</span>
       </div>
       {/* DESKTOP */}
-      <div className="hc_dec_color">
-        <div className="page-subtitle page-subtitle-custom share-btn-desktop">
+      <div className='hc_dec_color'>
+        <div className='page-subtitle page-subtitle-custom share-btn-desktop'>
           <span onClick={() => mainShare()}>分享</span>
         </div>
       </div>

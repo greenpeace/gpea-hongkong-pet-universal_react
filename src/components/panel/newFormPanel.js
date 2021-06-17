@@ -45,10 +45,10 @@ const NewFormPanel = ({
     <>
       {theme.displayPanel && (
         <Box
-          pos="fixed"
+          pos='fixed'
           style={{ top: 10, right: 10, zIndex: 9999 }}
           p={2}
-          bgColor="#FFF"
+          bgColor='#FFF'
           borderRadius={"20px"}
           onClick={() => togglePanel(false)}
         >
@@ -57,10 +57,10 @@ const NewFormPanel = ({
       )}
       <SlidingPane
         isOpen={theme.displayPanel}
-        from="bottom"
-        width="100%"
-        zIndex="999"
-        overlayClassName="slidingPaneClass"
+        from='bottom'
+        width='100%'
+        zIndex='999'
+        overlayClassName='slidingPaneClass'
         hideHeader={true}
         onRequestClose={() => null}
       >

@@ -44,10 +44,10 @@ export default function SwiperContent() {
   // />
 
   return (
-    <Swiper autoplay={{ delay: 2000 }} effect="fade">
+    <Swiper autoplay={{ delay: 2000 }} effect='fade'>
       {IMAGES.map((d, i) => (
         <SwiperSlide key={i}>
-          <Image src={d} borderRadius="8px" objectFit="cover" boxSize="240px" />
+          <Image src={d} borderRadius='8px' objectFit='cover' boxSize='240px' />
         </SwiperSlide>
       ))}
     </Swiper>

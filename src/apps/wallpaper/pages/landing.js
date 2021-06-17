@@ -52,25 +52,25 @@ const Landing = ({ submitted, togglePanel }) => {
   */}
       <Nav showButton={false} />
       <Flex>
-        <Box className="wrap" flex="1" style={{ minWidth: "0px" }}>
-          <Box px="4" py={{ base: 4, md: 8 }}>
+        <Box className='wrap' flex='1' style={{ minWidth: "0px" }}>
+          <Box px='4' py={{ base: 4, md: 8 }}>
             <Box mb={6}>
-              {!submitted && <Image src={banner} borderRadius="8px" />}
+              {!submitted && <Image src={banner} borderRadius='8px' />}
               {submitted && !isMobile && (
-                <HeroSwiper isMobile={isMobile} swiperHeight="480px" />
+                <HeroSwiper isMobile={isMobile} swiperHeight='480px' />
               )}{" "}
               {/** Fixed swiper desktop version height, background image will keep ratio and center center position */}
             </Box>
             <Stack pb={4}>
               <Box>
                 <Text
-                  as="h1"
+                  as='h1'
                   fontSize={{ base: "2xl", sm: "3xl", xl: "4xl" }}
-                  fontWeight="bold"
-                  color="gray.900"
+                  fontWeight='bold'
+                  color='gray.900'
                   lineHeight={1.2}
                 >
-                  <Text color="brand.500" mt={4} mb={2}>
+                  <Text color='brand.500' mt={4} mb={2}>
                     精選香港動物奇妙時刻
                   </Text>
                   桌布 / 視像會議 Wallpaper 大放送
@@ -78,11 +78,11 @@ const Landing = ({ submitted, togglePanel }) => {
               </Box>
             </Stack>
             <Flex direction={{ base: "column", sm: "row" }}>
-              <Box flex="1">
+              <Box flex='1'>
                 <Text {...pStyle}>
                   綠色和平邀請本地著名生態攝影師馮漢城，上山下水為大家拍下一些展現香港生命力的時刻，大家增進了解這些「角落生物」之餘，也讓我們一起認識孕育這些珍貴生物的土地，一起好好守護香港「野」。
                 </Text>
-                <Image borderRadius="8px" marginTop="8" src={subImage} />
+                <Image borderRadius='8px' marginTop='8' src={subImage} />
                 <Text {...pStyle}>
                   然而，這些生活在我們身邊的珍貴生物卻正面對各種環境問題威脅，從明日大嶼前期研究撥款通過有機會隨之而來的大興土木，到郊野公園面臨的開發威脅，不論海洋還是郊野遭受破壞，香港野生動物均不能倖免於難。
                 </Text>
@@ -97,34 +97,34 @@ const Landing = ({ submitted, togglePanel }) => {
                 columns={{ base: 1 }}
                 p={6}
                 borderRadius={"md"}
-                borderType="solid"
-                borderWidth="1px"
-                borderColor="brand.400"
+                borderType='solid'
+                borderWidth='1px'
+                borderColor='brand.400'
               >
-                <Box flex="1">
+                <Box flex='1'>
                   <Stack
                     direction={["column", "row"]}
                     columns={{ base: 1, xl: 2 }}
-                    alignItems="center"
-                    spacing="8px"
+                    alignItems='center'
+                    spacing='8px'
                     mb={4}
                   >
-                    <Avatar size="xl" name={"Shing"} src={shing} />
+                    <Avatar size='xl' name={"Shing"} src={shing} />
                     <Box pt={4}>
-                      <Heading fontSize="2xl" mb={2}>
-                        <Text color="brand.900">馮漢城（阿城）</Text>
+                      <Heading fontSize='2xl' mb={2}>
+                        <Text color='brand.900'>馮漢城（阿城）</Text>
                       </Heading>
-                      <Heading color="gray.500" fontSize="md">
+                      <Heading color='gray.500' fontSize='md'>
                         香港生態攝影師
                       </Heading>
                     </Box>
                   </Stack>
 
-                  <Text variant="paragraph" pb={4}>
+                  <Text variant='paragraph' pb={4}>
                     獨立生態紀錄片製作人。香港電台本地生態紀錄片節目《大自然大不同》第二季單元編導、攝影、剪接。
                   </Text>
                   <Flex
-                    justifyContent="flex-end"
+                    justifyContent='flex-end'
                     fontSize={{ base: "10px", sm: "12px" }}
                   >
                     <HStack spacing={1} pr={4}>
@@ -146,10 +146,10 @@ const Landing = ({ submitted, togglePanel }) => {
 
             <Divider my={{ base: 8, lg: 10 }} />
 
-            <SimpleGrid mt="4" columns={{ base: 1, xl: 2 }} spacing={10}>
-              <Flex direction="column">
+            <SimpleGrid mt='4' columns={{ base: 1, xl: 2 }} spacing={10}>
+              <Flex direction='column'>
                 <Image
-                  borderRadius="8px"
+                  borderRadius='8px'
                   src={
                     "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/0f48c407-gif_reg_ty_page.gif"
                   }
@@ -157,9 +157,9 @@ const Landing = ({ submitted, togglePanel }) => {
               </Flex>
               <Stack spacing={4}>
                 <Heading
-                  as="h2"
-                  size="lg"
-                  color="brand.500"
+                  as='h2'
+                  size='lg'
+                  color='brand.500'
                   style={{ lineHeight: "1.5" }}
                 >
                   一起守護
@@ -172,15 +172,15 @@ const Landing = ({ submitted, togglePanel }) => {
                 <Text {...pStyle}>
                   請支持綠色和平以科學角度、調查研究及行動，奮力守護大嶼及保衛郊野，守護香港珍貴的自然資源，為下一代建設宜居的生活環境！
                 </Text>
-                <Link href="https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=biodiversity&utm_campaign=biodiversity">
+                <Link href='https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=biodiversity&utm_campaign=biodiversity'>
                   <Button
-                    mt="2"
-                    color="#FFF"
-                    bg="brand.500"
+                    mt='2'
+                    color='#FFF'
+                    bg='brand.500'
                     _hover={{ bg: "brand.400" }}
-                    borderRadius="4px"
-                    fontSize="md"
-                    type="button"
+                    borderRadius='4px'
+                    fontSize='md'
+                    type='button'
                     letterSpacing={4}
                   >
                     立即捐助
@@ -195,7 +195,7 @@ const Landing = ({ submitted, togglePanel }) => {
         </Box>
         <Box
           w={{ base: 0, md: "50%", lg: "500px" }}
-          px="4"
+          px='4'
           py={{ base: 4, md: 8 }}
           d={{ base: "none", md: "block" }}
         >
@@ -216,11 +216,11 @@ const Landing = ({ submitted, togglePanel }) => {
         </Box>
       </Flex>
       <Box
-        pos="fixed"
+        pos='fixed'
         bottom={0}
         zIndex={9}
-        p="4"
-        w="100%"
+        p='4'
+        w='100%'
         style={{
           background: "rgba(255, 255, 255, 0.8)",
           borderColor: "rgba(255, 255, 255, 0.8)",
@@ -233,11 +233,11 @@ const Landing = ({ submitted, togglePanel }) => {
         d={{ base: "flex", md: "none" }}
       >
         <Button
-          w="80%"
-          color="#FFF"
-          bg="orange"
-          borderRadius="24px"
-          fontSize="xl"
+          w='80%'
+          color='#FFF'
+          bg='orange'
+          borderRadius='24px'
+          fontSize='xl'
           letterSpacing={4}
           style={{ zIndex: 999 }}
           onClick={() => togglePanel(true)}
@@ -252,7 +252,7 @@ const Landing = ({ submitted, togglePanel }) => {
         birthDate={false}
       >
         {submitted && isMobile && (
-          <HeroSwiper isMobile={isMobile} swiperHeight="480px" />
+          <HeroSwiper isMobile={isMobile} swiperHeight='480px' />
         )}
       </Panel>
       <Footer />

@@ -10,7 +10,7 @@ let App = ({ loading, submitted, showPanel, fakeSubmit }) => {
   const [blockScroll, allowScroll] = ScrollHandler();
   const additionalClass = submitted ? `submitted-content` : "";
   useEffect(() => {
-    (loading || showPanel) ? blockScroll() : allowScroll();
+    loading || showPanel ? blockScroll() : allowScroll();
   }, [loading, showPanel, blockScroll, allowScroll]);
 
   useEffect(() => {
