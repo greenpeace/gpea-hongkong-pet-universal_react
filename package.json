@@ -30,7 +30,7 @@
     "install": "^0.13.0",
     "js-file-download": "^0.4.12",
     "mailcheck": "^1.1.1",
-    "node-sass": "^6.0.0",
+    "node-sass": "4.14.1",
     "os": "^0.1.1",
     "prop-types": "^15.7.2",
     "purgecss": "^4.0.2",

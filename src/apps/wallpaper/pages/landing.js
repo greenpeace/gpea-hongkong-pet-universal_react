@@ -30,9 +30,12 @@ import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import themeConfig from "../../../theme";
 
-import shing from "../assets/images/shing_2x.png";
+import shing from "../assets/images/shing_2x_icon.png";
 import banner from "../assets/images/73.jpg";
 import subImage from "../assets/images/wallpaper_removed.jpg";
+import submitImage from "../assets/images/submit.png";
+import videoCallImage from "../assets/images/video-call.png";
+import cloudImage from "../assets/images/cloud.png";
 
 const Landing = ({ submitted, togglePanel }) => {
   const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
@@ -43,6 +46,34 @@ const Landing = ({ submitted, togglePanel }) => {
     lineHeight: "1.7",
     fontSize: "16px",
   };
+  const stepRow ={
+    align: "center", 
+    pb: 10,
+    pt: {base: 5, md: 0},
+    direction: {base: 'column', md: 'row'}
+  }
+
+  const stepImageWrapProps ={
+    flex: 1,
+    pb: {base: 5, md: 0},
+    textAlign: '-webkit-center',
+    maxWidth: '200px'
+  }
+
+  const stepImageProps = {
+    maxWidth: '100px',
+    flex: 1
+  }
+
+  const stepContentProps = {
+    as: "h3",
+    color: "gray.900",
+    lineHeight: "1.7",
+    fontSize: "20px",
+    fontWeight: 700,
+    pt: {base: 5, md: 0},
+    textAlign: {base: 'center', md: 'left'}
+  }
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -144,6 +175,42 @@ const Landing = ({ submitted, togglePanel }) => {
               </SimpleGrid>
             </Box>
 
+            <Stack direction="row" align="center">
+              <Divider/>
+              <Box w={'100%'} textAlign="center">
+                <Text
+                  as='h1'
+                  fontSize={{ base: "2xl", sm: "3xl", xl: "4xl" }}
+                  fontWeight='bold'
+                  color='gray.900'>如何使用</Text>
+              </Box><Divider/>
+            </Stack>
+
+            <Flex direction="column">
+              <Flex {...stepRow}>
+                <Box style={stepImageWrapProps}><Image src={submitImage} style={stepImageProps}/></Box>
+                <Box flex={1}><Text {...stepContentProps}>1.立即登記</Text></Box>
+              </Flex>
+
+              <Flex {...stepRow}>
+                <Box style={stepImageWrapProps}><Image src={cloudImage} style={stepImageProps}/></Box>
+                <Box flex={1}><Text {...stepContentProps}>2.揀選你喜愛的環境照片，下載儲存至電腦</Text></Box>
+              </Flex>
+
+              <Flex {...stepRow}>
+                <Box style={stepImageWrapProps}><Image src={videoCallImage} style={stepImageProps}/></Box>
+                <Box flex={1}><Text {...stepContentProps}>3.開啟視訊通話應用程式</Text>
+                  <Text bgColor="gray.300" display="inline-block" px={2} my={2}>Zoom</Text><br/>
+                  進入「設定」 &gt; 選擇「背景與濾鏡」 &gt; 點選「虛擬背景」 &gt; 選擇「+添加影像或影片」。<br/>
+                  <Text bgColor="gray.300" display="inline-block" px={2} my={2}>Microsoft Teams</Text><br/>
+                  加入會議 &gt; 點選「其他動作」 &gt; 套用「背景效果」 &gt; 新增「照片」 &gt; 點選套用」<br/>
+                  <Text bgColor="gray.300" display="inline-block" px={2} my={2}>Google Meet</Text><br/>
+                  點選「變更背景 」&gt; 選取照片 &gt; 新增 &gt; 「立即加入」
+                </Box>
+              </Flex>
+              
+            </Flex>
+
             <Divider my={{ base: 8, lg: 10 }} />
 
             <SimpleGrid mt='4' columns={{ base: 1, xl: 2 }} spacing={10}>
@@ -191,6 +258,9 @@ const Landing = ({ submitted, togglePanel }) => {
                 </Text>
               </Stack>
             </SimpleGrid>
+          
+          
+          
           </Box>
         </Box>
         <Box
