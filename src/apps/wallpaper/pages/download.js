@@ -29,7 +29,7 @@ import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 
 import LazyLoad from "react-lazyload";
 
-import shing from "../assets/images/shing_2x.png";
+import shing from "../assets/images/shing_2x_icon.png";
 import wallpaper from "../../../data/wallpaper.json";
 
 import "../index.css";

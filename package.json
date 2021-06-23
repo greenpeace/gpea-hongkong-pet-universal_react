@@ -30,7 +30,7 @@
     "install": "^0.13.0",
     "js-file-download": "^0.4.12",
     "mailcheck": "^1.1.1",
-    "node-sass": "^6.0.0",
+    "node-sass": "4.14.1",
     "os": "^0.1.1",
     "prop-types": "^15.7.2",
     "purgecss": "^4.0.2",
@@ -62,7 +62,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "build:en": "PUBLIC_URL=https://api.greenpeace.org.hk/2021/oceansday craco build",
+    "build:en": "PUBLIC_URL=https://api.greenpeace.org.hk/2021/wallpaper craco build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "yarn build:en && node mc-deploy.js && react-snap && node mc-deploy.js",
