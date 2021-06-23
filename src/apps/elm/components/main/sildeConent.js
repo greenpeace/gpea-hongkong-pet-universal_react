@@ -5,6 +5,7 @@ import * as swiperActions from "store/actions/action-types/swiper-actions";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import swiperContent from "../../data/swiper.json";
 
 import videoBG from "../../../../assets/videos/e96a2abcec677ba251bdd4e8c9ddb5ef.mp4";
@@ -76,7 +77,7 @@ const SlideContent = ({
             onClick={() => handleUpdateSlide("prev")}
           >
             <span>
-              <FontAwesomeIcon icon={["fas", "arrow-left"]} />
+              <FontAwesomeIcon icon={faArrowLeft} />
             </span>{" "}
           </div>
           <div
@@ -84,7 +85,7 @@ const SlideContent = ({
             onClick={() => handleUpdateSlide("next")}
           >
             <span>
-              <FontAwesomeIcon icon={["fas", "arrow-right"]} />
+              <FontAwesomeIcon icon={faArrowRight} />
             </span>
           </div>
         </div>
