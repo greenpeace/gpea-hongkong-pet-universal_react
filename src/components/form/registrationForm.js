@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimesCircle, faPen } from '@fortawesome/free-solid-svg-icons'
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import mailcheck from "mailcheck";
@@ -209,7 +210,7 @@ let RegistrationForm = ({
     <div className='custom-gp-form'>
       <div className='form-close' onClick={() => closeAll()}>
         <FontAwesomeIcon
-          icon={["fas", "times-circle"]}
+          icon={faTimesCircle}
           size='lg'
           color='lime'
         />
@@ -367,7 +368,7 @@ let RegistrationForm = ({
                     className='custom-button custom-button-active'
                   >
                     {formContent.submit_text}{" "}
-                    <FontAwesomeIcon icon={["fas", "pen"]} />
+                    <FontAwesomeIcon icon={faPen} />
                   </button>
                 </Col>
               </Row>

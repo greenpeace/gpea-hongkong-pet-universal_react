@@ -8,6 +8,7 @@ import SlideContent from "./sildeConent";
 import MobileContent from "./mobileContent";
 import { useMediaQuery } from "react-responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPen } from '@fortawesome/free-solid-svg-icons'
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 
@@ -29,7 +30,7 @@ const SlideScreen = ({ togglePanel }) => {
           className='start-btn cta-custom-display'
           onClick={() => handleTogglePanel()}
         >
-          立即聯署 <FontAwesomeIcon icon={["fas", "pen"]} />
+          立即聯署 <FontAwesomeIcon icon={faPen} />
         </button>
       </div>
       <div className='hero-scroll-down-notifer'>
