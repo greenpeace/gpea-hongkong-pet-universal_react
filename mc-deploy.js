@@ -1,7 +1,7 @@
-const fs = require("fs");
-const path = require("path");
-const os = require("os");
-const FTPS = require("ftps");
+const fs = require('fs')
+const path = require('path')
+const os = require('os')
+const FTPS = require('ftps')
 /*
 Install the dependencies first
 */
@@ -34,20 +34,20 @@ Install the dependencies first
  */
 
 // definitions
-const buildFolder = path.join(__dirname, "build");
+const buildFolder = path.join(__dirname, 'build')
 //
 // const EndpointURL = "https://cloud.greenhk.greenpeace.org/petition-pp";
 //
 // New websign endpoint can accept optional fields
-const EndpointURL = "https://cloud.greenhk.greenpeace.org/websign";
-const CampaignId = "7012u000000P1itAAC";
-const interests = ["Health"]; // Arctic, Climate, Forest, Health, Oceans, Plastics
-const ftpConfigName = "ftp_hk"; // refer to ~/.npm-en-uploader-secret
-const ftpRemoteDir = "/2021/wallpaper";
+const EndpointURL = 'https://cloud.greenhk.greenpeace.org/websign'
+const CampaignId = '7012u000000Otu3AAC'
+const interests = ['Oceans'] // Arctic, Climate, Forest, Health, Oceans, Plastics
+const ftpConfigName = 'ftp_hk' // refer to ~/.npm-en-uploader-secret
+const ftpRemoteDir = '/2021/elm_content_b'
 
-let indexHtmlFilePath = path.join(buildFolder, "index.html");
-let fbuf = fs.readFileSync(indexHtmlFilePath);
-let content = fbuf.toString();
+let indexHtmlFilePath = path.join(buildFolder, 'index.html')
+let fbuf = fs.readFileSync(indexHtmlFilePath)
+let content = fbuf.toString()
 
 // copied from https://github.com/greenpeace/gpea-npm-en-uploader/blob/master/upload_folder.js
 /**
@@ -59,11 +59,11 @@ let content = fbuf.toString();
  */
 const upload_folder = function (settings, localDir) {
   // @see https://github.com/Atinux/node-ftps for arguments
-  var ftps = new FTPS(settings);
+  var ftps = new FTPS(settings)
 
   console.info(
     `Sync from \`${localDir}\` to \`${settings.protocol}://${settings.username}@${settings.host}:${settings.remoteDir}\``
-  );
+  )
 
   return ftps
     .mirror({
@@ -77,13 +77,13 @@ const upload_folder = function (settings, localDir) {
       // err will be null (to respect async convention)
       // res is an hash with { error: stderr || null, data: stdout }
       if (err) {
-        console.error(err);
+        console.error(err)
       } else {
-        console.info("Successfully uploaded.");
-        console.info(res.data);
+        console.info('Successfully uploaded.')
+        console.info(res.data)
       }
-    });
-};
+    })
+}
 
 // patch form contents
 let formTmpl = `<form method="post" action="%%=v(@EndpointURL)=%%" id="mc-form" style="display: none">
@@ -117,21 +117,21 @@ let formTmpl = `<form method="post" action="%%=v(@EndpointURL)=%%" id="mc-form" 
       <input type="hidden" name="numSignupTarget" value="%%=v(@Petition_Signup_Target__c)=%%">
       <input type="hidden" name="numResponses" value="%%=v(@NumberOfResponses)=%%">
     </form>
-  `;
+  `
 
-let matches = content.match(/(<form[^<]+mc-form(.|[\r\n])*form>)/);
+let matches = content.match(/(<form[^<]+mc-form(.|[\r\n])*form>)/)
 
 if (matches) {
-  let tokens = content.split(matches[1]);
+  let tokens = content.split(matches[1])
 
   if (tokens.length === 2) {
-    content = tokens[0] + formTmpl + tokens[1];
-    console.log("Content form patched");
+    content = tokens[0] + formTmpl + tokens[1]
+    console.log('Content form patched')
   } else {
-    throw new Error("Found multi MC form parts");
+    throw new Error('Found multi MC form parts')
   }
 } else {
-  throw new Error("Cannot resolve the MC form from the index.html file");
+  throw new Error('Cannot resolve the MC form from the index.html file')
 }
 
 // append the headers
@@ -142,24 +142,24 @@ let headersTmpl = `%%[
 
     SET @EndpointURL = "${EndpointURL}"
     SET @CampaignId = "${CampaignId}"
-    SET @LeadSource = "Petition - ${interests.join(",")}"
+    SET @LeadSource = "Petition - ${interests.join(',')}"
     SET @Petition_Interested_In_Arctic__c       = "${
-      interests.indexOf("Arctic") >= 0 ? "true" : "false"
+      interests.indexOf('Arctic') >= 0 ? 'true' : 'false'
     }"
     SET @Petition_Interested_In_Climate__c      = "${
-      interests.indexOf("Climate") >= 0 ? "true" : "false"
+      interests.indexOf('Climate') >= 0 ? 'true' : 'false'
     }"
     SET @Petition_Interested_In_Forest__c       = "${
-      interests.indexOf("Forest") >= 0 ? "true" : "false"
+      interests.indexOf('Forest') >= 0 ? 'true' : 'false'
     }"
     SET @Petition_Interested_In_Health__c       = "${
-      interests.indexOf("Health") >= 0 ? "true" : "false"
+      interests.indexOf('Health') >= 0 ? 'true' : 'false'
     }"
     SET @Petition_Interested_In_Oceans__c       = "${
-      interests.indexOf("Oceans") >= 0 ? "true" : "false"
+      interests.indexOf('Oceans') >= 0 ? 'true' : 'false'
     }"
     SET @Petition_Interested_In_Plastics__c     = "${
-      interests.indexOf("Plastics") >= 0 ? "true" : "false"
+      interests.indexOf('Plastics') >= 0 ? 'true' : 'false'
     }"
 
     /**** Retreive number of responses in campaign used for any petition where petition sign up progress bar is needed to display signups compared to targeted number of signups ****/
@@ -179,24 +179,24 @@ let headersTmpl = `%%[
     SET @UtmContent         = RequestParameter("utm_content")
     SET @UtmTerm            = RequestParameter("utm_term")
   ]%%
-  `;
+  `
 
-content = headersTmpl + "\n" + content;
-console.log("MC header patched");
+content = headersTmpl + '\n' + content
+console.log('MC header patched')
 
 // patch version numbers
-content = content.replace(/v=\d+/g, "v=" + new Date().getTime());
-console.log("version number patched");
+content = content.replace(/v=\d+/g, 'v=' + new Date().getTime())
+console.log('version number patched')
 
 // output to the file
-fs.writeFileSync(path.join(__dirname, "build", "index.mc.html"), content);
+fs.writeFileSync(path.join(__dirname, 'build', 'index.mc.html'), content)
 // fs.writeFileSync("/Users/upchen/Dropbox/WorkingSpace/greenpeace/codes/mc/zhtw.2020.polar.savethearctic-content.html", content)
-console.log("content patched");
+console.log('content patched')
 
 // upload the folder to FTP
-let raw = fs.readFileSync(path.join(os.homedir(), ".npm-en-uploader-secret"));
-let secrets = JSON.parse(raw);
+let raw = fs.readFileSync(path.join(os.homedir(), '.npm-en-uploader-secret'))
+let secrets = JSON.parse(raw)
 
-let ftpSetting = secrets[ftpConfigName];
-ftpSetting["remoteDir"] = ftpRemoteDir;
-upload_folder(ftpSetting, buildFolder);
+let ftpSetting = secrets[ftpConfigName]
+ftpSetting['remoteDir'] = ftpRemoteDir
+upload_folder(ftpSetting, buildFolder)
