@@ -1,7 +1,26 @@
-import React from "react";
+import React, {useState, useRef, useEffect} from "react";
 import { Grid, Row, Col } from "rsuite";
-import { connect } from "react-redux";
 import swiperContent from "../../data/swiper.json";
+
+function FadeInSection(props) {
+  const [isVisible, setVisible] = useState(false);
+  const domRef = useRef();
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => setVisible(entry.isIntersecting));
+    });
+    observer.observe(domRef.current);
+    console.log('wow')
+  }, []);
+  return (
+    <div
+      className={`fade-in-section ${isVisible ? "is-visible" : ""}`}
+      ref={domRef}
+    >
+      {props.children}
+    </div>
+  );
+}
 
 const MobileContent = () => {
   const { data = [] } = swiperContent;
@@ -11,24 +30,26 @@ const MobileContent = () => {
         {(data || []).map((d) => {
           const { title, description } = d.content;
           return (
-            <Row key={d.id}>
-              {d.image_url && (
+            <FadeInSection key={d.id}>
+              <Row>
+                {d.image_url && (
+                  <Col xs={24}>
+                    <img
+                      loading='lazy'
+                      src={d.image_url}
+                      alt={description}
+                      className='img mobile-image'
+                    />
+                  </Col>
+                )}
                 <Col xs={24}>
-                  <img
-                    loading='lazy'
-                    src={d.image_url}
-                    alt={description}
-                    className='img mobile-image'
-                  />
+                  {title && <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>}
+                  <div className='mobile-content'>
+                    <div dangerouslySetInnerHTML={{ __html: description }} />
+                  </div>
                 </Col>
-              )}
-              <Col xs={24}>
-                {title && <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>}
-                <div className='mobile-content'>
-                  <div dangerouslySetInnerHTML={{ __html: description }} />
-                </div>
-              </Col>
-            </Row>
+              </Row>
+            </FadeInSection>
           );
         })}
       </Grid>
