@@ -131,7 +131,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 columns={{ base: 1 }}
                 p={6}
                 borderRadius={'md'}
-                borderType='solid'
+                bordertype='solid'
                 borderWidth='1px'
                 borderColor='brand.400'
               >

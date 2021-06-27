@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { Form, withFormik } from "formik";
@@ -53,6 +53,8 @@ const MyForm = (props) => {
     isSubmitting,
     setSubmitting,
     setHiddenForm,
+    setFieldValue,
+    setFieldTouched,
     submitted,
     birthDate = true,
     activeABTesting,
@@ -63,6 +65,7 @@ const MyForm = (props) => {
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
   const [numResponses, setNumResponses] = useState(0);
+  const [suggested, setSuggested] = useState("");
 
   const mobileCountryCode = [
     { label: "+852", value: "852" },
@@ -124,6 +127,20 @@ const MyForm = (props) => {
     }
   }, [submitted]);
 
+  const handleEmailCheck = (email) => {
+    handleChange(email) //form checking
+    Mailcheck.run({
+      email: values.Email,
+      domains: domains,
+      topLevelDomains: topLevelDomains,
+      suggested: function(suggestion) {
+        if(values.Email !== suggestion.domain){
+          setSuggested(`${suggestion.full}`)
+        }
+      }
+    })
+  }
+
   return (
     <Box
       borderTop={{ base: null, sm: "4px solid #66cc00" }}
@@ -164,10 +181,15 @@ const MyForm = (props) => {
                 name='Email'
                 type='email'
                 placeholder={formContent.label_email}
-                onChange={handleChange}
+                onChange={(v)=>{ handleEmailCheck(v)}}
+                value={values.Email}
                 onBlur={handleBlur}
               />
               <FormErrorMessage color='red'>{errors.Email}</FormErrorMessage>
+              {suggested && <Text {...labelStyle} pt={1} cursor="pointer" onClick={()=>{
+                  setFieldValue('Email', suggested, true)
+                  setFieldTouched('Email', true, false)}
+              }>您是否想輸入 <u>{suggested}</u></Text>}
             </FormControl>
           </Box>
 
