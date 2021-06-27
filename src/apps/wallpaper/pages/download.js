@@ -17,6 +17,7 @@ import {
   Stack,
   Avatar,
   Flex,
+  Skeleton
 } from "@chakra-ui/react";
 import Nav from "../components/header/nav";
 import Footer from "../components/footer";
@@ -38,7 +39,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
   const [Arctic, setArctic] = useState([]);
   const [Forests, setForests] = useState([]);
   const [Oceans, setOceans] = useState([]);
-  const [current, setCurrent] = useState([]);
+  const [current, setCurrent] = useState(wallpaper.data.find((d) => d.issue === "Biodiversity"));
   const [displayCate, setDisplayCate] = useState(false);
   const [isShown, setIsShown] = useState(false);
   const [download, setDownload] = useState(
@@ -62,7 +63,6 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
   };
 
   const handleSwitchDownload = (cate) => {
-    console.log("clicked", cate);
     const getFirstItem = cate.content?.wallpaperList[0];
     setDownload(getFirstItem);
     selectedImage(getFirstItem);
@@ -98,51 +98,22 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     setArctic(wallpaper.data.find((d) => d.issue === "Biodiversity"));
-    setForests(wallpaper.data.find((d) => d.issue === "Forests"));
-    setOceans(wallpaper.data.find((d) => d.issue === "Oceans"));
+    // setForests(wallpaper.data.find((d) => d.issue === "Forests"));
+    // setOceans(wallpaper.data.find((d) => d.issue === "Oceans"));
   }, []);
 
   useEffect(() => {
-    const getFirstItem = Arctic.content?.wallpaperList[0];
-    setCurrent(Arctic);
-    selectedImage(getFirstItem);
-  }, [Arctic]);
+    // const getFirstItem = Arctic.content?.wallpaperList[0];
+    // setCurrent(Arctic);
+    // console.log('getFirstItem-',current.content?.wallpaperList[0])
+    selectedImage(current.content?.wallpaperList[0]);
+  }, [current]);
 
   const downloadButtonStyle = {
     top: "0px",
     left: "0px",
     borderTop: "80px solid #66cc00",
     borderRight: "80px solid transparent",
-  };
-
-  const mobileDownloadButtonStyle = {
-    top: "0px",
-    left: "0px",
-    borderTop: "48px solid #66cc00",
-    borderRight: "48px solid transparent",
-  };
-
-  const SelectButtonStyle = {
-    variant: "outline",
-    fontWeight: 700,
-    color: "brand.600",
-    borderColor: "brand.600",
-    _hover: {
-      color: "#FFF",
-      bgColor: "brand.600",
-    },
-    flex: "1",
-    borderRadius: "20px",
-  };
-
-  const SelectedButtonStyle = {
-    variant: "solid",
-    fontWeight: 700,
-    color: "#FFF",
-    borderColor: "brand.600",
-    bgColor: "brand.600",
-    flex: "1",
-    borderRadius: "20px",
   };
 
   const photoCaption = {
@@ -152,7 +123,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
     backgroundColor: "rgba(255,255,255,0.65)",
     padding: "2px",
   };
-
+  
   return (
     <ChakraProvider theme={themeConfig}>
       <Nav showButton={false} />
@@ -169,92 +140,6 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
             <br />
             綠色和平不接受政府、企業捐款，請立刻加入我們的1%會員計畫，以您的1%收入，支持我們的100%財政獨立。
           </Text>
-
-          {/* <Box align="center">
-            <Center h="100%">
-              <Box
-                bgColor="#FFF"
-                borderRadius="8px"
-                p={6}
-                ml={{ base: "0px", xl: "-110px" }}
-                mt={{ base: "-80px", xl: "0px" }}
-                w={{ base: "230px" }}
-              >
-                <Box
-                  maxW="120px"
-                  borderColor="brand.600"
-                  borderWidth="1px"
-                  borderRadius="full"
-                  overflow="hidden"
-                  mb="6"
-                >
-                  <Image src={shing}/>
-                </Box>
-                <Heading
-                  fontSize={{ base: "md", xl: "2xl" }}
-                  color="brand.600"
-                  mb="2"
-                >
-                  馮漢城（阿城）
-                </Heading>
-                <Text size="sm" color="gray.500">
-                  本地生態攝影師
-                </Text>
-              </Box>
-            </Center>
-          </Box> */}
-
-          {/* <Flex direction="column">
-                <Box
-                  bgColor="#FFF"
-                  py={6}
-                  px={{ base: 2, sm: 8 }}
-                  borderTop="1px solid #F9BC81"
-                >
-                  <Box py={6}>
-                    <SimpleGrid columns={{ base: 1, xl: 2 }} spacing="8px">
-                      <Box flex="1" pr={{ base: 0, sm: 12 }}>
-                        <Stack
-                          direction={["column", "row"]}
-                          columns={{ base: 1, xl: 2 }}
-                          alignItems="center"
-                          spacing="8px"
-                          mb={4}
-                        >
-                          <Avatar
-                            size="2xl"
-                            name={current.nameZH}
-                            src={current.avatar}
-                          />
-                          <Box pt={4}>
-                            <Heading fontSize="2xl" mb={2}>
-                              <Text color="#005F89">{current.nameZH}</Text>
-                            </Heading>
-                            <Heading color="gray.500" fontSize="md">
-                              {current.title}
-                            </Heading>
-                          </Box>
-                        </Stack>
-
-                        <Text as="p" {...pStyle}>
-                          {current.content}
-                        </Text>
-                        {current.imageDescription && (
-                          <Text {...pStyle} color="brand.500" fontWeight="bold">
-                            {current.imageDescription}
-                          </Text>
-                        )}
-                      </Box>
-                      {current.image && (
-                        <Box maxW="320px" pt={{ base: 6, sm: 0 }}>
-                          <Image src={current.image} borderRadius="8px" />
-                        </Box>
-                      )}
-                    </SimpleGrid>
-                  </Box>
-                </Box>
-              </Flex> */}
-
           <HStack align='center' pt='6' pb='4' spacing='4'>
             <Link
               href='https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&ref=wallpaper-thankyou'
@@ -318,43 +203,23 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                   <DownloadIcon color='#FFF' w={8} h={8} />
                 </Box>
                 <Box pos='absolute' {...downloadButtonStyle}></Box>
-                <LazyLoad height={200} once offset={100}>
-                  <Image
+                <Box pos='relative' zIndex={2}>
+                <Image
                     className='fade-in'
                     src={`${process.env.PUBLIC_URL}${download}`}
                     w='100%'
                   />
-                </LazyLoad>
+                </Box>
+                <Skeleton w="100%" pos='absolute' height={{ base: "auto", sm: "300px" }} pos="absolute" top={0} right={0} bottom={0} left={0} zIndex={1}/>
               </Link>
             </Box>
           </Sticky>
-          {/* Category navbar */}
-          {/* <HStack mb={10}>
-            {campaignButton.map((d) => (
-              <Button
-                key={d.label}
-                {...SelectButtonStyle}
-                bgColor={
-                  current.issue === d.label
-                    ? SelectedButtonStyle.bgColor
-                    : SelectButtonStyle.bgColor
-                }
-                color={
-                  current.issue === d.label
-                    ? SelectedButtonStyle.color
-                    : SelectButtonStyle.color
-                }
-                onClick={() => handleSwitchDownload(d.value)}
-              >
-                {d.label_zh}
-              </Button>
-            ))}
-          </HStack> */}
         </Box>
         <Box flex='1' pt='10' pb='4' px='4'>
           <Heading size='xl' mb={8}>
             揀選你喜愛的環境照片
           </Heading>
+
           {isMobile ? (
             <SimpleGrid columns={2} spacing='12px'>
               {current.content?.wallpaperList.map((d, i) => {
@@ -365,26 +230,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                     _hover={{ cursor: "pointer", opacity: 0.8 }}
                     onClick={() => handleSetDownload(d.source)}
                   >
-                    {/* <Link
-                    href={`${process.env.PUBLIC_URL}${d}`}
-                    download={d.split("/").pop()}
-                  ></Link> */}
-                    {/* <Box
-                bgImage={`url(${process.env.PUBLIC_URL}${d})`}
-                bgSize="cover"
-                height={{base: "160px"}}
-                _hover={{cursor: 'pointer', opacity: .8}}
-                pos="relative"
-              >
-              <Box pos="absolute" bottom="6px" right="6px" zIndex={2}><DownloadIcon color="#FFF" w={4} h={4}/></Box>
-              <Box pos="absolute" {...mobileDownloadButtonStyle} zIndex={1}></Box>
-            </Box> */}
                     <LazyLoad height={240} once offset={100}>
-                      {/* <Box pos="absolute" left="4px" top="4px">
-                      <DownloadIcon color="#FFF" w={4} h={4} />
-                    </Box>
-                    <Box pos="absolute" {...mobileDownloadButtonStyle}></Box>
-                    */}
                       <Image src={`${process.env.PUBLIC_URL}${d.source}`} />
                     </LazyLoad>
                     <Text as='span' {...photoCaption}>
@@ -396,22 +242,27 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
             </SimpleGrid>
           ) : (
             <SimpleGrid minChildWidth='180px' spacing='20px'>
-              {current.content?.wallpaperList.map((d, i) => (
-                <Box pos='relative'>
-                  <Box
-                    name={d}
-                    key={i}
-                    bgImage={`url(${process.env.PUBLIC_URL}${d.source})`}
-                    bgSize='cover'
-                    height={{ base: "240px", sm: "180px" }}
-                    _hover={{ cursor: "pointer", opacity: 0.8 }}
-                    onClick={() => handleSetDownload(d.source)}
-                  />
-                  <Text as='span' {...photoCaption}>
-                    {d.label_zh}
-                  </Text>
+              {(current.content?.wallpaperList.map((d, i) => {
+                return (
+                  <Box pos='relative' key={i}>
+                    <Box zIndex={2} pos={'relative'}>
+                    <Box
+                      name={d}
+                      bgImage={`url(${process.env.PUBLIC_URL}${d.source})`}
+                      bgSize='cover'
+                      height={{ base: "240px", sm: "180px" }}
+                      w="100%"
+                      _hover={{ cursor: "pointer", opacity: 0.8 }}
+                      onClick={() => handleSetDownload(d.source)}
+                    />
+                    <Text as='span' {...photoCaption}>
+                      {d.label_zh}
+                    </Text>
+                    </Box>
+                  <Skeleton key={i} w="100%" height={{ base: "240px", sm: "180px" }} pos="absolute" top={0} right={0} bottom={0} left={0} zIndex={1}/>
                 </Box>
-              ))}
+                )
+              }))}
             </SimpleGrid>
           )}
 
@@ -430,7 +281,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               columns={{ base: 1 }}
               p={6}
               borderRadius={"md"}
-              borderType='solid'
+              bordertype='solid'
               borderWidth='1px'
               borderColor='brand.400'
             >
