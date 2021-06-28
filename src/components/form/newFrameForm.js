@@ -127,6 +127,12 @@ const MyForm = (props) => {
     }
   }, [submitted]);
 
+  useEffect(() => {
+    if(values.Email===suggested){
+      setSuggested("")
+    }
+  }, [values.Email]);
+
   const handleEmailCheck = (email) => {
     handleChange(email) //form checking
     Mailcheck.run({

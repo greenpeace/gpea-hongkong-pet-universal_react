@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
-import mailcheck from "mailcheck";
+
 import {
   Form,
   FormGroup,
@@ -18,25 +18,9 @@ import {
 import "rsuite/lib/styles/index.less";
 import ProgressBar from "components/progress";
 import SubmittedForm from "./submittedForm";
+import EmailField from "./emailField";
 
 import content from "./content.json";
-
-// for email correctness
-let domains = [
-  "me.com",
-  "outlook.com",
-  "netvigator.com",
-  "cloud.com",
-  "live.hk",
-  "msn.com",
-  "gmail.com",
-  "hotmail.com",
-  "ymail.com",
-  "yahoo.com",
-  "yahoo.com.tw",
-  "yahoo.com.hk",
-];
-let topLevelDomains = ["com", "net", "org"];
 
 let RegistrationForm = ({
   togglePanel,
@@ -48,10 +32,12 @@ let RegistrationForm = ({
   variant,
 }) => {
   const refForm = useRef();
+
+  const {current} = refForm;
+
   const refCheckbox = useRef();
   const refMobileCountryCode = useRef();
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
-  const [emailSuggestion, setEmailSuggestion] = useState("內容");
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
   const [numResponses, setNumResponses] = useState(0);
   const [mobileCountryCode, setMobileCountryCode] = useState([
@@ -60,6 +46,7 @@ let RegistrationForm = ({
   ]);
   const [formDefaultValue, setFormDefaultValue] = useState({
     MobileCountryCode: "852",
+    Email: ""
   });
   const [birthDateYear, setBirthDateYear] = useState([]);
   const { StringType, NumberType } = Schema.Types;
@@ -115,11 +102,15 @@ let RegistrationForm = ({
   const handleSubmit = (isValid) => {
     const OptIn = refCheckbox.current.state?.checked;
 
+    const { formValue } = refForm.current.state;
+      console.log('formValue-',formValue)
+
     if (isValid) {
       const { formValue } = refForm.current.state;
       let birthdateValue = formValue.Birthdate
         ? `${formValue.Birthdate}-01-01`
         : "";
+
       submitForm({
         ...hiddenFormValues,
         ...formValue,
@@ -188,6 +179,11 @@ let RegistrationForm = ({
       setBirthDateYear(optionYear);
     }
     fetchOptionYear(optionYear);
+
+
+    // refForm.current.handleFieldChange('Email', 'wow@mail.com')
+
+
   }, []);
   class CustomField extends React.PureComponent {
     render() {
@@ -260,12 +256,7 @@ let RegistrationForm = ({
               <Row className='show-grid'>
                 <Col xs={24}>
                   <FormGroup>
-                    <TextField
-                      name='Email'
-                      placeholder={formContent.label_email}
-                      label={formContent.label_email}
-                      autoComplete='off'
-                    />
+                    <EmailField name='Email' placeholder={formContent.label_email} label={formContent.label_email} autoComplete='off' emailvalue={current}/>
                   </FormGroup>
                 </Col>
               </Row>
