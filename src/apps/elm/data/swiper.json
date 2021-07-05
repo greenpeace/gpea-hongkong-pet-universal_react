@@ -1,0 +1,69 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "content": {
+        "header": "",
+        "title": "堅守大嶼",
+        "description": "政府強推「明日大嶼」，在敏感的生態區域大興土木，必然破壞珍貴的海洋生態；它亦是香港史上最昂貴的基建，造價至少6,240億元，不但可能於10年內耗盡香港的財政儲備，亦無法有效解決香港逼在眉睫的房屋問題。一起發聲，要求政府優先發展棕地，放棄不負責任的「明日大嶼」！",
+        "cta": {
+          "link": "",
+          "content": "立即聯署"
+        }
+      },
+      "image_url": "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/06/da17973a-20210616_elm_petitionpage_b-02.jpg"
+    },
+    {
+      "id": 2,
+      "content": {
+        "header": "",
+        "title": "$6240億填海工程<br/>恐10年耗盡財政儲備",
+        "description": "綠色和平委託關焯照教授的研究報告計算出，政府如強推「明日大嶼」，恐令整個財政儲備於10年內掏空。<br/><br/>關認為，香港房屋需求將在中至長期大幅減少。然而，「明日大嶼」卻要多年後才能供應熟地，是「遠水不能救近火」。發展棕地成本較便宜，亦可更快供應熟地，較適合香港需要。",
+        "cta": {
+          "link": "",
+          "content": "立即聯署"
+        }
+      },
+      "image_url": "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/06/91f0dbd1-20210616_elm_petitionpage_b-03.jpg"
+    },
+    {
+      "id": 3,
+      "content": {
+        "header": "",
+        "title": "發展棕地成本<br/>比填海便宜8成",
+        "description": "香港有比「明日大嶼」更明智的選項：發展408公頃的棕地，造地成本估算為333億元，比填海便宜8成即可興建14萬伙公營房屋。<br/><br/>事實上，棕地發展潛力遠被低估。綠色和平研究報告《失棕罪——香港棕地現況報告2021》揭發：近380公頃棕地在官方數據中被消失，若取當中一半棕地建屋，保守估計可建相等於13條彩虹邨的單位數目。",
+        "cta": {
+          "link": "",
+          "content": "立即聯署"
+        }
+      },
+      "image_url": "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/06/2b6c894c-20210616_elm_petitionpage_b-04.jpg"
+    },
+    {
+      "id": 4,
+      "content": {
+        "header": "",
+        "title": "生態價值<br/>絕不應被刻意低估",
+        "description": "填海選址鄰近海域具生態價值，或令海洋或陸地物種的棲息地永久喪失。<br/>我們與6個環保及關注團體發佈的生態調查發現，鄰近填海選址的周公島，具國家二級保護野生動物白腹海鵰的鳥巢，全球獨有的鮑氏雙足蜥，更在中部水域錄得一種稀有的軟珊瑚海筆，生態價值絕不應被刻意低估。<br/>海洋住屋不對立，為了守護珍貴脆弱的海洋生態，及讓市民安居樂業，一起發聲，要求政府優先發展棕地，放棄不負責任的「明日大嶼」！",
+        "cta": {
+          "link": "",
+          "content": "立即聯署"
+        }
+      },
+      "image_url": "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/06/3f54e596-20210616_elm_petitionpage_b-05.jpg"
+    },
+    {
+      "id": 5,
+      "content": {
+        "header": "",
+        "title": "",
+        "description": "",
+        "cta": {
+          "link": "",
+          "content": "立即聯署"
+        }
+      },
+      "image_url": "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/06/7eb4a2b5-20210616_elm_petitionpage_b-06.jpg"
+    }
+  ]
+}
