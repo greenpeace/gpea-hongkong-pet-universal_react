@@ -257,7 +257,7 @@ let RegistrationForm = ({
               <Row className='show-grid'>
                 <Col xs={24}>
                   <FormGroup>
-                    <EmailField name='Email' placeholder={formContent.label_email} label={formContent.label_email} autoComplete='off' emailvalue={current}/>
+                    <EmailField name='Email' placeholder={formContent.label_email} label={formContent.label_email} autoComplete='off' emailvalue={current} _form={refForm}/>
                   </FormGroup>
                 </Col>
               </Row>

@@ -19,10 +19,12 @@ let domains = [
 let topLevelDomains = ["com", "net", "org"];
 
 const EmailField = (props) => {
-  const { name, label, placeholder, accepter, handleOnChange, ...rest } = props;
+  const { name, label, placeholder, accepter, handleOnChange, _form, ...rest } = props;
   const [suggested, setSuggested] = useState("");
+  const [_email, _setEmail] = useState("");
   const emailFieldRef = useRef()
   const handleEmailCheck = (email) => {
+    _setEmail(email)
     if(email===suggested){
       setSuggested("")
     }
@@ -39,6 +41,11 @@ const EmailField = (props) => {
       }
     })
   }
+
+  const handleSuggestionClick = () => {
+    _form.current?.handleFieldChange('Email', suggested)
+    _setEmail(suggested)
+  }
   
   return (
     <FormGroup>
@@ -53,8 +60,9 @@ const EmailField = (props) => {
           handleEmailCheck(v)
         }}
         ref={emailFieldRef}
+        value={_email}
       />
-      {suggested && <div style={{color: '#FFF', fontSize: '14px', paddingTop: '4px'}}>您是否想輸入 <u>{suggested}</u></div>}
+      {suggested && <div style={{color: '#FFF', fontSize: '14px', paddingTop: '4px'}} onClick={()=>handleSuggestionClick()}>您是否想輸入 <u>{suggested}</u></div>}
     </FormGroup>
   );
 };
