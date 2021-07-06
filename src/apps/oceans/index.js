@@ -1,17 +1,17 @@
-import "./app.less";
-import React, { useEffect } from "react";
-import * as swiperActions from "store/actions/action-types/swiper-actions";
-import * as themeActions from "store/actions/action-types/theme-actions";
-import { connect } from "react-redux";
+import './app.less';
+import React, { useEffect } from 'react';
+import * as swiperActions from 'store/actions/action-types/swiper-actions';
+import * as themeActions from 'store/actions/action-types/theme-actions';
+import { connect } from 'react-redux';
 
-import SEO from "./SEO";
-import RegistrationForm from "components/form/registrationForm";
-import SubmittedForm from "components/form/submittedForm";
-import SlideScreen from "./components/main/slideScreen";
-import Aside from "./components/aside";
-import Header from "./components/header";
-import Panel from "components/panel";
-import formContent from "./data/formContent.json";
+import SEO from './SEO';
+import RegistrationForm from 'components/form/registrationForm';
+import SubmittedForm from 'components/form/submittedForm';
+import SlideScreen from './components/main/slideScreen';
+import Aside from './components/aside';
+import Header from './components/header';
+import Panel from 'components/panel';
+import formContent from './data/formContent.json';
 
 const Index = ({
   initState,
@@ -22,13 +22,13 @@ const Index = ({
 }) => {
   useEffect(async () => {
     console.log(
-      "process.env.REACT_APP_EXPERIMENT_ID--",
+      'process.env.REACT_APP_EXPERIMENT_ID--',
       process.env.REACT_APP_EXPERIMENT_ID
     );
     // active AB Testing
     activeABTesting(true);
     if (window.dataLayer) {
-      await window.dataLayer.push({ event: "optimize.activate" });
+      await window.dataLayer.push({ event: 'optimize.activate' });
     }
 
     // let countdown = 10
@@ -50,12 +50,12 @@ const Index = ({
           setVariant(0);
           //
           document.querySelector("input[name='CampaignData1__c']").value =
-            "Version A";
+            'Version A';
         } else {
           setVariant(1);
           //
           document.querySelector("input[name='CampaignData1__c']").value =
-            "Version B";
+            'Version B';
         }
         clearInterval(intervalId);
       }

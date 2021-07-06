@@ -1,8 +1,9 @@
-import React, { useRef, useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { connect } from "react-redux";
-import * as themeActions from "store/actions/action-types/theme-actions";
-import mailcheck from "mailcheck";
+import React, { useRef, useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle, faPen } from '@fortawesome/free-solid-svg-icons';
+import { connect } from 'react-redux';
+import * as themeActions from 'store/actions/action-types/theme-actions';
+import mailcheck from 'mailcheck';
 import {
   Form,
   FormGroup,
@@ -14,29 +15,29 @@ import {
   Row,
   Col,
   Schema,
-} from "rsuite";
-import "rsuite/lib/styles/index.less";
-import ProgressBar from "components/progress";
-import SubmittedForm from "./submittedForm";
+} from 'rsuite';
+import 'rsuite/lib/styles/index.less';
+import ProgressBar from 'components/progress';
+import SubmittedForm from './submittedForm';
 
-import content from "./content.json";
+import content from './content.json';
 
 // for email correctness
 let domains = [
-  "me.com",
-  "outlook.com",
-  "netvigator.com",
-  "cloud.com",
-  "live.hk",
-  "msn.com",
-  "gmail.com",
-  "hotmail.com",
-  "ymail.com",
-  "yahoo.com",
-  "yahoo.com.tw",
-  "yahoo.com.hk",
+  'me.com',
+  'outlook.com',
+  'netvigator.com',
+  'cloud.com',
+  'live.hk',
+  'msn.com',
+  'gmail.com',
+  'hotmail.com',
+  'ymail.com',
+  'yahoo.com',
+  'yahoo.com.tw',
+  'yahoo.com.hk',
 ];
-let topLevelDomains = ["com", "net", "org"];
+let topLevelDomains = ['com', 'net', 'org'];
 
 let RegistrationForm = ({
   togglePanel,
@@ -51,20 +52,20 @@ let RegistrationForm = ({
   const refCheckbox = useRef();
   const refMobileCountryCode = useRef();
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
-  const [emailSuggestion, setEmailSuggestion] = useState("內容");
+  const [emailSuggestion, setEmailSuggestion] = useState('內容');
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
   const [numResponses, setNumResponses] = useState(0);
   const [mobileCountryCode, setMobileCountryCode] = useState([
-    { label: "+852", value: "852" },
-    { label: "+853", value: "853" },
+    { label: '+852', value: '852' },
+    { label: '+853', value: '853' },
   ]);
   const [formDefaultValue, setFormDefaultValue] = useState({
-    MobileCountryCode: "852",
+    MobileCountryCode: '852',
   });
   const [birthDateYear, setBirthDateYear] = useState([]);
   const { StringType, NumberType } = Schema.Types;
   const progress = [
-    { bgcolor: "#66cc00", completed: numResponses, target: numSignupTarget },
+    { bgcolor: '#66cc00', completed: numResponses, target: numSignupTarget },
   ];
 
   const modelVersionA = Schema.Model({
@@ -83,9 +84,9 @@ let RegistrationForm = ({
       .addRule((value) => {
         let regex;
         const { MobileCountryCode } = refForm.current.state.formValue;
-        if (!MobileCountryCode || MobileCountryCode === "852") {
+        if (!MobileCountryCode || MobileCountryCode === '852') {
           regex = /^[2,3,5,6,8,9]{1}[0-9]{7}$/i;
-        } else if (MobileCountryCode === "853") {
+        } else if (MobileCountryCode === '853') {
           regex = /^[6]{1}[0-9]{7}$/i;
         }
         return regex.test(value);
@@ -119,7 +120,7 @@ let RegistrationForm = ({
       const { formValue } = refForm.current.state;
       let birthdateValue = formValue.Birthdate
         ? `${formValue.Birthdate}-01-01`
-        : "";
+        : '';
       submitForm({
         ...hiddenFormValues,
         ...formValue,
@@ -139,14 +140,8 @@ let RegistrationForm = ({
   };
 
   const TextField = (props) => {
-    const {
-      name,
-      label,
-      placeholder,
-      accepter,
-      handleOnChange,
-      ...rest
-    } = props;
+    const { name, label, placeholder, accepter, handleOnChange, ...rest } =
+      props;
     return (
       <FormGroup>
         {label && <ControlLabel>{label} </ControlLabel>}
@@ -155,7 +150,7 @@ let RegistrationForm = ({
           accepter={accepter}
           placeholder={placeholder}
           {...rest}
-          checkTrigger={"blur"}
+          checkTrigger={'blur'}
         />
       </FormGroup>
     );
@@ -199,7 +194,7 @@ let RegistrationForm = ({
     render() {
       const { name, message, label, accepter, error, ...props } = this.props;
       return (
-        <FormGroup className={error ? "has-error" : ""}>
+        <FormGroup className={error ? 'has-error' : ''}>
           <FormControl
             name={name}
             accepter={accepter}
@@ -215,7 +210,7 @@ let RegistrationForm = ({
     <div className="custom-gp-form">
       <div className="form-close" onClick={() => closeAll()}>
         <FontAwesomeIcon
-          icon={["fas", "times-circle"]}
+          icon={['fas', 'times-circle']}
           size="lg"
           color="lime"
         />
@@ -372,8 +367,8 @@ let RegistrationForm = ({
                     type="submit"
                     className="custom-button custom-button-active"
                   >
-                    {formContent.submit_text}{" "}
-                    <FontAwesomeIcon icon={["fas", "pen"]} />
+                    {formContent.submit_text}{' '}
+                    <FontAwesomeIcon icon={['fas', 'pen']} />
                   </button>
                 </Col>
               </Row>
