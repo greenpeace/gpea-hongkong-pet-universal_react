@@ -17,9 +17,9 @@ import Panel from "components/panel/newFormPanel";
 import Webinar from "components/sections/webinar";
 import themeConfig from "../../../theme";
 
-import mainVisual from "../assets/images/mainVisual.jpg";
-import amos from "../assets/images/amos.png";
-import tom from "../assets/images/tom.png";
+import mainVisual from "../assets/images/climate-food-webinar-banner.png";
+import amos from "../assets/images/8.png";
+import tom from "../assets/images/9.png";
 import info01 from "../assets/images/info01.jpg";
 import info02 from "../assets/images/info02.jpg";
 
