@@ -27,6 +27,7 @@ const DonateContent = () => {
           src={
             "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/0f48c407-gif_reg_ty_page.gif"
           }
+          alignSelf="center"
         />
       </Flex>
       <Stack spacing={4}>

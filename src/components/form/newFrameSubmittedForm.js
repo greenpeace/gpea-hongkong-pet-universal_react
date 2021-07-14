@@ -126,6 +126,16 @@ const MyForm = ({ formContent = content }) => {
           >
             {formContent.donate_button}
           </Button>
+
+          {formContent.thanks_content_after_button_section && <Text
+            as='p'
+            variant='paragraph'
+            py={2}
+            fontSize={'12px'}
+            dangerouslySetInnerHTML={{
+              __html: formContent.thanks_content_after_button_section,
+            }}
+          />}
         </Flex>
       )}
     </Box>

@@ -38,13 +38,13 @@ const Index = ({ submitted, activeABTesting, setVariant, togglePanel }) => {
     checkVariant();
   }, []);
 
-  useEffect(async () => {
-    // Close panel layer
-    if (submitted) {
-      await togglePanel(false);
-      setSubmittedForm(true);
-    }
-  }, [submitted]);
+  // useEffect(async () => {
+  //   // Close panel layer
+  //   if (submitted) {
+  //     await togglePanel(false);
+  //     setSubmittedForm(true);
+  //   }
+  // }, [submitted]);
 
   return <Landing />
 };
