@@ -1,5 +1,5 @@
-import { Helmet } from "react-helmet-async";
-import React from "react";
+import { Helmet } from 'react-helmet-async'
+import React from 'react'
 
 const SEO = () => {
   return (
@@ -10,14 +10,15 @@ const SEO = () => {
         {`
           var dataLayer = (window.dataLayer = window.dataLayer || []);
           dataLayer.push({
-            gCampaign: "health",
-            gBasket: "biodiversity",
+            gCampaign: "climate",
+            gBasket: "climatexfood",
           });
         `}
       </script>
       {/* title */}
       <title>
-      「氣候危機警告現正生效：點樣影響香港人？」網上科學101 - Greenpeace 綠色和平 | 香港
+        「氣候危機警告現正生效：點樣影響香港人？」網上科學101 - Greenpeace
+        綠色和平 | 香港
       </title>
       <meta
         property='og:title'
@@ -35,10 +36,10 @@ const SEO = () => {
       {/* meta image */}
       <meta
         property='og:image'
-        content='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/2963bd89-73_preview.jpg'
+        content='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/07/2186c1e2-climate-food-webinar-preview.jpg'
       />
     </Helmet>
-  );
-};
+  )
+}
 
-export default SEO;
+export default SEO
