@@ -42,7 +42,6 @@ const MyForm = ({ formContent = content }) => {
       py={4}
       rounded={{ base: 0, sm: "md" }}
       bg='white'
-      overflow='auto'
     >
       {showDonate && (
         <Fade in={showDonate}>
@@ -113,19 +112,18 @@ const MyForm = ({ formContent = content }) => {
               }}
             />
           </Text>
-          {/* <DonateForm /> */}
-          <Button
+          <DonateForm />
+          {/* <Button
             variant='donateButton'
             style={{ backgroundColor: "#66cc00" }}
             target='_blank'
             rel='noreferrer'
-            /* onClick={() => window.open(formContent.donateURL)} */
             onClick={() => {
               setShowDonate(true);
             }}
           >
             {formContent.donate_button}
-          </Button>
+          </Button> */}
 
           {formContent.thanks_content_after_button_section && <Text
             as='p'

@@ -29,7 +29,7 @@ export default function SmallCentered() {
       mt={{ base: 20, sm: 0 }}
       py={{ base: 10 }}
       pos={"relative"}
-      zIndex={99}
+      zIndex={1}
     >
       <Container
         as={Stack}

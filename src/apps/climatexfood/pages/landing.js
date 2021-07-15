@@ -88,7 +88,7 @@ const Landing = ({ submitted, togglePanel }) => {
     <ChakraProvider theme={themeConfig}>
       <SEO />
       <Nav showButton={false} />
-      <Flex>
+      <Flex pos="relative" zIndex={2}>
         <Box className='wrap' flex='1' style={{ minWidth: "0px" }}>
           <Box px='4' py={{ base: 4, md: 8 }}>
             <Box mb={6}>
@@ -188,9 +188,10 @@ const Landing = ({ submitted, togglePanel }) => {
           px='4'
           py={{ base: 4, md: 8 }}
           d={{ base: "none", md: "block" }}
+          pb={100}
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
-            {submitted ? (
+            {true ? (
               <NewFrameSubmittedForm formContent={content} />
             ) : (
               <NewFrameForm
