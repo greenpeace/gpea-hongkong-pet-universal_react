@@ -41,7 +41,20 @@ const MyForm = ({ formContent = content }) => {
       px={4}
       py={4}
       rounded={{ base: 0, sm: "md" }}
-      bg='white'
+      bg='#FFF'
+      className="stickyContentWrapper"
+      maxH="100vh"
+      overflowY="scroll"
+      sx={{
+        '&::-webkit-scrollbar': {
+          width: 0,
+          borderRadius: '8px',
+          backgroundColor: `rgba(0, 0, 0, 0.05)`,
+        },
+        '&::-webkit-scrollbar-thumb': {
+          backgroundColor: `rgba(0, 0, 0, 0.05)`,
+        },
+      }}
     >
       {showDonate && (
         <Fade in={showDonate}>
@@ -112,8 +125,8 @@ const MyForm = ({ formContent = content }) => {
               }}
             />
           </Text>
-          <DonateForm />
-          {/* <Button
+          {/* <DonateForm /> */}
+          <Button
             variant='donateButton'
             style={{ backgroundColor: "#66cc00" }}
             target='_blank'
@@ -123,7 +136,7 @@ const MyForm = ({ formContent = content }) => {
             }}
           >
             {formContent.donate_button}
-          </Button> */}
+          </Button>
 
           {formContent.thanks_content_after_button_section && <Text
             as='p'

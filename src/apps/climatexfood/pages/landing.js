@@ -15,6 +15,8 @@ import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
 import DonateContent from "components/sections/donateContent";
 import Panel from "components/panel/newFormPanel";
 import Webinar from "components/sections/webinar";
+import TestmonialCard from "components/sections/testimonial";
+import TestmonialCardTypeTwo from "components/sections/testmonialTypeTwo";
 import themeConfig from "../../../theme";
 
 import mainVisual from "../assets/images/climate-food-webinar-banner.png";
@@ -22,6 +24,24 @@ import amos from "../assets/images/8.png";
 import tom from "../assets/images/9.png";
 import info01 from "../assets/images/info01.jpg";
 import info02 from "../assets/images/info02.jpg";
+
+const amosContent = [
+  {
+    name: '戴沛權 Amos',
+    role: '大氣科學家、中文大學地球系統科學課程助理教授',
+    content: '大氣科學家、中文大學地球系統科學課程助理教授，曾獲聯合國頒發「世界氣象組織青年科學家研究獎」，是全港首位奪得此獎的科學家。Amos專門研究氣候變化、糧食安全與人類生活的關係，同時探究如何以土地利用等方法，緩解氣候危機。Amos曾於去年與綠色和平和少年氣候行動者Lance合作，拍攝氣候變化課堂。今年，Amos繼續向大眾推廣氣候教育，網上分享氣候變化對香港的影響。',
+    avatar: amos
+  }
+];
+
+const tomContent = [
+  {
+    name: '伍漢林 Tom',
+    role: '綠色和平氣候項目主任',
+    content: '綠色和平項目主任，倡議及推動政府尋求應對氣候危機的方案。亦希望集合社會各界的每一份力量，為拯救脆弱的氣候出一分力，一起發聲，壯大守護氣候的聲音。',
+    avatar: tom
+  }
+];
 
 const Landing = ({ submitted, togglePanel }) => {
   const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
@@ -163,18 +183,20 @@ const Landing = ({ submitted, togglePanel }) => {
             </Flex>
 
             <Flex direction="column">
-            <Speaker 
+            <TestmonialCard content={amosContent}/>
+            {/* <Speaker 
               image={amos} 
               name={"戴沛權 Amos"} 
               title={'大氣科學家、中文大學地球系統科學課程助理教授'} 
               content={'大氣科學家、中文大學地球系統科學課程助理教授，曾獲聯合國頒發「世界氣象組織青年科學家研究獎」，是全港首位奪得此獎的科學家。Amos專門研究氣候變化、糧食安全與人類生活的關係，同時探究如何以土地利用等方法，緩解氣候危機。Amos曾於去年與綠色和平和少年氣候行動者Lance合作，拍攝氣候變化課堂。今年，Amos繼續向大眾推廣氣候教育，網上分享氣候變化對香港的影響。'} 
-              other={''}/>
-            <Speaker 
+              other={''}/> */}
+            {/* <Speaker 
               image={tom} 
               name={"伍漢林 Tom"} 
               title={'綠色和平氣候項目主任'} 
               content={'綠色和平項目主任，倡議及推動政府尋求應對氣候危機的方案。亦希望集合社會各界的每一份力量，為拯救脆弱的氣候出一分力，一起發聲，壯大守護氣候的聲音。'} 
-              other={''}/>
+              other={''}/> */}
+              <TestmonialCardTypeTwo content={tomContent}/>
             </Flex>
 
             <Divider my={{ base: 8, lg: 10 }} />
@@ -188,10 +210,10 @@ const Landing = ({ submitted, togglePanel }) => {
           px='4'
           py={{ base: 4, md: 8 }}
           d={{ base: "none", md: "block" }}
-          pb={100}
+          className="stickyContent"
         >
-          <Sticky stickyStyle={{ zIndex: 10 }}>
-            {true ? (
+          <Sticky stickyStyle={{ zIndex: 10}}>
+            {submitted ? (
               <NewFrameSubmittedForm formContent={content} />
             ) : (
               <NewFrameForm
