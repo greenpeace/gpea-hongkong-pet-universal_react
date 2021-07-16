@@ -4,7 +4,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import Sticky from "react-sticky-el";
-import { ChakraProvider, Avatar, Box, Button, Divider, Image, Flex, Text, Heading, HStack, SimpleGrid, Stack} from "@chakra-ui/react";
+import { ChakraProvider, Avatar, Box, Button, Divider, Image, Flex, Text, Heading, HStack, SimpleGrid, Stack, Icon} from "@chakra-ui/react";
 import SEO from "../SEO";
 import content from "../data/content";
 import Nav from "../components/header/nav";
@@ -24,6 +24,11 @@ import amos from "../assets/images/8.png";
 import tom from "../assets/images/9.png";
 import info01 from "../assets/images/info01.jpg";
 import info02 from "../assets/images/info02.jpg";
+
+import { IoTimeSharp } from "react-icons/io5";
+import { SiAirplayvideo } from "react-icons/si";
+import { BiCalendar } from "react-icons/bi";
+import { GoBook } from "react-icons/go";
 
 const amosContent = [
   {
@@ -109,7 +114,7 @@ const Landing = ({ submitted, togglePanel }) => {
       <SEO />
       <Nav showButton={false} />
       <Flex pos="relative" zIndex={2}>
-        <Box className='wrap' flex='1' style={{ minWidth: "0px" }}>
+        <Box className='wrap' flex='1' style={{ minWidth: "0px" }} maxW={'1180px'}>
           <Box px='4' py={{ base: 4, md: 8 }}>
             <Box mb={6}>
               {/* {!submitted && <Image src={mainVisual} borderRadius='8px' />}
@@ -136,9 +141,44 @@ const Landing = ({ submitted, togglePanel }) => {
               </Box>
             </Stack>
 
-            <Divider my={{ base: 4, sm: 8 }} />
+            {/* <Divider my={{ base: 4, sm: 8 }} /> */}
 
-            <Webinar content={WebinarContent} />
+            <Box bgColor="#292f47" p={6} borderRadius={8} mt={4}>
+              <Flex direction={{base: 'column', sm: 'row'}} justifyContent="space-between" color="#FFF" colorScheme="#FFF" align={{base: 'left', sm: 'center'}}>
+                <Box >
+                  <Stack spacing={0}>
+                    <Text color="#A0AEC0">日期</Text>
+                    <Flex align="center">
+                      <Icon as={BiCalendar} color={"brand.400"} w={5} h={5} /><Text fontSize={20} fontWeight={700} pl={2} py={1}>2021年8月5日</Text>
+                    </Flex>
+                    <Text>(星期四)</Text>
+                  </Stack>
+                </Box>
+                <Divider orientation={{base: 'horizontal', sm: 'vertical'}} bgColor="#FFF" h={{base: '1px', sm: '60px'}} w={{base: '100%', sm: '1px'}} my={{base: 4, sm: 0}} opacity={{base: .2}}/>
+                <Box>
+                  <Stack spacing={0}>
+                    <Text color="#A0AEC0">時間</Text>
+                    <Flex align="center">
+                      <Icon as={IoTimeSharp} color={"brand.400"} w={5} h={5} /><Text fontSize={20} fontWeight={700} pl={2} py={1}>晚上8時至9時</Text>
+                    </Flex>
+                    
+                    <Text d={{base: 'none', sm: 'block'}}>{" "}&nbsp;</Text>
+                  </Stack>
+                </Box>
+                <Divider orientation={{base: 'horizontal', sm: 'vertical'}} bgColor="#FFF" h={{base: '1px', sm: '60px'}} w={{base: '100%', sm: '1px'}} my={{base: 4, sm: 0}} opacity={{base: .2}}/>
+                <Box>
+                  <Stack spacing={0}>
+                    <Text color="#A0AEC0">線上分享會平台</Text>
+                    <Flex align="center">
+                      <Icon as={SiAirplayvideo} color={"brand.400"} w={5} h={5} /><Text fontSize={20} fontWeight={700} pl={2} py={1}>Zoom</Text>
+                    </Flex>
+                    <Text>(網上登記後會獲得相關鏈結和密碼)</Text>
+                  </Stack>
+                </Box>
+              </Flex>
+            </Box>
+
+            {/* <Webinar content={WebinarContent} /> */}
 
             <Divider my={{ base: 4, sm: 8 }} />
 

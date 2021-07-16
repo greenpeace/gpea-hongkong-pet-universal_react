@@ -14,6 +14,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import DonateForm from "./donateForm";
+import MiniDonateForm from "./miniDonateForm";
 
 const MyForm = ({ formContent = content }) => {
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
@@ -56,11 +57,11 @@ const MyForm = ({ formContent = content }) => {
         },
       }}
     >
-      {showDonate && (
+      {/* {showDonate && (
         <Fade in={showDonate}>
           <DonateForm />
         </Fade>
-      )}
+      )} */}
       {!showDonate && (
         <Flex direction='column'>
           <Text
@@ -125,8 +126,9 @@ const MyForm = ({ formContent = content }) => {
               }}
             />
           </Text>
+          <MiniDonateForm/>
           {/* <DonateForm /> */}
-          <Button
+          {/* <Button
             variant='donateButton'
             style={{ backgroundColor: "#66cc00" }}
             target='_blank'
@@ -136,7 +138,7 @@ const MyForm = ({ formContent = content }) => {
             }}
           >
             {formContent.donate_button}
-          </Button>
+          </Button> */}
 
           {formContent.thanks_content_after_button_section && <Text
             as='p'
