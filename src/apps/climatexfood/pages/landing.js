@@ -6,6 +6,7 @@ import { useMediaQuery } from 'react-responsive'
 import Sticky from 'react-sticky-el'
 import {
   ChakraProvider,
+  Container,
   Avatar,
   Box,
   Button,
@@ -139,7 +140,11 @@ const Landing = ({ submitted, togglePanel }) => {
     <ChakraProvider theme={themeConfig}>
       <SEO />
       <Nav showButton={false} />
-      <Flex pos='relative' zIndex={2}>
+      <Flex
+        pos='relative'
+        zIndex={2}
+        style={{ maxWidth: '1400px', margin: '0 auto' }}
+      >
         <Box
           className='wrap'
           flex='1'
