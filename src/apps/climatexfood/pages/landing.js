@@ -36,8 +36,8 @@ import themeConfig from '../../../theme'
 import mainVisual from '../assets/images/climate-food-webinar-banner.png'
 import amos from '../assets/images/8.png'
 import tom from '../assets/images/9.png'
-import info01 from '../assets/images/info01.jpg'
-import info02 from '../assets/images/info02.jpg'
+import info01 from '../assets/images/info-01.jpeg'
+import info02 from '../assets/images/info-02.jpg'
 
 import { IoTimeSharp } from 'react-icons/io5'
 import { SiAirplayvideo } from 'react-icons/si'
@@ -47,7 +47,7 @@ import { GoBook } from 'react-icons/go'
 const amosContent = [
   {
     name: '戴沛權 Amos',
-    role: '大氣科學家、中文大學地球系統科學課程助理教授',
+    role: '大氣科學家、中文大學地球系統科學課程副教授',
     content:
       '大氣科學家、中文大學地球系統科學課程副教授，曾獲聯合國頒發「世界氣象組織青年科學家研究獎」，是全港首位奪得此獎的科學家。Amos專門研究氣候變化、空氣污染、農業與人類健康的關係，同時探究如何以可持續森林與土地管理等方法，緩解氣候危機。Amos曾於去年與綠色和平和少年氣候行動者Lance合作，拍攝氣候變化課堂。今年，Amos繼續向大眾推廣氣候教育，網上分享氣候變化對香港的影響。',
     avatar: amos,
@@ -118,16 +118,15 @@ const Landing = ({ submitted, togglePanel }) => {
     as: 'p',
     marginTop: '20px',
     color: 'gray.900',
-    lineHeight: '1.7',
+    lineHeight: '1.5',
     fontSize: '16px',
   }
 
   const subStyle = {
     as: 'p',
-    marginTop: 2,
-    color: 'gray.900',
-    lineHeight: '1.7',
-    fontSize: '12px',
+    marginTop: 4,
+    color: 'gray.700',
+    fontSize: '14px',
   }
 
   const WebinarContent = {
@@ -165,17 +164,15 @@ const Landing = ({ submitted, togglePanel }) => {
                   color='gray.900'
                   lineHeight={1.2}
                 >
-                  <Text color='brand.500' mt={4} mb={2}>
+                  <Text mt={4} mb={2}>
                     「氣候危機警告現正生效：點樣影響香港人？」
                   </Text>
-                  網上科學101
+                  <Text color='brand.500'>網上科學101</Text>
                 </Text>
               </Box>
             </Stack>
 
-            {/* <Divider my={{ base: 4, sm: 8 }} /> */}
-
-            <Box bgColor='#292f47' p={6} borderRadius={8} mt={4}>
+            <Box bgColor='#292f47' p={6} borderRadius={8} my={6}>
               <Flex
                 direction={{ base: 'column', sm: 'row' }}
                 justifyContent='space-between'
@@ -246,8 +243,6 @@ const Landing = ({ submitted, togglePanel }) => {
 
             {/* <Webinar content={WebinarContent} /> */}
 
-            <Divider my={{ base: 4, sm: 8 }} />
-
             <Flex direction={{ base: 'column', sm: 'row' }}>
               <Box flex='1'>
                 <Flex direction='row' align='center'>
@@ -269,7 +264,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 </Box> */}
                   <Box>
                     <Text {...pStyle}>
-                      綠色和平邀請到大氣科學家、「世界氣象組織青年科學家研究獎」得獎者、中文大學地球系統科學課程助理教授戴沛權
+                      綠色和平邀請到大氣科學家、「世界氣象組織青年科學家研究獎」得獎者、中文大學地球系統科學課程副教授戴沛權
                       (Amos) 來與綠色和平項目主任伍漢林 (Tom)
                       對談，深入淺出地講解近年氣候變化趨勢，以及為香港人帶來的生活影響。想知道氣候變化如何影響我們熟悉的食物？我們又可以做什麼拯救氣候？立即報名「氣候危機警告現正生效：點樣影響香港人？」網上分享會，一起裝備大腦，拯救地球！
                     </Text>
@@ -278,13 +273,13 @@ const Landing = ({ submitted, togglePanel }) => {
 
                 <Flex direction={{ base: 'column', sm: 'row' }}>
                   <Box flex={1} pr={{ base: 0, sm: 3 }}>
-                    <Image borderRadius='8px' marginTop='8' src={info01} />
+                    <Image borderRadius='4px' marginTop='6' src={info01} />
                     <Text {...subStyle}>
                       綠色和平走到深水埗鬧市，展示巨型溫度計，呼籲港人正視氣候變化。
                     </Text>
                   </Box>
                   <Box flex={1} pl={{ base: 0, sm: 3 }}>
-                    <Image borderRadius='8px' marginTop='8' src={info02} />
+                    <Image borderRadius='4px' marginTop='6' src={info02} />
                     <Text {...subStyle}>
                       經過綠色和平長達3年的推動，荷蘭法院終裁定化石能源企業SHELL須為氣候危機負責，他們必須在9年內將其碳排放量，由2019年的水平大幅減少45％。
                     </Text>
@@ -295,24 +290,60 @@ const Landing = ({ submitted, togglePanel }) => {
 
             <Flex direction='column'>
               <TestmonialCard content={amosContent} />
-              {/* <Speaker
-              image={amos}
-              name={"戴沛權 Amos"}
-              title={'大氣科學家、中文大學地球系統科學課程助理教授'}
-              content={'大氣科學家、中文大學地球系統科學課程助理教授，曾獲聯合國頒發「世界氣象組織青年科學家研究獎」，是全港首位奪得此獎的科學家。Amos專門研究氣候變化、糧食安全與人類生活的關係，同時探究如何以土地利用等方法，緩解氣候危機。Amos曾於去年與綠色和平和少年氣候行動者Lance合作，拍攝氣候變化課堂。今年，Amos繼續向大眾推廣氣候教育，網上分享氣候變化對香港的影響。'}
-              other={''}/> */}
-              {/* <Speaker
-              image={tom}
-              name={"伍漢林 Tom"}
-              title={'綠色和平氣候項目主任'}
-              content={'綠色和平項目主任，倡議及推動政府尋求應對氣候危機的方案。亦希望集合社會各界的每一份力量，為拯救脆弱的氣候出一分力，一起發聲，壯大守護氣候的聲音。'}
-              other={''}/> */}
               <TestmonialCardTypeTwo content={tomContent} />
             </Flex>
 
             <Divider my={{ base: 8, lg: 10 }} />
 
-            <DonateContent />
+            <SimpleGrid mt='4' columns={{ base: 1, xl: 2 }} spacing={10}>
+              <Flex direction='column'>
+                <Image
+                  borderRadius='4px'
+                  src={
+                    'https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/07/20200721-GP0STP8RO_PressMedia.jpg'
+                  }
+                  alignSelf='center'
+                />
+              </Flex>
+              <Stack spacing={4}>
+                <Heading
+                  as='h2'
+                  size='lg'
+                  color='brand.500'
+                  style={{ lineHeight: '1.2' }}
+                >
+                  推動守護氣候
+                  <br />
+                  需要你的熱心支持！
+                </Heading>
+                <Text {...pStyle}>
+                  氣候危機逼在眉睫，冰川融化、海平面上升、導致更多極端天氣等都是其帶來的惡果。甚至影響我們賴以為生的食物，直接影響您我的生活，我們必須關注並以實質行動應對氣候問題。
+                </Text>
+                <Text {...pStyle}>
+                  綠色和平一直積極採取應對氣候危機的行動，今年請攜手推動各國企業、政府實現能源轉型，加速發展可再生能源，設法讓全球暖化控制在攝氏1.5度，減緩影響一代又一代人類、物種存亡的氣候危機。
+                </Text>
+                <Button
+                  mt='2'
+                  color='#FFF'
+                  bg='brand.500'
+                  _hover={{ bg: 'brand.400', textDecoration: 'none' }}
+                  borderRadius='4px'
+                  fontSize='md'
+                  letterSpacing={2}
+                  w={'120px'}
+                  onClick={() =>
+                    window.open(
+                      'https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=climate&ref=climatexfood-thankyou'
+                    )
+                  }
+                >
+                  立即捐助
+                </Button>
+                <Text {...pStyle}>
+                  綠色和平成立50年以來，堅持不接受政府、企業捐助，您捐助的一分一毫，能支持我們以公正獨立的身份，持續推動環境工作！
+                </Text>
+              </Stack>
+            </SimpleGrid>
           </Box>
         </Box>
         <Box
@@ -345,8 +376,7 @@ const Landing = ({ submitted, togglePanel }) => {
         p='4'
         w='100%'
         style={{
-          background: 'rgba(255, 255, 255, 0.8)',
-          borderColor: 'rgba(255, 255, 255, 0.8)',
+          background: 'rgba(255, 255, 255, 0.9)',
           boxShadow: '0px 0px 20px 0px rgb(0 0 0 / 10%)',
           paddingTop: '6px',
           paddingBottom: '8px',
@@ -356,7 +386,7 @@ const Landing = ({ submitted, togglePanel }) => {
         d={{ base: 'flex', md: 'none' }}
       >
         <Button
-          w='80%'
+          w='90%'
           color='#FFF'
           bg='orange'
           borderRadius='24px'
