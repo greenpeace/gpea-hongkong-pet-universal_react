@@ -14,6 +14,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import DonateForm from "./donateForm";
+import MiniDonateForm from "./miniDonateForm";
 
 const MyForm = ({ formContent = content }) => {
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
@@ -41,14 +42,26 @@ const MyForm = ({ formContent = content }) => {
       px={4}
       py={4}
       rounded={{ base: 0, sm: "md" }}
-      bg='white'
-      overflow='auto'
+      bg='#FFF'
+      className="stickyContentWrapper"
+      maxH="100vh"
+      overflowY="scroll"
+      sx={{
+        '&::-webkit-scrollbar': {
+          width: 0,
+          borderRadius: '8px',
+          backgroundColor: `rgba(0, 0, 0, 0.05)`,
+        },
+        '&::-webkit-scrollbar-thumb': {
+          backgroundColor: `rgba(0, 0, 0, 0.05)`,
+        },
+      }}
     >
-      {showDonate && (
+      {/* {showDonate && (
         <Fade in={showDonate}>
           <DonateForm />
         </Fade>
-      )}
+      )} */}
       {!showDonate && (
         <Flex direction='column'>
           <Text
@@ -113,19 +126,29 @@ const MyForm = ({ formContent = content }) => {
               }}
             />
           </Text>
+          <MiniDonateForm/>
           {/* <DonateForm /> */}
-          <Button
+          {/* <Button
             variant='donateButton'
             style={{ backgroundColor: "#66cc00" }}
             target='_blank'
             rel='noreferrer'
-            /* onClick={() => window.open(formContent.donateURL)} */
             onClick={() => {
               setShowDonate(true);
             }}
           >
             {formContent.donate_button}
-          </Button>
+          </Button> */}
+
+          {formContent.thanks_content_after_button_section && <Text
+            as='p'
+            variant='paragraph'
+            py={2}
+            fontSize={'12px'}
+            dangerouslySetInnerHTML={{
+              __html: formContent.thanks_content_after_button_section,
+            }}
+          />}
         </Flex>
       )}
     </Box>
