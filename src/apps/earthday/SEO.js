@@ -4,7 +4,7 @@ import React from "react";
 const SEO = () => {
   return (
     <Helmet>
-      <html lang="zh" />
+      <html lang='zh' />
       {/* campaign dataLayer */}
       <script>
         {`
@@ -20,22 +20,22 @@ const SEO = () => {
         「童你講故事」氣候與環境繪本線上共讀會 - Greenpeace 綠色和平 | 香港
       </title>
       <meta
-        property="og:title"
-        content="「童你講故事」氣候與環境繪本線上共讀會 - Greenpeace 綠色和平 | 香港"
+        property='og:title'
+        content='「童你講故事」氣候與環境繪本線上共讀會 - Greenpeace 綠色和平 | 香港'
       />
       {/* description */}
       <meta
-        name="description"
-        content="故事導師Fa La La老師講述由綠色和平自家創作的氣候與環境繪本《無家可歸的我》，歡迎大家與家中小朋友一起聆聽大自然的故事，認識海冰融化、森林大火等環境問題。立即進入連結免費報名。"
+        name='description'
+        content='故事導師Fa La La老師講述由綠色和平自家創作的氣候與環境繪本《無家可歸的我》，歡迎大家與家中小朋友一起聆聽大自然的故事，認識海冰融化、森林大火等環境問題。立即進入連結免費報名。'
       />
       <meta
-        property="og:description"
-        content="故事導師Fa La La老師講述由綠色和平自家創作的氣候與環境繪本《無家可歸的我》，歡迎大家與家中小朋友一起聆聽大自然的故事，認識海冰融化、森林大火等環境問題。立即進入連結免費報名。"
+        property='og:description'
+        content='故事導師Fa La La老師講述由綠色和平自家創作的氣候與環境繪本《無家可歸的我》，歡迎大家與家中小朋友一起聆聽大自然的故事，認識海冰融化、森林大火等環境問題。立即進入連結免費報名。'
       />
       {/* meta image */}
       <meta
-        property="og:image"
-        content="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/04/1d3a7e7b-earthday_main_banner.jpg"
+        property='og:image'
+        content='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/04/1d3a7e7b-earthday_main_banner.jpg'
       />
     </Helmet>
   );

@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimesCircle, faPen } from '@fortawesome/free-solid-svg-icons'
 import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import mailcheck from "mailcheck";
@@ -139,14 +140,8 @@ let RegistrationForm = ({
   };
 
   const TextField = (props) => {
-    const {
-      name,
-      label,
-      placeholder,
-      accepter,
-      handleOnChange,
-      ...rest
-    } = props;
+    const { name, label, placeholder, accepter, handleOnChange, ...rest } =
+      props;
     return (
       <FormGroup>
         {label && <ControlLabel>{label} </ControlLabel>}
@@ -214,12 +209,12 @@ let RegistrationForm = ({
   // console.log('{window.version}--',window.version)
 
   return (
-    <div className="custom-gp-form">
-      <div className="form-close" onClick={() => closeAll()}>
+    <div className='custom-gp-form'>
+      <div className='form-close' onClick={() => closeAll()}>
         <FontAwesomeIcon
-          icon={["fas", "times-circle"]}
-          size="lg"
-          color="lime"
+          icon={faTimesCircle}
+          size='lg'
+          color='lime'
         />
       </div>
       {submitted ? (
@@ -227,15 +222,15 @@ let RegistrationForm = ({
       ) : (
         <>
           <Grid fluid>
-            <Row className="show-grid">
+            <Row className='show-grid'>
               <Col xs={24}>
                 {formContent.form_header && (
-                  <div className="form-header">
+                  <div className='form-header'>
                     <h2>{formContent.form_header}</h2>
                   </div>
                 )}
                 {formContent.form_description && (
-                  <div className="form-description">
+                  <div className='form-description'>
                     <p>{formContent.form_description}</p>
                   </div>
                 )}
@@ -265,43 +260,43 @@ let RegistrationForm = ({
             formDefaultValue={formDefaultValue}
           >
             <Grid fluid>
-              <Row className="show-grid">
+              <Row className='show-grid'>
                 <Col xs={24}>
                   <FormGroup>
                     <TextField
-                      name="Email"
+                      name='Email'
                       placeholder={formContent.label_email}
                       label={formContent.label_email}
-                      autoComplete="off"
+                      autoComplete='off'
                     />
                   </FormGroup>
                 </Col>
               </Row>
 
-              <Row className="show-grid">
+              <Row className='show-grid'>
                 <Col xs={12}>
                   <FormGroup>
                     <TextField
-                      name="LastName"
+                      name='LastName'
                       placeholder={formContent.label_last_name}
                       label={formContent.label_last_name}
-                      autoComplete="off"
+                      autoComplete='off'
                     />
                   </FormGroup>
                 </Col>
                 <Col xs={12}>
                   <FormGroup>
                     <TextField
-                      name="FirstName"
+                      name='FirstName'
                       placeholder={formContent.label_first_name}
                       label={formContent.label_first_name}
-                      autoComplete="off"
+                      autoComplete='off'
                     />
                   </FormGroup>
                 </Col>
               </Row>
 
-              <Row className="show-grid">
+              <Row className='show-grid'>
                 <Col xs={24}>
                   <FormGroup>
                     <ControlLabel>
@@ -311,7 +306,7 @@ let RegistrationForm = ({
                     </ControlLabel>
                     <Col xs={6} style={{ paddingLeft: 0 }}>
                       <CustomField
-                        name="MobileCountryCode"
+                        name='MobileCountryCode'
                         searchable={false}
                         cleanable={false}
                         placeholder={formContent.select}
@@ -323,14 +318,14 @@ let RegistrationForm = ({
                     <Col xs={18} style={{ paddingRight: 0 }}>
                       <FormGroup>
                         <TextField
-                          type="number"
+                          type='number'
                           placeholder={
                             activeABTesting && variant == 0
                               ? formContent.label_phone
                               : formContent.label_phone_optional
                           }
-                          name="MobilePhone"
-                          autoComplete="off"
+                          name='MobilePhone'
+                          autoComplete='off'
                         />
                       </FormGroup>
                     </Col>
@@ -338,7 +333,7 @@ let RegistrationForm = ({
                 </Col>
               </Row>
 
-              <Row className="show-grid">
+              <Row className='show-grid'>
                 <Col xs={24}>
                   <FormGroup>
                     <ControlLabel>
@@ -347,7 +342,7 @@ let RegistrationForm = ({
                         : formContent.label_year_of_birth_optional}
                     </ControlLabel>
                     <CustomField
-                      name="Birthdate"
+                      name='Birthdate'
                       searchable={false}
                       cleanable={false}
                       placeholder={formContent.select}
@@ -358,24 +353,24 @@ let RegistrationForm = ({
                 </Col>
               </Row>
 
-              <Row className="show-grid">
+              <Row className='show-grid'>
                 <Col xs={24}>
-                  <div className="custom-form-reminder">
-                    <Checkbox name="OptIn" ref={refCheckbox} defaultChecked>
+                  <div className='custom-form-reminder'>
+                    <Checkbox name='OptIn' ref={refCheckbox} defaultChecked>
                       {formContent.form_remind}
                     </Checkbox>
                   </div>
                 </Col>
               </Row>
 
-              <Row className="show-grid">
+              <Row className='show-grid'>
                 <Col xs={24}>
                   <button
-                    type="submit"
-                    className="custom-button custom-button-active"
+                    type='submit'
+                    className='custom-button custom-button-active'
                   >
                     {formContent.submit_text}{" "}
-                    <FontAwesomeIcon icon={["fas", "pen"]} />
+                    <FontAwesomeIcon icon={faPen} />
                   </button>
                 </Col>
               </Row>

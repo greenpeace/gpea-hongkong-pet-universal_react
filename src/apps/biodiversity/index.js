@@ -39,10 +39,10 @@ const Index = ({ submitted, togglePanel }) => {
   const Feature = ({ text, icon, iconBg }) => {
     return (
       <Stack direction={"row"} align={"center"}>
-        <Circle size="40px" color="white" bg={iconBg}>
+        <Circle size='40px' color='white' bg={iconBg}>
           {icon}
         </Circle>
-        <Text pl="2" fontSize="lg" color="gray.900">
+        <Text pl='2' fontSize='lg' color='gray.900'>
           {text}
         </Text>
       </Stack>
@@ -81,30 +81,30 @@ const Index = ({ submitted, togglePanel }) => {
       <SEO />
       {isMobile && <Nav />}
       <Flex>
-        <Box className="wrap" flex="1" style={{ minWidth: "0px" }}>
-          <Image src="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/db589459-artboard-1_2-bd-webinar-final-tinypng.jpg" />
-          <Box p={{ base: 4, sm: 10 }} mt="4">
+        <Box className='wrap' flex='1' style={{ minWidth: "0px" }}>
+          <Image src='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/db589459-artboard-1_2-bd-webinar-final-tinypng.jpg' />
+          <Box p={{ base: 4, sm: 10 }} mt='4'>
             <Stack pb={4}>
               <Box>
                 <Text
-                  as="h1"
+                  as='h1'
                   fontSize={{ base: "2xl", sm: "3xl", xl: "4xl" }}
-                  fontWeight="bold"
-                  color="gray.900"
+                  fontWeight='bold'
+                  color='gray.900'
                   lineHeight={1.2}
                 >
-                  <Text color="brand.500">立即登記</Text>
+                  <Text color='brand.500'>立即登記</Text>
                   與生態專家探索香港「野」網上教室
                 </Text>
               </Box>
             </Stack>
-            <Box mb={4} className="countdown-box">
+            <Box mb={4} className='countdown-box'>
               <Text {...pStyle}>
                 <Countdown />
               </Text>
             </Box>
             <Flex direction={{ base: "column", sm: "row" }}>
-              <Box flex="1">
+              <Box flex='1'>
                 <Stack pt={4} spacing={4}>
                   <Feature
                     icon={
@@ -153,15 +153,15 @@ const Index = ({ submitted, togglePanel }) => {
                         src={
                           "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/6389a5bc-vlcsnap-2021-04-23-16h48m08s619.jpg"
                         }
-                        borderRadius="8px"
+                        borderRadius='8px'
                       />
                     </Flex>
                   </Stack>
                   <Stack>
                     <Flex {...flexBoxStyle}>
                       <Image
-                        src="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/3feb5562-vlcsnap-2021-04-23-16h49m12s648.jpg"
-                        borderRadius="8px"
+                        src='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/3feb5562-vlcsnap-2021-04-23-16h49m12s648.jpg'
+                        borderRadius='8px'
                       />
                     </Flex>
                   </Stack>
@@ -173,33 +173,33 @@ const Index = ({ submitted, togglePanel }) => {
           <Divider my={{ base: 8, lg: 10 }} />
 
           <Box p={{ base: 4, sm: 10 }}>
-            <Flex justifyContent="space-between" direction={{ base: "column" }}>
+            <Flex justifyContent='space-between' direction={{ base: "column" }}>
               <Box>
                 <Flex direction={{ base: "column", xl: "row" }}>
                   <Box maxW={{ base: "100%" }}>
                     <Image
-                      src="https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/92b5573a-drxonima_pic-1-2.jpg"
-                      borderRadius="8px"
-                      w="100%"
+                      src='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/92b5573a-drxonima_pic-1-2.jpg'
+                      borderRadius='8px'
+                      w='100%'
                     />
                   </Box>
-                  <Box align="center">
-                    <Center h="100%">
+                  <Box align='center'>
+                    <Center h='100%'>
                       <Box
-                        bgColor="#FFF"
-                        borderRadius="8px"
+                        bgColor='#FFF'
+                        borderRadius='8px'
                         p={6}
                         ml={{ base: "0px", xl: "-110px" }}
                         mt={{ base: "-80px", xl: "0px" }}
                         w={{ base: "230px" }}
                       >
                         <Box
-                          maxW="120px"
-                          borderColor="brand.600"
-                          borderWidth="1px"
-                          borderRadius="full"
-                          overflow="hidden"
-                          mb="6"
+                          maxW='120px'
+                          borderColor='brand.600'
+                          borderWidth='1px'
+                          borderRadius='full'
+                          overflow='hidden'
+                          mb='6'
                         >
                           <Image
                             src={`${process.env.PUBLIC_URL}/events/biodiversity/ma_2x.png`}
@@ -207,14 +207,14 @@ const Index = ({ submitted, togglePanel }) => {
                         </Box>
                         <Heading
                           fontSize={{ base: "md", xl: "2xl" }}
-                          color="brand.600"
-                          mb="2"
+                          color='brand.600'
+                          mb='2'
                         >
                           馬昀祺博士
                           <br />
                           Dr. Xoni Ma
                         </Heading>
-                        <Text size="sm" color="gray.500">
+                        <Text size='sm' color='gray.500'>
                           自然教育家
                         </Text>
                       </Box>
@@ -223,8 +223,8 @@ const Index = ({ submitted, togglePanel }) => {
                 </Flex>
               </Box>
 
-              <Box flex="1" px={{ base: 0 }}>
-                <Center h="100%">
+              <Box flex='1' px={{ base: 0 }}>
+                <Center h='100%'>
                   <Text {...pStyle} mt={4} pr={{ base: 0, xl: "30px" }}>
                     香港少數本地環境教育及生態研究學者、香港戶外生態教育協會創辦人及教育總監，同時為國際樹木學會註冊樹藝師。Dr.
                     Xoni
@@ -240,32 +240,32 @@ const Index = ({ submitted, togglePanel }) => {
           <Divider my={{ base: 8, lg: 10 }} />
 
           <Box p={{ base: 4, sm: 10 }}>
-            <Flex justifyContent="space-between" direction={{ base: "column" }}>
+            <Flex justifyContent='space-between' direction={{ base: "column" }}>
               <Box>
                 <Flex direction={{ base: "column", xl: "row" }}>
                   <Box maxW={{ base: "100%" }}>
                     <Image
                       src={`${process.env.PUBLIC_URL}/events/biodiversity/Pic2-tinypng.jpg`}
-                      borderRadius="8px"
+                      borderRadius='8px'
                     />
                   </Box>
-                  <Box align="center">
-                    <Center h="100%">
+                  <Box align='center'>
+                    <Center h='100%'>
                       <Box
-                        bgColor="#FFF"
-                        borderRadius="8px"
+                        bgColor='#FFF'
+                        borderRadius='8px'
                         p={6}
                         ml={{ base: "0px", xl: "-110px" }}
                         mt={{ base: "-80px", xl: "0px" }}
                         w={{ base: "230px" }}
                       >
                         <Box
-                          maxW="120px"
-                          borderColor="brand.600"
-                          borderWidth="1px"
-                          borderRadius="full"
-                          overflow="hidden"
-                          mb="6"
+                          maxW='120px'
+                          borderColor='brand.600'
+                          borderWidth='1px'
+                          borderRadius='full'
+                          overflow='hidden'
+                          mb='6'
                         >
                           <Image
                             src={`${process.env.PUBLIC_URL}/events/biodiversity/shing_2x.png`}
@@ -273,12 +273,12 @@ const Index = ({ submitted, togglePanel }) => {
                         </Box>
                         <Heading
                           fontSize={{ base: "md", xl: "2xl" }}
-                          color="brand.600"
-                          mb="2"
+                          color='brand.600'
+                          mb='2'
                         >
                           馮漢城（阿城）
                         </Heading>
-                        <Text size="sm" color="gray.500">
+                        <Text size='sm' color='gray.500'>
                           本地生態攝影師
                         </Text>
                       </Box>
@@ -287,8 +287,8 @@ const Index = ({ submitted, togglePanel }) => {
                 </Flex>
               </Box>
 
-              <Box flex="1" px={{ base: 0 }}>
-                <Center h="100%">
+              <Box flex='1' px={{ base: 0 }}>
+                <Center h='100%'>
                   <Text {...pStyle} mt={4} pr={{ base: 0, xl: "15px" }}>
                     生態攝影師、《Wild Hong
                     Kong》系列生態紀錄片製作人，該系列被譽為「港版Discovery
@@ -299,10 +299,10 @@ const Index = ({ submitted, togglePanel }) => {
 
               <Divider my={{ base: 8, lg: 10 }} />
 
-              <SimpleGrid mt="4" columns={{ base: 1, xl: 2 }} spacing={10}>
-                <Flex direction="column">
+              <SimpleGrid mt='4' columns={{ base: 1, xl: 2 }} spacing={10}>
+                <Flex direction='column'>
                   <Image
-                    borderRadius="8px"
+                    borderRadius='8px'
                     src={
                       "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/0f48c407-gif_reg_ty_page.gif"
                     }
@@ -310,9 +310,9 @@ const Index = ({ submitted, togglePanel }) => {
                 </Flex>
                 <Stack spacing={4}>
                   <Heading
-                    as="h2"
-                    size="lg"
-                    color="brand.500"
+                    as='h2'
+                    size='lg'
+                    color='brand.500'
                     style={{ lineHeight: "1.5" }}
                   >
                     一起守護
@@ -325,14 +325,14 @@ const Index = ({ submitted, togglePanel }) => {
                   <Text {...pStyle}>
                     請支持綠色和平以科學角度、調查研究及行動，奮力守護大嶼及保衛郊野，守護香港珍貴的自然資源，為下一代建設宜居的生活環境！
                   </Text>
-                  <Link href="https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=biodiversity&utm_campaign=biodiversity">
+                  <Link href='https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=biodiversity&utm_campaign=biodiversity'>
                     <Button
-                      mt="2"
-                      color="#FFF"
-                      bg="brand.500"
+                      mt='2'
+                      color='#FFF'
+                      bg='brand.500'
                       _hover={{ bg: "brand.400" }}
-                      borderRadius="4px"
-                      fontSize="md"
+                      borderRadius='4px'
+                      fontSize='md'
                       letterSpacing={2}
                     >
                       立即捐助
@@ -388,7 +388,7 @@ const Index = ({ submitted, togglePanel }) => {
           d={{ base: "none", md: "block" }}
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
-            <Box boxShadow="lg" p="6" rounded="md" bg="white">
+            <Box boxShadow='lg' p='6' rounded='md' bg='white'>
               {submitted ? (
                 <NewFrameSubmittedForm formContent={content} />
               ) : (
@@ -404,11 +404,11 @@ const Index = ({ submitted, togglePanel }) => {
         </Box>
       </Flex>
       <Box
-        pos="fixed"
+        pos='fixed'
         bottom={0}
         zIndex={9}
-        p="4"
-        w="100%"
+        p='4'
+        w='100%'
         style={{
           background: "rgba(255, 255, 255, 0.8)",
           borderColor: "rgba(255, 255, 255, 0.8)",
@@ -421,11 +421,11 @@ const Index = ({ submitted, togglePanel }) => {
         d={{ base: "flex", md: "none" }}
       >
         <Button
-          w="80%"
-          color="#FFF"
-          bg="orange"
-          borderRadius="24px"
-          fontSize="xl"
+          w='80%'
+          color='#FFF'
+          bg='orange'
+          borderRadius='24px'
+          fontSize='xl'
           letterSpacing={4}
           style={{ zIndex: 999 }}
           onClick={() => togglePanel(true)}

@@ -4,12 +4,22 @@ import { connect } from "react-redux";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { mainShare, whatsAppShare } from "../../share";
 import content from "./newFormContent.json";
-import { Button, Flex, Heading, Text, Box } from "@chakra-ui/react";
-import DonateForm from "./donateForm"
+import {
+  Button,
+  Flex,
+  Fade,
+  ScaleFade,
+  Stack,
+  Text,
+  Box,
+} from "@chakra-ui/react";
+import DonateForm from "./donateForm";
+import MiniDonateForm from "./miniDonateForm";
 
 const MyForm = ({ formContent = content }) => {
   const [numSignupTarget, setNumSignupTarget] = useState(100000);
   const [numResponses, setNumResponses] = useState(0);
+  const [showDonate, setShowDonate] = useState(false);
 
   useEffect(() => {
     const signupTarget = document.querySelector(
@@ -27,69 +37,120 @@ const MyForm = ({ formContent = content }) => {
 
   return (
     <Box
-      borderTop={{base: null, sm: "4px solid #66cc00"}}
-      boxShadow={{base: null, sm: "lg"}}
-      px={{base:0, sm: 6}}
-      py={2}
-      rounded={{base: 0, sm: "md"}}
-      bg="white"
-      overflow="hidden"
+      borderTop={{ base: null, sm: "4px solid #66cc00" }}
+      boxShadow={{ base: null, sm: "lg" }}
+      px={4}
+      py={4}
+      rounded={{ base: 0, sm: "md" }}
+      bg='#FFF'
+      className="stickyContentWrapper"
+      maxH="100vh"
+      overflowY="scroll"
+      sx={{
+        '&::-webkit-scrollbar': {
+          width: 0,
+          borderRadius: '8px',
+          backgroundColor: `rgba(0, 0, 0, 0.05)`,
+        },
+        '&::-webkit-scrollbar-thumb': {
+          backgroundColor: `rgba(0, 0, 0, 0.05)`,
+        },
+      }}
     >
-    <Flex direction="column">
-      <Text py={4} variant="heading" py={2}>
-        <span dangerouslySetInnerHTML={{ __html: formContent.thanks_title }}/>
-      </Text>
-      <Text as="p" variant="description" py={2}>
-        <span dangerouslySetInnerHTML={{ __html: formContent.thanks_content_top_section }}/>
-      </Text>
-      <Text as="p" variant="description" py={2}>
-        <span dangerouslySetInnerHTML={{ __html: formContent.thanks_content_center_section }}/>
-      </Text>
-      <Button
-        variant="donateButton"
-        style={{ backgroundColor: "#3b5998"}}
-        onClick={() =>
-          mainShare(
-            formContent.shareMessage,
-            formContent.fbURL,
-            formContent.mainURL
-          )
-        }
-        rel="noreferrer"
-      >
-        {formContent.share_button}
-      </Button>
-      <Button
-        variant="donateButton"
-        style={{ backgroundColor: "#25d366"}}
-        onClick={() =>
-          whatsAppShare(formContent.shareMessage, formContent.whatsappURL)
-        }
-        rel="noreferrer"
-      >
-        <img
-          loading="lazy"
-          src={whatsapp}
-          alt="whatsapp"
-          style={{ height: "24px" }}
-        />
-      </Button>
-      <Text as="p" variant="description" py={1}>
-        <span dangerouslySetInnerHTML={{ __html: formContent.thanks_content_bottom_section }}/>
-      </Text>
-      <Button
-        variant="donateButton"
-        style={{ backgroundColor: "#fda22f" }}
-        onClick={() => window.open(formContent.donateURL)}
-        target="_blank"
-        rel="noreferrer"
-      >
-        {formContent.donate_button}
-      </Button>
+      {/* {showDonate && (
+        <Fade in={showDonate}>
+          <DonateForm />
+        </Fade>
+      )} */}
+      {!showDonate && (
+        <Flex direction='column'>
+          <Text
+            variant='heading'
+            dangerouslySetInnerHTML={{ __html: formContent.thanks_title }}
+          />
+          <Text
+            as='p'
+            variant='paragraph'
+            py={2}
+            dangerouslySetInnerHTML={{
+              __html: formContent.thanks_content_top_section,
+            }}
+          />
+          <Text
+            as='p'
+            variant='paragraph'
+            py={2}
+            dangerouslySetInnerHTML={{
+              __html: formContent.thanks_content_center_section,
+            }}
+          />
+          {/* CTAs */}
+          <Stack direction={"row"} align={"center"} spacing='12px'>
+            <Button
+              variant='donateButton'
+              px={8}
+              style={{ backgroundColor: "#3b5998" }}
+              onClick={() =>
+                mainShare(
+                  formContent.shareMessage,
+                  formContent.fbURL,
+                  formContent.mainURL
+                )
+              }
+              rel='noreferrer'
+              mb={2}
+            >
+              {formContent.share_button}
+            </Button>
+            <Button
+              variant='donateButton'
+              px={8}
+              style={{ backgroundColor: "#eee" }}
+              onClick={() =>
+                whatsAppShare(formContent.shareMessage, formContent.whatsappURL)
+              }
+              rel='noreferrer'
+            >
+              <img
+                loading='lazy'
+                src={whatsapp}
+                alt='whatsapp'
+                style={{ height: "32px" }}
+              />
+            </Button>
+          </Stack>
+          <Text as='p' variant='paragraph' py={2}>
+            <span
+              dangerouslySetInnerHTML={{
+                __html: formContent.thanks_content_bottom_section,
+              }}
+            />
+          </Text>
+          <MiniDonateForm/>
+          {/* <DonateForm /> */}
+          {/* <Button
+            variant='donateButton'
+            style={{ backgroundColor: "#66cc00" }}
+            target='_blank'
+            rel='noreferrer'
+            onClick={() => {
+              setShowDonate(true);
+            }}
+          >
+            {formContent.donate_button}
+          </Button> */}
 
-      {/* <DonateForm/> */}
-
-    </Flex>
+          {formContent.thanks_content_after_button_section && <Text
+            as='p'
+            variant='paragraph'
+            py={2}
+            fontSize={'12px'}
+            dangerouslySetInnerHTML={{
+              __html: formContent.thanks_content_after_button_section,
+            }}
+          />}
+        </Flex>
+      )}
     </Box>
   );
 };

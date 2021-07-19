@@ -5,8 +5,8 @@ export const images = [
     width: 320,
     height: 160,
     left: "20%",
-    top: 40
-  }
+    top: 40,
+  },
 ];
 
 export const otherImages = [
@@ -16,6 +16,6 @@ export const otherImages = [
     width: 320,
     height: 160,
     left: "70%",
-    top: 40
-  }
+    top: 40,
+  },
 ];

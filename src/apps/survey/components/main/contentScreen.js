@@ -6,9 +6,9 @@ import { connect } from "react-redux";
 const Content = ({ togglePanel }) => {
   return (
     <>
-      <div className="main-content-wrap">
+      <div className='main-content-wrap'>
         <section>
-          <div className="container">
+          <div className='container'>
             <SurveyForm />
           </div>
           {/* <div className="section-number">
