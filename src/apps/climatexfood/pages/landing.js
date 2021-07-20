@@ -31,10 +31,9 @@ import DonateContent from 'components/sections/donateContent'
 import Panel from 'components/panel/newFormPanel'
 import Webinar from 'components/sections/webinar'
 import TestmonialCard from 'components/sections/testimonial'
-import TestmonialCardTypeTwo from 'components/sections/testmonialTypeTwo'
 import themeConfig from '../../../theme'
 
-import mainVisual from '../assets/images/climate-food-webinar-banner.png'
+import mainVisual from '../assets/images/climate-food-webinar-banner_new.jpg'
 import amos from '../assets/images/8.png'
 import tom from '../assets/images/9.png'
 import info01 from '../assets/images/info-01.jpeg'
@@ -131,19 +130,19 @@ const Landing = ({ submitted, togglePanel }) => {
   }
 
   const dividerProps = {
-    orientation: {base: 'horizontal', xl: 'vertical'}, 
-    bgColor: "#FFF", 
-    h: {base: '1px', xl: '60px'},
-    w: {base: '100%', xl: '1px'}, 
-    my: {base: 4, sm: 2, xl: 0}, 
-    opacity: {base: .2}
+    orientation: { base: 'horizontal', xl: 'vertical' },
+    bgColor: '#FFF',
+    h: { base: '1px', xl: '60px' },
+    w: { base: '100%', xl: '1px' },
+    my: { base: 4, sm: 2, xl: 0 },
+    opacity: { base: 0.2 },
   }
-  
+
   const webinarProps = {
-    fontSize: {base: 18, xl: 20}, 
-    fontWeight: 700, 
-    pl: 2, 
-    py: 1
+    fontSize: { base: 18, xl: 20 },
+    fontWeight: 700,
+    pl: 2,
+    py: 1,
   }
 
   const WebinarContent = {
@@ -167,44 +166,61 @@ const Landing = ({ submitted, togglePanel }) => {
           style={{ minWidth: '0px' }}
           maxW={'1180px'}
         >
-          <Box px='4' py={{ base: 4, md: 8 }}>
+          <Box px={{ base: 4 }} py={{ base: 4 }}>
             <Box>
               {/* {!submitted && <Image src={mainVisual} borderRadius='8px' />}
               {submitted && !isMobile && (
                 <HeroSwiper isMobile={isMobile} swiperHeight='480px' />
               )}{" "} */}
               {/** Fixed swiper desktop version height, background image will keep ratio and center center position */}
-              <Image src={mainVisual} borderTopRightRadius='8px' borderTopLeftRadius='8px' />
+              <Image
+                src={mainVisual}
+                borderTopRightRadius='8px'
+                borderTopLeftRadius='8px'
+              />
             </Box>
 
-            <Box bgColor="#000" p={6} borderBottomRightRadius={8} borderBottomLeftRadius={8}>
-              <Flex direction={{base: 'column', xl: 'row'}} justifyContent="space-between" color="#FFF" align={{base: 'left', xl: 'center'}}>
+            <Box
+              bgColor='#000'
+              p={6}
+              borderBottomRightRadius={8}
+              borderBottomLeftRadius={8}
+            >
+              <Flex
+                direction={{ base: 'column', xl: 'row' }}
+                justifyContent='space-between'
+                color='#FFF'
+                align={{ base: 'left', xl: 'center' }}
+              >
                 <Box>
                   <Stack spacing={0}>
                     <Text color='#A0AEC0'>日期</Text>
                     <Flex align='center'>
-                      <Icon as={BiCalendar} color={"red"} w={5} h={5} /><Text {...webinarProps}>2021年8月5日</Text>
+                      <Icon as={BiCalendar} color={'red'} w={5} h={5} />
+                      <Text {...webinarProps}>2021年8月5日</Text>
                     </Flex>
                     <Text>(星期四)</Text>
                   </Stack>
                 </Box>
-                <Divider {...dividerProps}/>
+                <Divider {...dividerProps} />
                 <Box>
                   <Stack spacing={0}>
                     <Text color='#A0AEC0'>時間</Text>
                     <Flex align='center'>
-                      <Icon as={IoTimeSharp} color={"red"} w={5} h={5} /><Text {...webinarProps}>晚上8時至9時</Text>
+                      <Icon as={IoTimeSharp} color={'red'} w={5} h={5} />
+                      <Text {...webinarProps}>晚上8時至9時</Text>
                     </Flex>
 
-                    <Text d={{base: 'none', xl: 'block'}}>{" "}&nbsp;</Text>
+                    <Text d={{ base: 'none', xl: 'block' }}> &nbsp;</Text>
                   </Stack>
                 </Box>
-                <Divider {...dividerProps}/>
+                <Divider {...dividerProps} />
                 <Box>
                   <Stack spacing={0}>
                     <Text color='#A0AEC0'>線上分享會平台</Text>
                     <Flex align='center'>
-                      <Icon as={SiAirplayvideo} color={"red"} w={5} h={5} /><Text {...webinarProps}>Zoom</Text>
+                      <Icon as={SiAirplayvideo} color={'red'} w={5} h={5} />
+                      <Text {...webinarProps}>Zoom</Text>
                     </Flex>
                     <Text>(網上登記後會獲得相關鏈結和密碼)</Text>
                   </Stack>
@@ -212,7 +228,7 @@ const Landing = ({ submitted, togglePanel }) => {
               </Flex>
             </Box>
 
-            <Stack py={4}>
+            <Stack pt={8} pb={4}>
               <Box>
                 <Text
                   as='h1'
@@ -221,17 +237,11 @@ const Landing = ({ submitted, togglePanel }) => {
                   color='gray.900'
                   lineHeight={1.2}
                 >
-                  <Text mt={4} mb={2}>
-                    「氣候危機警告現正生效：點樣影響香港人？」
-                  </Text>
-                  <Text color='brand.500'>網上科學101</Text>
+                  <Text color='red'>網上科學 101</Text>
+                  <Text>氣候危機警告現正生效：點樣影響香港人？</Text>
                 </Text>
               </Box>
             </Stack>
-
-            <Divider my={{ base: 2, xl: 4 }} />
-
-            {/* <Webinar content={WebinarContent} /> */}
 
             <Flex direction={{ base: 'column', sm: 'row' }}>
               <Box flex='1'>
@@ -241,21 +251,12 @@ const Landing = ({ submitted, togglePanel }) => {
                       氣候危機已到達不能忽視的境界！南北兩極破紀錄高溫，多地森林大火，東亞連串風災水災，我們居住的香港氣溫更屢創新高。氣候危機的影響並非遠在天邊，我們日常的食物，如咖啡豆、三文魚、蜂蜜等亦可能受氣候變化影響而消失。香港這一代人見證著連環極端天氣事件對人類的影響，更提醒了我們不能忽視氣候危機。
                     </Text>
                   </Box>
-                  {/* <Box>
-                  <Image borderRadius='8px' marginTop='8' src={info01} />
-                  <Text>經過綠色和平長達3年的推動，荷蘭法院終裁定化石能源企業SHELL須為氣候危機負責，他們必須在9年內將其碳排放量，由2019年的水平大幅減少45％。</Text>
-                </Box> */}
                 </Flex>
 
                 <Flex direction='row' align='center'>
-                  {/* <Box pr={{base: 0, sm: 4}}>
-                  <Image borderRadius='8px' marginTop='8' src={info02} />
-                  <Text>綠色和平走到深水埗鬧市，展示巨型溫度計，呼籲港人正視氣候變化。</Text>
-                </Box> */}
                   <Box>
                     <Text {...pStyle}>
-                      綠色和平邀請到大氣科學家、「世界氣象組織青年科學家研究獎」得獎者、中文大學地球系統科學課程副教授戴沛權
-                      (Amos) 來與綠色和平項目主任伍漢林 (Tom)
+                      綠色和平邀請到大氣科學家、「世界氣象組織青年科學家研究獎」得獎者、中文大學地球系統科學課程副教授戴沛權（Amos）來與綠色和平項目主任伍漢林（Tom）
                       對談，深入淺出地講解近年氣候變化趨勢，以及為香港人帶來的生活影響。想知道氣候變化如何影響我們熟悉的食物？我們又可以做什麼拯救氣候？立即報名「氣候危機警告現正生效：點樣影響香港人？」網上分享會，一起裝備大腦，拯救地球！
                     </Text>
                   </Box>
@@ -280,7 +281,7 @@ const Landing = ({ submitted, togglePanel }) => {
 
             <Flex direction='column'>
               <TestmonialCard content={amosContent} />
-              <TestmonialCardTypeTwo content={tomContent} />
+              <TestmonialCard content={tomContent} />
             </Flex>
 
             <Divider my={{ base: 8, lg: 10 }} />
