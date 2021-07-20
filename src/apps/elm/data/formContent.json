@@ -29,5 +29,9 @@
   "shareMessage": "多年來，綠色和平以建立30%海洋保護區為目標，立即聯署守護海洋，攜手成立全球海洋保護區！👉 ",
   "fbURL": "https://act.gp/3eG7pTl",
   "mainURL": "https://act.gp/3l2XZCq",
-  "whatsappURL": "https://act.gp/3eG7kPx"
+  "whatsappURL": "https://act.gp/3eG7kPx",
+
+  "showProgress" : false,
+  "newsLetter": false,
+  "birthDate": true
 }

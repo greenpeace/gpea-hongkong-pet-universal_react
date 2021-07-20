@@ -45,7 +45,6 @@ let RegistrationForm = ({
   submitForm,
   submitted,
   formContent = content,
-  activeABTesting,
   variant,
 }) => {
   const refForm = useRef();
@@ -91,7 +90,7 @@ let RegistrationForm = ({
         }
         return regex.test(value);
       }, formContent.invalid_format_alert),
-    Birthdate: StringType().isRequired(formContent.empty_data_alert),
+    Birthdate: formContent.birthDate ? StringType().isRequired(formContent.empty_data_alert) : StringType(),
   });
 
   const modelVersionB = Schema.Model({
@@ -102,11 +101,7 @@ let RegistrationForm = ({
     FirstName: StringType().isRequired(formContent.empty_data_alert),
   });
 
-  const setModel = activeABTesting
-    ? variant == 0
-      ? modelVersionA
-      : modelVersionB
-    : modelVersionA;
+  const setModel = (variant == 0 || variant == undefined) ? modelVersionA : modelVersionB
 
   const closeAll = () => {
     togglePanel(false);
@@ -115,6 +110,10 @@ let RegistrationForm = ({
 
   const handleSubmit = (isValid) => {
     const OptIn = refCheckbox.current.state?.checked;
+    const { formValue } = refForm.current.state;
+    console.log('setModel-',setModel)
+    console.log('formValue-',formValue)
+    console.log('isValid-',isValid)
 
     if (isValid) {
       const { formValue } = refForm.current.state;
@@ -298,7 +297,7 @@ let RegistrationForm = ({
                 <Col xs={24}>
                   <FormGroup>
                     <ControlLabel>
-                      {activeABTesting && variant == 0
+                      {(variant == 0 || variant == undefined)
                         ? formContent.label_phone
                         : formContent.label_phone_optional}
                     </ControlLabel>
@@ -318,7 +317,7 @@ let RegistrationForm = ({
                         <TextField
                           type='number'
                           placeholder={
-                            activeABTesting && variant == 0
+                            (variant == 0 || variant == undefined)
                               ? formContent.label_phone
                               : formContent.label_phone_optional
                           }
@@ -331,11 +330,11 @@ let RegistrationForm = ({
                 </Col>
               </Row>
 
-              <Row className='show-grid'>
+              {formContent.birthDate && <Row className='show-grid'>
                 <Col xs={24}>
                   <FormGroup>
                     <ControlLabel>
-                      {activeABTesting && variant == 0
+                      {(variant == 0 || variant == undefined)
                         ? formContent.label_year_of_birth
                         : formContent.label_year_of_birth_optional}
                     </ControlLabel>
@@ -349,7 +348,7 @@ let RegistrationForm = ({
                     />
                   </FormGroup>
                 </Col>
-              </Row>
+              </Row>}
 
               <Row className='show-grid'>
                 <Col xs={24}>
@@ -384,7 +383,6 @@ const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-    activeABTesting: theme.abTesting,
     variant: theme.variant,
   };
 };
