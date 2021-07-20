@@ -64,7 +64,7 @@ const MyForm = ({ formContent = content }) => {
         <Flex direction='column'>
           <Text
             variant='heading'
-            fontSize='xl'
+            fontSize='2xl'
             dangerouslySetInnerHTML={{ __html: formContent.thanks_title }}
           />
           <Text
