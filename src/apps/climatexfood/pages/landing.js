@@ -130,6 +130,22 @@ const Landing = ({ submitted, togglePanel }) => {
     fontSize: '14px',
   }
 
+  const dividerProps = {
+    orientation: {base: 'horizontal', xl: 'vertical'}, 
+    bgColor: "#FFF", 
+    h: {base: '1px', xl: '60px'},
+    w: {base: '100%', xl: '1px'}, 
+    my: {base: 4, sm: 2, xl: 0}, 
+    opacity: {base: .2}
+  }
+  
+  const webinarProps = {
+    fontSize: {base: 18, xl: 20}, 
+    fontWeight: 700, 
+    pl: 2, 
+    py: 1
+  }
+
   const WebinarContent = {
     date: '日期：2021年8月5日（星期四）',
     time: '時間：晚上8時至9時',
@@ -152,15 +168,51 @@ const Landing = ({ submitted, togglePanel }) => {
           maxW={'1180px'}
         >
           <Box px='4' py={{ base: 4, md: 8 }}>
-            <Box mb={6}>
+            <Box>
               {/* {!submitted && <Image src={mainVisual} borderRadius='8px' />}
               {submitted && !isMobile && (
                 <HeroSwiper isMobile={isMobile} swiperHeight='480px' />
               )}{" "} */}
               {/** Fixed swiper desktop version height, background image will keep ratio and center center position */}
-              <Image src={mainVisual} borderRadius='8px' />
+              <Image src={mainVisual} borderTopRightRadius='8px' borderTopLeftRadius='8px' />
             </Box>
-            <Stack pb={4}>
+
+            <Box bgColor="#000" p={6} borderBottomRightRadius={8} borderBottomLeftRadius={8}>
+              <Flex direction={{base: 'column', xl: 'row'}} justifyContent="space-between" color="#FFF" align={{base: 'left', xl: 'center'}}>
+                <Box>
+                  <Stack spacing={0}>
+                    <Text color='#A0AEC0'>日期</Text>
+                    <Flex align='center'>
+                      <Icon as={BiCalendar} color={"red"} w={5} h={5} /><Text {...webinarProps}>2021年8月5日</Text>
+                    </Flex>
+                    <Text>(星期四)</Text>
+                  </Stack>
+                </Box>
+                <Divider {...dividerProps}/>
+                <Box>
+                  <Stack spacing={0}>
+                    <Text color='#A0AEC0'>時間</Text>
+                    <Flex align='center'>
+                      <Icon as={IoTimeSharp} color={"red"} w={5} h={5} /><Text {...webinarProps}>晚上8時至9時</Text>
+                    </Flex>
+
+                    <Text d={{base: 'none', xl: 'block'}}>{" "}&nbsp;</Text>
+                  </Stack>
+                </Box>
+                <Divider {...dividerProps}/>
+                <Box>
+                  <Stack spacing={0}>
+                    <Text color='#A0AEC0'>線上分享會平台</Text>
+                    <Flex align='center'>
+                      <Icon as={SiAirplayvideo} color={"red"} w={5} h={5} /><Text {...webinarProps}>Zoom</Text>
+                    </Flex>
+                    <Text>(網上登記後會獲得相關鏈結和密碼)</Text>
+                  </Stack>
+                </Box>
+              </Flex>
+            </Box>
+
+            <Stack py={4}>
               <Box>
                 <Text
                   as='h1'
@@ -177,74 +229,7 @@ const Landing = ({ submitted, togglePanel }) => {
               </Box>
             </Stack>
 
-            <Box bgColor='#292f47' p={6} borderRadius={8} my={6}>
-              <Flex
-                direction={{ base: 'column', sm: 'row' }}
-                justifyContent='space-between'
-                color='#FFF'
-                colorScheme='#FFF'
-                align={{ base: 'left', sm: 'center' }}
-              >
-                <Box>
-                  <Stack spacing={0}>
-                    <Text color='#A0AEC0'>日期</Text>
-                    <Flex align='center'>
-                      <Icon as={BiCalendar} color={'brand.400'} w={5} h={5} />
-                      <Text fontSize={20} fontWeight={700} pl={2} py={1}>
-                        2021年8月5日
-                      </Text>
-                    </Flex>
-                    <Text>(星期四)</Text>
-                  </Stack>
-                </Box>
-                <Divider
-                  orientation={{ base: 'horizontal', sm: 'vertical' }}
-                  bgColor='#FFF'
-                  h={{ base: '1px', sm: '60px' }}
-                  w={{ base: '100%', sm: '1px' }}
-                  my={{ base: 4, sm: 0 }}
-                  opacity={{ base: 0.2 }}
-                />
-                <Box>
-                  <Stack spacing={0}>
-                    <Text color='#A0AEC0'>時間</Text>
-                    <Flex align='center'>
-                      <Icon as={IoTimeSharp} color={'brand.400'} w={5} h={5} />
-                      <Text fontSize={20} fontWeight={700} pl={2} py={1}>
-                        晚上8時至9時
-                      </Text>
-                    </Flex>
-
-                    <Text d={{ base: 'none', sm: 'block' }}> &nbsp;</Text>
-                  </Stack>
-                </Box>
-                <Divider
-                  orientation={{ base: 'horizontal', sm: 'vertical' }}
-                  bgColor='#FFF'
-                  h={{ base: '1px', sm: '60px' }}
-                  w={{ base: '100%', sm: '1px' }}
-                  my={{ base: 4, sm: 0 }}
-                  opacity={{ base: 0.2 }}
-                />
-                <Box>
-                  <Stack spacing={0}>
-                    <Text color='#A0AEC0'>線上分享會平台</Text>
-                    <Flex align='center'>
-                      <Icon
-                        as={SiAirplayvideo}
-                        color={'brand.400'}
-                        w={5}
-                        h={5}
-                      />
-                      <Text fontSize={20} fontWeight={700} pl={2} py={1}>
-                        Zoom
-                      </Text>
-                    </Flex>
-                    <Text>(網上登記後會獲得相關鏈結和密碼)</Text>
-                  </Stack>
-                </Box>
-              </Flex>
-            </Box>
+            <Divider my={{ base: 2, xl: 4 }} />
 
             {/* <Webinar content={WebinarContent} /> */}
 

@@ -17,7 +17,7 @@ function TestmonialCard(props) {
   return (
     <Flex
       boxShadow={'lg'}
-      direction={{ base: 'column', md: 'row' }}
+      direction={{ base: 'column', xl: 'row' }}
       width={'full'}
       rounded={'xl'}
       p={10}
@@ -84,7 +84,7 @@ export default function GridBlurredBackdrop({content}) {
         mt={16}
         mx={'auto'}>
         {content.map((cardInfo, index) => (
-          <TestmonialCard {...cardInfo} index={index} />
+          <TestmonialCard {...cardInfo} index={index} key={index} />
         ))}
       </SimpleGrid>
     </Flex>
