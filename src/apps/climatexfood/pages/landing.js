@@ -42,7 +42,6 @@ import info02 from '../assets/images/info-02.jpg'
 import { IoTimeSharp } from 'react-icons/io5'
 import { SiAirplayvideo } from 'react-icons/si'
 import { BiCalendar } from 'react-icons/bi'
-import { GoBook } from 'react-icons/go'
 
 const amosContent = [
   {
@@ -124,8 +123,9 @@ const Landing = ({ submitted, togglePanel }) => {
 
   const subStyle = {
     as: 'p',
-    marginTop: 4,
+    marginTop: '20px',
     color: 'gray.700',
+    lineHeight: '1.5',
     fontSize: '14px',
   }
 
@@ -134,7 +134,7 @@ const Landing = ({ submitted, togglePanel }) => {
     bgColor: '#FFF',
     h: { base: '1px', xl: '60px' },
     w: { base: '100%', xl: '1px' },
-    my: { base: 4, sm: 2, xl: 0 },
+    my: { base: 2, md: 4 },
     opacity: { base: 0.2 },
   }
 
@@ -142,13 +142,6 @@ const Landing = ({ submitted, togglePanel }) => {
     fontSize: { base: 18, xl: 20 },
     fontWeight: 700,
     pl: 2,
-    py: 1,
-  }
-
-  const WebinarContent = {
-    date: '日期：2021年8月5日（星期四）',
-    time: '時間：晚上8時至9時',
-    description: '線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）',
   }
 
   return (
@@ -179,22 +172,22 @@ const Landing = ({ submitted, togglePanel }) => {
                 borderTopLeftRadius='8px'
               />
             </Box>
-
             <Box
               bgColor='#000'
-              p={6}
+              px={4}
+              py={{ base: 2, md: 6 }}
               borderBottomRightRadius={8}
               borderBottomLeftRadius={8}
             >
               <Flex
                 direction={{ base: 'column', xl: 'row' }}
-                justifyContent='space-between'
+                justifyContent='space-around'
                 color='#FFF'
                 align={{ base: 'left', xl: 'center' }}
               >
                 <Box>
-                  <Stack spacing={0}>
-                    <Text color='#A0AEC0'>日期</Text>
+                  <Stack align='center' spacing={0}>
+                    <Text color='#A0AEC0'>日期：</Text>
                     <Flex align='center'>
                       <Icon as={BiCalendar} color={'red'} w={5} h={5} />
                       <Text {...webinarProps}>2021年8月5日</Text>
@@ -204,8 +197,8 @@ const Landing = ({ submitted, togglePanel }) => {
                 </Box>
                 <Divider {...dividerProps} />
                 <Box>
-                  <Stack spacing={0}>
-                    <Text color='#A0AEC0'>時間</Text>
+                  <Stack align='center' spacing={0}>
+                    <Text color='#A0AEC0'>時間：</Text>
                     <Flex align='center'>
                       <Icon as={IoTimeSharp} color={'red'} w={5} h={5} />
                       <Text {...webinarProps}>晚上8時至9時</Text>
@@ -216,8 +209,8 @@ const Landing = ({ submitted, togglePanel }) => {
                 </Box>
                 <Divider {...dividerProps} />
                 <Box>
-                  <Stack spacing={0}>
-                    <Text color='#A0AEC0'>線上分享會平台</Text>
+                  <Stack align='center' spacing={0}>
+                    <Text color='#A0AEC0'>線上分享會平台：</Text>
                     <Flex align='center'>
                       <Icon as={SiAirplayvideo} color={'red'} w={5} h={5} />
                       <Text {...webinarProps}>Zoom</Text>
