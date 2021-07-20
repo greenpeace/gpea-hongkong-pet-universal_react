@@ -43,7 +43,7 @@ const EndpointURL = 'https://cloud.greenhk.greenpeace.org/websign'
 const CampaignId = '7012u000000P2LIAA0'
 const interests = ['Climate'] // Arctic, Climate, Forest, Health, Oceans, Plastics
 const ftpConfigName = 'ftp_hk' // refer to ~/.npm-en-uploader-secret
-const ftpRemoteDir = '/2021/fukushima'
+const ftpRemoteDir = '/2021/climatexfood'
 
 let indexHtmlFilePath = path.join(buildFolder, 'index.html')
 let fbuf = fs.readFileSync(indexHtmlFilePath)
