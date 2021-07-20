@@ -345,10 +345,9 @@ const Landing = ({ submitted, togglePanel }) => {
             ) : (
               <NewFrameForm
                 formContent={content}
-                version={true}
-                showProgress={false}
-                newsLetter={false}
-                birthDate={true}
+                showProgress={content.showProgress}
+                newsLetter={content.newsLetter}
+                birthDate={content.birthDate}
               />
             )}
           </Sticky>

@@ -54,8 +54,7 @@ const MyForm = (props) => {
     setSubmitting,
     setHiddenForm,
     submitted,
-    birthDate = true,
-    activeABTesting,
+    birthDate,
     variant,
     togglePanel,
   } = props;
@@ -214,7 +213,7 @@ const MyForm = (props) => {
 
           <FormControl>
             <FormLabel {...labelStyle}>
-              {activeABTesting && variant == 0
+              {(variant == 0 || variant == undefined)
                 ? formContent.label_phone
                 : formContent.label_phone_optional}
             </FormLabel>
@@ -261,7 +260,7 @@ const MyForm = (props) => {
                 isInvalid={errors.Birthdate && touched.Birthdate}
               >
                 <FormLabel {...labelStyle}>
-                  {activeABTesting && variant == 0
+                  {(variant == 0 || variant == undefined)
                     ? formContent.label_year_of_birth
                     : formContent.label_year_of_birth_optional}
                 </FormLabel>
@@ -336,7 +335,7 @@ const MyEnhancedForm = withFormik({
     OptIn: true,
   }),
 
-  validate: (values, { formContent, variant, activeABTesting, birthDate }) => {
+  validate: (values, { formContent, variant, birthDate }) => {
     const errors = {};
 
     if (!values.Email) {
@@ -367,7 +366,7 @@ const MyEnhancedForm = withFormik({
       errors.LastName = formContent.empty_data_alert;
     }
 
-    if (activeABTesting && variant == 0) {
+    if (variant == 0 || variant == undefined) {
       if (!values.MobilePhone) {
         errors.MobilePhone = formContent.empty_data_alert;
       } else if (values.MobilePhone.toString().length !== 8) {
@@ -422,7 +421,6 @@ const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-    activeABTesting: theme.abTesting,
     variant: theme.variant,
   };
 };
