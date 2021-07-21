@@ -4,18 +4,16 @@ import * as themeActions from 'store/actions/action-types/theme-actions'
 import {
   Box,
   Button,
-  Heading,
   Flex,
   Text,
   Stack,
   Grid,
   GridItem,
 } from '@chakra-ui/react'
-import { faBox } from '@fortawesome/free-solid-svg-icons'
 
 const buttonStyle = {
   h: '48px',
-  fontWeight: 500,
+  fontWeight: 'normal',
 }
 
 // Donation types
@@ -60,19 +58,6 @@ const MiniDonateForm = () => {
 
   return (
     <Box>
-      {/* <Box>
-        <Heading as='h2' py={4} align={"center"}>
-          守護地球，分秒必爭
-        </Heading>
-        <Text as='p' py={2} align={"center"} variant='paragraph'>
-          <p
-            dangerouslySetInnerHTML={{
-              __html:
-                "綠色和平成立以來，堅持不接受政府、企業捐助，您捐助的一分一毫，能支持我們以公正獨立的身份，持續推動環境工作！",
-            }}
-          />
-        </Text>
-      </Box> */}
       <Box py={2}>
         <Stack
           direction='row'
@@ -137,15 +122,11 @@ const MiniDonateForm = () => {
             <Button
               variant='formSubmitButton'
               {...buttonStyle}
-              fontWeight={700}
+              backgroundColor='#ff8100'
             >
               立即捐款
             </Button>
           </Box>
-
-          <Text align='center' pt={4} pb={2} color='gray.500' fontSize={'sm'}>
-            安全付款・您的信用卡資料將以SSL安全模式加密
-          </Text>
         </Flex>
       </Box>
     </Box>
