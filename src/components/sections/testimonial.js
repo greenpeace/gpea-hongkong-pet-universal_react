@@ -80,7 +80,7 @@ export default function GridBlurredBackdrop({ content }) {
       direction={'column'}
       width={'full'}
     >
-      <SimpleGrid columns={{ base: 1 }} spacing={'20'} mt={16} mx={'auto'}>
+      <SimpleGrid columns={{ base: 1 }} spacing={'20'} my={10} mx={'auto'}>
         {content.map((cardInfo, index) => (
           <TestmonialCard {...cardInfo} index={index} key={index} />
         ))}

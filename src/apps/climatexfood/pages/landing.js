@@ -6,7 +6,6 @@ import { useMediaQuery } from 'react-responsive'
 import Sticky from 'react-sticky-el'
 import {
   ChakraProvider,
-  Container,
   Avatar,
   Box,
   Button,
@@ -27,13 +26,10 @@ import HeroSwiper from '../components/feature/heroSwiper'
 import Footer from '../components/footer'
 import NewFrameForm from 'components/form/newFrameForm'
 import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
-import DonateContent from 'components/sections/donateContent'
 import Panel from 'components/panel/newFormPanel'
-import Webinar from 'components/sections/webinar'
 import TestmonialCard from 'components/sections/testimonial'
 import themeConfig from '../../../theme'
 
-import mainVisual from '../assets/images/climate-food-webinar-banner_new.jpg'
 import amos from '../assets/images/8.png'
 import tom from '../assets/images/9.png'
 import info01 from '../assets/images/info-01.jpeg'
@@ -167,7 +163,7 @@ const Landing = ({ submitted, togglePanel }) => {
               )}{" "} */}
               {/** Fixed swiper desktop version height, background image will keep ratio and center center position */}
               <Image
-                src={mainVisual}
+                src='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/07/c35d9bc0-climate-food-webinar-banner-or.jpg'
                 borderTopRightRadius='8px'
                 borderTopLeftRadius='8px'
               />
@@ -187,9 +183,9 @@ const Landing = ({ submitted, togglePanel }) => {
               >
                 <Box>
                   <Stack align='center' spacing={0}>
-                    <Text color='#A0AEC0'>日期：</Text>
+                    {!isMobile && <Text color='#A0AEC0'>日期：</Text>}
                     <Flex align='center'>
-                      <Icon as={BiCalendar} color={'red'} w={5} h={5} />
+                      <Icon as={BiCalendar} color={'#FA6A11'} w={5} h={5} />
                       <Text {...webinarProps}>2021年8月5日</Text>
                     </Flex>
                     <Text>(星期四)</Text>
@@ -198,9 +194,9 @@ const Landing = ({ submitted, togglePanel }) => {
                 <Divider {...dividerProps} />
                 <Box>
                   <Stack align='center' spacing={0}>
-                    <Text color='#A0AEC0'>時間：</Text>
+                    {!isMobile && <Text color='#A0AEC0'>時間：</Text>}
                     <Flex align='center'>
-                      <Icon as={IoTimeSharp} color={'red'} w={5} h={5} />
+                      <Icon as={IoTimeSharp} color={'#FA6A11'} w={5} h={5} />
                       <Text {...webinarProps}>晚上8時至9時</Text>
                     </Flex>
 
@@ -210,9 +206,9 @@ const Landing = ({ submitted, togglePanel }) => {
                 <Divider {...dividerProps} />
                 <Box>
                   <Stack align='center' spacing={0}>
-                    <Text color='#A0AEC0'>線上分享會平台：</Text>
+                    {!isMobile && <Text color='#A0AEC0'>線上分享會平台：</Text>}
                     <Flex align='center'>
-                      <Icon as={SiAirplayvideo} color={'red'} w={5} h={5} />
+                      <Icon as={SiAirplayvideo} color={'#FA6A11'} w={5} h={5} />
                       <Text {...webinarProps}>Zoom</Text>
                     </Flex>
                     <Text>(網上登記後會獲得相關鏈結和密碼)</Text>
@@ -230,7 +226,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   color='gray.900'
                   lineHeight={1.2}
                 >
-                  <Text color='red'>網上科學 101</Text>
+                  <Text color='#FA6A11'>網上科學 101</Text>
                   <Text>氣候危機警告現正生效：點樣影響香港人？</Text>
                 </Text>
               </Box>
@@ -254,27 +250,27 @@ const Landing = ({ submitted, togglePanel }) => {
                     </Text>
                   </Box>
                 </Flex>
-
-                <Flex direction={{ base: 'column', sm: 'row' }}>
-                  <Box flex={1} pr={{ base: 0, sm: 3 }}>
-                    <Image borderRadius='4px' marginTop='6' src={info01} />
-                    <Text {...subStyle}>
-                      綠色和平走到深水埗鬧市，展示巨型溫度計，呼籲港人正視氣候變化。
-                    </Text>
-                  </Box>
-                  <Box flex={1} pl={{ base: 0, sm: 3 }}>
-                    <Image borderRadius='4px' marginTop='6' src={info02} />
-                    <Text {...subStyle}>
-                      經過綠色和平長達3年的推動，荷蘭法院終裁定化石能源企業SHELL須為氣候危機負責，他們必須在9年內將其碳排放量，由2019年的水平大幅減少45％。
-                    </Text>
-                  </Box>
-                </Flex>
               </Box>
             </Flex>
 
             <Flex direction='column'>
               <TestmonialCard content={amosContent} />
               <TestmonialCard content={tomContent} />
+            </Flex>
+
+            <Flex direction={{ base: 'column', sm: 'row' }}>
+              <Box flex={1} pr={{ base: 0, sm: 3 }}>
+                <Image borderRadius='4px' marginTop='6' src={info01} />
+                <Text {...subStyle}>
+                  綠色和平走到深水埗鬧市，展示巨型溫度計，呼籲港人正視氣候變化。
+                </Text>
+              </Box>
+              <Box flex={1} pl={{ base: 0, sm: 3 }}>
+                <Image borderRadius='4px' marginTop='6' src={info02} />
+                <Text {...subStyle}>
+                  經過綠色和平長達3年的推動，荷蘭法院終裁定化石能源企業SHELL須為氣候危機負責，他們必須在9年內將其碳排放量，由2019年的水平大幅減少45％。
+                </Text>
+              </Box>
             </Flex>
 
             <Divider my={{ base: 8, lg: 10 }} />
