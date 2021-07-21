@@ -310,7 +310,7 @@ const MyForm = (props) => {
                       <Text fontSize='xs'>{formContent.form_remind}</Text>
                     </Checkbox>
                   ) : (
-                    <Text fontSize='xs' color='gray.500'>
+                    <Text fontSize='sm' lineHeight={1.5} color='gray.500'>
                       <sup> * </sup>
                       {formContent.form_remind}
                     </Text>

@@ -64,7 +64,7 @@ const NewFormPanel = ({
         hideHeader={true}
         onRequestClose={() => null}
       >
-        {children}
+        {/* {children} */}
         {submitted ? (
           <NewFrameSubmittedForm formContent={formContent} />
         ) : (
