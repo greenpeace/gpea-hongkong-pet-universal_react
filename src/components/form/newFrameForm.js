@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import * as themeActions from "store/actions/action-types/theme-actions";
-import { Form, withFormik } from "formik";
-import "rsuite/lib/styles/index.less";
-import ProgressBar from "components/progress";
+import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux'
+import * as themeActions from 'store/actions/action-types/theme-actions'
+import { Form, withFormik } from 'formik'
+import 'rsuite/lib/styles/index.less'
+import ProgressBar from 'components/progress'
 
-import Mailcheck from "mailcheck";
+import Mailcheck from 'mailcheck'
 
 import {
   FormControl,
@@ -20,24 +20,24 @@ import {
   Heading,
   HStack,
   Checkbox,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react'
 
 // For email correctness
 let domains = [
-  "me.com",
-  "outlook.com",
-  "netvigator.com",
-  "cloud.com",
-  "live.hk",
-  "msn.com",
-  "gmail.com",
-  "hotmail.com",
-  "ymail.com",
-  "yahoo.com",
-  "yahoo.com.tw",
-  "yahoo.com.hk",
-];
-let topLevelDomains = ["com", "net", "org"];
+  'me.com',
+  'outlook.com',
+  'netvigator.com',
+  'cloud.com',
+  'live.hk',
+  'msn.com',
+  'gmail.com',
+  'hotmail.com',
+  'ymail.com',
+  'yahoo.com',
+  'yahoo.com.tw',
+  'yahoo.com.hk',
+]
+let topLevelDomains = ['com', 'net', 'org']
 
 const MyForm = (props) => {
   const {
@@ -58,78 +58,76 @@ const MyForm = (props) => {
     activeABTesting,
     variant,
     togglePanel,
-  } = props;
+  } = props
 
-  const [hiddenFormValues, setHiddenFormValues] = useState([]);
-  const [numSignupTarget, setNumSignupTarget] = useState(100000);
-  const [numResponses, setNumResponses] = useState(0);
+  const [hiddenFormValues, setHiddenFormValues] = useState([])
+  const [numSignupTarget, setNumSignupTarget] = useState(100000)
+  const [numResponses, setNumResponses] = useState(0)
 
   const mobileCountryCode = [
-    { label: "+852", value: "852" },
-    { label: "+853", value: "853" },
-  ];
+    { label: '+852', value: '852' },
+    { label: '+853', value: '853' },
+  ]
   const progress = [
-    { bgcolor: "#62cbd7", completed: numResponses, target: numSignupTarget },
-  ];
-  const [birthDateYear, setBirthDateYear] = useState([]);
-  const space = 4;
+    { bgcolor: '#62cbd7', completed: numResponses, target: numSignupTarget },
+  ]
+  const [birthDateYear, setBirthDateYear] = useState([])
+  const space = 4
 
   const labelStyle = {
-    fontSize: "xs",
-    color: "gray.400",
-  };
+    fontSize: 'xs',
+    color: 'gray.400',
+  }
 
   useEffect(() => {
     const getHiddenFields = document.querySelectorAll(
       'input[value][type="hidden"]:not([value=""])'
-    );
-    const signupTarget = document.querySelector(
-      "input[name='numSignupTarget']"
-    );
-    const numResponses = document.querySelector("input[name='numResponses']");
+    )
+    const signupTarget = document.querySelector("input[name='numSignupTarget']")
+    const numResponses = document.querySelector("input[name='numResponses']")
 
     setHiddenFormValues(
       [...getHiddenFields].reduce(
         (obj, e) => ({ ...obj, [e.name]: e.value }),
         {}
       )
-    );
+    )
 
     if (signupTarget) {
-      setNumSignupTarget(signupTarget.value);
+      setNumSignupTarget(signupTarget.value)
     }
     if (numResponses) {
-      setNumResponses(numResponses.value);
+      setNumResponses(numResponses.value)
     }
     //
-    let optionYear = [];
+    let optionYear = []
     async function fetchOptionYear() {
-      let nowYear = new Date().getFullYear();
-      let targetYear = nowYear - 110;
+      let nowYear = new Date().getFullYear()
+      let targetYear = nowYear - 110
       for (var i = nowYear - 20; i >= targetYear; i--) {
-        await optionYear.push({ label: i, value: i.toString() });
+        await optionYear.push({ label: i, value: i.toString() })
       }
-      setBirthDateYear(optionYear);
+      setBirthDateYear(optionYear)
     }
-    fetchOptionYear(optionYear);
-  }, []);
+    fetchOptionYear(optionYear)
+  }, [])
 
   useEffect(() => {
-    setHiddenForm(hiddenFormValues);
-  }, [hiddenFormValues]);
+    setHiddenForm(hiddenFormValues)
+  }, [hiddenFormValues])
 
   useEffect(() => {
     if (submitted) {
-      setSubmitting(false);
+      setSubmitting(false)
     }
-  }, [submitted]);
+  }, [submitted])
 
   return (
     <Box
-      borderTop={{ base: null, sm: "4px solid #66cc00" }}
-      boxShadow={{ base: null, sm: "lg" }}
+      borderTop={{ base: null, sm: '4px solid #66cc00' }}
+      boxShadow={{ base: null, sm: 'lg' }}
       p={{ base: 0, sm: 6 }}
-      rounded={{ base: 0, sm: "md" }}
+      rounded={{ base: 0, sm: 'md' }}
       bg='white'
       overflow='hidden'
     >
@@ -223,7 +221,7 @@ const MyForm = (props) => {
           <HStack align='flex-end'>
             <Box
               pb={space}
-              mb={errors.MobilePhone && touched.MobilePhone ? "28px" : 0}
+              mb={errors.MobilePhone && touched.MobilePhone ? '28px' : 0}
             >
               <FormControl id='mobileCountryCode'>
                 <Select name='MobileCountryCode' onChange={handleChange}>
@@ -294,7 +292,7 @@ const MyForm = (props) => {
               color='#FFF'
               letterSpacing={4}
               bg='#ff8100'
-              _hover={{ bg: "campaign.climate" }}
+              _hover={{ bg: 'campaign.climate' }}
               type='submit'
             >
               {formContent.submit_text}
@@ -310,7 +308,7 @@ const MyForm = (props) => {
                       <Text fontSize='xs'>{formContent.form_remind}</Text>
                     </Checkbox>
                   ) : (
-                    <Text fontSize='sm' lineHeight={1.5} color='gray.500'>
+                    <Text fontSize='sm' lineHeight={1.5} color='gray.700'>
                       <sup> * </sup>
                       {formContent.form_remind}
                     </Text>
@@ -322,29 +320,29 @@ const MyForm = (props) => {
         </Flex>
       </Form>
     </Box>
-  );
-};
+  )
+}
 
 const MyEnhancedForm = withFormik({
   mapPropsToValues: () => ({
-    Email: "",
-    FirstName: "",
-    LastName: "",
-    MobileCountryCode: "852",
-    MobilePhone: "",
-    Birthdate: "",
+    Email: '',
+    FirstName: '',
+    LastName: '',
+    MobileCountryCode: '852',
+    MobilePhone: '',
+    Birthdate: '',
     OptIn: true,
   }),
 
   validate: (values, { formContent, variant, activeABTesting, birthDate }) => {
-    const errors = {};
+    const errors = {}
 
     if (!values.Email) {
-      errors.Email = formContent.empty_data_alert;
+      errors.Email = formContent.empty_data_alert
     } else if (
       !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.Email)
     ) {
-      errors.Email = formContent.invalid_email_alert;
+      errors.Email = formContent.invalid_email_alert
     }
     // else {
     //   TODO: NEED CONFIRM ERROR MSG
@@ -360,63 +358,63 @@ const MyEnhancedForm = withFormik({
     // }
 
     if (!values.FirstName) {
-      errors.FirstName = formContent.empty_data_alert;
+      errors.FirstName = formContent.empty_data_alert
     }
 
     if (!values.LastName) {
-      errors.LastName = formContent.empty_data_alert;
+      errors.LastName = formContent.empty_data_alert
     }
 
     if (activeABTesting && variant == 0) {
       if (!values.MobilePhone) {
-        errors.MobilePhone = formContent.empty_data_alert;
+        errors.MobilePhone = formContent.empty_data_alert
       } else if (values.MobilePhone.toString().length !== 8) {
-        errors.MobilePhone = formContent.minimum_8_characters;
+        errors.MobilePhone = formContent.minimum_8_characters
       }
 
       if (
         values.MobilePhone.toString().length === 8 &&
-        values.MobileCountryCode === "852"
+        values.MobileCountryCode === '852'
       ) {
-        const regex = /^[2,3,5,6,8,9]{1}[0-9]{7}$/i;
+        const regex = /^[2,3,5,6,8,9]{1}[0-9]{7}$/i
         if (!regex.test(values.MobilePhone)) {
-          errors.MobilePhone = formContent.invalid_format_alert;
+          errors.MobilePhone = formContent.invalid_format_alert
         }
       }
 
       if (
         values.MobilePhone.toString().length === 8 &&
-        values.MobileCountryCode === "853"
+        values.MobileCountryCode === '853'
       ) {
-        const regex = /^[6]{1}[0-9]{7}$/i;
+        const regex = /^[6]{1}[0-9]{7}$/i
         if (!regex.test(values.MobilePhone)) {
-          errors.MobilePhone = formContent.invalid_format_alert;
+          errors.MobilePhone = formContent.invalid_format_alert
         }
       }
 
       if (birthDate && !values.Birthdate) {
-        errors.Birthdate = formContent.empty_data_alert;
+        errors.Birthdate = formContent.empty_data_alert
       }
     }
 
-    return errors;
+    return errors
   },
 
   handleSubmit: (values, { setSubmitting, props }) => {
-    const { hiddenFormValue } = props.theme;
-    let birthdateValue = values.Birthdate ? `${values.Birthdate}-01-01` : "";
+    const { hiddenFormValue } = props.theme
+    let birthdateValue = values.Birthdate ? `${values.Birthdate}-01-01` : ''
     // issue: form submit with '-01-01' will cause submission error
     const submitData = {
       ...hiddenFormValue,
       ...values,
       Birthdate: birthdateValue,
       // Birthdate: `${values.Birthdate}-01-01`,
-    };
-    props.submitForm(submitData);
+    }
+    props.submitForm(submitData)
   },
 
-  displayName: "BasicForm",
-})(MyForm);
+  displayName: 'BasicForm',
+})(MyForm)
 
 const mapStateToProps = ({ theme }) => {
   return {
@@ -424,29 +422,29 @@ const mapStateToProps = ({ theme }) => {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
     activeABTesting: theme.abTesting,
     variant: theme.variant,
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleTheme: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_FORM, bol });
+      dispatch({ type: themeActions.TOGGLE_FORM, bol })
     },
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
     },
     setForm: (value) => {
-      dispatch({ type: themeActions.SET_FORM_VALUE, value });
+      dispatch({ type: themeActions.SET_FORM_VALUE, value })
     },
     setHiddenForm: (value) => {
-      dispatch({ type: themeActions.SET_HIDDEN_FORM_VALUE, value });
+      dispatch({ type: themeActions.SET_HIDDEN_FORM_VALUE, value })
     },
     submitForm: (form) => {
-      dispatch({ type: themeActions.SUBMIT_FORM, form });
+      dispatch({ type: themeActions.SUBMIT_FORM, form })
     },
-  };
-};
+  }
+}
 
-connect(null, mapDispatchToProps)(MyForm);
+connect(null, mapDispatchToProps)(MyForm)
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyEnhancedForm);
+export default connect(mapStateToProps, mapDispatchToProps)(MyEnhancedForm)
