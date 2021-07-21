@@ -16,30 +16,30 @@ const buttonStyle = {
 
 let SubmittedForm = ({ formContent = content }) => {
   return (
-    <div className="form-submitted-content">
+    <div className='form-submitted-content'>
       <Grid fluid>
-        <Row className="show-grid">
+        <Row className='show-grid'>
           <Col xs={24}>
             <div
-              className="form-header"
+              className='form-header'
               dangerouslySetInnerHTML={{ __html: formContent.thanks_title }}
             ></div>
             <div
-              className="form-description"
+              className='form-description'
               dangerouslySetInnerHTML={{ __html: formContent.thanks_ask }}
             ></div>
             <Button
               style={{ backgroundColor: "#fda22f", ...buttonStyle }}
               block
               href={formContent.donateURL}
-              target="_blank"
-              rel="noreferrer"
+              target='_blank'
+              rel='noreferrer'
             >
               {formContent.donate_button}
             </Button>
-            <div className="sp-line"></div>
+            <div className='sp-line'></div>
             <div
-              className="form-description"
+              className='form-description'
               dangerouslySetInnerHTML={{ __html: formContent.thanks_content }}
             ></div>
             <Button
@@ -52,7 +52,7 @@ let SubmittedForm = ({ formContent = content }) => {
                   formContent.mainURL
                 )
               }
-              rel="noreferrer"
+              rel='noreferrer'
             >
               {formContent.share_button}
             </Button>
@@ -62,9 +62,14 @@ let SubmittedForm = ({ formContent = content }) => {
               onClick={() =>
                 whatsAppShare(formContent.shareMessage, formContent.whatsappURL)
               }
-              rel="noreferrer"
+              rel='noreferrer'
             >
-              <img src={whatsapp} alt="whatsapp" style={{ height: "24px" }} />
+              <img
+                loading='lazy'
+                src={whatsapp}
+                alt='whatsapp'
+                style={{ height: "24px" }}
+              />
             </Button>
           </Col>
         </Row>

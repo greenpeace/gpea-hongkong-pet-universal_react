@@ -8,7 +8,7 @@ const override = css`
 `;
 
 const clipWrap = {
-  textAlign: 'center',
+  textAlign: "center",
   position: "absolute",
   left: 0,
   right: 0,
@@ -30,8 +30,8 @@ const wrap = {
 
 const Spinner = () => {
   return (
-    <div className="sweet-loading" style={wrap}>
-      <div className="clip-wrap" style={clipWrap}>
+    <div className='sweet-loading' style={wrap}>
+      <div className='clip-wrap' style={clipWrap}>
         <ClipLoader css={override} size={50} color={"#123abc"} loading={true} />
         <br />
         <br />

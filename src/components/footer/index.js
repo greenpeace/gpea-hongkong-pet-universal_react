@@ -3,10 +3,10 @@ import { Grid, Row, Col } from "rsuite";
 
 let Footer = () => {
   return (
-    <div className="footer-wrap">
-      <div className="footer">
+    <div className='footer-wrap'>
+      <div className='footer'>
         <Grid fluid>
-          <Row className="show-grid">
+          <Row className='show-grid'>
             <Col xs={24} lg={12}>
               <p>綠色和平存在，因為脆弱的地球需要改變、需要行動。</p>
               <p>
@@ -17,27 +17,27 @@ let Footer = () => {
               <ul>
                 <li>
                   <a
-                    href="http://www.greenpeace.org/hk/"
-                    target="_blank"
-                    rel="noreferrer"
+                    href='http://www.greenpeace.org/hongkong/'
+                    target='_blank'
+                    rel='noreferrer'
                   >
                     首頁
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://www.greenpeace.org/hongkong/policies/privacy-and-cookies/"
-                    target="_blank"
-                    rel="noreferrer"
+                    href='https://www.greenpeace.org/hongkong/policies/privacy-and-cookies/'
+                    target='_blank'
+                    rel='noreferrer'
                   >
                     私隱政策與個人資料收集聲明
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&ref=wallpaper_footer"
-                    target="_blank"
-                    rel="noreferrer"
+                    href='https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK'
+                    target='_blank'
+                    rel='noreferrer'
                   >
                     捐助支持
                   </a>
