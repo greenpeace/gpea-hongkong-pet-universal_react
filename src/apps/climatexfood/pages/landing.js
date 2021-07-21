@@ -183,7 +183,7 @@ const Landing = ({ submitted, togglePanel }) => {
               >
                 <Box>
                   <Stack align='center' spacing={0}>
-                    {!isMobile && <Text color='#A0AEC0'>日期：</Text>}
+                    {/* {!isMobile && <Text color='#A0AEC0'>日期：</Text>} */}
                     <Flex align='center'>
                       <Icon as={BiCalendar} color={'#FA6A11'} w={5} h={5} />
                       <Text {...webinarProps}>2021年8月5日</Text>
@@ -194,7 +194,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 <Divider {...dividerProps} />
                 <Box>
                   <Stack align='center' spacing={0}>
-                    {!isMobile && <Text color='#A0AEC0'>時間：</Text>}
+                    {/* {!isMobile && <Text color='#A0AEC0'>時間：</Text>} */}
                     <Flex align='center'>
                       <Icon as={IoTimeSharp} color={'#FA6A11'} w={5} h={5} />
                       <Text {...webinarProps}>晚上8時至9時</Text>
@@ -206,7 +206,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 <Divider {...dividerProps} />
                 <Box>
                   <Stack align='center' spacing={0}>
-                    {!isMobile && <Text color='#A0AEC0'>線上分享會平台：</Text>}
+                    {/* {!isMobile && <Text color='#A0AEC0'>線上分享會平台：</Text>} */}
                     <Flex align='center'>
                       <Icon as={SiAirplayvideo} color={'#FA6A11'} w={5} h={5} />
                       <Text {...webinarProps}>Zoom</Text>
