@@ -135,9 +135,11 @@ const Landing = ({ submitted, togglePanel }) => {
   }
 
   const webinarProps = {
-    fontSize: { base: 18, xl: 20 },
+    textAlign: 'center',
+    fontSize: { base: 16, md: 18, xl: 20 },
     fontWeight: 700,
-    pl: 2,
+    my: 2,
+    px: 2,
   }
 
   return (
@@ -179,34 +181,45 @@ const Landing = ({ submitted, togglePanel }) => {
                 <Box>
                   <Stack align='center' spacing={0}>
                     {/* {!isMobile && <Text color='#A0AEC0'>日期：</Text>} */}
-                    <Flex align='center'>
-                      <Icon as={BiCalendar} color={'#FA6A11'} w={5} h={5} />
-                      <Text {...webinarProps}>2021年8月5日</Text>
+                    <Flex
+                      direction={{ base: 'row', md: 'column' }}
+                      align='center'
+                    >
+                      <Icon as={BiCalendar} color={'#FA6A11'} w={6} h={6} />
+                      <Text {...webinarProps}>
+                        2021年8月5日
+                        <small>（星期四）</small>
+                      </Text>
                     </Flex>
-                    <Text>(星期四)</Text>
                   </Stack>
                 </Box>
                 <Divider {...dividerProps} />
                 <Box>
                   <Stack align='center' spacing={0}>
                     {/* {!isMobile && <Text color='#A0AEC0'>時間：</Text>} */}
-                    <Flex align='center'>
-                      <Icon as={IoTimeSharp} color={'#FA6A11'} w={5} h={5} />
+                    <Flex
+                      direction={{ base: 'row', md: 'column' }}
+                      align='center'
+                    >
+                      <Icon as={IoTimeSharp} color={'#FA6A11'} w={6} h={6} />
                       <Text {...webinarProps}>晚上8時至9時</Text>
                     </Flex>
-
-                    <Text d={{ base: 'none', xl: 'block' }}> &nbsp;</Text>
                   </Stack>
                 </Box>
                 <Divider {...dividerProps} />
                 <Box>
                   <Stack align='center' spacing={0}>
                     {/* {!isMobile && <Text color='#A0AEC0'>線上分享會平台：</Text>} */}
-                    <Flex align='center'>
-                      <Icon as={SiAirplayvideo} color={'#FA6A11'} w={5} h={5} />
-                      <Text {...webinarProps}>Zoom</Text>
+                    <Flex
+                      direction={{ base: 'row', md: 'column' }}
+                      align='center'
+                    >
+                      <Icon as={SiAirplayvideo} color={'#FA6A11'} w={6} h={6} />
+                      <Text {...webinarProps}>
+                        Zoom
+                        <small>（網上登記後會獲得相關鏈結和密碼）</small>
+                      </Text>
                     </Flex>
-                    <Text>(網上登記後會獲得相關鏈結和密碼)</Text>
                   </Stack>
                 </Box>
               </Flex>
