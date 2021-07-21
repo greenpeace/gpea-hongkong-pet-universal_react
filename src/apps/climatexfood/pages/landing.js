@@ -149,12 +149,7 @@ const Landing = ({ submitted, togglePanel }) => {
         zIndex={2}
         style={{ maxWidth: '1400px', margin: '0 auto' }}
       >
-        <Box
-          className='wrap'
-          flex='1'
-          style={{ minWidth: '0px' }}
-          maxW={'1180px'}
-        >
+        <Box className='wrap' flex='1' style={{ minWidth: '0px' }}>
           <Box px={{ base: 4 }} py={{ base: 4 }}>
             <Box>
               {/* {!submitted && <Image src={mainVisual} borderRadius='8px' />}
