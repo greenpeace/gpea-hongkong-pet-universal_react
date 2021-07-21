@@ -206,6 +206,8 @@ let RegistrationForm = ({
     }
   }
 
+  // console.log('{window.version}--',window.version)
+
   return (
     <div className='custom-gp-form'>
       <div className='form-close' onClick={() => closeAll()}>
