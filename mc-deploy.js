@@ -39,11 +39,11 @@ const buildFolder = path.join(__dirname, 'build')
 // const EndpointURL = "https://cloud.greenhk.greenpeace.org/petition-pp";
 //
 // New websign endpoint can accept optional fields
-const EndpointURL = "https://cloud.greenhk.greenpeace.org/websign";
-const CampaignId = "7012u000000Ou6wAAC";
-const interests = ["Arctic"]; // Arctic, Climate, Forest, Health, Oceans, Plastics
-const ftpConfigName = "ftp_hk"; // refer to ~/.npm-en-uploader-secret
-const ftpRemoteDir = "/2021/arctic";
+const EndpointURL = 'https://cloud.greenhk.greenpeace.org/websign'
+const CampaignId = '7012u000000Ou6wAAC'
+const interests = ['Arctic'] // Arctic, Climate, Forest, Health, Oceans, Plastics
+const ftpConfigName = 'ftp_hk' // refer to ~/.npm-en-uploader-secret
+const ftpRemoteDir = '/2021/arctic'
 
 let indexHtmlFilePath = path.join(buildFolder, 'index.html')
 let fbuf = fs.readFileSync(indexHtmlFilePath)
