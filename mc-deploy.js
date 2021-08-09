@@ -94,9 +94,6 @@ let formTmpl = `<form method="post" action="%%=v(@EndpointURL)=%%" id="mc-form" 
       <input placeholder="MobilePhone" name="MobilePhone" type="tel" value="">
       <input placeholder="Birthdate" name="Birthdate" type="text" value="">
       <input placeholder="OptIn" name="OptIn" type="checkbox" value="">
-
-      <input type="hidden" name="req" value="post_data">
-      <input type="hidden" name="LeadSource" value="%%=v(@LeadSource)=%%">
       <input type="hidden" name="Petition_Interested_In_Arctic__c" value="%%=v(@Petition_Interested_In_Arctic__c)=%%">
       <input type="hidden" name="Petition_Interested_In_Climate__c" value="%%=v(@Petition_Interested_In_Climate__c)=%%">
       <input type="hidden" name="Petition_Interested_In_Forest__c" value="%%=v(@Petition_Interested_In_Forest__c)=%%">
