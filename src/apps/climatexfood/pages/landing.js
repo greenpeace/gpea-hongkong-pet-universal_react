@@ -152,11 +152,6 @@ const Landing = ({ submitted, togglePanel }) => {
         <Box className='wrap' flex='1' style={{ minWidth: '0px' }}>
           <Box px={{ base: 4 }} py={{ base: 4 }}>
             <Box>
-              {/* {!submitted && <Image src={mainVisual} borderRadius='8px' />}
-              {submitted && !isMobile && (
-                <HeroSwiper isMobile={isMobile} swiperHeight='480px' />
-              )}{" "} */}
-              {/** Fixed swiper desktop version height, background image will keep ratio and center center position */}
               <Image
                 src='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/07/c35d9bc0-climate-food-webinar-banner-or.jpg'
                 borderTopRightRadius='8px'

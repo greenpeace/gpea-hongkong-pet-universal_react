@@ -4,6 +4,10 @@ import * as swiperActions from 'store/actions/action-types/swiper-actions'
 import * as themeActions from 'store/actions/action-types/theme-actions'
 import { connect } from 'react-redux'
 
+import { ChakraProvider, Box, Stack } from '@chakra-ui/react'
+import styled from '@emotion/styled'
+import theme from '../../theme'
+
 import SEO from './SEO'
 import RegistrationForm from 'components/form/registrationForm'
 import SubmittedForm from 'components/form/submittedForm'
@@ -11,7 +15,13 @@ import SlideScreen from './components/main/slideScreen'
 import Aside from './components/aside'
 import Header from './components/header'
 import Panel from 'components/panel'
+import MiniDonateForm from 'components/donate/miniDonateForm'
+
 import formContent from './data/formContent.json'
+
+const DonateWrapper = styled.div`
+  padding: 20px 12px;
+`
 
 const Index = ({
   initState,
@@ -56,26 +66,33 @@ const Index = ({
   }, [])
 
   return (
-    <>
-      <SEO />
-      <div id='main'>
-        <Header />
-        <Aside />
-        <div id='wrapper'>
-          <div className='content full-height' data-pagetitle='Home slider'>
-            <SlideScreen />
+    <ChakraProvider resetCSS='true' theme={theme}>
+      <>
+        <SEO />
+        <div id='main'>
+          <Header />
+          <Aside />
+          <div id='wrapper'>
+            <div className='content full-height' data-pagetitle='Home slider'>
+              <SlideScreen />
+            </div>
           </div>
         </div>
-      </div>
-      <div className='custom-form-wrap'>
-        {submitted ? (
-          <SubmittedForm formContent={formContent} />
-        ) : (
-          <RegistrationForm formContent={formContent} />
-        )}
-      </div>
-      <Panel formContent={formContent} />
-    </>
+        <div className='custom-form-wrap'>
+          {submitted ? (
+            <Stack h={'100%'} overflowY='auto'>
+              <DonateWrapper>
+                <MiniDonateForm />
+              </DonateWrapper>
+              <SubmittedForm formContent={formContent} />
+            </Stack>
+          ) : (
+            <RegistrationForm formContent={formContent} />
+          )}
+        </div>
+        <Panel formContent={formContent} />
+      </>
+    </ChakraProvider>
   )
 }
 

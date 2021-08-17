@@ -1,18 +1,18 @@
-import React from "react";
-import { Button, Grid, Row, Col } from "rsuite";
-import content from "./content.json";
-import whatsapp from "assets/images/social/whatsapp_icon.svg";
+import React from 'react'
+import { Button, Grid, Row, Col } from 'rsuite'
+import content from './content.json'
+import whatsapp from 'assets/images/social/whatsapp_icon.svg'
 
-import { mainShare, whatsAppShare } from "../../share";
+import { mainShare, whatsAppShare } from '../../share'
 
 const buttonStyle = {
-  fontSize: "1rem",
-  color: "#FFFFFF",
-  fontWeight: "bold",
-  marginTop: "10px",
-  marginBottom: "20px",
-  padding: "12px 20px",
-};
+  fontSize: '1rem',
+  color: '#FFFFFF',
+  fontWeight: 'bold',
+  marginTop: '10px',
+  marginBottom: '20px',
+  padding: '12px 20px',
+}
 
 let SubmittedForm = ({ formContent = content }) => {
   return (
@@ -29,7 +29,7 @@ let SubmittedForm = ({ formContent = content }) => {
               dangerouslySetInnerHTML={{ __html: formContent.thanks_ask }}
             ></div>
             <Button
-              style={{ backgroundColor: "#fda22f", ...buttonStyle }}
+              style={{ backgroundColor: '#fda22f', ...buttonStyle }}
               block
               href={formContent.donateURL}
               target='_blank'
@@ -43,7 +43,7 @@ let SubmittedForm = ({ formContent = content }) => {
               dangerouslySetInnerHTML={{ __html: formContent.thanks_content }}
             ></div>
             <Button
-              style={{ backgroundColor: "#3b5998", ...buttonStyle }}
+              style={{ backgroundColor: '#3b5998', ...buttonStyle }}
               block
               onClick={() =>
                 mainShare(
@@ -57,7 +57,7 @@ let SubmittedForm = ({ formContent = content }) => {
               {formContent.share_button}
             </Button>
             <Button
-              style={{ backgroundColor: "#25d366", ...buttonStyle }}
+              style={{ backgroundColor: '#25d366', ...buttonStyle }}
               block
               onClick={() =>
                 whatsAppShare(formContent.shareMessage, formContent.whatsappURL)
@@ -68,14 +68,14 @@ let SubmittedForm = ({ formContent = content }) => {
                 loading='lazy'
                 src={whatsapp}
                 alt='whatsapp'
-                style={{ height: "24px" }}
+                style={{ height: '24px', margin: '0 auto' }}
               />
             </Button>
           </Col>
         </Row>
       </Grid>
     </div>
-  );
-};
+  )
+}
 
-export default SubmittedForm;
+export default SubmittedForm
