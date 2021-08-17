@@ -8,37 +8,37 @@ import {
   Button,
   useDisclosure,
   useColorModeValue,
-} from "@chakra-ui/react";
-import { connect } from "react-redux";
-import * as themeActions from "store/actions/action-types/theme-actions";
+} from '@chakra-ui/react'
+import { connect } from 'react-redux'
+import * as themeActions from 'store/actions/action-types/theme-actions'
 
 const NavLink = ({ children }) => (
   <Link
     px={2}
     py={1}
-    rounded={"md"}
+    rounded={'md'}
     _hover={{
-      textDecoration: "none",
-      bg: useColorModeValue("gray.200", "gray.700"),
+      textDecoration: 'none',
+      bg: useColorModeValue('gray.200', 'gray.700'),
     }}
-    href={"#"}
+    href={'#'}
   >
     {children}
   </Link>
-);
+)
 
 const Nav = ({ togglePanel, showButton = true }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <>
       <Box borderBottom='1px' borderColor='gray.100'>
-        <Container maxW={"12xl"}>
+        <Container maxW={'12xl'}>
           <Flex
             h={16}
-            alignItems={"center"}
-            justifyContent={"space-between"}
-            px={{ base: "0px", sm: "30px" }}
+            alignItems={'center'}
+            justifyContent={'space-between'}
+            px={{ base: '0px', sm: '30px' }}
           >
             {/* <IconButton
             size={'md'}
@@ -47,27 +47,27 @@ const Nav = ({ togglePanel, showButton = true }) => {
             display={{ md: !isOpen ? 'none' : 'inherit' }}
             onClick={isOpen ? onClose : onOpen}
           /> */}
-            <HStack spacing={{ base: 4, sm: 8 }} alignItems={"center"}>
+            <HStack spacing={{ base: 4, sm: 8 }} alignItems={'center'}>
               <Box>
                 <Image
-                  maxW={{ base: "180px", sm: "220px" }}
+                  maxW={{ base: '180px', sm: '220px' }}
                   objectFit='contain'
                   src='https://api.greenpeace.org.hk/general/logo/GP-logo-2019-TC-green-%5bweb%5d-01.png'
                 />
               </Box>
             </HStack>
             {showButton && (
-              <Flex alignItems={"center"}>
+              <Flex alignItems={'center'}>
                 <Button
-                  d={{ base: "block", md: "none" }}
+                  d={{ base: 'block', md: 'none' }}
                   w='100%'
-                  color='#FFF'
+                  color='#fff'
                   bg='#ff8100'
-                  _hover={{ bg: "campaign.climate" }}
-                  height={{ base: "40px", sm: "50px" }}
+                  _hover={{ bg: 'campaign.climate' }}
+                  height={{ base: '40px', sm: '50px' }}
                   borderRadius='24px'
                   px={{ base: 4, sm: 6 }}
-                  fontSize={{ base: "md", sm: "xl" }}
+                  fontSize={{ base: 'md', sm: 'xl' }}
                   bottom={0}
                   zIndex={9}
                   onClick={() => togglePanel(true)}
@@ -92,15 +92,15 @@ const Nav = ({ togglePanel, showButton = true }) => {
         ) : null} */}
       </Box>
     </>
-  );
-};
+  )
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
     },
-  };
-};
+  }
+}
 
-export default connect(null, mapDispatchToProps)(Nav);
+export default connect(null, mapDispatchToProps)(Nav)

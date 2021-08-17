@@ -40,7 +40,7 @@ const MyForm = ({ formContent = content }) => {
       px={4}
       py={4}
       rounded={{ base: 0, sm: 'md' }}
-      bg='#FFF'
+      bg='#fff'
       className='stickyContentWrapper'
       maxH='100vh'
       overflowY='scroll'

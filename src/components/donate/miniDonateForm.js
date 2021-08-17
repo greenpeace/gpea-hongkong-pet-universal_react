@@ -14,7 +14,7 @@ import {
 
 const buttonStyle = {
   h: '48px',
-  fontWeight: 500,
+  fontWeight: '400',
 }
 
 // Donation types
@@ -62,9 +62,7 @@ const MiniDonateForm = () => {
       <Box py={2}>
         <Stack
           direction='row'
-          spacing={1}
-          borderWidth={1}
-          borderColor='brand.500'
+          spacing={0}
           borderRadius={'md'}
           overflow={'hidden'}
         >
@@ -75,9 +73,8 @@ const MiniDonateForm = () => {
               h='40px'
               fontWeight='400'
               borderRadius={0}
-              bg={donateType === d.value ? 'brand.500' : '#FFF'}
-              color={donateType === d.value ? '#FFF' : 'brand.500'}
-              _hover={{ bg: 'brand.500', color: '#FFF' }}
+              bg={donateType === d.value ? 'brand.500' : '#fff'}
+              color={donateType === d.value ? '#fff' : 'brand.500'}
               onClick={() => handleSetDonateType(d.value)}
             >
               {d.label}
@@ -97,10 +94,10 @@ const MiniDonateForm = () => {
                     <Button
                       key={d.value}
                       flex='1'
-                      bg={amount === d.value ? 'brand.500' : 'gray.300'}
-                      color={amount === d.value ? '#FFF' : 'gray.500'}
+                      bg={amount === d.value ? 'brand.500' : '#fff'}
+                      color={amount === d.value ? '#fff' : 'gray.500'}
                       borderRadius={'md'}
-                      _hover={{ bg: 'brand.500', color: '#FFF' }}
+                      _hover={{ bg: 'brand.500', color: '#fff' }}
                       onClick={() => setAmount(d.value)}
                       w='100%'
                       {...buttonStyle}
@@ -112,26 +109,22 @@ const MiniDonateForm = () => {
               })}
             </Grid>
           </Box>
-
-          <Box align='center' py={8}>
-            <Text as='p' variant='paragraph' color='gray.700'>
+          <Box align='center' py={6}>
+            <Text fontSize={'md'}>
               您的捐款，將幫助綠色和平為環境問題找到出路，並在全球各地落實環保工作。謝謝！
             </Text>
           </Box>
-
           <Box onClick={() => handleOpenLink()}>
             <Button
               variant='formSubmitButton'
               {...buttonStyle}
               fontWeight={700}
+              fontSize={'lg'}
+              letterSpacing={'2px'}
             >
               立即捐款
             </Button>
           </Box>
-
-          <Text align='center' pt={4} pb={2} color='gray.500' fontSize={'sm'}>
-            安全付款・您的信用卡資料將以SSL安全模式加密
-          </Text>
         </Flex>
       </Box>
     </Box>

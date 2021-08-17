@@ -289,7 +289,7 @@ const MyForm = (props) => {
               height='48px'
               borderRadius='8'
               fontSize='xl'
-              color='#FFF'
+              color='#fff'
               letterSpacing={4}
               bg='#ff8100'
               _hover={{ bg: 'campaign.climate' }}

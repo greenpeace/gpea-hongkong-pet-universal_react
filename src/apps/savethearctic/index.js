@@ -4,7 +4,7 @@ import * as swiperActions from 'store/actions/action-types/swiper-actions'
 import * as themeActions from 'store/actions/action-types/theme-actions'
 import { connect } from 'react-redux'
 
-import { ChakraProvider, Box, Stack } from '@chakra-ui/react'
+import { ChakraProvider, Box, Heading, Text, Stack } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import theme from '../../theme'
 
@@ -20,7 +20,7 @@ import MiniDonateForm from 'components/donate/miniDonateForm'
 import formContent from './data/formContent.json'
 
 const DonateWrapper = styled.div`
-  padding: 20px 12px;
+  padding: 20px 20px 0 20px;
 `
 
 const Index = ({
@@ -82,6 +82,19 @@ const Index = ({
           {submitted ? (
             <Stack h={'100%'} overflowY='auto'>
               <DonateWrapper>
+                <Box mb={4}>
+                  <Heading
+                    color={'#fff'}
+                    mb={4}
+                    fontSize={'3xl'}
+                    textAlign='left'
+                  >
+                    感謝您的加入！
+                  </Heading>
+                  <Text color={'#fff'} fontSize={'md'} textAlign='left'>
+                    綠色和平堅持以行動守護北極，揭露並制止企業與政府，在北極鑽油與過度捕撈惡行、推動全球攜手淘汰化石能源，將升溫控制至1.5°C，守護北極，減輕北極熊生存壓力。
+                  </Text>
+                </Box>
                 <MiniDonateForm />
               </DonateWrapper>
               <SubmittedForm formContent={formContent} />

@@ -7,7 +7,7 @@ import { mainShare, whatsAppShare } from '../../share'
 
 const buttonStyle = {
   fontSize: '1rem',
-  color: '#FFFFFF',
+  color: '#ffffff',
   fontWeight: 'bold',
   marginTop: '10px',
   marginBottom: '20px',
@@ -20,24 +20,31 @@ let SubmittedForm = ({ formContent = content }) => {
       <Grid fluid>
         <Row className='show-grid'>
           <Col xs={24}>
-            <div
-              className='form-header'
-              dangerouslySetInnerHTML={{ __html: formContent.thanks_title }}
-            ></div>
-            <div
-              className='form-description'
-              dangerouslySetInnerHTML={{ __html: formContent.thanks_ask }}
-            ></div>
-            <Button
-              style={{ backgroundColor: '#fda22f', ...buttonStyle }}
-              block
-              href={formContent.donateURL}
-              target='_blank'
-              rel='noreferrer'
-            >
-              {formContent.donate_button}
-            </Button>
-            <div className='sp-line'></div>
+            {formContent.thanks_title && (
+              <div
+                className='form-header'
+                dangerouslySetInnerHTML={{ __html: formContent.thanks_title }}
+              ></div>
+            )}
+
+            {formContent.thanks_ask && (
+              <div
+                className='form-description'
+                dangerouslySetInnerHTML={{ __html: formContent.thanks_ask }}
+              ></div>
+            )}
+            {formContent.donate_button && (
+              <Button
+                style={{ backgroundColor: '#fda22f', ...buttonStyle }}
+                block
+                href={formContent.donateURL}
+                target='_blank'
+                rel='noreferrer'
+              >
+                {formContent.donate_button}
+              </Button>
+            )}
+            {formContent.donate_button && <div className='sp-line'></div>}
             <div
               className='form-description'
               dangerouslySetInnerHTML={{ __html: formContent.thanks_content }}

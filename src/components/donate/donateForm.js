@@ -90,9 +90,9 @@ const DonateForm = () => {
               h='40px'
               fontWeight='400'
               borderRadius={0}
-              bg={donateType === d.value ? 'brand.500' : '#FFF'}
-              color={donateType === d.value ? '#FFF' : 'brand.500'}
-              _hover={{ bg: 'brand.500', color: '#FFF' }}
+              bg={donateType === d.value ? 'brand.500' : '#fff'}
+              color={donateType === d.value ? '#fff' : 'brand.500'}
+              _hover={{ bg: 'brand.500', color: '#fff' }}
               onClick={() => handleSetDonateType(d.value)}
             >
               {d.label}
@@ -113,9 +113,9 @@ const DonateForm = () => {
                       key={d.value}
                       flex='1'
                       bg={amount === d.value ? 'brand.500' : 'gray.300'}
-                      color={amount === d.value ? '#FFF' : 'gray.500'}
+                      color={amount === d.value ? '#fff' : 'gray.500'}
                       borderRadius={'md'}
-                      _hover={{ bg: 'brand.500', color: '#FFF' }}
+                      _hover={{ bg: 'brand.500', color: '#fff' }}
                       onClick={() => setAmount(d.value)}
                       w='100%'
                       {...buttonStyle}
