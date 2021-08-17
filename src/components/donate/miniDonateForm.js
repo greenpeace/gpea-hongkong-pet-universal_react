@@ -9,7 +9,6 @@ import {
   Stack,
   Grid,
   GridItem,
-  useColorModeValue,
 } from '@chakra-ui/react'
 
 const buttonStyle = {
@@ -35,9 +34,9 @@ const AMOUNT_MONTHLY = [
   { label: '其他金額', value: '' },
 ]
 
-const MiniDonateForm = () => {
+const MiniDonateForm = (props) => {
   const [donateType, setDonateType] = useState('monthly')
-  const [amount, setAmount] = useState(200)
+  const [amount, setAmount] = useState(100)
   const [url, setURL] = useState({ type: donateType, amount: amount })
   const amountOption =
     donateType === 'monthly' ? AMOUNT_MONTHLY : AMOUNT_ONETIME
@@ -51,7 +50,7 @@ const MiniDonateForm = () => {
   }
 
   const targetDonateURL =
-    'https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=climate'
+    'https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=arctic'
 
   const handleOpenLink = (value) => {
     window.open(`${targetDonateURL}&donate_amt=${donateType}:${amount}`)
@@ -110,9 +109,15 @@ const MiniDonateForm = () => {
             </Grid>
           </Box>
           <Box align='center' py={6}>
-            <Text fontSize={'md'}>
-              您的捐款，將幫助綠色和平為環境問題找到出路，並在全球各地落實環保工作。謝謝！
-            </Text>
+            {props.mode === 'dark' ? (
+              <Text fontSize={'md'} color={'#fff'}>
+                您的捐款，將幫助綠色和平為環境問題找到出路，並在全球各地落實環保工作。謝謝！
+              </Text>
+            ) : (
+              <Text fontSize={'md'}>
+                您的捐款，將幫助綠色和平為環境問題找到出路，並在全球各地落實環保工作。謝謝！
+              </Text>
+            )}
           </Box>
           <Box onClick={() => handleOpenLink()}>
             <Button

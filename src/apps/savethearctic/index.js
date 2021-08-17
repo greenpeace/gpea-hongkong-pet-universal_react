@@ -95,7 +95,7 @@ const Index = ({
                     綠色和平堅持以行動守護北極，揭露並制止企業與政府，在北極鑽油與過度捕撈惡行、推動全球攜手淘汰化石能源，將升溫控制至1.5°C，守護北極，減輕北極熊生存壓力。
                   </Text>
                 </Box>
-                <MiniDonateForm />
+                <MiniDonateForm mode={'dark'} />
               </DonateWrapper>
               <SubmittedForm formContent={formContent} />
             </Stack>
