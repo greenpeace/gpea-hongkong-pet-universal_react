@@ -14,7 +14,7 @@ import {
   Box,
 } from '@chakra-ui/react'
 import DonateForm from '../donate/donateForm'
-import MiniDonateForm from './donate/miniDonateForm'
+import MiniDonateForm from '../donate/miniDonateForm'
 
 const MyForm = ({ formContent = content }) => {
   const [numSignupTarget, setNumSignupTarget] = useState(100000)
