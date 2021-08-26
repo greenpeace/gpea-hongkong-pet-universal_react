@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import * as themeActions from 'store/actions/action-types/theme-actions'
 import {
@@ -13,7 +13,7 @@ import {
 
 const buttonStyle = {
   h: '48px',
-  fontWeight: 'normal',
+  fontWeight: '400',
 }
 
 // Donation types
@@ -34,9 +34,9 @@ const AMOUNT_MONTHLY = [
   { label: '其他金額', value: '' },
 ]
 
-const MiniDonateForm = () => {
+const MiniDonateForm = (props) => {
   const [donateType, setDonateType] = useState('monthly')
-  const [amount, setAmount] = useState(200)
+  const [amount, setAmount] = useState(100)
   const [url, setURL] = useState({ type: donateType, amount: amount })
   const amountOption =
     donateType === 'monthly' ? AMOUNT_MONTHLY : AMOUNT_ONETIME
@@ -50,7 +50,7 @@ const MiniDonateForm = () => {
   }
 
   const targetDonateURL =
-    'https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=climate'
+    'https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=arctic'
 
   const handleOpenLink = (value) => {
     window.open(`${targetDonateURL}&donate_amt=${donateType}:${amount}`)
@@ -61,9 +61,7 @@ const MiniDonateForm = () => {
       <Box py={2}>
         <Stack
           direction='row'
-          spacing={1}
-          borderWidth={1}
-          borderColor='brand.500'
+          spacing={0}
           borderRadius={'md'}
           overflow={'hidden'}
         >
@@ -74,9 +72,8 @@ const MiniDonateForm = () => {
               h='40px'
               fontWeight='400'
               borderRadius={0}
-              bg={donateType === d.value ? 'brand.500' : '#FFF'}
-              color={donateType === d.value ? '#FFF' : 'brand.500'}
-              _hover={{ bg: 'brand.500', color: '#FFF' }}
+              bg={donateType === d.value ? 'brand.500' : '#fff'}
+              color={donateType === d.value ? '#fff' : 'brand.500'}
               onClick={() => handleSetDonateType(d.value)}
             >
               {d.label}
@@ -96,10 +93,10 @@ const MiniDonateForm = () => {
                     <Button
                       key={d.value}
                       flex='1'
-                      bg={amount === d.value ? 'brand.500' : 'gray.300'}
-                      color={amount === d.value ? '#FFF' : 'gray.500'}
+                      bg={amount === d.value ? 'brand.500' : '#fff'}
+                      color={amount === d.value ? '#fff' : 'gray.500'}
                       borderRadius={'md'}
-                      _hover={{ bg: 'brand.500', color: '#FFF' }}
+                      _hover={{ bg: 'brand.500', color: '#fff' }}
                       onClick={() => setAmount(d.value)}
                       w='100%'
                       {...buttonStyle}
@@ -111,18 +108,24 @@ const MiniDonateForm = () => {
               })}
             </Grid>
           </Box>
-
-          <Box align='center' py={8}>
-            <Text as='p' variant='paragraph' color='gray.700'>
-              您的捐款，將幫助綠色和平為環境問題找到出路，並在全球各地落實環保工作。謝謝！
-            </Text>
+          <Box align='center' py={6}>
+            {props.mode === 'dark' ? (
+              <Text fontSize={'md'} color={'#fff'}>
+                您的捐款，將幫助綠色和平為環境問題找到出路，並在全球各地落實環保工作。謝謝！
+              </Text>
+            ) : (
+              <Text fontSize={'md'}>
+                您的捐款，將幫助綠色和平為環境問題找到出路，並在全球各地落實環保工作。謝謝！
+              </Text>
+            )}
           </Box>
-
           <Box onClick={() => handleOpenLink()}>
             <Button
               variant='formSubmitButton'
               {...buttonStyle}
-              backgroundColor='#ff8100'
+              fontWeight={700}
+              fontSize={'lg'}
+              letterSpacing={'2px'}
             >
               立即捐款
             </Button>

@@ -40,10 +40,10 @@ const buildFolder = path.join(__dirname, 'build')
 //
 // New websign endpoint can accept optional fields
 const EndpointURL = 'https://cloud.greenhk.greenpeace.org/websign'
-const CampaignId = '7012u000000P6bxAAC'
-const interests = ['Climate'] // Arctic, Climate, Forest, Health, Oceans, Plastics
+const CampaignId = '7012u000000OxIOAA0'
+const interests = ['Oceans'] // Arctic, Climate, Forest, Health, Oceans, Plastics
 const ftpConfigName = 'ftp_hk' // refer to ~/.npm-en-uploader-secret
-const ftpRemoteDir = '/2021/climatexfood'
+const ftpRemoteDir = '/2021/oceans'
 
 let indexHtmlFilePath = path.join(buildFolder, 'index.html')
 let fbuf = fs.readFileSync(indexHtmlFilePath)
@@ -94,9 +94,6 @@ let formTmpl = `<form method="post" action="%%=v(@EndpointURL)=%%" id="mc-form" 
       <input placeholder="MobilePhone" name="MobilePhone" type="tel" value="">
       <input placeholder="Birthdate" name="Birthdate" type="text" value="">
       <input placeholder="OptIn" name="OptIn" type="checkbox" value="">
-
-      <input type="hidden" name="req" value="post_data">
-      <input type="hidden" name="LeadSource" value="%%=v(@LeadSource)=%%">
       <input type="hidden" name="Petition_Interested_In_Arctic__c" value="%%=v(@Petition_Interested_In_Arctic__c)=%%">
       <input type="hidden" name="Petition_Interested_In_Climate__c" value="%%=v(@Petition_Interested_In_Climate__c)=%%">
       <input type="hidden" name="Petition_Interested_In_Forest__c" value="%%=v(@Petition_Interested_In_Forest__c)=%%">

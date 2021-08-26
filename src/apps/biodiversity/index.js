@@ -1,8 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import { useMediaQuery } from "react-responsive";
-import Sticky from "react-sticky-el";
-import content from "./data/content";
+import React from 'react'
+import { connect } from 'react-redux'
+import { useMediaQuery } from 'react-responsive'
+import Sticky from 'react-sticky-el'
+import content from './data/content'
 import {
   ChakraProvider,
   Circle,
@@ -19,26 +19,26 @@ import {
   Stack,
   Icon,
   Center,
-} from "@chakra-ui/react";
-import SEO from "./SEO";
-import Nav from "./components/header/nav";
-import Countdown from "./components/feature/countdown";
-import ContentSwiper from "./components/feature/swiperContent";
-import Footer from "./components/footer";
-import NewFrameForm from "components/form/newFrameForm";
-import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
-import Panel from "components/panel/newFormPanel";
-import * as themeActions from "store/actions/action-types/theme-actions";
-import themeConfig from "../../../theme";
-import { IoCalendarOutline, IoTimeSharp, IoVideocam } from "react-icons/io5";
+} from '@chakra-ui/react'
+import SEO from './SEO'
+import Nav from './components/header/nav'
+import Countdown from './components/feature/countdown'
+import ContentSwiper from './components/feature/swiperContent'
+import Footer from './components/footer'
+import NewFrameForm from 'components/form/newFrameForm'
+import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
+import Panel from 'components/panel/newFormPanel'
+import * as themeActions from 'store/actions/action-types/theme-actions'
+import themeConfig from '../../../theme'
+import { IoCalendarOutline, IoTimeSharp, IoVideocam } from 'react-icons/io5'
 
 // Import Swiper styles
-import "swiper/swiper.scss";
+import 'swiper/swiper.scss'
 
 const Index = ({ submitted, togglePanel }) => {
   const Feature = ({ text, icon, iconBg }) => {
     return (
-      <Stack direction={"row"} align={"center"}>
+      <Stack direction={'row'} align={'center'}>
         <Circle size='40px' color='white' bg={iconBg}>
           {icon}
         </Circle>
@@ -46,49 +46,49 @@ const Index = ({ submitted, togglePanel }) => {
           {text}
         </Text>
       </Stack>
-    );
-  };
+    )
+  }
 
-  const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
+  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
 
   const captionStyle = {
-    as: "span",
-    borderLeft: "4px solid #66cc00",
-    paddingLeft: "12px",
-    size: "sm",
-    color: "gary.500",
-  };
+    as: 'span',
+    borderLeft: '4px solid #66cc00',
+    paddingLeft: '12px',
+    size: 'sm',
+    color: 'gary.500',
+  }
 
   const pStyle = {
-    as: "p",
-    marginTop: "20px",
-    color: "gray.900",
-    lineHeight: "1.7",
-    fontSize: "16px",
-  };
+    as: 'p',
+    marginTop: '20px',
+    color: 'gray.900',
+    lineHeight: '1.7',
+    fontSize: '16px',
+  }
 
   const flexBoxStyle = {
-    align: "center",
-    justify: "center",
-    color: "white",
-    rounded: "full",
-    bg: "gray.100",
+    align: 'center',
+    justify: 'center',
+    color: 'white',
+    rounded: 'full',
+    bg: 'gray.100',
     mb: 1,
-  };
+  }
 
   return (
     <ChakraProvider theme={themeConfig}>
       <SEO />
       {isMobile && <Nav />}
       <Flex>
-        <Box className='wrap' flex='1' style={{ minWidth: "0px" }}>
+        <Box className='wrap' flex='1' style={{ minWidth: '0px' }}>
           <Image src='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/db589459-artboard-1_2-bd-webinar-final-tinypng.jpg' />
           <Box p={{ base: 4, sm: 10 }} mt='4'>
             <Stack pb={4}>
               <Box>
                 <Text
                   as='h1'
-                  fontSize={{ base: "2xl", sm: "3xl", xl: "4xl" }}
+                  fontSize={{ base: '2xl', sm: '3xl', xl: '4xl' }}
                   fontWeight='bold'
                   color='gray.900'
                   lineHeight={1.2}
@@ -103,35 +103,35 @@ const Index = ({ submitted, togglePanel }) => {
                 <Countdown />
               </Text>
             </Box>
-            <Flex direction={{ base: "column", sm: "row" }}>
+            <Flex direction={{ base: 'column', sm: 'row' }}>
               <Box flex='1'>
                 <Stack pt={4} spacing={4}>
                   <Feature
                     icon={
                       <Icon
                         as={IoCalendarOutline}
-                        color={"yellow.500"}
+                        color={'yellow.500'}
                         w={5}
                         h={5}
                       />
                     }
-                    iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                    text={"日期：2021年5月22日（星期六）"}
+                    iconBg={useColorModeValue('yellow.100', 'yellow.900')}
+                    text={'日期：2021年5月22日（星期六）'}
                   />
                   <Feature
                     icon={
-                      <Icon as={IoTimeSharp} color={"yellow.500"} w={5} h={5} />
+                      <Icon as={IoTimeSharp} color={'yellow.500'} w={5} h={5} />
                     }
-                    iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                    text={"時間：下午2時半至3時半"}
+                    iconBg={useColorModeValue('yellow.100', 'yellow.900')}
+                    text={'時間：下午2時半至3時半'}
                   />
                   <Feature
                     icon={
-                      <Icon as={IoVideocam} color={"brand.400"} w={5} h={5} />
+                      <Icon as={IoVideocam} color={'brand.400'} w={5} h={5} />
                     }
-                    iconBg={useColorModeValue("green.100", "green.900")}
+                    iconBg={useColorModeValue('green.100', 'green.900')}
                     text={
-                      "線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）"
+                      '線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）'
                     }
                   />
                 </Stack>
@@ -144,14 +144,14 @@ const Index = ({ submitted, togglePanel }) => {
               </Box>
             </Flex>
 
-            <Box mt={{ base: 12 }} d={{ base: "none", sm: "block" }}>
+            <Box mt={{ base: 12 }} d={{ base: 'none', sm: 'block' }}>
               <Box>
                 <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
                   <Stack>
                     <Flex {...flexBoxStyle}>
                       <Image
                         src={
-                          "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/6389a5bc-vlcsnap-2021-04-23-16h48m08s619.jpg"
+                          'https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/6389a5bc-vlcsnap-2021-04-23-16h48m08s619.jpg'
                         }
                         borderRadius='8px'
                       />
@@ -173,10 +173,10 @@ const Index = ({ submitted, togglePanel }) => {
           <Divider my={{ base: 8, lg: 10 }} />
 
           <Box p={{ base: 4, sm: 10 }}>
-            <Flex justifyContent='space-between' direction={{ base: "column" }}>
+            <Flex justifyContent='space-between' direction={{ base: 'column' }}>
               <Box>
-                <Flex direction={{ base: "column", xl: "row" }}>
-                  <Box maxW={{ base: "100%" }}>
+                <Flex direction={{ base: 'column', xl: 'row' }}>
+                  <Box maxW={{ base: '100%' }}>
                     <Image
                       src='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/92b5573a-drxonima_pic-1-2.jpg'
                       borderRadius='8px'
@@ -186,12 +186,12 @@ const Index = ({ submitted, togglePanel }) => {
                   <Box align='center'>
                     <Center h='100%'>
                       <Box
-                        bgColor='#FFF'
+                        bgColor='#fff'
                         borderRadius='8px'
                         p={6}
-                        ml={{ base: "0px", xl: "-110px" }}
-                        mt={{ base: "-80px", xl: "0px" }}
-                        w={{ base: "230px" }}
+                        ml={{ base: '0px', xl: '-110px' }}
+                        mt={{ base: '-80px', xl: '0px' }}
+                        w={{ base: '230px' }}
                       >
                         <Box
                           maxW='120px'
@@ -206,7 +206,7 @@ const Index = ({ submitted, togglePanel }) => {
                           />
                         </Box>
                         <Heading
-                          fontSize={{ base: "md", xl: "2xl" }}
+                          fontSize={{ base: 'md', xl: '2xl' }}
                           color='brand.600'
                           mb='2'
                         >
@@ -225,7 +225,7 @@ const Index = ({ submitted, togglePanel }) => {
 
               <Box flex='1' px={{ base: 0 }}>
                 <Center h='100%'>
-                  <Text {...pStyle} mt={4} pr={{ base: 0, xl: "30px" }}>
+                  <Text {...pStyle} mt={4} pr={{ base: 0, xl: '30px' }}>
                     香港少數本地環境教育及生態研究學者、香港戶外生態教育協會創辦人及教育總監，同時為國際樹木學會註冊樹藝師。Dr.
                     Xoni
                     Ma曾參與多項本地植物調查及森林群落研究，以及生物多樣性教育項目，主講講座如《香港林地與植被》等。多年來，Dr.
@@ -240,10 +240,10 @@ const Index = ({ submitted, togglePanel }) => {
           <Divider my={{ base: 8, lg: 10 }} />
 
           <Box p={{ base: 4, sm: 10 }}>
-            <Flex justifyContent='space-between' direction={{ base: "column" }}>
+            <Flex justifyContent='space-between' direction={{ base: 'column' }}>
               <Box>
-                <Flex direction={{ base: "column", xl: "row" }}>
-                  <Box maxW={{ base: "100%" }}>
+                <Flex direction={{ base: 'column', xl: 'row' }}>
+                  <Box maxW={{ base: '100%' }}>
                     <Image
                       src={`${process.env.PUBLIC_URL}/events/biodiversity/Pic2-tinypng.jpg`}
                       borderRadius='8px'
@@ -252,12 +252,12 @@ const Index = ({ submitted, togglePanel }) => {
                   <Box align='center'>
                     <Center h='100%'>
                       <Box
-                        bgColor='#FFF'
+                        bgColor='#fff'
                         borderRadius='8px'
                         p={6}
-                        ml={{ base: "0px", xl: "-110px" }}
-                        mt={{ base: "-80px", xl: "0px" }}
-                        w={{ base: "230px" }}
+                        ml={{ base: '0px', xl: '-110px' }}
+                        mt={{ base: '-80px', xl: '0px' }}
+                        w={{ base: '230px' }}
                       >
                         <Box
                           maxW='120px'
@@ -272,7 +272,7 @@ const Index = ({ submitted, togglePanel }) => {
                           />
                         </Box>
                         <Heading
-                          fontSize={{ base: "md", xl: "2xl" }}
+                          fontSize={{ base: 'md', xl: '2xl' }}
                           color='brand.600'
                           mb='2'
                         >
@@ -289,7 +289,7 @@ const Index = ({ submitted, togglePanel }) => {
 
               <Box flex='1' px={{ base: 0 }}>
                 <Center h='100%'>
-                  <Text {...pStyle} mt={4} pr={{ base: 0, xl: "15px" }}>
+                  <Text {...pStyle} mt={4} pr={{ base: 0, xl: '15px' }}>
                     生態攝影師、《Wild Hong
                     Kong》系列生態紀錄片製作人，該系列被譽為「港版Discovery
                     Channel」，他亦曾拍攝與編導香港電台本地生態紀錄片節目《大自然大不同》第二季單元。阿城鏡頭下的野生動物包括灰背燕尾、香港鬥魚、和尚蟹等等，向大眾呈現各類物種的習性、捕食過程等。阿城希望用影像的力量，重新聯繫人類與大自然，紀錄動物們活著的美好一面。
@@ -304,7 +304,7 @@ const Index = ({ submitted, togglePanel }) => {
                   <Image
                     borderRadius='8px'
                     src={
-                      "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/0f48c407-gif_reg_ty_page.gif"
+                      'https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/0f48c407-gif_reg_ty_page.gif'
                     }
                   />
                 </Flex>
@@ -313,7 +313,7 @@ const Index = ({ submitted, togglePanel }) => {
                     as='h2'
                     size='lg'
                     color='brand.500'
-                    style={{ lineHeight: "1.5" }}
+                    style={{ lineHeight: '1.5' }}
                   >
                     一起守護
                     <br />
@@ -328,9 +328,9 @@ const Index = ({ submitted, togglePanel }) => {
                   <Link href='https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=biodiversity&utm_campaign=biodiversity'>
                     <Button
                       mt='2'
-                      color='#FFF'
+                      color='#fff'
                       bg='brand.500'
-                      _hover={{ bg: "brand.400" }}
+                      _hover={{ bg: 'brand.400' }}
                       borderRadius='4px'
                       fontSize='md'
                       letterSpacing={2}
@@ -350,7 +350,7 @@ const Index = ({ submitted, togglePanel }) => {
               <Flex direction={{base: 'column', xl: 'row'}}>
                 <Box align="center">
                   <Center h="100%">
-                    <Box bgColor="#FFF" borderRadius="8px" p={6} mr={{base: '0px', xl: '-70px'}} mt={{base: '-80px', xl: '0px'}} w={{base: "230px"}} zIndex={10}>
+                    <Box bgColor="#fff" borderRadius="8px" p={6} mr={{base: '0px', xl: '-70px'}} mt={{base: '-80px', xl: '0px'}} w={{base: "230px"}} zIndex={10}>
                       <Box
                         maxW="120px"
                         borderColor="brand.600"
@@ -383,9 +383,9 @@ const Index = ({ submitted, togglePanel }) => {
           </Box>
         </Box>
         <Box
-          w={{ base: 0, md: "440px", lg: "500px" }}
+          w={{ base: 0, md: '440px', lg: '500px' }}
           p={10}
-          d={{ base: "none", md: "block" }}
+          d={{ base: 'none', md: 'block' }}
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
             <Box boxShadow='lg' p='6' rounded='md' bg='white'>
@@ -410,19 +410,19 @@ const Index = ({ submitted, togglePanel }) => {
         p='4'
         w='100%'
         style={{
-          background: "rgba(255, 255, 255, 0.8)",
-          borderColor: "rgba(255, 255, 255, 0.8)",
-          boxShadow: "0px 0px 20px 0px rgb(0 0 0 / 10%)",
-          paddingTop: "6px",
-          paddingBottom: "8px",
-          alignItems: "center",
-          justifyContent: "center",
+          background: 'rgba(255, 255, 255, 0.8)',
+          borderColor: 'rgba(255, 255, 255, 0.8)',
+          boxShadow: '0px 0px 20px 0px rgb(0 0 0 / 10%)',
+          paddingTop: '6px',
+          paddingBottom: '8px',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
-        d={{ base: "flex", md: "none" }}
+        d={{ base: 'flex', md: 'none' }}
       >
         <Button
           w='80%'
-          color='#FFF'
+          color='#fff'
           bg='orange'
           borderRadius='24px'
           fontSize='xl'
@@ -438,21 +438,21 @@ const Index = ({ submitted, togglePanel }) => {
       </Panel>
       <Footer />
     </ChakraProvider>
-  );
-};
+  )
+}
 
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
     },
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Index);
+export default connect(mapStateToProps, mapDispatchToProps)(Index)

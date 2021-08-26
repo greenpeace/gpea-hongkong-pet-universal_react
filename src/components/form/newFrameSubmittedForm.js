@@ -13,8 +13,8 @@ import {
   Text,
   Box,
 } from '@chakra-ui/react'
-import DonateForm from './donateForm'
-import MiniDonateForm from './miniDonateForm'
+import DonateForm from '../donate/donateForm'
+import MiniDonateForm from './donate/miniDonateForm'
 
 const MyForm = ({ formContent = content }) => {
   const [numSignupTarget, setNumSignupTarget] = useState(100000)
@@ -40,7 +40,7 @@ const MyForm = ({ formContent = content }) => {
       px={4}
       py={4}
       rounded={{ base: 0, sm: 'md' }}
-      bg='#FFF'
+      bg='#fff'
       className='stickyContentWrapper'
       maxH='100vh'
       overflowY='scroll'

@@ -1,8 +1,8 @@
-import "swiper/swiper.scss";
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import { useMediaQuery } from "react-responsive";
-import Sticky from "react-sticky-el";
+import 'swiper/swiper.scss'
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
+import { useMediaQuery } from 'react-responsive'
+import Sticky from 'react-sticky-el'
 import {
   Avatar,
   ChakraProvider,
@@ -21,36 +21,36 @@ import {
   Icon,
   Grid,
   GridItem,
-} from "@chakra-ui/react";
-import SEO from "../SEO";
-import content from "../data/content";
-import Nav from "../components/header/nav";
-import Footer from "../components/footer";
-import Webinar from "components/sections/webinar";
-import NewFrameForm from "components/form/newFrameForm";
-import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
-import Panel from "components/panel/newFormPanel";
-import * as themeActions from "store/actions/action-types/theme-actions";
-import themeConfig from "../../../theme";
+} from '@chakra-ui/react'
+import SEO from '../SEO'
+import content from '../data/content'
+import Nav from '../components/header/nav'
+import Footer from '../components/footer'
+import Webinar from 'components/sections/webinar'
+import NewFrameForm from 'components/form/newFrameForm'
+import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
+import Panel from 'components/panel/newFormPanel'
+import * as themeActions from 'store/actions/action-types/theme-actions'
+import themeConfig from '../../../theme'
 
-import { IoCalendarOutline, IoTimeSharp, IoVideocam } from "react-icons/io5";
+import { IoCalendarOutline, IoTimeSharp, IoVideocam } from 'react-icons/io5'
 
-import banner from "../assets/images/PFC-webinar-banner-2-banner.jpg";
-import Dalu from "../assets/images/Dalu.png";
-import DaluImage from "../assets/images/123.jpg";
-import Ann from "../assets/images/Ann.png";
-import AnnImage from "../assets/images/1111.jpg";
-import Kaman from "../assets/images/Kaman.png";
-import KamanImage from "../assets/images/20210508_SSPHunting_17_square.jpg";
-import Leanne from "../assets/images/Leanne.png";
-import LeanneImage from "../assets/images/news-sns-plastics-pfc.jpg";
-import frBanner from "../assets/images/20210508_SSPHunting_17.jpg";
+import banner from '../assets/images/PFC-webinar-banner-2-banner.jpg'
+import Dalu from '../assets/images/Dalu.png'
+import DaluImage from '../assets/images/123.jpg'
+import Ann from '../assets/images/Ann.png'
+import AnnImage from '../assets/images/1111.jpg'
+import Kaman from '../assets/images/Kaman.png'
+import KamanImage from '../assets/images/20210508_SSPHunting_17_square.jpg'
+import Leanne from '../assets/images/Leanne.png'
+import LeanneImage from '../assets/images/news-sns-plastics-pfc.jpg'
+import frBanner from '../assets/images/20210508_SSPHunting_17.jpg'
 
 const Landing = ({ submitted, togglePanel }) => {
-  const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
+  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
   const Feature = ({ text, icon, iconBg }) => {
     return (
-      <Stack direction={"row"} align={"center"}>
+      <Stack direction={'row'} align={'center'}>
         <Circle size='40px' color='white' bg={iconBg}>
           {icon}
         </Circle>
@@ -58,104 +58,104 @@ const Landing = ({ submitted, togglePanel }) => {
           {text}
         </Text>
       </Stack>
-    );
-  };
+    )
+  }
 
   const subHeadline = {
-    color: "gray.700",
-    fontSize: "sm",
-    lineHeight: "1.5",
-    mt: "10",
-    mb: "4",
-    pl: "2",
-  };
+    color: 'gray.700',
+    fontSize: 'sm',
+    lineHeight: '1.5',
+    mt: '10',
+    mb: '4',
+    pl: '2',
+  }
 
   const pStyle = {
-    as: "p",
-    marginTop: "20px",
-    color: "gray.900",
-    lineHeight: "1.7",
-    fontSize: "16px",
-  };
+    as: 'p',
+    marginTop: '20px',
+    color: 'gray.900',
+    lineHeight: '1.7',
+    fontSize: '16px',
+  }
 
   const switchButtonWrap = {
     flex: 1,
-    bgColor: "#FFF",
-    roundedTop: "md",
+    bgColor: '#fff',
+    roundedTop: 'md',
     pt: { base: 2, sm: 4 },
     pb: { base: 2, sm: 4 },
-    cursor: "pointer",
-    h: { base: "auto", sm: "auto" },
-    align: "center",
-  };
+    cursor: 'pointer',
+    h: { base: 'auto', sm: 'auto' },
+    align: 'center',
+  }
 
   const switchButton = {
-    borderRadius: "50%",
-    overflow: "hidden",
-    pos: "relative",
-    w: { base: "58px", sm: "96px" },
-    h: { base: "58px", sm: "96px" },
+    borderRadius: '50%',
+    overflow: 'hidden',
+    pos: 'relative',
+    w: { base: '58px', sm: '96px' },
+    h: { base: '58px', sm: '96px' },
     pb: 8,
-  };
+  }
 
   const authorContent = [
     {
-      name: "Dalu",
-      nameZH: "連桷璋",
+      name: 'Dalu',
+      nameZH: '連桷璋',
       avatar: Dalu,
-      title: "大埔街坊暨社區營造行動",
+      title: '大埔街坊暨社區營造行動',
       image: DaluImage,
       imageDescription:
-        "連桷璋不時開設社區回收站「不是垃圾站 X 不是修理站」，推動資源共享分類回收。",
+        '連桷璋不時開設社區回收站「不是垃圾站 X 不是修理站」，推動資源共享分類回收。',
       content:
-        "大埔街坊暨社區營造行動者，前大埔區議員，關注議題包括大埔公共空間發展、環保生態、社區經濟圈等。致力為街坊提供個案跟進、組織社區互助活動如社區回收站「不是垃圾站 X 不是修理站」、廚餘回收計劃及文化活動如中秋節大型月亮裝置藝術、政策倡議等。",
+        '大埔街坊暨社區營造行動者，前大埔區議員，關注議題包括大埔公共空間發展、環保生態、社區經濟圈等。致力為街坊提供個案跟進、組織社區互助活動如社區回收站「不是垃圾站 X 不是修理站」、廚餘回收計劃及文化活動如中秋節大型月亮裝置藝術、政策倡議等。',
     },
     {
-      name: "Ann",
-      nameZH: "李秀平",
+      name: 'Ann',
+      nameZH: '李秀平',
       avatar: Ann,
-      title: "「日常豊作」裸買店店主",
+      title: '「日常豊作」裸買店店主',
       image: AnnImage,
-      imageDescription: "「日常豐作」裸買店店主Ann逢星期三也會開設有機菜攤檔。",
+      imageDescription: '「日常豐作」裸買店店主Ann逢星期三也會開設有機菜攤檔。',
       content:
-        "裸買店「日常豊作」店主，主張「祼買生活．無塑可能」環保健康豐足的生活哲學、鄰里互助與文化教育，建立裸買店聯盟，聚集一群有裸買店夢想的人，一同學習及分享開店心得。",
+        '裸買店「日常豊作」店主，主張「祼買生活．無塑可能」環保健康豐足的生活哲學、鄰里互助與文化教育，建立裸買店聯盟，聚集一群有裸買店夢想的人，一同學習及分享開店心得。',
     },
     {
-      name: "Leanne",
-      nameZH: "譚穎琳",
+      name: 'Leanne',
+      nameZH: '譚穎琳',
       avatar: Leanne,
-      title: "綠色和平項目主任",
+      title: '綠色和平項目主任',
       image: LeanneImage,
       imageDescription:
-        "綠色和平的「全城走塑計劃」集齊一眾走塑隊員在社區搜索走塑小店，自2018年至今，有164位參與，以及全港逾750間商戶加入走塑行列。看到「全城走塑」貼紙，即是找到走塑友善或提供走塑優惠的店舖!。",
+        '綠色和平的「全城走塑計劃」集齊一眾走塑隊員在社區搜索走塑小店，自2018年至今，有164位參與，以及全港逾750間商戶加入走塑行列。看到「全城走塑」貼紙，即是找到走塑友善或提供走塑優惠的店舖!。',
       content:
-        "全城走塑項目主任，倡議及推動走塑的無限可能，積極關心企業塑膠問題及香港塑膠政策。過去活躍於社區回收活動，看到源頭減廢的重要性，更加堅定了走塑的目標。希望廣招戰友一同打拼，一齊學一齊試，一齊達到無塑社區的願景!",
+        '全城走塑項目主任，倡議及推動走塑的無限可能，積極關心企業塑膠問題及香港塑膠政策。過去活躍於社區回收活動，看到源頭減廢的重要性，更加堅定了走塑的目標。希望廣招戰友一同打拼，一齊學一齊試，一齊達到無塑社區的願景!',
     },
     {
-      name: "Kaman",
-      nameZH: "柯家文",
+      name: 'Kaman',
+      nameZH: '柯家文',
       avatar: Kaman,
-      title: "綠色和平社區外展主任",
+      title: '綠色和平社區外展主任',
       image: KamanImage,
       content:
-        "全城走塑社區外展主任，與「走塑小隊」捐窿捐罅，發掘社區走塑小店。疫情下，講環保，搞走塑，看似天方夜譚，但是我們「走塑小隊」發現，社區仍有好多街坊及小店堅持走塑。我們相信，落手落腳，邊玩邊學，今天一小步，社區一大步。成為我地走塑小隊一員啦，預埋你啦！！",
+        '全城走塑社區外展主任，與「走塑小隊」捐窿捐罅，發掘社區走塑小店。疫情下，講環保，搞走塑，看似天方夜譚，但是我們「走塑小隊」發現，社區仍有好多街坊及小店堅持走塑。我們相信，落手落腳，邊玩邊學，今天一小步，社區一大步。成為我地走塑小隊一員啦，預埋你啦！！',
     },
-  ];
+  ]
 
   const WebinarContent = {
-    date: "日期：2021年6月7日（星期一）",
-    time: "時間：晚上8時至9時",
-    description: "線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）",
-  };
+    date: '日期：2021年6月7日（星期一）',
+    time: '時間：晚上8時至9時',
+    description: '線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）',
+  }
 
-  const [current, setCurrent] = useState(authorContent[0]);
+  const [current, setCurrent] = useState(authorContent[0])
 
   return (
     <ChakraProvider theme={themeConfig}>
       <SEO />
       <Nav showButton={false} />
       <Flex>
-        <Box flex='1' style={{ minWidth: "0px" }}>
+        <Box flex='1' style={{ minWidth: '0px' }}>
           <Box px={4} py={{ base: 4, md: 8 }} bgColor='#F9BC81'>
             <Box>
               <Image src={banner} borderRadius={8} />
@@ -177,7 +177,7 @@ const Landing = ({ submitted, togglePanel }) => {
               <Text {...subHeadline}>WEBINAR</Text>
               <Text
                 as='h1'
-                fontSize={{ base: "2xl", sm: "3xl", xl: "4xl" }}
+                fontSize={{ base: '2xl', sm: '3xl', xl: '4xl' }}
                 fontWeight='bold'
                 color='gray.900'
                 lineHeight={1.2}
@@ -187,11 +187,11 @@ const Landing = ({ submitted, togglePanel }) => {
                 </Text>
               </Text>
             </Box>
-            <Flex direction={{ base: "column", sm: "row" }}>
+            <Flex direction={{ base: 'column', sm: 'row' }}>
               <Box flex='1'>
                 <Heading
                   color='gray.900'
-                  fontSize={{ base: "lg", sm: "2xl" }}
+                  fontSize={{ base: 'lg', sm: '2xl' }}
                   mt={4}
                 >
                   覺得自己只是被動的一方？見到社會好多事都看似沒可能改變？
@@ -220,7 +220,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   <GridItem colSpan={{ base: 6, sm: 6 }}>
                     <Text
                       color='#005F89'
-                      fontSize={"4xl"}
+                      fontSize={'4xl'}
                       fontWeight={700}
                       bgGradient='linear(to-l, #FF725C,#F9BC81)'
                       bgClip='text'
@@ -231,7 +231,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   <GridItem colSpan={{ base: 6, sm: 6 }} w='100%'>
                     <Text
                       color='#FF725C'
-                      fontSize={{ base: "3xl", sm: "4xl" }}
+                      fontSize={{ base: '3xl', sm: '4xl' }}
                       fontWeight={700}
                       bgGradient='linear(to-l, #FF725C,#F9BC81)'
                       bgClip='text'
@@ -256,7 +256,7 @@ const Landing = ({ submitted, togglePanel }) => {
                       onClick={() => setCurrent(d)}
                       {...switchButtonWrap}
                       bgColor={`${
-                        current.name === d.name ? "#F9BC81" : "#FFF"
+                        current.name === d.name ? '#F9BC81' : '#fff'
                       }`}
                       key={i}
                     >
@@ -264,13 +264,13 @@ const Landing = ({ submitted, togglePanel }) => {
                         <Box {...switchButton}>
                           <Image src={d.avatar} pos='absolute' />
                         </Box>
-                        <Box d={{ base: "none", xl: "block" }} align='center'>
+                        <Box d={{ base: 'none', xl: 'block' }} align='center'>
                           <Text
-                            fontSize={"md"}
+                            fontSize={'md'}
                             pt={2}
                             fontWeight={700}
                             color={`${
-                              current.name === d.name ? "#FFF" : "#F9BC81"
+                              current.name === d.name ? '#fff' : '#F9BC81'
                             }`}
                           >
                             <Text>
@@ -285,7 +285,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   ))}
                 </Flex>
                 <Box
-                  bgColor='#FFF'
+                  bgColor='#fff'
                   py={6}
                   px={{ base: 2, sm: 8 }}
                   borderTop='1px solid #F9BC81'
@@ -294,7 +294,7 @@ const Landing = ({ submitted, togglePanel }) => {
                     <SimpleGrid columns={{ base: 1, xl: 2 }} spacing='8px'>
                       <Box flex='1' pr={{ base: 0, sm: 12 }}>
                         <Stack
-                          direction={["column", "row"]}
+                          direction={['column', 'row']}
                           columns={{ base: 1, xl: 2 }}
                           alignItems='center'
                           spacing='8px'
@@ -348,7 +348,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   as='h2'
                   size='lg'
                   color='brand.500'
-                  style={{ lineHeight: "1.5" }}
+                  style={{ lineHeight: '1.5' }}
                 >
                   推動全港走塑
                   <br />
@@ -363,9 +363,9 @@ const Landing = ({ submitted, togglePanel }) => {
                 >
                   <Button
                     mt='2'
-                    color='#FFF'
+                    color='#fff'
                     bg='brand.500'
-                    _hover={{ bg: "brand.400" }}
+                    _hover={{ bg: 'brand.400' }}
                     borderRadius='4px'
                     fontSize='md'
                     type='button'
@@ -383,10 +383,10 @@ const Landing = ({ submitted, togglePanel }) => {
         </Box>
 
         <Box
-          w={{ base: 0, md: "50%", lg: "500px" }}
+          w={{ base: 0, md: '50%', lg: '500px' }}
           px='4'
           py={{ base: 4, md: 8 }}
-          d={{ base: "none", md: "block" }}
+          d={{ base: 'none', md: 'block' }}
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
             <Box
@@ -419,19 +419,19 @@ const Landing = ({ submitted, togglePanel }) => {
         p='4'
         w='100%'
         style={{
-          background: "rgba(255, 255, 255, 0.8)",
-          borderColor: "rgba(255, 255, 255, 0.8)",
-          boxShadow: "0px 0px 20px 0px rgb(0 0 0 / 10%)",
-          paddingTop: "6px",
-          paddingBottom: "8px",
-          alignItems: "center",
-          justifyContent: "center",
+          background: 'rgba(255, 255, 255, 0.8)',
+          borderColor: 'rgba(255, 255, 255, 0.8)',
+          boxShadow: '0px 0px 20px 0px rgb(0 0 0 / 10%)',
+          paddingTop: '6px',
+          paddingBottom: '8px',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
-        d={{ base: "flex", md: "none" }}
+        d={{ base: 'flex', md: 'none' }}
       >
         <Button
           w='80%'
-          color='#FFF'
+          color='#fff'
           bg='orange'
           borderRadius='24px'
           fontSize='xl'
@@ -454,22 +454,22 @@ const Landing = ({ submitted, togglePanel }) => {
       </Panel>
       <Footer />
     </ChakraProvider>
-  );
-};
+  )
+}
 
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
     // submitted: false, // TEST submitted
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
     },
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Landing);
+export default connect(mapStateToProps, mapDispatchToProps)(Landing)

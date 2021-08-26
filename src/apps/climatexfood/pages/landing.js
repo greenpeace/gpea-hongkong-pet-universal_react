@@ -79,7 +79,7 @@ const Landing = ({ submitted, togglePanel }) => {
             spacing='8px'
             mb={4}
           >
-            <Avatar size='xl' name={name} src={image} bgColor='#FFF' />
+            <Avatar size='xl' name={name} src={image} bgColor='#fff' />
             <Box pt={4}>
               <Heading fontSize='2xl' mb={2}>
                 <Text color='brand.900'>{name}</Text>
@@ -127,7 +127,7 @@ const Landing = ({ submitted, togglePanel }) => {
 
   const dividerProps = {
     orientation: { base: 'horizontal', xl: 'vertical' },
-    bgColor: '#FFF',
+    bgColor: '#fff',
     h: { base: '1px', xl: '60px' },
     w: { base: '100%', xl: '1px' },
     my: { base: 2, md: 4 },
@@ -135,11 +135,9 @@ const Landing = ({ submitted, togglePanel }) => {
   }
 
   const webinarProps = {
-    textAlign: 'center',
-    fontSize: { base: 16, md: 18, xl: 20 },
+    fontSize: { base: 18, xl: 20 },
     fontWeight: 700,
-    my: 2,
-    px: 2,
+    pl: 2,
   }
 
   return (
@@ -154,11 +152,6 @@ const Landing = ({ submitted, togglePanel }) => {
         <Box className='wrap' flex='1' style={{ minWidth: '0px' }}>
           <Box px={{ base: 4 }} py={{ base: 4 }}>
             <Box>
-              {/* {!submitted && <Image src={mainVisual} borderRadius='8px' />}
-              {submitted && !isMobile && (
-                <HeroSwiper isMobile={isMobile} swiperHeight='480px' />
-              )}{" "} */}
-              {/** Fixed swiper desktop version height, background image will keep ratio and center center position */}
               <Image
                 src='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/07/c35d9bc0-climate-food-webinar-banner-or.jpg'
                 borderTopRightRadius='8px'
@@ -175,51 +168,40 @@ const Landing = ({ submitted, togglePanel }) => {
               <Flex
                 direction={{ base: 'column', xl: 'row' }}
                 justifyContent='space-around'
-                color='#FFF'
+                color='#fff'
                 align={{ base: 'left', xl: 'center' }}
               >
                 <Box>
                   <Stack align='center' spacing={0}>
                     {/* {!isMobile && <Text color='#A0AEC0'>日期：</Text>} */}
-                    <Flex
-                      direction={{ base: 'row', md: 'column' }}
-                      align='center'
-                    >
-                      <Icon as={BiCalendar} color={'#FA6A11'} w={6} h={6} />
-                      <Text {...webinarProps}>
-                        2021年8月5日
-                        <small>（星期四）</small>
-                      </Text>
+                    <Flex align='center'>
+                      <Icon as={BiCalendar} color={'#FA6A11'} w={5} h={5} />
+                      <Text {...webinarProps}>2021年8月5日</Text>
                     </Flex>
+                    <Text>(星期四)</Text>
                   </Stack>
                 </Box>
                 <Divider {...dividerProps} />
                 <Box>
                   <Stack align='center' spacing={0}>
                     {/* {!isMobile && <Text color='#A0AEC0'>時間：</Text>} */}
-                    <Flex
-                      direction={{ base: 'row', md: 'column' }}
-                      align='center'
-                    >
-                      <Icon as={IoTimeSharp} color={'#FA6A11'} w={6} h={6} />
+                    <Flex align='center'>
+                      <Icon as={IoTimeSharp} color={'#FA6A11'} w={5} h={5} />
                       <Text {...webinarProps}>晚上8時至9時</Text>
                     </Flex>
+
+                    <Text d={{ base: 'none', xl: 'block' }}> &nbsp;</Text>
                   </Stack>
                 </Box>
                 <Divider {...dividerProps} />
                 <Box>
                   <Stack align='center' spacing={0}>
                     {/* {!isMobile && <Text color='#A0AEC0'>線上分享會平台：</Text>} */}
-                    <Flex
-                      direction={{ base: 'row', md: 'column' }}
-                      align='center'
-                    >
-                      <Icon as={SiAirplayvideo} color={'#FA6A11'} w={6} h={6} />
-                      <Text {...webinarProps}>
-                        Zoom
-                        <small>（網上登記後會獲得相關鏈結和密碼）</small>
-                      </Text>
+                    <Flex align='center'>
+                      <Icon as={SiAirplayvideo} color={'#FA6A11'} w={5} h={5} />
+                      <Text {...webinarProps}>Zoom</Text>
                     </Flex>
+                    <Text>(網上登記後會獲得相關鏈結和密碼)</Text>
                   </Stack>
                 </Box>
               </Flex>
@@ -312,7 +294,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 </Text>
                 <Button
                   mt='2'
-                  color='#FFF'
+                  color='#fff'
                   bg='brand.500'
                   _hover={{ bg: 'brand.400', textDecoration: 'none' }}
                   borderRadius='4px'
@@ -375,7 +357,7 @@ const Landing = ({ submitted, togglePanel }) => {
       >
         <Button
           w='90%'
-          color='#FFF'
+          color='#fff'
           bg='orange'
           borderRadius='24px'
           fontSize='xl'

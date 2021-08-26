@@ -10,8 +10,8 @@ const SEO = () => {
         {`
           var dataLayer = (window.dataLayer = window.dataLayer || []);
           dataLayer.push({
-            gCampaign: "climate",
-            gBasket: "earthday",
+            gCampaign: "arctic",
+            gBasket: "arctic",
           });
         `}
       </script>
