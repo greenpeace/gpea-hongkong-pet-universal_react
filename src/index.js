@@ -8,7 +8,8 @@ import { hydrate, render } from "react-dom";
 import TagManager from "react-gtm-module";
 
 import "./index.css";
-import "./fontawesome";
+// unused fontawesome
+// import "./fontawesome";
 
 /* GTM is only applicable for production env */
 if (process.env.NODE_ENV === "production") {
@@ -20,6 +21,11 @@ if (process.env.NODE_ENV === "production") {
     TagManager.initialize(tagManagerArgs);
   }
 }
+
+/* Set AB testing version */
+
+window.version = "A";
+console.log("version init");
 
 const rootElement = document.getElementById("root");
 

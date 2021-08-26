@@ -9,7 +9,7 @@ const initState = {
   lastAction: null,
   submitted: false,
   abTesting: false,
-  variant: 0
+  variant: 0,
 };
 
 const themeReducer = (state = initState, action) => {
@@ -74,15 +74,14 @@ const themeReducer = (state = initState, action) => {
     case Actions.ACTIVE_AB_TESTING:
       return {
         ...state,
-        abTesting: action.bol
+        abTesting: action.bol,
       };
-    
+
     case Actions.SET_VARIANT:
       return {
         ...state,
-        variant: action.value
+        variant: action.value,
       };
-
 
     default:
       return state;

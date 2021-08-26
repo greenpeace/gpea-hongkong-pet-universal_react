@@ -70,14 +70,8 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
   };
 
   const TextField = (props) => {
-    const {
-      name,
-      label,
-      placeholder,
-      accepter,
-      handleOnChange,
-      ...rest
-    } = props;
+    const { name, label, placeholder, accepter, handleOnChange, ...rest } =
+      props;
     return (
       <FormGroup>
         {label && <ControlLabel>{label} </ControlLabel>}
@@ -111,7 +105,7 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
     <>
       <FadeInSection>
         <Form
-          name="form"
+          name='form'
           model={model}
           ref={refForm}
           onSubmit={(d) => handleSubmit(d)}
@@ -119,11 +113,11 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
           formDefaultValue={formDefaultValue}
         >
           <Grid fluid>
-            <Row className="show-grid">
+            <Row className='show-grid'>
               <Col xs={24}>
-                <div className="section-title">
+                <div className='section-title'>
                   <h2>Q1: 您認為以下哪些環保議題最重要 (最多選擇兩項)</h2>
-                  <CustomField name="q1" accepter={CheckboxGroup} inline>
+                  <CustomField name='q1' accepter={CheckboxGroup} inline>
                     {survey.q1.map((d) => (
                       <Checkbox key={d.label} value={d.value}>
                         {d.label}
@@ -131,12 +125,12 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
                     ))}
                   </CustomField>
                 </div>
-                <div className="section-title">
+                <div className='section-title'>
                   <h2>
                     Q2:
                     您認為以下哪些項目最適合於香港推動，幫助環境（最多選擇兩項）
                   </h2>
-                  <CustomField name="q2" accepter={CheckboxGroup} inline>
+                  <CustomField name='q2' accepter={CheckboxGroup} inline>
                     {survey.q2.map((d) => (
                       <Checkbox key={d.label} value={d.value}>
                         {d.label}
@@ -145,12 +139,12 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
                   </CustomField>
                 </div>
 
-                <div className="section-title">
+                <div className='section-title'>
                   <h2>
                     Q3:
                     您知道綠色和平不接受政府、企業資助，100%倚賴市民支持得以創造環保成就嗎？
                   </h2>
-                  <CustomField name="q3" accepter={RadioGroup} inline>
+                  <CustomField name='q3' accepter={RadioGroup} inline>
                     {survey.q3.map((d) => (
                       <Radio key={d.label} value={d.value}>
                         {d.label}
@@ -159,15 +153,15 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
                   </CustomField>
                 </div>
 
-                <div className="section-title">
+                <div className='section-title'>
                   <h2>Q4: 面對 2021年，您還想告訴我們甚麼？</h2>
-                  <Row className="show-grid">
+                  <Row className='show-grid'>
                     <Col xs={24}>
                       <FormGroup>
                         <TextField
-                          componentClass="textarea"
-                          name="q4"
-                          autoComplete="off"
+                          componentClass='textarea'
+                          name='q4'
+                          autoComplete='off'
                           style={{ height: "150px" }}
                         />
                       </FormGroup>
@@ -175,9 +169,9 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
                   </Row>
                 </div>
 
-                <div className="section-title">
+                <div className='section-title'>
                   <h2>Q5: 您的年齡是？</h2>
-                  <CustomField name="q5" accepter={RadioGroup} inline>
+                  <CustomField name='q5' accepter={RadioGroup} inline>
                     {survey.q5.map((d) => (
                       <Radio key={d.label} value={d.value}>
                         {d.label}
@@ -186,53 +180,53 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
                   </CustomField>
                 </div>
 
-                <div className="section-title">
+                <div className='section-title'>
                   <h2>個人資料</h2>
 
-                  <Row className="show-grid">
+                  <Row className='show-grid'>
                     <Col xs={24} md={8}>
                       <FormGroup>
                         <TextField
-                          name="email"
+                          name='email'
                           placeholder={formContent.label_email}
                           label={formContent.label_email}
-                          autoComplete="off"
+                          autoComplete='off'
                         />
                       </FormGroup>
                     </Col>
                   </Row>
 
-                  <Row className="show-grid">
+                  <Row className='show-grid'>
                     <Col xs={24} md={8}>
                       <FormGroup>
                         <TextField
-                          name="lastName"
+                          name='lastName'
                           placeholder={formContent.label_last_name}
                           label={formContent.label_last_name}
-                          autoComplete="off"
+                          autoComplete='off'
                         />
                       </FormGroup>
                     </Col>
                   </Row>
 
-                  <Row className="show-grid">
+                  <Row className='show-grid'>
                     <Col xs={24} md={8}>
                       <FormGroup>
                         <TextField
-                          name="firstName"
+                          name='firstName'
                           placeholder={formContent.label_first_name}
                           label={formContent.label_first_name}
-                          autoComplete="off"
+                          autoComplete='off'
                         />
                       </FormGroup>
                     </Col>
                   </Row>
                 </div>
 
-                <Row className="show-grid">
+                <Row className='show-grid'>
                   <Col xs={24}>
-                    <div className="custom-form-reminder">
-                      <Checkbox name="OptIn" ref={refCheckbox} defaultChecked>
+                    <div className='custom-form-reminder'>
+                      <Checkbox name='OptIn' ref={refCheckbox} defaultChecked>
                         {formContent.form_remind}
                       </Checkbox>
                     </div>
@@ -241,11 +235,11 @@ let SurveyForm = ({ submitForm, submitted, formContent = content }) => {
               </Col>
             </Row>
 
-            <FlexboxGrid justify="center">
+            <FlexboxGrid justify='center'>
               <FlexboxGrid.Item colspan={10}>
                 <button
-                  type="submit"
-                  className="custom-button custom-button-active"
+                  type='submit'
+                  className='custom-button custom-button-active'
                 >
                   {formContent.submit_text}
                 </button>

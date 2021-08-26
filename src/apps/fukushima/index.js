@@ -14,6 +14,9 @@ import formContent from "./data/formContent.json";
 
 import "./app.less";
 
+<<<<<<< HEAD
+const Index = ({ initState, fakeSubmit, submitted }) => {
+=======
 const Index = ({
   initState,
   fakeSubmit,
@@ -22,6 +25,7 @@ const Index = ({
   setVariant,
 }) => {
   /*
+>>>>>>> b3a76c9d1bcda93e86b0f586060c2bf31cb6f46b
   useEffect(() => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -48,13 +52,7 @@ const Index = ({
     // let countdown = 10
 
     const intervalId = setInterval(() => {
-      // For checking loop
 
-      // console.log('loop')
-      // countdown -= 1
-      // if(countdown === 0){
-      //   clearInterval(intervalId);
-      // }
 
       if (window.google_optimize !== undefined) {
         const variant = window.google_optimize.get(
@@ -75,36 +73,30 @@ const Index = ({
       }
     }, 500);
 
-    // if (window.google_optimize) {
-    //   const variant = await window.google_optimize.get(
-    //     process.env.REACT_APP_EXPERIMENT_ID
-    //   );
-    //   console.log("variant--", variant);
-    //   if (variant == 0 || variant === undefined) {
-    //     setVariant(0);
-    //   } else {
-    //     setVariant(1);
-    //   }
-    // }
+
   }, []);
 
   return (
     <>
       <SEO />
-      <div id="main">
+      <div id='main'>
         <Header />
         <Aside />
-        <div id="wrapper">
-          <div className="content full-height" data-pagetitle="Home slider">
+        <div id='wrapper'>
+          <div className='content full-height' data-pagetitle='Home slider'>
             <SlideScreen />
           </div>
         </div>
       </div>
-      <div className="custom-form-wrap">
+      <div className='custom-form-wrap'>
         {submitted ? (
           <SubmittedForm formContent={formContent} />
         ) : (
+<<<<<<< HEAD
+          <RegistrationForm version={true} />
+=======
           <RegistrationForm version={true} formContent={formContent} />
+>>>>>>> b3a76c9d1bcda93e86b0f586060c2bf31cb6f46b
         )}
       </div>
       <Panel formContent={formContent} />
