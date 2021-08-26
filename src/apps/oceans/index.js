@@ -20,38 +20,39 @@ const Index = ({
   activeABTesting,
   setVariant,
 }) => {
-  useEffect(async () => {
-    console.log(
-      'process.env.REACT_APP_EXPERIMENT_ID--',
-      process.env.REACT_APP_EXPERIMENT_ID
-    )
-    // active AB Testing
-    activeABTesting(true)
-    if (window.dataLayer) {
-      await window.dataLayer.push({ event: 'optimize.activate' })
+  useEffect(() => {
+    async function activateABTesting() {
+      console.log(
+        'process.env.REACT_APP_EXPERIMENT_ID--',
+        process.env.REACT_APP_EXPERIMENT_ID
+      )
+
+      // active AB Testing
+      activeABTesting(true)
+      if (window.dataLayer) {
+        await window.dataLayer.push({ event: 'optimize.activate' })
+      }
+
+      const intervalId = setInterval(() => {
+        if (window.google_optimize !== undefined) {
+          const variant = window.google_optimize.get(
+            process.env.REACT_APP_EXPERIMENT_ID
+          )
+          if (variant === 0 || variant === undefined) {
+            setVariant(0)
+            document.querySelector("input[name='CampaignData1__c']").value =
+              'Version A'
+          } else {
+            setVariant(1)
+            document.querySelector("input[name='CampaignData1__c']").value =
+              'Version B'
+          }
+          clearInterval(intervalId)
+        }
+      }, 500)
     }
 
-    // let countdown = 10
-
-    const intervalId = setInterval(() => {
-      if (window.google_optimize !== undefined) {
-        const variant = window.google_optimize.get(
-          process.env.REACT_APP_EXPERIMENT_ID
-        )
-        if (variant == 0 || variant === undefined) {
-          setVariant(0)
-          //
-          document.querySelector("input[name='CampaignData1__c']").value =
-            'Version A'
-        } else {
-          setVariant(1)
-          //
-          document.querySelector("input[name='CampaignData1__c']").value =
-            'Version B'
-        }
-        clearInterval(intervalId)
-      }
-    }, 500)
+    activateABTesting()
   }, [])
 
   return (
