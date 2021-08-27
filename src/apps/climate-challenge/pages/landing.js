@@ -59,70 +59,61 @@ const tomContent = [
   },
 ]
 
+const Speaker = ({ image, name, title, content, other }) => (
+  <Box mt={6} py={4}>
+    <SimpleGrid
+      columns={{ base: 1 }}
+      p={6}
+      borderRadius={'md'}
+      bordertype='solid'
+      borderWidth='1px'
+      borderColor='brand.400'
+    >
+      <Box flex='1'>
+        <Stack
+          direction={['column', 'row']}
+          columns={{ base: 1, xl: 2 }}
+          alignItems='center'
+          spacing='8px'
+          mb={4}
+        >
+          <Avatar size='xl' name={name} src={image} bgColor='#fff' />
+          <Box pt={4}>
+            <Heading fontSize='2xl' mb={2}>
+              <Text color='brand.900'>{name}</Text>
+            </Heading>
+            <Heading color='gray.500' fontSize='md'>
+              {title}
+            </Heading>
+          </Box>
+        </Stack>
+
+        <Text variant='paragraph' pb={4}>
+          {content}
+        </Text>
+        <Flex justifyContent='flex-end' fontSize={{ base: '10px', sm: '12px' }}>
+          {other && (
+            <HStack spacing={1}>
+              <Box>
+                <Text>綠色和平氣候項目主任</Text>
+              </Box>
+            </HStack>
+          )}
+        </Flex>
+      </Box>
+    </SimpleGrid>
+  </Box>
+)
+
 const Landing = ({ submitted, togglePanel }) => {
   const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
-  const Speaker = ({ image, name, title, content, other }) => (
-    <Box mt={6} py={4}>
-      <SimpleGrid
-        columns={{ base: 1 }}
-        p={6}
-        borderRadius={'md'}
-        bordertype='solid'
-        borderWidth='1px'
-        borderColor='brand.400'
-      >
-        <Box flex='1'>
-          <Stack
-            direction={['column', 'row']}
-            columns={{ base: 1, xl: 2 }}
-            alignItems='center'
-            spacing='8px'
-            mb={4}
-          >
-            <Avatar size='xl' name={name} src={image} bgColor='#fff' />
-            <Box pt={4}>
-              <Heading fontSize='2xl' mb={2}>
-                <Text color='brand.900'>{name}</Text>
-              </Heading>
-              <Heading color='gray.500' fontSize='md'>
-                {title}
-              </Heading>
-            </Box>
-          </Stack>
 
-          <Text variant='paragraph' pb={4}>
-            {content}
-          </Text>
-          <Flex
-            justifyContent='flex-end'
-            fontSize={{ base: '10px', sm: '12px' }}
-          >
-            {other && (
-              <HStack spacing={1}>
-                <Box>
-                  <Text>綠色和平氣候項目主任</Text>
-                </Box>
-              </HStack>
-            )}
-          </Flex>
-        </Box>
-      </SimpleGrid>
-    </Box>
-  )
   const pStyle = {
     as: 'p',
     marginTop: '20px',
     color: 'gray.900',
     lineHeight: '1.5',
     fontSize: '16px',
-  }
-
-  const subStyle = {
-    as: 'p',
-    marginTop: '20px',
-    color: 'gray.700',
-    lineHeight: '1.5',
-    fontSize: '14px',
   }
 
   const dividerProps = {
@@ -216,8 +207,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   color='gray.900'
                   lineHeight={1.2}
                 >
-                  <Text color='#FA6A11'>網上科學 101</Text>
-                  <Text>氣候危機警告現正生效：點樣影響香港人？</Text>
+                  您有想過，香港人也可以為氣候危機出一分力嗎？
                 </Text>
               </Box>
             </Stack>
@@ -227,28 +217,30 @@ const Landing = ({ submitted, togglePanel }) => {
                 <Flex direction='row' align='center'>
                   <Box>
                     <Text {...pStyle}>
-                      氣候危機已到達不能忽視的境界！南北兩極破紀錄高溫，多地森林大火，東亞連串風災水災，我們居住的香港氣溫更屢創新高。氣候危機的影響並非遠在天邊，我們日常的食物，如咖啡豆、三文魚、蜂蜜等亦可能受氣候變化影響而消失。香港這一代人見證著連環極端天氣事件對人類的影響，更提醒了我們不能忽視氣候危機。
+                      美加熱浪、洪水侵襲歐洲、亞洲多國...從前看似遠在天邊的氣候危機，已成為影響全球的「新常態」。
+                      <br />
+                      身處香港，我們都可以出一分力，為地球減緩氣候危機！
                     </Text>
-                  </Box>
-                </Flex>
-
-                <Flex direction='row' align='center'>
-                  <Box>
                     <Text {...pStyle}>
-                      綠色和平邀請到大氣科學家、「世界氣象組織青年科學家研究獎」得獎者、中文大學地球系統科學課程副教授戴沛權（Amos）來與綠色和平項目主任伍漢林（Tom）
-                      對談，深入淺出地講解近年氣候變化趨勢，以及為香港人帶來的生活影響。想知道氣候變化如何影響我們熟悉的食物？我們又可以做什麼拯救氣候？立即報名「氣候危機警告現正生效：點樣影響香港人？」網上分享會，一起裝備大腦，拯救地球！
+                      今年9月，綠色和平將舉辦「減碳生活節」，帶領更多市民在日常中實踐減碳生活。
+                    </Text>
+                    <Text {...pStyle}>
+                      同時，為答謝您對地球減碳的承諾，您將獲邀參加在10月1日及2日的「Coffee
+                      Meets
+                      Climate」體驗日，屆時會以多項有趣活動，讓您及公眾感受怎樣在日常生活中輕鬆地減低碳足跡，及認識眾多您不知道有關食物及氣候變化的關係，趕在9月28日前登記，免費體驗減碳生活，給地球一個coffee
+                      break！
                     </Text>
                   </Box>
                 </Flex>
               </Box>
             </Flex>
 
-            <Flex direction='column'>
+            {/* <Flex direction='column'>
               <TestmonialCard content={amosContent} />
               <TestmonialCard content={tomContent} />
-            </Flex>
+            </Flex> */}
 
-            <Flex direction={{ base: 'column', sm: 'row' }}>
+            {/* <Flex direction={{ base: 'column', sm: 'row' }}>
               <Box flex={1} pr={{ base: 0, sm: 3 }}>
                 <Image borderRadius='4px' marginTop='6' src={info01} />
                 <Text {...subStyle}>
@@ -261,7 +253,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   經過綠色和平長達3年的推動，荷蘭法院終裁定化石能源企業SHELL須為氣候危機負責，他們必須在9年內將其碳排放量，由2019年的水平大幅減少45％。
                 </Text>
               </Box>
-            </Flex>
+            </Flex> */}
 
             <Divider my={{ base: 8, lg: 10 }} />
 
