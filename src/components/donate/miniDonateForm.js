@@ -50,7 +50,7 @@ const MiniDonateForm = (props) => {
   }
 
   const targetDonateURL =
-    'https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=arctic'
+    'https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=climate'
 
   const handleOpenLink = (value) => {
     window.open(`${targetDonateURL}&donate_amt=${donateType}:${amount}`)
@@ -62,6 +62,8 @@ const MiniDonateForm = (props) => {
         <Stack
           direction='row'
           spacing={0}
+          border='1px'
+          borderColor='gray.100'
           borderRadius={'md'}
           overflow={'hidden'}
         >
@@ -73,7 +75,7 @@ const MiniDonateForm = (props) => {
               fontWeight='400'
               borderRadius={0}
               bg={donateType === d.value ? 'brand.500' : '#fff'}
-              color={donateType === d.value ? '#fff' : 'brand.500'}
+              color={donateType === d.value ? '#fff' : 'gray.500'}
               onClick={() => handleSetDonateType(d.value)}
             >
               {d.label}
@@ -93,6 +95,8 @@ const MiniDonateForm = (props) => {
                     <Button
                       key={d.value}
                       flex='1'
+                      border='1px'
+                      borderColor='gray.100'
                       bg={amount === d.value ? 'brand.500' : '#fff'}
                       color={amount === d.value ? '#fff' : 'gray.500'}
                       borderRadius={'md'}

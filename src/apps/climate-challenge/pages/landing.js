@@ -1,4 +1,3 @@
-// import "swiper/swiper.scss";
 import * as themeActions from 'store/actions/action-types/theme-actions'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -6,7 +5,6 @@ import { useMediaQuery } from 'react-responsive'
 import Sticky from 'react-sticky-el'
 import {
   ChakraProvider,
-  Avatar,
   Box,
   Button,
   Divider,
@@ -14,10 +12,8 @@ import {
   Flex,
   Text,
   Heading,
-  HStack,
   SimpleGrid,
   Stack,
-  Icon,
 } from '@chakra-ui/react'
 import SEO from '../SEO'
 import content from '../data/content'
@@ -27,83 +23,11 @@ import Footer from '../components/footer'
 import NewFrameForm from 'components/form/newFrameForm'
 import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
 import Panel from 'components/panel/newFormPanel'
-import TestmonialCard from 'components/sections/testimonial'
 import themeConfig from '../../../theme'
 
-import amos from '../assets/images/8.png'
-import tom from '../assets/images/9.png'
-import info01 from '../assets/images/info-01.jpeg'
-import info02 from '../assets/images/info-02.jpg'
-
-import { IoTimeSharp } from 'react-icons/io5'
-import { SiAirplayvideo } from 'react-icons/si'
-import { BiCalendar } from 'react-icons/bi'
-
-const amosContent = [
-  {
-    name: '戴沛權 Amos',
-    role: '大氣科學家、中文大學地球系統科學課程副教授',
-    content:
-      '大氣科學家、中文大學地球系統科學課程副教授，曾獲聯合國頒發「世界氣象組織青年科學家研究獎」，是全港首位奪得此獎的科學家。Amos專門研究氣候變化、空氣污染、農業與人類健康的關係，同時探究如何以可持續森林與土地管理等方法，緩解氣候危機。Amos曾於去年與綠色和平和少年氣候行動者Lance合作，拍攝氣候變化課堂。今年，Amos繼續向大眾推廣氣候教育，網上分享氣候變化對香港的影響。',
-    avatar: amos,
-  },
-]
-
-const tomContent = [
-  {
-    name: '伍漢林 Tom',
-    role: '綠色和平氣候項目主任',
-    content:
-      '綠色和平項目主任，倡議及推動政府尋求應對氣候危機的方案。亦希望集合社會各界的每一份力量，為拯救脆弱的氣候出一分力，一起發聲，壯大守護氣候的聲音。',
-    avatar: tom,
-  },
-]
-
-const Speaker = ({ image, name, title, content, other }) => (
-  <Box mt={6} py={4}>
-    <SimpleGrid
-      columns={{ base: 1 }}
-      p={6}
-      borderRadius={'md'}
-      bordertype='solid'
-      borderWidth='1px'
-      borderColor='brand.400'
-    >
-      <Box flex='1'>
-        <Stack
-          direction={['column', 'row']}
-          columns={{ base: 1, xl: 2 }}
-          alignItems='center'
-          spacing='8px'
-          mb={4}
-        >
-          <Avatar size='xl' name={name} src={image} bgColor='#fff' />
-          <Box pt={4}>
-            <Heading fontSize='2xl' mb={2}>
-              <Text color='brand.900'>{name}</Text>
-            </Heading>
-            <Heading color='gray.500' fontSize='md'>
-              {title}
-            </Heading>
-          </Box>
-        </Stack>
-
-        <Text variant='paragraph' pb={4}>
-          {content}
-        </Text>
-        <Flex justifyContent='flex-end' fontSize={{ base: '10px', sm: '12px' }}>
-          {other && (
-            <HStack spacing={1}>
-              <Box>
-                <Text>綠色和平氣候項目主任</Text>
-              </Box>
-            </HStack>
-          )}
-        </Flex>
-      </Box>
-    </SimpleGrid>
-  </Box>
-)
+import kv from '../assets/images/kv.jpg'
+import desktopflow from '../assets/images/climate-challenge-flow-desktop.jpg'
+import mobileflow from '../assets/images/climate-challenge-flow.jpg'
 
 const Landing = ({ submitted, togglePanel }) => {
   const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
@@ -114,21 +38,6 @@ const Landing = ({ submitted, togglePanel }) => {
     color: 'gray.900',
     lineHeight: '1.5',
     fontSize: '16px',
-  }
-
-  const dividerProps = {
-    orientation: { base: 'horizontal', xl: 'vertical' },
-    bgColor: '#fff',
-    h: { base: '1px', xl: '60px' },
-    w: { base: '100%', xl: '1px' },
-    my: { base: 2, md: 4 },
-    opacity: { base: 0.2 },
-  }
-
-  const webinarProps = {
-    fontSize: { base: 18, xl: 20 },
-    fontWeight: 700,
-    pl: 2,
   }
 
   return (
@@ -143,59 +52,7 @@ const Landing = ({ submitted, togglePanel }) => {
         <Box className='wrap' flex='1' style={{ minWidth: '0px' }}>
           <Box px={{ base: 4 }} py={{ base: 4 }}>
             <Box>
-              <Image
-                src='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/07/c35d9bc0-climate-food-webinar-banner-or.jpg'
-                borderTopRightRadius='8px'
-                borderTopLeftRadius='8px'
-              />
-            </Box>
-            <Box
-              bgColor='#000'
-              px={4}
-              py={{ base: 2, md: 6 }}
-              borderBottomRightRadius={8}
-              borderBottomLeftRadius={8}
-            >
-              <Flex
-                direction={{ base: 'column', xl: 'row' }}
-                justifyContent='space-around'
-                color='#fff'
-                align={{ base: 'left', xl: 'center' }}
-              >
-                <Box>
-                  <Stack align='center' spacing={0}>
-                    {/* {!isMobile && <Text color='#A0AEC0'>日期：</Text>} */}
-                    <Flex align='center'>
-                      <Icon as={BiCalendar} color={'#FA6A11'} w={5} h={5} />
-                      <Text {...webinarProps}>2021年8月5日</Text>
-                    </Flex>
-                    <Text>(星期四)</Text>
-                  </Stack>
-                </Box>
-                <Divider {...dividerProps} />
-                <Box>
-                  <Stack align='center' spacing={0}>
-                    {/* {!isMobile && <Text color='#A0AEC0'>時間：</Text>} */}
-                    <Flex align='center'>
-                      <Icon as={IoTimeSharp} color={'#FA6A11'} w={5} h={5} />
-                      <Text {...webinarProps}>晚上8時至9時</Text>
-                    </Flex>
-
-                    <Text d={{ base: 'none', xl: 'block' }}> &nbsp;</Text>
-                  </Stack>
-                </Box>
-                <Divider {...dividerProps} />
-                <Box>
-                  <Stack align='center' spacing={0}>
-                    {/* {!isMobile && <Text color='#A0AEC0'>線上分享會平台：</Text>} */}
-                    <Flex align='center'>
-                      <Icon as={SiAirplayvideo} color={'#FA6A11'} w={5} h={5} />
-                      <Text {...webinarProps}>Zoom</Text>
-                    </Flex>
-                    <Text>(網上登記後會獲得相關鏈結和密碼)</Text>
-                  </Stack>
-                </Box>
-              </Flex>
+              <Image src={kv} borderRadius={'md'} />
             </Box>
 
             <Stack pt={8} pb={4}>
@@ -230,30 +87,25 @@ const Landing = ({ submitted, togglePanel }) => {
                       Climate」體驗日，屆時會以多項有趣活動，讓您及公眾感受怎樣在日常生活中輕鬆地減低碳足跡，及認識眾多您不知道有關食物及氣候變化的關係，趕在9月28日前登記，免費體驗減碳生活，給地球一個coffee
                       break！
                     </Text>
+
+                    <Image
+                      mt={'md'}
+                      borderRadius='4px'
+                      src={mobileflow}
+                      alignSelf='center'
+                    />
+
+                    {/* <Image
+                      className='pure-visible-desktop'
+                      mt={'md'}
+                      borderRadius='4px'
+                      src={desktopflow}
+                      alignSelf='center'
+                    /> */}
                   </Box>
                 </Flex>
               </Box>
             </Flex>
-
-            {/* <Flex direction='column'>
-              <TestmonialCard content={amosContent} />
-              <TestmonialCard content={tomContent} />
-            </Flex> */}
-
-            {/* <Flex direction={{ base: 'column', sm: 'row' }}>
-              <Box flex={1} pr={{ base: 0, sm: 3 }}>
-                <Image borderRadius='4px' marginTop='6' src={info01} />
-                <Text {...subStyle}>
-                  綠色和平走到深水埗鬧市，展示巨型溫度計，呼籲港人正視氣候變化。
-                </Text>
-              </Box>
-              <Box flex={1} pl={{ base: 0, sm: 3 }}>
-                <Image borderRadius='4px' marginTop='6' src={info02} />
-                <Text {...subStyle}>
-                  經過綠色和平長達3年的推動，荷蘭法院終裁定化石能源企業SHELL須為氣候危機負責，他們必須在9年內將其碳排放量，由2019年的水平大幅減少45％。
-                </Text>
-              </Box>
-            </Flex> */}
 
             <Divider my={{ base: 8, lg: 10 }} />
 
@@ -295,7 +147,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   w={'120px'}
                   onClick={() =>
                     window.open(
-                      'https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=climate&ref=climatexfood-thankyou'
+                      'https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=climate&ref=climate-challenge-thankyou'
                     )
                   }
                 >
