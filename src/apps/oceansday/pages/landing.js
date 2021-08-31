@@ -1,7 +1,7 @@
-import "swiper/swiper.scss";
-import React, { useRef } from "react";
-import { connect } from "react-redux";
-import Sticky from "react-sticky-el";
+import 'swiper/swiper.scss'
+import React, { useRef } from 'react'
+import { connect } from 'react-redux'
+import Sticky from 'react-sticky-el'
 import {
   ChakraProvider,
   Box,
@@ -14,96 +14,96 @@ import {
   Link,
   Stack,
   Center,
-} from "@chakra-ui/react";
-import SEO from "../SEO";
-import content from "../data/content";
-import Nav from "../components/header/nav";
-import Footer from "../components/footer";
-import SimpleCarousel from "components/banner/imageCarousel";
-import Webinar from "components/sections/webinar";
-import NewFrameForm from "components/form/newFrameForm";
-import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
-import Panel from "components/panel/newFormPanel";
+} from '@chakra-ui/react'
+import SEO from '../SEO'
+import content from '../data/content'
+import Nav from '../components/header/nav'
+import Footer from '../components/footer'
+import SimpleCarousel from 'components/banner/imageCarousel'
+import Webinar from 'components/sections/webinar'
+import NewFrameForm from 'components/form/newFrameForm'
+import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
+import Panel from 'components/panel/newFormPanel'
 
-import * as themeActions from "store/actions/action-types/theme-actions";
-import themeConfig from "../../../theme";
-import { HiArrowNarrowRight, HiArrowNarrowLeft } from "react-icons/hi";
+import * as themeActions from 'store/actions/action-types/theme-actions'
+import themeConfig from '../../../theme'
+import { HiArrowNarrowRight, HiArrowNarrowLeft } from 'react-icons/hi'
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
-import "swiper/swiper.min.css";
-import "swiper/components/navigation/navigation.min.css";
+import 'swiper/swiper.min.css'
+import 'swiper/components/navigation/navigation.min.css'
 
 // import Swiper core and required modules
-import SwiperCore, { Navigation } from "swiper/core";
+import SwiperCore, { Navigation } from 'swiper/core'
 
-import banner from "../assets/images/hero_v2.jpg";
-import kellyProfile from "../assets/images/MD-GP-PORTRAITKELLYHUANG001.jpg";
-import thumbnail from "../assets/images/GP0STUTFE_Medium_res.jpg";
-import thumbnailTwo from "../assets/images/GP1SUZTO_Medium_res.jpg";
-import thumbnailThree from "../assets/images/GP1SV4UD_High_res.jpg";
-import swiper1 from "../assets/images/swiper1.jpg";
-import swiper2 from "../assets/images/swiper2.jpg";
-import swiper3 from "../assets/images/swiper3.jpg";
-import swiper4 from "../assets/images/swiper4.jpg";
-import swiper5 from "../assets/images/swiper5.jpg";
+import banner from '../assets/images/hero_v2.jpg'
+import kellyProfile from '../assets/images/MD-GP-PORTRAITKELLYHUANG001.jpg'
+import thumbnail from '../assets/images/GP0STUTFE_Medium_res.jpg'
+import thumbnailTwo from '../assets/images/GP1SUZTO_Medium_res.jpg'
+import thumbnailThree from '../assets/images/GP1SV4UD_High_res.jpg'
+import swiper1 from '../assets/images/swiper1.jpg'
+import swiper2 from '../assets/images/swiper2.jpg'
+import swiper3 from '../assets/images/swiper3.jpg'
+import swiper4 from '../assets/images/swiper4.jpg'
+import swiper5 from '../assets/images/swiper5.jpg'
 
 const Landing = ({ submitted, togglePanel }) => {
-  const swiperRef = useRef(null);
+  const swiperRef = useRef(null)
   const subHeadline = {
-    color: "gray.700",
-    fontSize: "sm",
-    lineHeight: "1.5",
-    mt: "10",
-    mb: "4",
-    pl: "2",
-    borderLeft: "4px solid #00b474",
-  };
+    color: 'gray.700',
+    fontSize: 'sm',
+    lineHeight: '1.5',
+    mt: '10',
+    mb: '4',
+    pl: '2',
+    borderLeft: '4px solid #00b474',
+  }
   const creditLine = {
-    mt: "4",
-  };
+    mt: '4',
+  }
 
   const WebinarContent = {
-    title: "分享會詳情",
-    date: "日期：2021年6月19日（星期六）",
-    time: "時間：下午2時半至3時半",
-    description: "線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）",
-    other: "注意事項：活動將以普通話及粵語進行",
-  };
+    title: '分享會詳情',
+    date: '日期：2021年6月19日（星期六）',
+    time: '時間：下午2時半至3時半',
+    description: '線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）',
+    other: '注意事項：活動將以普通話及粵語進行',
+  }
 
   const thumbnailContent = [
     {
       thumbnail: thumbnailTwo,
-      credit: "© Marten van Dijl / Greenpeace",
+      credit: '© Marten van Dijl / Greenpeace',
       content:
-        "Kelly在航程中遇見野生海豚、吞拿魚、極度瀕危的欖蠵龜等海洋生物。",
+        'Kelly在航程中遇見野生海豚、吞拿魚、極度瀕危的欖蠵龜等海洋生物。',
     },
     {
       thumbnail: thumbnail,
-      credit: "© Marten van Dijl / Greenpeace",
+      credit: '© Marten van Dijl / Greenpeace',
       content:
-        "綠色和平團隊駕駛橡皮艇靠近巨大的採礦機器，舉起橫額與畫上「RISK」字眼抗議。",
+        '綠色和平團隊駕駛橡皮艇靠近巨大的採礦機器，舉起橫額與畫上「RISK」字眼抗議。',
     },
     {
       thumbnail: thumbnailThree,
-      credit: "© Marten van Dijl / Greenpeace",
+      credit: '© Marten van Dijl / Greenpeace',
       content:
-        "Kelly與團隊24小時站崗，觀察採礦機器的一舉一動，揭露企業污染海洋的真相。",
+        'Kelly與團隊24小時站崗，觀察採礦機器的一舉一動，揭露企業污染海洋的真相。',
     },
-  ];
+  ]
 
-  const simpleSwiperData = [swiper1, swiper2, swiper3, swiper4, swiper5];
+  const simpleSwiperData = [swiper1, swiper2, swiper3, swiper4, swiper5]
 
   // install Swiper modules
-  SwiperCore.use([Navigation]);
+  SwiperCore.use([Navigation])
 
   return (
     <ChakraProvider theme={themeConfig}>
       <SEO />
       <Nav showButton={false} />
       <Flex>
-        <Box flex='1' style={{ minWidth: "0px" }}>
+        <Box flex='1' style={{ minWidth: '0px' }}>
           <Box px={4} py={{ base: 4, md: 8 }} bgColor='#DEECFF'>
             <Box>
               <Image src={banner} borderRadius={8} />
@@ -123,7 +123,7 @@ const Landing = ({ submitted, togglePanel }) => {
             <Box>
               <Text
                 as='h1'
-                fontSize={{ base: "2xl", sm: "3xl", xl: "4xl" }}
+                fontSize={{ base: '2xl', sm: '3xl', xl: '4xl' }}
                 fontWeight='bold'
                 color='gray.900'
                 lineHeight={1.2}
@@ -133,8 +133,8 @@ const Landing = ({ submitted, togglePanel }) => {
                 </Text>
               </Text>
             </Box>
-            <Flex direction={{ base: "column", sm: "row" }}>
-              <Box flex='1' style={{ minWidth: "0px" }}>
+            <Flex direction={{ base: 'column', sm: 'row' }}>
+              <Box flex='1' style={{ minWidth: '0px' }}>
                 <Divider my={{ base: 8 }} />
 
                 <Webinar content={WebinarContent} />
@@ -154,7 +154,7 @@ const Landing = ({ submitted, togglePanel }) => {
             </Flex>
           </Box>
 
-          <Box mt={"-30px"}>
+          <Box mt={'-30px'}>
             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 240'>
               <path
                 fill='#DEECFF'
@@ -166,39 +166,39 @@ const Landing = ({ submitted, togglePanel }) => {
 
           <Box bgColor='#DEECFF' px={6} mt={0}>
             <Box py={{ base: 4, sm: 10 }}>
-              <Box boxShadow='xl' borderRadius='8px' bgColor='#FFF'>
+              <Box boxShadow='xl' borderRadius='8px' bgColor='#fff'>
                 <Flex
-                  direction={{ base: "column", sm: "row" }}
+                  direction={{ base: 'column', sm: 'row' }}
                   justify='center'
                   align='center'
                   minWidth='0px'
                 >
                   <Box
-                    w={{ base: "100%", sm: "40%" }}
-                    h={{ base: "240px", md: "480px" }}
+                    w={{ base: '100%', sm: '40%' }}
+                    h={{ base: '240px', md: '480px' }}
                     pos='relative'
                   >
                     <Image
                       src={thumbnailThree}
                       borderTopRadius='8px'
-                      d={{ base: "block", sm: "none" }}
+                      d={{ base: 'block', sm: 'none' }}
                     />
                     <Center
-                      d={{ base: "none", sm: "block" }}
+                      d={{ base: 'none', sm: 'block' }}
                       bgImage={`url(${kellyProfile})`}
-                      pos={{ base: "relative", sm: "absolute" }}
+                      pos={{ base: 'relative', sm: 'absolute' }}
                       top={0}
                       left={0}
                       right={0}
                       bottom={0}
                       h='100%'
                       w='100%'
-                      bgSize={"cover"}
+                      bgSize={'cover'}
                       bgPosition='center center'
                       borderLeftRadius='8px'
                     />
                   </Box>
-                  <Box w={{ base: "100%", sm: "60%" }}>
+                  <Box w={{ base: '100%', sm: '60%' }}>
                     <Stack direction='column' px={4} py={8}>
                       <Box mb={{ base: 2, sm: 6 }}>
                         <Text variant='authorName'>黃毓琪 Kelly</Text>
@@ -261,7 +261,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   <Box
                     px={2}
                     opacity={0.6}
-                    _hover={{ cursor: "pointer", opacity: 1 }}
+                    _hover={{ cursor: 'pointer', opacity: 1 }}
                     onClick={() => swiperRef.current.swiper.slidePrev()}
                   >
                     <HiArrowNarrowLeft fontSize={24} />
@@ -269,7 +269,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   <Box
                     px={2}
                     opacity={0.6}
-                    _hover={{ cursor: "pointer", opacity: 1 }}
+                    _hover={{ cursor: 'pointer', opacity: 1 }}
                     onClick={() => swiperRef.current.swiper.slideNext()}
                   >
                     <HiArrowNarrowRight fontSize={24} />
@@ -283,14 +283,14 @@ const Landing = ({ submitted, togglePanel }) => {
             <Divider my={{ base: 8, lg: 10 }} />
 
             <Stack
-              direction={{ base: "column", sm: "row" }}
+              direction={{ base: 'column', sm: 'row' }}
               mt='4'
               spacing={{ base: 10 }}
             >
               <Box flex='1' minWidth='0px'>
                 <SimpleCarousel
                   swiperData={simpleSwiperData}
-                  style={{ borderRadius: "8px" }}
+                  style={{ borderRadius: '8px' }}
                 />
               </Box>
               <Stack spacing={4} flex='1'>
@@ -298,7 +298,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   as='h2'
                   size='lg'
                   color='brand.500'
-                  style={{ lineHeight: "1.2" }}
+                  style={{ lineHeight: '1.2' }}
                 >
                   守護全球海洋
                   <br />
@@ -315,9 +315,9 @@ const Landing = ({ submitted, togglePanel }) => {
                 >
                   <Button
                     mt='2'
-                    color='#FFF'
+                    color='#fff'
                     bg='brand.500'
-                    _hover={{ bg: "brand.400" }}
+                    _hover={{ bg: 'brand.400' }}
                     borderRadius='4px'
                     fontSize='md'
                     type='button'
@@ -334,10 +334,10 @@ const Landing = ({ submitted, togglePanel }) => {
           </Box>
         </Box>
         <Box
-          w={{ base: 0, md: "50%", lg: "500px" }}
+          w={{ base: 0, md: '50%', lg: '500px' }}
           px='4'
           py={{ base: 4, md: 8 }}
-          d={{ base: "none", md: "block" }}
+          d={{ base: 'none', md: 'block' }}
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
             {submitted ? (
@@ -361,19 +361,19 @@ const Landing = ({ submitted, togglePanel }) => {
         p='4'
         w='100%'
         style={{
-          background: "rgba(255, 255, 255, 0.8)",
-          borderColor: "rgba(255, 255, 255, 0.8)",
-          boxShadow: "0px 0px 20px 0px rgb(0 0 0 / 10%)",
-          paddingTop: "6px",
-          paddingBottom: "8px",
-          alignItems: "center",
-          justifyContent: "center",
+          background: 'rgba(255, 255, 255, 0.8)',
+          borderColor: 'rgba(255, 255, 255, 0.8)',
+          boxShadow: '0px 0px 20px 0px rgb(0 0 0 / 10%)',
+          paddingTop: '6px',
+          paddingBottom: '8px',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
-        d={{ base: "flex", md: "none" }}
+        d={{ base: 'flex', md: 'none' }}
       >
         <Button
           w='80%'
-          color='#FFF'
+          color='#fff'
           bg='orange'
           borderRadius='24px'
           fontSize='xl'
@@ -392,21 +392,21 @@ const Landing = ({ submitted, togglePanel }) => {
       ></Panel>
       <Footer />
     </ChakraProvider>
-  );
-};
+  )
+}
 
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
     },
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Landing);
+export default connect(mapStateToProps, mapDispatchToProps)(Landing)

@@ -1,5 +1,5 @@
-import { Helmet } from "react-helmet-async";
-import React from "react";
+import { Helmet } from 'react-helmet-async'
+import React from 'react'
 
 const SEO = () => {
   return (
@@ -38,7 +38,7 @@ const SEO = () => {
         content='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/03/26435735-og-petition.jpeg'
       />
     </Helmet>
-  );
-};
+  )
+}
 
-export default SEO;
+export default SEO

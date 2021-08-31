@@ -1,4 +1,4 @@
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef, useLayoutEffect } from 'react'
 import {
   Container,
   Tabs,
@@ -12,14 +12,14 @@ import {
   Spacer,
   AddIcon,
   Button,
-} from "@chakra-ui/react";
-import GridWithHeader from "../feature/gridWithHeader";
-import ParallaxImage from "../parallex/parallexImages";
-import Sticky from "react-sticky-el";
-import { images } from "../parallex/images";
+} from '@chakra-ui/react'
+import GridWithHeader from '../feature/gridWithHeader'
+import ParallaxImage from '../parallex/parallexImages'
+import Sticky from 'react-sticky-el'
+import { images } from '../parallex/images'
 
 export default function TabView() {
-  const [currentTab, setCurrentTab] = useState(0);
+  const [currentTab, setCurrentTab] = useState(0)
   return (
     <>
       <Sticky stickyStyle={{ zIndex: 10 }}>
@@ -32,7 +32,7 @@ export default function TabView() {
           borderColor='gray.100'
           backgroundColor='#fff'
         >
-          <Container maxW={"6xl"} pb={1}>
+          <Container maxW={'6xl'} pb={1}>
             <Flex>
               <Box p='3' onClick={() => setCurrentTab(0)}>
                 內容
@@ -45,7 +45,7 @@ export default function TabView() {
               </Box>
               <Spacer />
               <Box p='1'>
-                <Button variant={"solid"} colorScheme={"teal"} size={"md"}>
+                <Button variant={'solid'} colorScheme={'teal'} size={'md'}>
                   立即聯署
                 </Button>
               </Box>
@@ -53,7 +53,7 @@ export default function TabView() {
           </Container>
         </Box>
       </Sticky>
-      <Container maxW={"6xl"} pb={24}>
+      <Container maxW={'6xl'} pb={24}>
         {currentTab === 1 &&
           images.map((image) => <ParallaxImage key={image.src} {...image} />)}
         {currentTab === 0 && (
@@ -64,5 +64,5 @@ export default function TabView() {
         )}
       </Container>
     </>
-  );
+  )
 }

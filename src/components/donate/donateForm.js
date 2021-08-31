@@ -11,7 +11,6 @@ import {
   Grid,
   GridItem,
 } from '@chakra-ui/react'
-import { faBox } from '@fortawesome/free-solid-svg-icons'
 
 const buttonStyle = {
   h: '48px',
@@ -36,7 +35,7 @@ const AMOUNT_MONTHLY = [
   { label: '其他金額', value: '' },
 ]
 
-const MiniDonateForm = () => {
+const DonateForm = () => {
   const [donateType, setDonateType] = useState('monthly')
   const [amount, setAmount] = useState(200)
   const [url, setURL] = useState({ type: donateType, amount: amount })
@@ -52,27 +51,29 @@ const MiniDonateForm = () => {
   }
 
   const targetDonateURL =
-    'https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=climate'
+    'https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=oceans'
 
   const handleOpenLink = (value) => {
-    window.open(`${targetDonateURL}&donate_amt=${donateType}:${amount}`)
+    window.open(
+      `${targetDonateURL}&donate_amt=${donateType}:${amount}&ref=oceansday-donate-form`
+    )
   }
 
   return (
     <Box>
-      {/* <Box>
-        <Heading as='h2' py={4} align={"center"}>
+      <Box>
+        <Heading as='h2' py={4} align={'center'}>
           守護地球，分秒必爭
         </Heading>
-        <Text as='p' py={2} align={"center"} variant='paragraph'>
+        <Text as='p' py={2} align={'center'} variant='paragraph'>
           <p
             dangerouslySetInnerHTML={{
               __html:
-                "綠色和平成立以來，堅持不接受政府、企業捐助，您捐助的一分一毫，能支持我們以公正獨立的身份，持續推動環境工作！",
+                '綠色和平成立以來，堅持不接受政府、企業捐助，您捐助的一分一毫，能支持我們以公正獨立的身份，持續推動環境工作！',
             }}
           />
         </Text>
-      </Box> */}
+      </Box>
       <Box py={2}>
         <Stack
           direction='row'
@@ -89,9 +90,9 @@ const MiniDonateForm = () => {
               h='40px'
               fontWeight='400'
               borderRadius={0}
-              bg={donateType === d.value ? 'brand.500' : '#FFF'}
-              color={donateType === d.value ? '#FFF' : 'brand.500'}
-              _hover={{ bg: 'brand.500', color: '#FFF' }}
+              bg={donateType === d.value ? 'brand.500' : '#fff'}
+              color={donateType === d.value ? '#fff' : 'brand.500'}
+              _hover={{ bg: 'brand.500', color: '#fff' }}
               onClick={() => handleSetDonateType(d.value)}
             >
               {d.label}
@@ -112,9 +113,9 @@ const MiniDonateForm = () => {
                       key={d.value}
                       flex='1'
                       bg={amount === d.value ? 'brand.500' : 'gray.300'}
-                      color={amount === d.value ? '#FFF' : 'gray.500'}
+                      color={amount === d.value ? '#fff' : 'gray.500'}
                       borderRadius={'md'}
-                      _hover={{ bg: 'brand.500', color: '#FFF' }}
+                      _hover={{ bg: 'brand.500', color: '#fff' }}
                       onClick={() => setAmount(d.value)}
                       w='100%'
                       {...buttonStyle}
@@ -179,4 +180,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MiniDonateForm)
+export default connect(mapStateToProps, mapDispatchToProps)(DonateForm)

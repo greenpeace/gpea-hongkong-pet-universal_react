@@ -3,9 +3,15 @@
   "label_last_name": "姓氏",
   "label_email": "電郵地址",
   "label_phone": "手提號碼（接收活動SMS提示）",
+<<<<<<< HEAD
+  "label_phone_optional": "手提號碼（接收活動SMS提示）(選填)",
+  "label_year_of_birth": "出生年份",
+  "label_year_of_birth_optional": "出生年份(選填)",
+=======
   "label_phone_optional": "手提號碼（選填）",
   "label_year_of_birth": "出生年份",
   "label_year_of_birth_optional": "出生年份（選填）",
+>>>>>>> b3a76c9d1bcda93e86b0f586060c2bf31cb6f46b
   "select": "請選擇",
 
   "empty_data_alert": "請填寫資料",
