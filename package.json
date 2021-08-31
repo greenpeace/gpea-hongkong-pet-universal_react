@@ -69,6 +69,12 @@
     "postbuild": "react-snap && node mc-deploy.js && purgecss",
     "purgecss": "purgecss --css build/static/css/*.css --content build/index.html build/static/js/*.js --output build/static/css"
   },
+  "husky": {
+    "hooks" : {
+      "pre-commit": "npx prettier --write .",
+      "pre-push": "npx prettier --write ."
+    }
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
