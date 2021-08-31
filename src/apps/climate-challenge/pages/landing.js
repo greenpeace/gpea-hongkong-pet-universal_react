@@ -1,8 +1,8 @@
-import * as themeActions from 'store/actions/action-types/theme-actions'
-import React from 'react'
-import { connect } from 'react-redux'
-import { useMediaQuery } from 'react-responsive'
-import Sticky from 'react-sticky-el'
+import * as themeActions from 'store/actions/action-types/theme-actions';
+import React from 'react';
+import { connect } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+import Sticky from 'react-sticky-el';
 import {
   ChakraProvider,
   Box,
@@ -14,23 +14,27 @@ import {
   Heading,
   SimpleGrid,
   Stack,
-} from '@chakra-ui/react'
-import SEO from '../SEO'
-import content from '../data/content'
-import Nav from '../components/header/nav'
-import HeroSwiper from '../components/feature/heroSwiper'
-import Footer from '../components/footer'
-import NewFrameForm from 'components/form/newFrameForm'
-import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
-import Panel from 'components/panel/newFormPanel'
-import themeConfig from '../../../theme'
+  List,
+  ListItem,
+  ListIcon,
+} from '@chakra-ui/react';
+import { MdDateRange, MdAccessTime, MdLocalPlay } from 'react-icons/md';
+import SEO from '../SEO';
+import content from '../data/content';
+import Nav from '../components/header/nav';
+import HeroSwiper from '../components/feature/heroSwiper';
+import Footer from '../components/footer';
+import NewFrameForm from 'components/form/newFrameForm';
+import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm';
+import Panel from 'components/panel/newFormPanel';
+import themeConfig from '../../../theme';
 
-import kv from '../assets/images/kv.jpg'
-import desktopflow from '../assets/images/climate-challenge-flow-desktop.jpg'
-import mobileflow from '../assets/images/climate-challenge-flow.jpg'
+import kv from '../assets/images/kv.jpg';
+import desktopflow from '../assets/images/climate-challenge-flow-desktop.jpg';
+import mobileflow from '../assets/images/climate-challenge-flow.jpg';
 
 const Landing = ({ submitted, togglePanel }) => {
-  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
+  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' });
 
   const pStyle = {
     as: 'p',
@@ -38,7 +42,7 @@ const Landing = ({ submitted, togglePanel }) => {
     color: 'gray.900',
     lineHeight: '1.5',
     fontSize: '16px',
-  }
+  };
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -62,9 +66,11 @@ const Landing = ({ submitted, togglePanel }) => {
                   fontSize={{ base: '2xl', sm: '3xl', xl: '4xl' }}
                   fontWeight='bold'
                   color='gray.900'
-                  lineHeight={1.2}
+                  lineHeight={1.1}
                 >
-                  您有想過，香港人也可以為氣候危機出一分力嗎？
+                  您有想過，
+                  <br />
+                  香港人也可以為氣候危機出一分力嗎？
                 </Text>
               </Box>
             </Stack>
@@ -74,20 +80,68 @@ const Landing = ({ submitted, togglePanel }) => {
                 <Flex direction='row' align='center'>
                   <Box>
                     <Text {...pStyle}>
-                      美加熱浪、洪水侵襲歐洲、亞洲多國...從前看似遠在天邊的氣候危機，已成為影響全球的「新常態」。
-                      <br />
-                      身處香港，我們都可以出一分力，為地球減緩氣候危機！
+                      美加熱浪、洪水侵襲歐洲、亞洲多國...從前看似遠在天邊的氣候危機，已成為影響全球的「新常態」。身處香港，我們都可以出一分力，為地球減緩氣候危機！
                     </Text>
                     <Text {...pStyle}>
-                      今年9月，綠色和平將舉辦「減碳生活節」，帶領更多市民在日常中實踐減碳生活。
+                      今年9月，綠色和平將舉辦「減碳生活節」，帶領更多市民在日常中實踐減碳生活。現只需在網上登記，即能參與「減碳生活節」，並送您更多日常減碳小貼士！
                     </Text>
                     <Text {...pStyle}>
-                      同時，為答謝您對地球減碳的承諾，您將獲邀參加在10月1日及2日的「Coffee
-                      Meets
-                      Climate」體驗日，屆時會以多項有趣活動，讓您及公眾感受怎樣在日常生活中輕鬆地減低碳足跡，及認識眾多您不知道有關食物及氣候變化的關係，趕在9月28日前登記，免費體驗減碳生活，給地球一個coffee
-                      break！
+                      同時，
+                      <b>
+                        為答謝您對地球減碳的承諾，您將獲邀參加「Coffee Meets
+                        Climate」體驗日。
+                      </b>
                     </Text>
-
+                    <Text {...pStyle} fontSize={'xl'}>
+                      活動詳情：
+                    </Text>
+                    <List spacing={4} px={4} pt={8} pb={4} fontSize={'lg'}>
+                      <ListItem alignItems={'center'}>
+                        <ListIcon
+                          as={MdDateRange}
+                          color={'gray.700'}
+                          mb={1}
+                          mr={'4'}
+                        />
+                        日期：10月1日及2日
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon
+                          as={MdAccessTime}
+                          color={'gray.700'}
+                          mb={1}
+                          mr={'4'}
+                        />
+                        時間：上午11時至下午7時
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon
+                          as={MdLocalPlay}
+                          color={'gray.700'}
+                          mb={1}
+                          mr={'4'}
+                        />
+                        地點：美孚饒宗頤文化館
+                      </ListItem>
+                    </List>
+                    <Text {...pStyle}>
+                      屆時會以多項有趣活動，讓您及公眾感受怎樣在日常生活中輕鬆地減低碳足跡，及認識眾多您不知道有關食物及氣候變化的關係，
+                      <b>
+                        趕在9月28日前登記，免費體驗減碳生活，給地球一個coffee
+                        break！
+                      </b>
+                    </Text>
+                    <List px={4} pt={8} pb={4} spacing={4} fontSize={'lg'}>
+                      <ListItem>- 太陽能咖啡店</ListItem>
+                      <ListItem>- 環保單車</ListItem>
+                      <ListItem>- 咖啡品嘗班</ListItem>
+                      <ListItem>- 氣候危機知多啲 展覽及攤位遊戲</ListItem>
+                      <ListItem>- 咖啡渣環保手作工作坊</ListItem>
+                      <ListItem>- 「童您講故事」氣候與環境繪本共讀會</ListItem>
+                      <ListItem>
+                        - 「氣候危機警告現正生效：點樣影響香港人？」氣候講座
+                      </ListItem>
+                    </List>
                     <Image
                       mt={'md'}
                       borderRadius='4px'
@@ -224,21 +278,21 @@ const Landing = ({ submitted, togglePanel }) => {
       </Panel>
       <Footer />
     </ChakraProvider>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
     },
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Landing)
+export default connect(mapStateToProps, mapDispatchToProps)(Landing);
