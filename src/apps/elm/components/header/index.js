@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import * as themeActions from "store/actions/action-types/theme-actions";
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import * as themeActions from 'store/actions/action-types/theme-actions'
 
 const Index = ({ toggleTheme }) => {
   useEffect(() => {
-    toggleTheme(false);
-  }, [toggleTheme]);
+    toggleTheme(false)
+  }, [toggleTheme])
 
   return (
     <header className='main-header'>
@@ -17,23 +17,23 @@ const Index = ({ toggleTheme }) => {
         />
       </div>
     </header>
-  );
-};
+  )
+}
 
 const mapStateToProps = ({ swiper, theme }) => {
   return {
     swiper: swiper.data,
     slideIndex: swiper.slideIndex,
     theme: theme,
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleTheme: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_FORM, bol });
+      dispatch({ type: themeActions.TOGGLE_FORM, bol })
     },
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Index);
+export default connect(mapStateToProps, mapDispatchToProps)(Index)
