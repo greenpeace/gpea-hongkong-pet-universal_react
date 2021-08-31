@@ -99,7 +99,7 @@ const Index = ({ submitted, togglePanel }) => {
                       阻止北極破壞！
                     </Heading>
                     <Box>
-                      <Image src={'/custom/images/a_pic.jpg'} />
+                      <Image src={'https://source.unsplash.com/random'} />
                     </Box>
                   </Center>
                 </Box>
