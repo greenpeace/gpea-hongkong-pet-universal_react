@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { useMediaQuery } from "react-responsive";
+import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux'
+import { useMediaQuery } from 'react-responsive'
 import {
   ChakraProvider,
   Grid,
@@ -16,18 +16,18 @@ import {
   useColorModeValue,
   Container,
   Spacer,
-} from "@chakra-ui/react";
-import Footer from "./components/footer";
-import NewFrameForm from "components/form/newFrameForm";
-import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
-import Panel from "components/panel/newFormPanel";
-import Tab from "./components/sticky/tab";
-import * as themeActions from "store/actions/action-types/theme-actions";
-import Sticky from "react-sticky-el";
-import themeConfig from "../../../theme";
+} from '@chakra-ui/react'
+import Footer from './components/footer'
+import NewFrameForm from 'components/form/newFrameForm'
+import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
+import Panel from 'components/panel/newFormPanel'
+import Tab from './components/sticky/tab'
+import * as themeActions from 'store/actions/action-types/theme-actions'
+import Sticky from 'react-sticky-el'
+import themeConfig from '../../../theme'
 
-import { images, otherImages } from "./components/parallex/images";
-import ParallaxImage from "./components/parallex/parallexImages";
+import { images, otherImages } from './components/parallex/images'
+import ParallaxImage from './components/parallex/parallexImages'
 
 import {
   Link,
@@ -36,30 +36,30 @@ import {
   animateScroll as scroll,
   scrollSpy,
   scroller,
-} from "react-scroll";
+} from 'react-scroll'
 
-import SwiperCore, { Mousewheel, Scrollbar, A11y, Autoplay } from "swiper";
+import SwiperCore, { Mousewheel, Scrollbar, A11y, Autoplay } from 'swiper'
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.scss";
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/swiper.scss'
 
-SwiperCore.use([Scrollbar, A11y, Autoplay, Mousewheel]);
+SwiperCore.use([Scrollbar, A11y, Autoplay, Mousewheel])
 
 const Index = ({ submitted, togglePanel }) => {
-  const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
+  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
   const textStyle = {
-    fontSize: { base: "md", sm: "18px" },
-    color: "rgba(0,0,0,.65)",
+    fontSize: { base: 'md', sm: '18px' },
+    color: 'rgba(0,0,0,.65)',
     lineHeight: 1.8,
-  };
+  }
 
   const textStyleOther = {
-    fontSize: { base: "sm", sm: "md" },
-    color: "rgba(0,0,0,.65)",
+    fontSize: { base: 'sm', sm: 'md' },
+    color: 'rgba(0,0,0,.65)',
     lineHeight: 1.5,
-  };
+  }
 
-  const [currentTab, setCurrentTab] = useState(0);
+  const [currentTab, setCurrentTab] = useState(0)
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -77,14 +77,14 @@ const Index = ({ submitted, togglePanel }) => {
         </Center>
       </Box>
       <Grid
-        h={{ base: 640, sm: "90vh" }}
-        minHeight={{ base: 640, sm: "960px" }}
-        templateRows={{ base: "repeat(7, 1fr)", sm: "repeat(11, 1fr)" }}
+        h={{ base: 640, sm: '90vh' }}
+        minHeight={{ base: 640, sm: '960px' }}
+        templateRows={{ base: 'repeat(7, 1fr)', sm: 'repeat(11, 1fr)' }}
         templateColumns='repeat(15, 1fr)'
       >
         <GridItem
           pos='relative'
-          d={{ base: "none", sm: "block" }}
+          d={{ base: 'none', sm: 'block' }}
           rowSpan={{ base: 4, sm: 9 }}
           colSpan={{ base: 15, sm: 10 }}
         >
@@ -111,7 +111,7 @@ const Index = ({ submitted, togglePanel }) => {
             }}
             autoHeight={true}
             style={{
-              position: "absolute",
+              position: 'absolute',
               top: 0,
               bottom: 0,
               right: 0,
@@ -122,8 +122,8 @@ const Index = ({ submitted, togglePanel }) => {
               <Image
                 src={
                   isMobile
-                    ? "https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0439.50ce887e.jpg"
-                    : "https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0439.50ce887e.jpg"
+                    ? 'https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0439.50ce887e.jpg'
+                    : 'https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0439.50ce887e.jpg'
                 }
               />
             </SwiperSlide>
@@ -131,15 +131,15 @@ const Index = ({ submitted, togglePanel }) => {
               <Image
                 src={
                   isMobile
-                    ? "https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0431.c6b2b22f.jpg"
-                    : "https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0431.c6b2b22f.jpg"
+                    ? 'https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0431.c6b2b22f.jpg'
+                    : 'https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0431.c6b2b22f.jpg'
                 }
               />
             </SwiperSlide>
           </Swiper>
         </GridItem>
         <GridItem
-          d={{ base: "none", sm: "block" }}
+          d={{ base: 'none', sm: 'block' }}
           rowSpan={{ base: 8, sm: 9 }}
           colSpan={{ base: 15, sm: 5 }}
         >
@@ -151,10 +151,10 @@ const Index = ({ submitted, togglePanel }) => {
           <Flex color='white' h='100%'>
             <Center bg='campaign.oceans' w='100%'>
               <Box maxW='64rem' py={5} px={{ base: 3, sm: 10 }}>
-                <Heading fontSize={{ base: "xl", sm: "3xl" }} mb={4}>
+                <Heading fontSize={{ base: 'xl', sm: '3xl' }} mb={4}>
                   守護大嶼
                 </Heading>
-                <Text {...textStyle} color='#FFF'>
+                <Text {...textStyle} color='#fff'>
                   香港海洋孕育近6千種海洋生物，東大嶼水域生態豐富多樣，是國家重點保護野生動物白腹海雕的繁殖及棲息地，更錄得全球獨有的鮑氏雙足蜥，附近水域亦發現稀有的軟珊瑚海筆。
                 </Text>
               </Box>
@@ -166,14 +166,14 @@ const Index = ({ submitted, togglePanel }) => {
       <Tab />
 
       <Box
-        bg={useColorModeValue("gray.50", "gray.900")}
+        bg={useColorModeValue('gray.50', 'gray.900')}
         pt={{ base: 20, sm: 40 }}
         pb={30}
       >
         <Center px={{ base: 4, sm: 10 }}>
-          <VStack maxWidth={"3xl"}>
+          <VStack maxWidth={'3xl'}>
             <Heading
-              fontSize={{ base: "2xl", sm: "4xl" }}
+              fontSize={{ base: '2xl', sm: '4xl' }}
               mb={8}
               color='campaign.oceans'
             >
@@ -191,9 +191,9 @@ const Index = ({ submitted, togglePanel }) => {
             <ParallaxImage key={image.src} {...image} />
           ))}
 
-        <Container maxWidth={"8xl"} pt={8} style={{ overflow: "hidden" }}>
-          <Flex direction={{ base: "column", sm: "row" }}>
-            <Box p={{ base: 0, sm: 4 }} w={{ base: "100%", sm: 980 }}>
+        <Container maxWidth={'8xl'} pt={8} style={{ overflow: 'hidden' }}>
+          <Flex direction={{ base: 'column', sm: 'row' }}>
+            <Box p={{ base: 0, sm: 4 }} w={{ base: '100%', sm: 980 }}>
               <Image src='https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0431.c6b2b22f.jpg' />
               <Box pt={6}>
                 <Text {...textStyleOther}>
@@ -206,7 +206,7 @@ const Index = ({ submitted, togglePanel }) => {
             <Box
               mt={{ base: 10, sm: 480 }}
               p={{ base: 0, sm: 4 }}
-              w={{ base: "100%", sm: 480 }}
+              w={{ base: '100%', sm: 480 }}
             >
               <Image src='https://api.greenpeace.org.hk/2021/elm/static/img/close-up_WBSE_Kevin_Lok.c5c8bcfc.jpg' />
               <Box pt={6}>
@@ -221,18 +221,18 @@ const Index = ({ submitted, togglePanel }) => {
 
       <Box pt={{ base: 20, sm: 40 }} pb={30}>
         <Center px={{ base: 4, sm: 0 }}>
-          <VStack maxWidth={"3xl"}>
-            <Heading fontSize={{ base: "xl", sm: "3xl" }} mb={4}>
+          <VStack maxWidth={'3xl'}>
+            <Heading fontSize={{ base: 'xl', sm: '3xl' }} mb={4}>
               「明日」的生態威脅
             </Heading>
             <Text {...textStyle}>
-              鄰近填海選址海域{" "}
-              <span style={{ color: "#108ee9", fontWeight: "bold" }}>
+              鄰近填海選址海域{' '}
+              <span style={{ color: '#108ee9', fontWeight: 'bold' }}>
                 具生態價值
-              </span>{" "}
-              生態價值{" "}
-              <span style={{ color: "#108ee9", fontWeight: "bold" }}>
-                絕不應被刻意低估{" "}
+              </span>{' '}
+              生態價值{' '}
+              <span style={{ color: '#108ee9', fontWeight: 'bold' }}>
+                絕不應被刻意低估{' '}
               </span>
             </Text>
           </VStack>
@@ -242,15 +242,15 @@ const Index = ({ submitted, togglePanel }) => {
           images.map((image) => <ParallaxImage key={image.src} {...image} />)}
 
         <Container
-          maxWidth={"8xl"}
+          maxWidth={'8xl'}
           pt={{ base: 2, sm: 8 }}
-          style={{ overflow: "hidden" }}
+          style={{ overflow: 'hidden' }}
         >
-          <Flex direction={{ base: "column", sm: "row" }}>
+          <Flex direction={{ base: 'column', sm: 'row' }}>
             <Box
               mt={{ base: 10, sm: 480 }}
               p={{ base: 0, sm: 4 }}
-              w={{ base: "100%", sm: 480 }}
+              w={{ base: '100%', sm: 480 }}
             >
               <Image src='https://api.greenpeace.org.hk/2021/elm/static/img/hk-brownfield.9533d1d7.jpg' />
               <Box pt={6}>
@@ -265,13 +265,13 @@ const Index = ({ submitted, togglePanel }) => {
             <Box
               mt={{ base: 10, sm: 0 }}
               p={{ base: 0, sm: 4 }}
-              w={{ base: "100%", sm: 980 }}
+              w={{ base: '100%', sm: 980 }}
             >
               <Image src='https://api.greenpeace.org.hk/2021/elm/static/img/DJI_0439.50ce887e.jpg' />
               <Box pt={6} {...textStyleOther}>
                 <Text>
                   全球獨有的鮑氏雙足蜥，更在中部水域錄得一種稀有的軟珊瑚海筆，
-                  <span style={{ color: "#108ee9", fontWeight: "bold" }}>
+                  <span style={{ color: '#108ee9', fontWeight: 'bold' }}>
                     生態價值絕不應被刻意低估
                   </span>
                   。
@@ -283,35 +283,35 @@ const Index = ({ submitted, togglePanel }) => {
       </Box>
 
       <Box
-        bg={useColorModeValue("gray.50", "gray.900")}
+        bg={useColorModeValue('gray.50', 'gray.900')}
         pt={{ base: 20, sm: 40 }}
         pb={{ base: 20, sm: 60 }}
       >
-        <Container maxWidth={"8xl"} pt={8} style={{ overflow: "hidden" }}>
-          <Flex direction={{ base: "column-reverse", md: "row" }}>
+        <Container maxWidth={'8xl'} pt={8} style={{ overflow: 'hidden' }}>
+          <Flex direction={{ base: 'column-reverse', md: 'row' }}>
             <Box
               mt={{ base: -10, md: 120 }}
-              w={{ base: "auto", md: 720 }}
+              w={{ base: 'auto', md: 720 }}
               mr={{ base: 0, md: -180 }}
-              mx={{ base: "10px", sm: 0 }}
+              mx={{ base: '10px', sm: 0 }}
               style={{ zIndex: 9 }}
             >
-              <Box p={6} bgColor='#FFF'>
+              <Box p={6} bgColor='#fff'>
                 <Center mb={{ base: 10, sm: 50 }}>
-                  <VStack maxWidth={"3xl"}>
+                  <VStack maxWidth={'3xl'}>
                     <Heading
-                      fontSize={{ base: "xl", sm: "3xl" }}
+                      fontSize={{ base: 'xl', sm: '3xl' }}
                       mb={{ base: 2, sm: 4 }}
                     >
                       史上最貴基建
                     </Heading>
                     <Text {...textStyle}>
-                      耗時至少{" "}
-                      <span style={{ color: "#108ee9", fontWeight: "bold" }}>
+                      耗時至少{' '}
+                      <span style={{ color: '#108ee9', fontWeight: 'bold' }}>
                         13年
-                      </span>{" "}
-                      耗費至少{" "}
-                      <span style={{ color: "#108ee9", fontWeight: "bold" }}>
+                      </span>{' '}
+                      耗費至少{' '}
+                      <span style={{ color: '#108ee9', fontWeight: 'bold' }}>
                         6,240億公帑
                       </span>
                     </Text>
@@ -319,15 +319,15 @@ const Index = ({ submitted, togglePanel }) => {
                 </Center>
                 <Text {...textStyleOther}>
                   現時輪候公屋年期為5.5年，逾20萬劏房戶等上樓，惟填海預料
-                  <span style={{ color: "#108ee9", fontWeight: "bold" }}>
+                  <span style={{ color: '#108ee9', fontWeight: 'bold' }}>
                     至少在13年後
-                  </span>{" "}
+                  </span>{' '}
                   -
                   2032年才能讓市民入伙，無法紓緩燃眉之急，甚至要「邊住邊填海」，居住環境堪憂。
                 </Text>
                 <Text {...textStyleOther}>
                   「明日大嶼」耗費
-                  <span style={{ color: "#108ee9", fontWeight: "bold" }}>
+                  <span style={{ color: '#108ee9', fontWeight: 'bold' }}>
                     至少6,240億元公帑
                   </span>
                   ，工程延期超支仍未計算在內，令人擔憂將耗盡香港的財政儲備。
@@ -335,7 +335,7 @@ const Index = ({ submitted, togglePanel }) => {
               </Box>
             </Box>
 
-            <Box p={{ base: 0, sm: 4 }} w={{ base: "100%", sm: 860 }}>
+            <Box p={{ base: 0, sm: 4 }} w={{ base: '100%', sm: 860 }}>
               <Swiper slidesPerView={1} autoplay={{ delay: 5000 }}>
                 <SwiperSlide>
                   <Image src='https://api.greenpeace.org.hk/2021/elm/static/img/hk-city.aaa0192a.jpg' />
@@ -350,10 +350,10 @@ const Index = ({ submitted, togglePanel }) => {
       </Box>
 
       <Box>
-        <Flex direction={{ base: "column", sm: "row" }}>
+        <Flex direction={{ base: 'column', sm: 'row' }}>
           <Box
-            w={{ base: "100%", sm: 960, md: 1180 }}
-            h={{ base: "auto", sm: 720 }}
+            w={{ base: '100%', sm: 960, md: 1180 }}
+            h={{ base: 'auto', sm: 720 }}
             pos='relative'
             py={40}
           >
@@ -370,11 +370,11 @@ const Index = ({ submitted, togglePanel }) => {
           </Box>
 
           <Center w='100%'>
-            <Box style={{ zIndex: 9 }} p={6} bgColor='#FFF' width='100%'>
+            <Box style={{ zIndex: 9 }} p={6} bgColor='#fff' width='100%'>
               <Center mb={50}>
-                <VStack maxWidth={"2xl"} align='baseline'>
+                <VStack maxWidth={'2xl'} align='baseline'>
                   <Heading
-                    fontSize={{ base: "2xl", sm: "4xl" }}
+                    fontSize={{ base: '2xl', sm: '4xl' }}
                     mb={8}
                     color='campaign.oceans'
                   >
@@ -382,11 +382,11 @@ const Index = ({ submitted, togglePanel }) => {
                   </Heading>
                   <Text {...textStyle}>
                     發展棕地成本
-                    <span style={{ color: "#108ee9", fontWeight: "bold" }}>
+                    <span style={{ color: '#108ee9', fontWeight: 'bold' }}>
                       比填海便宜8成
-                    </span>{" "}
+                    </span>{' '}
                     即可興建
-                    <span style={{ color: "#108ee9", fontWeight: "bold" }}>
+                    <span style={{ color: '#108ee9', fontWeight: 'bold' }}>
                       14萬伙公營房屋
                     </span>
                   </Text>
@@ -397,7 +397,7 @@ const Index = ({ submitted, togglePanel }) => {
                       <br />
                       <br />
                       「除了比填海
-                      <span style={{ color: "#108ee9", fontWeight: "bold" }}>
+                      <span style={{ color: '#108ee9', fontWeight: 'bold' }}>
                         便宜8成
                       </span>
                       以外，政府亦可引用《收回土地條例》，以比填海更快的速度，興建近14萬伙公營房屋
@@ -407,7 +407,7 @@ const Index = ({ submitted, togglePanel }) => {
                   <br />
                   {!isMobile && (
                     <Link
-                      style={{ textDecoration: "none" }}
+                      style={{ textDecoration: 'none' }}
                       to='test1'
                       spy={true}
                       smooth={true}
@@ -419,9 +419,9 @@ const Index = ({ submitted, togglePanel }) => {
                         height='60px'
                         borderRadius='0'
                         size='lg'
-                        color='#FFF'
+                        color='#fff'
                         bg='#108ee9'
-                        _hover={{ bg: "#21C5D8" }}
+                        _hover={{ bg: '#21C5D8' }}
                       >
                         立即聯署
                       </Button>
@@ -435,11 +435,11 @@ const Index = ({ submitted, togglePanel }) => {
       </Box>
 
       <Button
-        d={{ base: "block", sm: "none" }}
+        d={{ base: 'block', sm: 'none' }}
         w='100%'
-        color='#FFF'
+        color='#fff'
         bg='campaign.arctic'
-        _hover={{ bg: "campaign.oceans" }}
+        _hover={{ bg: 'campaign.oceans' }}
         height='60px'
         borderRadius='0'
         size='lg'
@@ -455,21 +455,21 @@ const Index = ({ submitted, togglePanel }) => {
       <Panel />
       <Footer />
     </ChakraProvider>
-  );
-};
+  )
+}
 
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
     },
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Index);
+export default connect(mapStateToProps, mapDispatchToProps)(Index)

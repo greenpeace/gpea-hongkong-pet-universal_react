@@ -6,6 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as themeActions from "store/actions/action-types/theme-actions";
 import { connect } from "react-redux";
 
+<<<<<<< HEAD
+const SlideScreen = ({ togglePanel, formContent }) => {
+=======
 // Import Swiper styles
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
@@ -13,6 +16,7 @@ import "swiper/components/pagination/pagination.scss";
 import "swiper/components/scrollbar/scrollbar.scss";
 
 const SlideScreen = ({ togglePanel }) => {
+>>>>>>> b3a76c9d1bcda93e86b0f586060c2bf31cb6f46b
   const handleTogglePanel = () => {
     togglePanel(true);
   };
@@ -30,7 +34,7 @@ const SlideScreen = ({ togglePanel }) => {
           className='start-btn cta-custom-display'
           onClick={() => handleTogglePanel()}
         >
-          立即聯署 <FontAwesomeIcon icon={["fas", "pen"]} />
+          {formContent.submit_text} <FontAwesomeIcon icon={["fas", "pen"]} />
         </button>
       </div>
       <div className='hero-scroll-down-notifer'>

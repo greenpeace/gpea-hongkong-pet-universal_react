@@ -79,7 +79,7 @@ const Landing = ({ submitted, togglePanel }) => {
             spacing='8px'
             mb={4}
           >
-            <Avatar size='xl' name={name} src={image} bgColor='#FFF' />
+            <Avatar size='xl' name={name} src={image} bgColor='#fff' />
             <Box pt={4}>
               <Heading fontSize='2xl' mb={2}>
                 <Text color='brand.900'>{name}</Text>
@@ -127,7 +127,7 @@ const Landing = ({ submitted, togglePanel }) => {
 
   const dividerProps = {
     orientation: { base: 'horizontal', xl: 'vertical' },
-    bgColor: '#FFF',
+    bgColor: '#fff',
     h: { base: '1px', xl: '60px' },
     w: { base: '100%', xl: '1px' },
     my: { base: 2, md: 4 },
@@ -152,11 +152,6 @@ const Landing = ({ submitted, togglePanel }) => {
         <Box className='wrap' flex='1' style={{ minWidth: '0px' }}>
           <Box px={{ base: 4 }} py={{ base: 4 }}>
             <Box>
-              {/* {!submitted && <Image src={mainVisual} borderRadius='8px' />}
-              {submitted && !isMobile && (
-                <HeroSwiper isMobile={isMobile} swiperHeight='480px' />
-              )}{" "} */}
-              {/** Fixed swiper desktop version height, background image will keep ratio and center center position */}
               <Image
                 src='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/07/c35d9bc0-climate-food-webinar-banner-or.jpg'
                 borderTopRightRadius='8px'
@@ -173,7 +168,7 @@ const Landing = ({ submitted, togglePanel }) => {
               <Flex
                 direction={{ base: 'column', xl: 'row' }}
                 justifyContent='space-around'
-                color='#FFF'
+                color='#fff'
                 align={{ base: 'left', xl: 'center' }}
               >
                 <Box>
@@ -299,7 +294,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 </Text>
                 <Button
                   mt='2'
-                  color='#FFF'
+                  color='#fff'
                   bg='brand.500'
                   _hover={{ bg: 'brand.400', textDecoration: 'none' }}
                   borderRadius='4px'
@@ -362,7 +357,7 @@ const Landing = ({ submitted, togglePanel }) => {
       >
         <Button
           w='90%'
-          color='#FFF'
+          color='#fff'
           bg='orange'
           borderRadius='24px'
           fontSize='xl'

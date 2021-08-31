@@ -1,8 +1,8 @@
-import "swiper/swiper.scss";
-import React from "react";
-import { connect } from "react-redux";
-import { useMediaQuery } from "react-responsive";
-import Sticky from "react-sticky-el";
+import 'swiper/swiper.scss'
+import React from 'react'
+import { connect } from 'react-redux'
+import { useMediaQuery } from 'react-responsive'
+import Sticky from 'react-sticky-el'
 import {
   ChakraProvider,
   Avatar,
@@ -17,62 +17,62 @@ import {
   Link,
   SimpleGrid,
   Stack,
-} from "@chakra-ui/react";
-import SEO from "../SEO";
-import content from "../data/content";
-import Nav from "../components/header/nav";
-import HeroSwiper from "../components/feature/heroSwiper";
-import Footer from "../components/footer";
-import NewFrameForm from "components/form/newFrameForm";
-import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
-import Panel from "components/panel/newFormPanel";
-import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
-import * as themeActions from "store/actions/action-types/theme-actions";
-import themeConfig from "../../../theme";
+} from '@chakra-ui/react'
+import SEO from '../SEO'
+import content from '../data/content'
+import Nav from '../components/header/nav'
+import HeroSwiper from '../components/feature/heroSwiper'
+import Footer from '../components/footer'
+import NewFrameForm from 'components/form/newFrameForm'
+import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
+import Panel from 'components/panel/newFormPanel'
+import { FaFacebookSquare, FaInstagram } from 'react-icons/fa'
+import * as themeActions from 'store/actions/action-types/theme-actions'
+import themeConfig from '../../../theme'
 
-import shing from "../assets/images/shing_2x_icon.png";
-import banner from "../assets/images/73.jpg";
-import subImage from "../assets/images/wallpaper_removed.jpg";
-import submitImage from "../assets/images/submit.png";
-import videoCallImage from "../assets/images/video-call.png";
-import cloudImage from "../assets/images/cloud.png";
+import shing from '../assets/images/shing_2x_icon.png'
+import banner from '../assets/images/73.jpg'
+import subImage from '../assets/images/wallpaper_removed.jpg'
+import submitImage from '../assets/images/submit.png'
+import videoCallImage from '../assets/images/video-call.png'
+import cloudImage from '../assets/images/cloud.png'
 
 const Landing = ({ submitted, togglePanel }) => {
-  const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
+  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
   const pStyle = {
-    as: "p",
-    marginTop: "20px",
-    color: "gray.900",
-    lineHeight: "1.7",
-    fontSize: "16px",
-  };
-  const stepRow ={
-    align: "center", 
+    as: 'p',
+    marginTop: '20px',
+    color: 'gray.900',
+    lineHeight: '1.7',
+    fontSize: '16px',
+  }
+  const stepRow = {
+    align: 'center',
     pb: 10,
-    pt: {base: 5, md: 0},
-    direction: {base: 'column', md: 'row'}
+    pt: { base: 5, md: 0 },
+    direction: { base: 'column', md: 'row' },
   }
 
-  const stepImageWrapProps ={
+  const stepImageWrapProps = {
     flex: 1,
-    pb: {base: 5, md: 0},
+    pb: { base: 5, md: 0 },
     textAlign: '-webkit-center',
-    maxWidth: '200px'
+    maxWidth: '200px',
   }
 
   const stepImageProps = {
     maxWidth: '100px',
-    flex: 1
+    flex: 1,
   }
 
   const stepContentProps = {
-    as: "h3",
-    color: "gray.900",
-    lineHeight: "1.7",
-    fontSize: "20px",
+    as: 'h3',
+    color: 'gray.900',
+    lineHeight: '1.7',
+    fontSize: '20px',
     fontWeight: 700,
-    pt: {base: 5, md: 0},
-    textAlign: {base: 'center', md: 'left'}
+    pt: { base: 5, md: 0 },
+    textAlign: { base: 'center', md: 'left' },
   }
 
   return (
@@ -83,20 +83,20 @@ const Landing = ({ submitted, togglePanel }) => {
   */}
       <Nav showButton={false} />
       <Flex>
-        <Box className='wrap' flex='1' style={{ minWidth: "0px" }}>
+        <Box className='wrap' flex='1' style={{ minWidth: '0px' }}>
           <Box px='4' py={{ base: 4, md: 8 }}>
             <Box mb={6}>
               {!submitted && <Image src={banner} borderRadius='8px' />}
               {submitted && !isMobile && (
                 <HeroSwiper isMobile={isMobile} swiperHeight='480px' />
-              )}{" "}
+              )}{' '}
               {/** Fixed swiper desktop version height, background image will keep ratio and center center position */}
             </Box>
             <Stack pb={4}>
               <Box>
                 <Text
                   as='h1'
-                  fontSize={{ base: "2xl", sm: "3xl", xl: "4xl" }}
+                  fontSize={{ base: '2xl', sm: '3xl', xl: '4xl' }}
                   fontWeight='bold'
                   color='gray.900'
                   lineHeight={1.2}
@@ -108,7 +108,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 </Text>
               </Box>
             </Stack>
-            <Flex direction={{ base: "column", sm: "row" }}>
+            <Flex direction={{ base: 'column', sm: 'row' }}>
               <Box flex='1'>
                 <Text {...pStyle}>
                   綠色和平邀請本地著名生態攝影師馮漢城，上山下水為大家拍下一些展現香港生命力的時刻，大家增進了解這些「角落生物」之餘，也讓我們一起認識孕育這些珍貴生物的土地，一起好好守護香港「野」。
@@ -127,20 +127,20 @@ const Landing = ({ submitted, togglePanel }) => {
               <SimpleGrid
                 columns={{ base: 1 }}
                 p={6}
-                borderRadius={"md"}
+                borderRadius={'md'}
                 borderType='solid'
                 borderWidth='1px'
                 borderColor='brand.400'
               >
                 <Box flex='1'>
                   <Stack
-                    direction={["column", "row"]}
+                    direction={['column', 'row']}
                     columns={{ base: 1, xl: 2 }}
                     alignItems='center'
                     spacing='8px'
                     mb={4}
                   >
-                    <Avatar size='xl' name={"Shing"} src={shing} />
+                    <Avatar size='xl' name={'Shing'} src={shing} />
                     <Box pt={4}>
                       <Heading fontSize='2xl' mb={2}>
                         <Text color='brand.900'>馮漢城（阿城）</Text>
@@ -156,7 +156,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   </Text>
                   <Flex
                     justifyContent='flex-end'
-                    fontSize={{ base: "10px", sm: "12px" }}
+                    fontSize={{ base: '10px', sm: '12px' }}
                   >
                     <HStack spacing={1} pr={4}>
                       <FaInstagram />
@@ -175,40 +175,69 @@ const Landing = ({ submitted, togglePanel }) => {
               </SimpleGrid>
             </Box>
 
-            <Stack direction="row" align="center">
-              <Divider/>
-              <Box w={'100%'} textAlign="center">
+            <Stack direction='row' align='center'>
+              <Divider />
+              <Box w={'100%'} textAlign='center'>
                 <Text
                   as='h1'
-                  fontSize={{ base: "2xl", sm: "3xl", xl: "4xl" }}
+                  fontSize={{ base: '2xl', sm: '3xl', xl: '4xl' }}
                   fontWeight='bold'
-                  color='gray.900'>如何使用</Text>
-              </Box><Divider/>
+                  color='gray.900'
+                >
+                  如何使用
+                </Text>
+              </Box>
+              <Divider />
             </Stack>
 
-            <Flex direction="column">
+            <Flex direction='column'>
               <Flex {...stepRow}>
-                <Box style={stepImageWrapProps}><Image src={submitImage} style={stepImageProps}/></Box>
-                <Box flex={1}><Text {...stepContentProps}>1.立即登記</Text></Box>
+                <Box style={stepImageWrapProps}>
+                  <Image src={submitImage} style={stepImageProps} />
+                </Box>
+                <Box flex={1}>
+                  <Text {...stepContentProps}>1.立即登記</Text>
+                </Box>
               </Flex>
 
               <Flex {...stepRow}>
-                <Box style={stepImageWrapProps}><Image src={cloudImage} style={stepImageProps}/></Box>
-                <Box flex={1}><Text {...stepContentProps}>2.揀選你喜愛的環境照片，下載儲存至電腦</Text></Box>
+                <Box style={stepImageWrapProps}>
+                  <Image src={cloudImage} style={stepImageProps} />
+                </Box>
+                <Box flex={1}>
+                  <Text {...stepContentProps}>
+                    2.揀選你喜愛的環境照片，下載儲存至電腦
+                  </Text>
+                </Box>
               </Flex>
 
               <Flex {...stepRow}>
-                <Box style={stepImageWrapProps}><Image src={videoCallImage} style={stepImageProps}/></Box>
-                <Box flex={1}><Text {...stepContentProps}>3.開啟視訊通話應用程式</Text>
-                  <Text bgColor="gray.300" display="inline-block" px={2} my={2}>Zoom</Text><br/>
-                  進入「設定」 &gt; 選擇「背景與濾鏡」 &gt; 點選「虛擬背景」 &gt; 選擇「+添加影像或影片」。<br/>
-                  <Text bgColor="gray.300" display="inline-block" px={2} my={2}>Microsoft Teams</Text><br/>
-                  加入會議 &gt; 點選「其他動作」 &gt; 套用「背景效果」 &gt; 新增「照片」 &gt; 點選套用」<br/>
-                  <Text bgColor="gray.300" display="inline-block" px={2} my={2}>Google Meet</Text><br/>
+                <Box style={stepImageWrapProps}>
+                  <Image src={videoCallImage} style={stepImageProps} />
+                </Box>
+                <Box flex={1}>
+                  <Text {...stepContentProps}>3.開啟視訊通話應用程式</Text>
+                  <Text bgColor='gray.300' display='inline-block' px={2} my={2}>
+                    Zoom
+                  </Text>
+                  <br />
+                  進入「設定」 &gt; 選擇「背景與濾鏡」 &gt; 點選「虛擬背景」
+                  &gt; 選擇「+添加影像或影片」。
+                  <br />
+                  <Text bgColor='gray.300' display='inline-block' px={2} my={2}>
+                    Microsoft Teams
+                  </Text>
+                  <br />
+                  加入會議 &gt; 點選「其他動作」 &gt; 套用「背景效果」 &gt;
+                  新增「照片」 &gt; 點選套用」
+                  <br />
+                  <Text bgColor='gray.300' display='inline-block' px={2} my={2}>
+                    Google Meet
+                  </Text>
+                  <br />
                   點選「變更背景 」&gt; 選取照片 &gt; 新增 &gt; 「立即加入」
                 </Box>
               </Flex>
-              
             </Flex>
 
             <Divider my={{ base: 8, lg: 10 }} />
@@ -218,7 +247,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 <Image
                   borderRadius='8px'
                   src={
-                    "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/0f48c407-gif_reg_ty_page.gif"
+                    'https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/05/0f48c407-gif_reg_ty_page.gif'
                   }
                 />
               </Flex>
@@ -227,7 +256,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   as='h2'
                   size='lg'
                   color='brand.500'
-                  style={{ lineHeight: "1.5" }}
+                  style={{ lineHeight: '1.5' }}
                 >
                   一起守護
                   <br />
@@ -242,9 +271,9 @@ const Landing = ({ submitted, togglePanel }) => {
                 <Link href='https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=biodiversity&utm_campaign=biodiversity'>
                   <Button
                     mt='2'
-                    color='#FFF'
+                    color='#fff'
                     bg='brand.500'
-                    _hover={{ bg: "brand.400" }}
+                    _hover={{ bg: 'brand.400' }}
                     borderRadius='4px'
                     fontSize='md'
                     type='button'
@@ -258,16 +287,13 @@ const Landing = ({ submitted, togglePanel }) => {
                 </Text>
               </Stack>
             </SimpleGrid>
-          
-          
-          
           </Box>
         </Box>
         <Box
-          w={{ base: 0, md: "50%", lg: "500px" }}
+          w={{ base: 0, md: '50%', lg: '500px' }}
           px='4'
           py={{ base: 4, md: 8 }}
-          d={{ base: "none", md: "block" }}
+          d={{ base: 'none', md: 'block' }}
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
             {submitted ? (
@@ -292,19 +318,19 @@ const Landing = ({ submitted, togglePanel }) => {
         p='4'
         w='100%'
         style={{
-          background: "rgba(255, 255, 255, 0.8)",
-          borderColor: "rgba(255, 255, 255, 0.8)",
-          boxShadow: "0px 0px 20px 0px rgb(0 0 0 / 10%)",
-          paddingTop: "6px",
-          paddingBottom: "8px",
-          alignItems: "center",
-          justifyContent: "center",
+          background: 'rgba(255, 255, 255, 0.8)',
+          borderColor: 'rgba(255, 255, 255, 0.8)',
+          boxShadow: '0px 0px 20px 0px rgb(0 0 0 / 10%)',
+          paddingTop: '6px',
+          paddingBottom: '8px',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
-        d={{ base: "flex", md: "none" }}
+        d={{ base: 'flex', md: 'none' }}
       >
         <Button
           w='80%'
-          color='#FFF'
+          color='#fff'
           bg='orange'
           borderRadius='24px'
           fontSize='xl'
@@ -327,22 +353,22 @@ const Landing = ({ submitted, togglePanel }) => {
       </Panel>
       <Footer />
     </ChakraProvider>
-  );
-};
+  )
+}
 
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
     // submitted: false, // TEST submitted
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
     },
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Landing);
+export default connect(mapStateToProps, mapDispatchToProps)(Landing)

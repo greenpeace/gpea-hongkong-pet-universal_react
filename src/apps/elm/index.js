@@ -1,5 +1,5 @@
 import './app.less'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as swiperActions from 'store/actions/action-types/swiper-actions'
 import * as themeActions from 'store/actions/action-types/theme-actions'
 import { connect } from 'react-redux'
@@ -20,58 +20,37 @@ const Index = ({
   activeABTesting,
   setVariant,
 }) => {
-  useEffect(async () => {
-    console.log(
-      'process.env.REACT_APP_EXPERIMENT_ID--',
-      process.env.REACT_APP_EXPERIMENT_ID
-    )
-    // active AB Testing
-    activeABTesting(true)
-    if (window.dataLayer) {
-      await window.dataLayer.push({ event: 'optimize.activate' })
+  const [submittedForm, setSubmittedForm] = useState(submitted)
+  useEffect(() => {
+    async function checkVariant() {
+      // active AB Testing
+      activeABTesting(true)
+      if (window.dataLayer) {
+        await window.dataLayer.push({ event: 'optimize.activate' })
+      }
+
+      const intervalId = setInterval(() => {
+        if (window.google_optimize !== undefined) {
+          const variant = window.google_optimize.get(
+            process.env.REACT_APP_EXPERIMENT_ID
+          )
+          if (variant == 0 || variant === undefined) {
+            setVariant(0)
+            //
+            document.querySelector("input[name='CampaignData1__c']").value =
+              'Version A'
+          } else {
+            setVariant(1)
+            //
+            document.querySelector("input[name='CampaignData1__c']").value =
+              'Version B'
+          }
+          clearInterval(intervalId)
+        }
+      }, 500)
     }
 
-    // let countdown = 10
-
-    const intervalId = setInterval(() => {
-      // For checking loop
-
-      // console.log('loop')
-      // countdown -= 1
-      // if(countdown === 0){
-      //   clearInterval(intervalId);
-      // }
-
-      if (window.google_optimize !== undefined) {
-        const variant = window.google_optimize.get(
-          process.env.REACT_APP_EXPERIMENT_ID
-        )
-        if (variant == 0 || variant === undefined) {
-          setVariant(0)
-          //
-          document.querySelector("input[name='CampaignData1__c']").value =
-            'Version A'
-        } else {
-          setVariant(1)
-          //
-          document.querySelector("input[name='CampaignData1__c']").value =
-            'Version B'
-        }
-        clearInterval(intervalId)
-      }
-    }, 500)
-
-    // if (window.google_optimize) {
-    //   const variant = await window.google_optimize.get(
-    //     process.env.REACT_APP_EXPERIMENT_ID
-    //   );
-    //   console.log("variant--", variant);
-    //   if (variant == 0 || variant === undefined) {
-    //     setVariant(0);
-    //   } else {
-    //     setVariant(1);
-    //   }
-    // }
+    checkVariant()
   }, [])
 
   return (

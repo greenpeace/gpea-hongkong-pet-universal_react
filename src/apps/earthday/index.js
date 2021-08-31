@@ -1,8 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import { useMediaQuery } from "react-responsive";
-import Sticky from "react-sticky-el";
-import content from "./data/content";
+import React from 'react'
+import { connect } from 'react-redux'
+import { useMediaQuery } from 'react-responsive'
+import Sticky from 'react-sticky-el'
+import content from './data/content'
 import {
   ChakraProvider,
   Circle,
@@ -18,23 +18,23 @@ import {
   Stack,
   Icon,
   Link,
-} from "@chakra-ui/react";
-import SEO from "./SEO";
-import Nav from "./components/header/nav";
-import Footer from "./components/footer";
-import NewFrameForm from "components/form/newFrameForm";
-import NewFrameSubmittedForm from "components/form/newFrameSubmittedForm";
-import Panel from "components/panel/newFormPanel";
-import * as themeActions from "store/actions/action-types/theme-actions";
-import themeConfig from "../../../theme";
-import ImageWithColumn from "./components/feature/imageWithColumn";
+} from '@chakra-ui/react'
+import SEO from './SEO'
+import Nav from './components/header/nav'
+import Footer from './components/footer'
+import NewFrameForm from 'components/form/newFrameForm'
+import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
+import Panel from 'components/panel/newFormPanel'
+import * as themeActions from 'store/actions/action-types/theme-actions'
+import themeConfig from '../../../theme'
+import ImageWithColumn from './components/feature/imageWithColumn'
 
-import { IoCalendarOutline, IoTimeSharp, IoVideocam } from "react-icons/io5";
+import { IoCalendarOutline, IoTimeSharp, IoVideocam } from 'react-icons/io5'
 
 const Index = ({ submitted, togglePanel }) => {
   const Feature = ({ text, icon, iconBg }) => {
     return (
-      <Stack direction={"row"} align={"center"}>
+      <Stack direction={'row'} align={'center'}>
         <Circle size='40px' color='white' bg={iconBg}>
           {icon}
         </Circle>
@@ -42,35 +42,35 @@ const Index = ({ submitted, togglePanel }) => {
           {text}
         </Text>
       </Stack>
-    );
-  };
+    )
+  }
 
-  const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
+  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
 
   const captionStyle = {
-    as: "span",
-    borderLeft: "4px solid #66cc00",
-    paddingLeft: "12px",
-    size: "sm",
-    color: "gary.500",
-  };
+    as: 'span',
+    borderLeft: '4px solid #66cc00',
+    paddingLeft: '12px',
+    size: 'sm',
+    color: 'gary.500',
+  }
 
   const pStyle = {
-    as: "p",
+    as: 'p',
     marginTop: 8,
-    color: "gray.700",
-    fontSize: { base: "sm", sm: "md" },
-    lineHeight: "1.7",
-  };
+    color: 'gray.700',
+    fontSize: { base: 'sm', sm: 'md' },
+    lineHeight: '1.7',
+  }
 
   const flexBoxStyle = {
-    align: "center",
-    justify: "center",
-    color: "white",
-    rounded: "full",
-    bg: "gray.100",
+    align: 'center',
+    justify: 'center',
+    color: 'white',
+    rounded: 'full',
+    bg: 'gray.100',
     mb: 1,
-  };
+  }
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -80,14 +80,14 @@ const Index = ({ submitted, togglePanel }) => {
         <Box flex='1'>
           <Image
             src={
-              "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/04/1d3a7e7b-earthday_main_banner.jpg"
+              'https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/04/1d3a7e7b-earthday_main_banner.jpg'
             }
           />
 
           <Box p={{ base: 4, sm: 10 }} mt='4'>
             <Heading
               as='h1'
-              fontSize={{ base: "2xl", md: "4xl" }}
+              fontSize={{ base: '2xl', md: '4xl' }}
               color='brand.500'
             >
               立即報名 「童你講故事」
@@ -103,28 +103,28 @@ const Index = ({ submitted, togglePanel }) => {
                   icon={
                     <Icon
                       as={IoCalendarOutline}
-                      color={"yellow.500"}
+                      color={'yellow.500'}
                       w={5}
                       h={5}
                     />
                   }
-                  iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                  text={"日期：2021年4月24日（星期六）"}
+                  iconBg={useColorModeValue('yellow.100', 'yellow.900')}
+                  text={'日期：2021年4月24日（星期六）'}
                 />
                 <Feature
                   icon={
-                    <Icon as={IoTimeSharp} color={"yellow.500"} w={5} h={5} />
+                    <Icon as={IoTimeSharp} color={'yellow.500'} w={5} h={5} />
                   }
-                  iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                  text={"時間：下午4時半至5時半"}
+                  iconBg={useColorModeValue('yellow.100', 'yellow.900')}
+                  text={'時間：下午4時半至5時半'}
                 />
                 <Feature
                   icon={
-                    <Icon as={IoVideocam} color={"brand.400"} w={5} h={5} />
+                    <Icon as={IoVideocam} color={'brand.400'} w={5} h={5} />
                   }
-                  iconBg={useColorModeValue("green.100", "green.900")}
+                  iconBg={useColorModeValue('green.100', 'green.900')}
                   text={
-                    "線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）"
+                    '線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）'
                   }
                 />
               </Stack>
@@ -184,7 +184,7 @@ const Index = ({ submitted, togglePanel }) => {
               />
             </Box>
             <Heading
-              fontSize={{ base: "md", sm: "2xl" }}
+              fontSize={{ base: 'md', sm: '2xl' }}
               color='brand.600'
               mb='2'
             >
@@ -201,9 +201,9 @@ const Index = ({ submitted, togglePanel }) => {
               <Flex direction='column'>
                 <Image
                   borderRadius='8px'
-                  alt={"feature image"}
+                  alt={'feature image'}
                   src={
-                    "https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/04/86661c3b-說故事-storytelling-pic.jpg"
+                    'https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/04/86661c3b-說故事-storytelling-pic.jpg'
                   }
                   pb={4}
                 />
@@ -216,7 +216,7 @@ const Index = ({ submitted, togglePanel }) => {
                   as='h2'
                   size='md'
                   color='brand.500'
-                  style={{ lineHeight: "1.5" }}
+                  style={{ lineHeight: '1.5' }}
                 >
                   &nbsp;&nbsp;立即支持
                   <br />
@@ -231,9 +231,9 @@ const Index = ({ submitted, togglePanel }) => {
                 <Link href='https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=earthday&utm_campaign=earthday'>
                   <Button
                     mt='2'
-                    color='#FFF'
+                    color='#fff'
                     bg='brand.500'
-                    _hover={{ bg: "brand.400" }}
+                    _hover={{ bg: 'brand.400' }}
                     borderRadius='24px'
                     fontSize='md'
                     letterSpacing={2}
@@ -246,9 +246,9 @@ const Index = ({ submitted, togglePanel }) => {
           </Box>
         </Box>
         <Box
-          w={{ base: 0, md: "480px", lg: "580px" }}
+          w={{ base: 0, md: '480px', lg: '580px' }}
           p={10}
-          d={{ base: "none", md: "block" }}
+          d={{ base: 'none', md: 'block' }}
         >
           <Sticky stickyStyle={{ zIndex: 10 }}>
             <Box boxShadow='lg' p='6' rounded='md' bg='white'>
@@ -273,21 +273,21 @@ const Index = ({ submitted, togglePanel }) => {
         p='4'
         w='100%'
         style={{
-          background: "rgba(255, 255, 255, 0.8)",
-          borderColor: "rgba(255, 255, 255, 0.8)",
-          boxShadow: "0px 0px 20px 0px rgb(0 0 0 / 10%)",
-          paddingTop: "6px",
-          paddingBottom: "8px",
-          alignItems: "center",
-          justifyContent: "center",
+          background: 'rgba(255, 255, 255, 0.8)',
+          borderColor: 'rgba(255, 255, 255, 0.8)',
+          boxShadow: '0px 0px 20px 0px rgb(0 0 0 / 10%)',
+          paddingTop: '6px',
+          paddingBottom: '8px',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
-        d={{ base: "flex", md: "none" }}
+        d={{ base: 'flex', md: 'none' }}
       >
         <Button
           w='80%'
-          color='#FFF'
+          color='#fff'
           bg='orange'
-          _hover={{ bg: "campaign.oceans" }}
+          _hover={{ bg: 'campaign.oceans' }}
           borderRadius='24px'
           fontSize='xl'
           letterSpacing={4}
@@ -300,21 +300,21 @@ const Index = ({ submitted, togglePanel }) => {
       <Panel formContent={content} />
       <Footer />
     </ChakraProvider>
-  );
-};
+  )
+}
 
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
     },
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Index);
+export default connect(mapStateToProps, mapDispatchToProps)(Index)

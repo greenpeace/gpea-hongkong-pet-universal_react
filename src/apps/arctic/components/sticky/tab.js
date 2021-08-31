@@ -32,8 +32,8 @@ const Tab = () => {
   }, []);
 
   const textStyle = {
-    fontSize: {base: 'md', sm: '18px'}, 
-    color: "rgba(0,0,0,.65)", 
+    fontSize: {base: 'md', sm: '18px'},
+    color: "rgba(0,0,0,.65)",
     lineHeight: 1.8
   }
 
@@ -74,7 +74,7 @@ const Tab = () => {
             height="60px"
             borderRadius="0"
             size="lg"
-            color="#FFF"
+            color="#fff"
             bg="campaign.arctic"
             _hover={{ bg: "campaign.oceans" }}
           >
