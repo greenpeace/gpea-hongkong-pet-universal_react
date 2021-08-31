@@ -6,7 +6,6 @@ import { useMediaQuery } from 'react-responsive'
 import Sticky from 'react-sticky-el'
 import {
   ChakraProvider,
-  Container,
   Avatar,
   Box,
   Button,
@@ -27,14 +26,10 @@ import HeroSwiper from '../components/feature/heroSwiper'
 import Footer from '../components/footer'
 import NewFrameForm from 'components/form/newFrameForm'
 import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
-import DonateContent from 'components/sections/donateContent'
 import Panel from 'components/panel/newFormPanel'
-import Webinar from 'components/sections/webinar'
 import TestmonialCard from 'components/sections/testimonial'
-import TestmonialCardTypeTwo from 'components/sections/testmonialTypeTwo'
 import themeConfig from '../../../theme'
 
-import mainVisual from '../assets/images/climate-food-webinar-banner.png'
 import amos from '../assets/images/8.png'
 import tom from '../assets/images/9.png'
 import info01 from '../assets/images/info-01.jpeg'
@@ -43,7 +38,6 @@ import info02 from '../assets/images/info-02.jpg'
 import { IoTimeSharp } from 'react-icons/io5'
 import { SiAirplayvideo } from 'react-icons/si'
 import { BiCalendar } from 'react-icons/bi'
-import { GoBook } from 'react-icons/go'
 
 const amosContent = [
   {
@@ -85,7 +79,7 @@ const Landing = ({ submitted, togglePanel }) => {
             spacing='8px'
             mb={4}
           >
-            <Avatar size='xl' name={name} src={image} bgColor='#FFF' />
+            <Avatar size='xl' name={name} src={image} bgColor='#fff' />
             <Box pt={4}>
               <Heading fontSize='2xl' mb={2}>
                 <Text color='brand.900'>{name}</Text>
@@ -125,15 +119,25 @@ const Landing = ({ submitted, togglePanel }) => {
 
   const subStyle = {
     as: 'p',
-    marginTop: 4,
+    marginTop: '20px',
     color: 'gray.700',
+    lineHeight: '1.5',
     fontSize: '14px',
   }
 
-  const WebinarContent = {
-    date: '日期：2021年8月5日（星期四）',
-    time: '時間：晚上8時至9時',
-    description: '線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）',
+  const dividerProps = {
+    orientation: { base: 'horizontal', xl: 'vertical' },
+    bgColor: '#fff',
+    h: { base: '1px', xl: '60px' },
+    w: { base: '100%', xl: '1px' },
+    my: { base: 2, md: 4 },
+    opacity: { base: 0.2 },
+  }
+
+  const webinarProps = {
+    fontSize: { base: 18, xl: 20 },
+    fontWeight: 700,
+    pl: 2,
   }
 
   return (
@@ -145,22 +149,65 @@ const Landing = ({ submitted, togglePanel }) => {
         zIndex={2}
         style={{ maxWidth: '1400px', margin: '0 auto' }}
       >
-        <Box
-          className='wrap'
-          flex='1'
-          style={{ minWidth: '0px' }}
-          maxW={'1180px'}
-        >
-          <Box px='4' py={{ base: 4, md: 8 }}>
-            <Box mb={6}>
-              {/* {!submitted && <Image src={mainVisual} borderRadius='8px' />}
-              {submitted && !isMobile && (
-                <HeroSwiper isMobile={isMobile} swiperHeight='480px' />
-              )}{" "} */}
-              {/** Fixed swiper desktop version height, background image will keep ratio and center center position */}
-              <Image src={mainVisual} borderRadius='8px' />
+        <Box className='wrap' flex='1' style={{ minWidth: '0px' }}>
+          <Box px={{ base: 4 }} py={{ base: 4 }}>
+            <Box>
+              <Image
+                src='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/07/c35d9bc0-climate-food-webinar-banner-or.jpg'
+                borderTopRightRadius='8px'
+                borderTopLeftRadius='8px'
+              />
             </Box>
-            <Stack pb={4}>
+            <Box
+              bgColor='#000'
+              px={4}
+              py={{ base: 2, md: 6 }}
+              borderBottomRightRadius={8}
+              borderBottomLeftRadius={8}
+            >
+              <Flex
+                direction={{ base: 'column', xl: 'row' }}
+                justifyContent='space-around'
+                color='#fff'
+                align={{ base: 'left', xl: 'center' }}
+              >
+                <Box>
+                  <Stack align='center' spacing={0}>
+                    {/* {!isMobile && <Text color='#A0AEC0'>日期：</Text>} */}
+                    <Flex align='center'>
+                      <Icon as={BiCalendar} color={'#FA6A11'} w={5} h={5} />
+                      <Text {...webinarProps}>2021年8月5日</Text>
+                    </Flex>
+                    <Text>(星期四)</Text>
+                  </Stack>
+                </Box>
+                <Divider {...dividerProps} />
+                <Box>
+                  <Stack align='center' spacing={0}>
+                    {/* {!isMobile && <Text color='#A0AEC0'>時間：</Text>} */}
+                    <Flex align='center'>
+                      <Icon as={IoTimeSharp} color={'#FA6A11'} w={5} h={5} />
+                      <Text {...webinarProps}>晚上8時至9時</Text>
+                    </Flex>
+
+                    <Text d={{ base: 'none', xl: 'block' }}> &nbsp;</Text>
+                  </Stack>
+                </Box>
+                <Divider {...dividerProps} />
+                <Box>
+                  <Stack align='center' spacing={0}>
+                    {/* {!isMobile && <Text color='#A0AEC0'>線上分享會平台：</Text>} */}
+                    <Flex align='center'>
+                      <Icon as={SiAirplayvideo} color={'#FA6A11'} w={5} h={5} />
+                      <Text {...webinarProps}>Zoom</Text>
+                    </Flex>
+                    <Text>(網上登記後會獲得相關鏈結和密碼)</Text>
+                  </Stack>
+                </Box>
+              </Flex>
+            </Box>
+
+            <Stack pt={8} pb={4}>
               <Box>
                 <Text
                   as='h1'
@@ -169,84 +216,11 @@ const Landing = ({ submitted, togglePanel }) => {
                   color='gray.900'
                   lineHeight={1.2}
                 >
-                  <Text mt={4} mb={2}>
-                    「氣候危機警告現正生效：點樣影響香港人？」
-                  </Text>
-                  <Text color='brand.500'>網上科學101</Text>
+                  <Text color='#FA6A11'>網上科學 101</Text>
+                  <Text>氣候危機警告現正生效：點樣影響香港人？</Text>
                 </Text>
               </Box>
             </Stack>
-
-            <Box bgColor='#292f47' p={6} borderRadius={8} my={6}>
-              <Flex
-                direction={{ base: 'column', sm: 'row' }}
-                justifyContent='space-between'
-                color='#FFF'
-                colorScheme='#FFF'
-                align={{ base: 'left', sm: 'center' }}
-              >
-                <Box>
-                  <Stack spacing={0}>
-                    <Text color='#A0AEC0'>日期</Text>
-                    <Flex align='center'>
-                      <Icon as={BiCalendar} color={'brand.400'} w={5} h={5} />
-                      <Text fontSize={20} fontWeight={700} pl={2} py={1}>
-                        2021年8月5日
-                      </Text>
-                    </Flex>
-                    <Text>(星期四)</Text>
-                  </Stack>
-                </Box>
-                <Divider
-                  orientation={{ base: 'horizontal', sm: 'vertical' }}
-                  bgColor='#FFF'
-                  h={{ base: '1px', sm: '60px' }}
-                  w={{ base: '100%', sm: '1px' }}
-                  my={{ base: 4, sm: 0 }}
-                  opacity={{ base: 0.2 }}
-                />
-                <Box>
-                  <Stack spacing={0}>
-                    <Text color='#A0AEC0'>時間</Text>
-                    <Flex align='center'>
-                      <Icon as={IoTimeSharp} color={'brand.400'} w={5} h={5} />
-                      <Text fontSize={20} fontWeight={700} pl={2} py={1}>
-                        晚上8時至9時
-                      </Text>
-                    </Flex>
-
-                    <Text d={{ base: 'none', sm: 'block' }}> &nbsp;</Text>
-                  </Stack>
-                </Box>
-                <Divider
-                  orientation={{ base: 'horizontal', sm: 'vertical' }}
-                  bgColor='#FFF'
-                  h={{ base: '1px', sm: '60px' }}
-                  w={{ base: '100%', sm: '1px' }}
-                  my={{ base: 4, sm: 0 }}
-                  opacity={{ base: 0.2 }}
-                />
-                <Box>
-                  <Stack spacing={0}>
-                    <Text color='#A0AEC0'>線上分享會平台</Text>
-                    <Flex align='center'>
-                      <Icon
-                        as={SiAirplayvideo}
-                        color={'brand.400'}
-                        w={5}
-                        h={5}
-                      />
-                      <Text fontSize={20} fontWeight={700} pl={2} py={1}>
-                        Zoom
-                      </Text>
-                    </Flex>
-                    <Text>(網上登記後會獲得相關鏈結和密碼)</Text>
-                  </Stack>
-                </Box>
-              </Flex>
-            </Box>
-
-            {/* <Webinar content={WebinarContent} /> */}
 
             <Flex direction={{ base: 'column', sm: 'row' }}>
               <Box flex='1'>
@@ -256,37 +230,13 @@ const Landing = ({ submitted, togglePanel }) => {
                       氣候危機已到達不能忽視的境界！南北兩極破紀錄高溫，多地森林大火，東亞連串風災水災，我們居住的香港氣溫更屢創新高。氣候危機的影響並非遠在天邊，我們日常的食物，如咖啡豆、三文魚、蜂蜜等亦可能受氣候變化影響而消失。香港這一代人見證著連環極端天氣事件對人類的影響，更提醒了我們不能忽視氣候危機。
                     </Text>
                   </Box>
-                  {/* <Box>
-                  <Image borderRadius='8px' marginTop='8' src={info01} />
-                  <Text>經過綠色和平長達3年的推動，荷蘭法院終裁定化石能源企業SHELL須為氣候危機負責，他們必須在9年內將其碳排放量，由2019年的水平大幅減少45％。</Text>
-                </Box> */}
                 </Flex>
 
                 <Flex direction='row' align='center'>
-                  {/* <Box pr={{base: 0, sm: 4}}>
-                  <Image borderRadius='8px' marginTop='8' src={info02} />
-                  <Text>綠色和平走到深水埗鬧市，展示巨型溫度計，呼籲港人正視氣候變化。</Text>
-                </Box> */}
                   <Box>
                     <Text {...pStyle}>
-                      綠色和平邀請到大氣科學家、「世界氣象組織青年科學家研究獎」得獎者、中文大學地球系統科學課程副教授戴沛權
-                      (Amos) 來與綠色和平項目主任伍漢林 (Tom)
+                      綠色和平邀請到大氣科學家、「世界氣象組織青年科學家研究獎」得獎者、中文大學地球系統科學課程副教授戴沛權（Amos）來與綠色和平項目主任伍漢林（Tom）
                       對談，深入淺出地講解近年氣候變化趨勢，以及為香港人帶來的生活影響。想知道氣候變化如何影響我們熟悉的食物？我們又可以做什麼拯救氣候？立即報名「氣候危機警告現正生效：點樣影響香港人？」網上分享會，一起裝備大腦，拯救地球！
-                    </Text>
-                  </Box>
-                </Flex>
-
-                <Flex direction={{ base: 'column', sm: 'row' }}>
-                  <Box flex={1} pr={{ base: 0, sm: 3 }}>
-                    <Image borderRadius='4px' marginTop='6' src={info01} />
-                    <Text {...subStyle}>
-                      綠色和平走到深水埗鬧市，展示巨型溫度計，呼籲港人正視氣候變化。
-                    </Text>
-                  </Box>
-                  <Box flex={1} pl={{ base: 0, sm: 3 }}>
-                    <Image borderRadius='4px' marginTop='6' src={info02} />
-                    <Text {...subStyle}>
-                      經過綠色和平長達3年的推動，荷蘭法院終裁定化石能源企業SHELL須為氣候危機負責，他們必須在9年內將其碳排放量，由2019年的水平大幅減少45％。
                     </Text>
                   </Box>
                 </Flex>
@@ -295,7 +245,22 @@ const Landing = ({ submitted, togglePanel }) => {
 
             <Flex direction='column'>
               <TestmonialCard content={amosContent} />
-              <TestmonialCardTypeTwo content={tomContent} />
+              <TestmonialCard content={tomContent} />
+            </Flex>
+
+            <Flex direction={{ base: 'column', sm: 'row' }}>
+              <Box flex={1} pr={{ base: 0, sm: 3 }}>
+                <Image borderRadius='4px' marginTop='6' src={info01} />
+                <Text {...subStyle}>
+                  綠色和平走到深水埗鬧市，展示巨型溫度計，呼籲港人正視氣候變化。
+                </Text>
+              </Box>
+              <Box flex={1} pl={{ base: 0, sm: 3 }}>
+                <Image borderRadius='4px' marginTop='6' src={info02} />
+                <Text {...subStyle}>
+                  經過綠色和平長達3年的推動，荷蘭法院終裁定化石能源企業SHELL須為氣候危機負責，他們必須在9年內將其碳排放量，由2019年的水平大幅減少45％。
+                </Text>
+              </Box>
             </Flex>
 
             <Divider my={{ base: 8, lg: 10 }} />
@@ -329,7 +294,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 </Text>
                 <Button
                   mt='2'
-                  color='#FFF'
+                  color='#fff'
                   bg='brand.500'
                   _hover={{ bg: 'brand.400', textDecoration: 'none' }}
                   borderRadius='4px'
@@ -367,7 +332,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 version={true}
                 showProgress={false}
                 newsLetter={false}
-                birthDate={false}
+                birthDate={true}
                 thanksScreen={false}
               />
             )}
@@ -392,7 +357,7 @@ const Landing = ({ submitted, togglePanel }) => {
       >
         <Button
           w='90%'
-          color='#FFF'
+          color='#fff'
           bg='orange'
           borderRadius='24px'
           fontSize='xl'
@@ -407,7 +372,7 @@ const Landing = ({ submitted, togglePanel }) => {
         formContent={content}
         showProgress={false}
         newsLetter={false}
-        birthDate={false}
+        birthDate={true}
       >
         {submitted && isMobile && (
           <HeroSwiper isMobile={isMobile} swiperHeight='480px' />

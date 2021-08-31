@@ -1,0 +1,33 @@
+{
+  "label_first_name": "名字 First Name",
+  "label_last_name": "姓氏 Last Name",
+  "label_email": "電郵地址 Email Address",
+  "label_phone": "手提號碼 Phone Number",
+  "label_phone_optional": "手提號碼（選填）Mobile",
+  "label_year_of_birth": "出生年份 Year Of Birth",
+  "label_year_of_birth_optional": "出生年份（選填）Year Of Birth",
+  "select": "請選擇",
+
+  "empty_data_alert": "請填寫資料",
+  "empty_select_data_alert": "請選擇",
+  "invalid_email_alert": "請填上有效電郵地址",
+  "invalid_format_alert": "請輸入有效格式",
+  "minimum_8_characters": "請輸入8位數字",
+
+  "form_header": "阻止破壞北極 今天立即加入全球行動！",
+  "form_description": "全賴有您，守護北極的力量日益強大。我們團結一起，讓守護北極的呼聲，揚得更遠！",
+  "form_remind": "我願意收到綠色和平發送的通訊，讓我能掌握環保工作的最新脈動！綠色和平尊重並保障您的個人資料，您隨時可取消訂閱，請參考私隱政策。",
+
+  "submit_text": "立即聯署",
+
+  "thanks_title": "",
+  "thanks_ask": "",
+  "thanks_content": "<p>綠色和平堅持不接受政商界捐助，因為您，綠色和平得以維持環境工作的公正獨立性！</b></p>",
+  "share_button": "分享出去",
+  "donate_button": "",
+  "donateURL": "",
+  "shareMessage": "",
+  "fbURL": "https://act.gp/2UaNeVG",
+  "mainURL": "https://act.gp/3m2mYIH",
+  "whatsappURL": "https://act.gp/3shvLHP"
+}

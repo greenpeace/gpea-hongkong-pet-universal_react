@@ -9,6 +9,8 @@ import swiperContent from "../../data/swiper.json";
 
 import videoBG from "../../../../assets/videos/e96a2abcec677ba251bdd4e8c9ddb5ef.mp4";
 
+console.log('swiperContent--',swiperContent)
+
 const SlideContent = ({
   swiper,
   slideIndex,
@@ -45,6 +47,16 @@ const SlideContent = ({
 
   return (
     <>
+<<<<<<< HEAD
+      <div className="hero-wrapper fl-wrap full-height hidden-item">
+        {/* <div className="video-wrap">
+          <div className="videobg">
+          </div>
+        </div> */}
+        <span className="hc_dec"></span>
+        <div className="hero-slider-wrap home-half-slider fl-wrap full-height">
+          <div className="hero-slider fs-gallery-wrap fl-wrap full-height">
+=======
       <div className='hero-wrapper fl-wrap full-height hidden-item'>
         <div className='video-wrap'>
           <div className='videobg'>
@@ -56,6 +68,7 @@ const SlideContent = ({
         <span className='hc_dec'></span>
         <div className='hero-slider-wrap home-half-slider fl-wrap full-height'>
           <div className='hero-slider fs-gallery-wrap fl-wrap full-height'>
+>>>>>>> b3a76c9d1bcda93e86b0f586060c2bf31cb6f46b
             <Banner />
           </div>
         </div>

@@ -92,14 +92,14 @@ const Index = ({ submitted, togglePanel }) => {
                       lineHeight='160px'
                       letterSpacing='-4px'
                       pos='absolute'
-                      color='#FFF'
+                      color='#fff'
                     >
                       救氣候
                       <br />
                       阻止北極破壞！
                     </Heading>
                     <Box>
-                      <Image src={'/custom/images/a_pic.jpg'} />
+                      <Image src={'https://source.unsplash.com/random'} />
                     </Box>
                   </Center>
                 </Box>
@@ -108,7 +108,7 @@ const Index = ({ submitted, togglePanel }) => {
           </Box>
           <Box mb={10}>
             <Flex>
-              <Box flex='1' bgColor='#0E5A62' color='#FFF' p={4}>
+              <Box flex='1' bgColor='#0E5A62' color='#fff' p={4}>
                 <Center p={10}>
                   <VStack>
                     <Heading mb={0} alignSelf='self-start'>
@@ -176,7 +176,7 @@ const Index = ({ submitted, togglePanel }) => {
       >
         <Button
           w='80%'
-          color='#FFF'
+          color='#fff'
           bg='orange'
           _hover={{ bg: 'campaign.oceans' }}
           borderRadius='24px'

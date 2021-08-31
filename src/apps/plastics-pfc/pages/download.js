@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import { useMediaQuery } from "react-responsive";
-import Sticky from "react-sticky-el";
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
+import { useMediaQuery } from 'react-responsive'
+import Sticky from 'react-sticky-el'
 import {
   ChakraProvider,
   Box,
@@ -14,37 +14,37 @@ import {
   Center,
   VStack,
   HStack,
-} from "@chakra-ui/react";
-import Nav from "../components/header/nav";
-import Footer from "../components/footer";
-import * as themeActions from "store/actions/action-types/theme-actions";
-import themeConfig from "../../../theme";
-import { animateScroll as scroll, scroller } from "react-scroll";
-import { DownloadIcon } from "@chakra-ui/icons";
+} from '@chakra-ui/react'
+import Nav from '../components/header/nav'
+import Footer from '../components/footer'
+import * as themeActions from 'store/actions/action-types/theme-actions'
+import themeConfig from '../../../theme'
+import { animateScroll as scroll, scroller } from 'react-scroll'
+import { DownloadIcon } from '@chakra-ui/icons'
 
-import LazyLoad from "react-lazyload";
+import LazyLoad from 'react-lazyload'
 
-import wallpaper from "../../../data/wallpaper.json";
+import wallpaper from '../../../data/wallpaper.json'
 
-import "../index.css";
+import '../index.css'
 
 const Index = ({ submitted, togglePanel, selectedImage }) => {
-  const [Arctic, setArctic] = useState([]);
-  const [Forests, setForests] = useState([]);
-  const [Oceans, setOceans] = useState([]);
-  const [current, setCurrent] = useState([]);
-  const [displayCate, setDisplayCate] = useState(false);
-  const [isShown, setIsShown] = useState(false);
+  const [Arctic, setArctic] = useState([])
+  const [Forests, setForests] = useState([])
+  const [Oceans, setOceans] = useState([])
+  const [current, setCurrent] = useState([])
+  const [displayCate, setDisplayCate] = useState(false)
+  const [isShown, setIsShown] = useState(false)
   const [download, setDownload] = useState(
     wallpaper.data[3].content.wallpaperList[0]
-  );
+  )
   const campaignButton = [
-    { label_zh: "北極", label: "Arctic", value: Arctic },
-    { label_zh: "森林", label: "Forests", value: Forests },
-    { label_zh: "海洋", label: "Oceans", value: Oceans },
-  ];
+    { label_zh: '北極', label: 'Arctic', value: Arctic },
+    { label_zh: '森林', label: 'Forests', value: Forests },
+    { label_zh: '海洋', label: 'Oceans', value: Oceans },
+  ]
 
-  const isMobile = useMediaQuery({ query: "(max-device-width: 564px)" });
+  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
 
   const scrollTo = (d) => {
     scroller.scrollTo(d, {
@@ -52,92 +52,92 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
       delay: 0,
       smooth: true,
       offset: -200, // TODO: Need double check the value
-    });
-  };
+    })
+  }
 
   const handleSwitchDownload = (cate) => {
-    console.log("clicked", cate);
-    const getFirstItem = cate.content?.wallpaperList[0];
-    setDownload(getFirstItem);
-    selectedImage(getFirstItem);
-    setCurrent(cate);
-  };
+    console.log('clicked', cate)
+    const getFirstItem = cate.content?.wallpaperList[0]
+    setDownload(getFirstItem)
+    selectedImage(getFirstItem)
+    setCurrent(cate)
+  }
 
   const handleSetDownload = (d) => {
-    setDownload(d);
-    selectedImage(d);
-    scrollTo(d);
-  };
+    setDownload(d)
+    selectedImage(d)
+    scrollTo(d)
+  }
 
   const whatsAppShare = () => {
-    var w = "https://act.gp/39fBmX6";
-    window.open(w);
-  };
+    var w = 'https://act.gp/39fBmX6'
+    window.open(w)
+  }
   const mainShare = () => {
     // WEB SHARE API
     if (navigator.share) {
       navigator
         .share({
-          title: "",
-          text: "精選香港動物奇妙時刻：桌布 / 視像會議寫真大放送！立即免費下載！👉 ",
-          url: "https://act.gp/2YaXfQW",
+          title: '',
+          text: '精選香港動物奇妙時刻：桌布 / 視像會議寫真大放送！立即免費下載！👉 ',
+          url: 'https://act.gp/2YaXfQW',
         })
         .then()
-        .catch();
+        .catch()
     } else {
-      whatsAppShare();
+      whatsAppShare()
     }
-  };
+  }
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    setArctic(wallpaper.data.find((d) => d.issue === "Biodiversity"));
-    setForests(wallpaper.data.find((d) => d.issue === "Forests"));
-    setOceans(wallpaper.data.find((d) => d.issue === "Oceans"));
-  }, []);
+    window.scrollTo(0, 0)
+    setArctic(wallpaper.data.find((d) => d.issue === 'Biodiversity'))
+    setForests(wallpaper.data.find((d) => d.issue === 'Forests'))
+    setOceans(wallpaper.data.find((d) => d.issue === 'Oceans'))
+  }, [])
 
   useEffect(() => {
-    const getFirstItem = Arctic.content?.wallpaperList[0];
-    setCurrent(Arctic);
-    selectedImage(getFirstItem);
-  }, [Arctic]);
+    const getFirstItem = Arctic.content?.wallpaperList[0]
+    setCurrent(Arctic)
+    selectedImage(getFirstItem)
+  }, [Arctic])
 
   const downloadButtonStyle = {
-    top: "0px",
-    left: "0px",
-    borderTop: "80px solid #66cc00",
-    borderRight: "80px solid transparent",
-  };
+    top: '0px',
+    left: '0px',
+    borderTop: '80px solid #66cc00',
+    borderRight: '80px solid transparent',
+  }
 
   const mobileDownloadButtonStyle = {
-    top: "0px",
-    left: "0px",
-    borderTop: "48px solid #66cc00",
-    borderRight: "48px solid transparent",
-  };
+    top: '0px',
+    left: '0px',
+    borderTop: '48px solid #66cc00',
+    borderRight: '48px solid transparent',
+  }
 
   const SelectButtonStyle = {
-    variant: "outline",
+    variant: 'outline',
     fontWeight: 700,
-    color: "brand.600",
-    borderColor: "brand.600",
+    color: 'brand.600',
+    borderColor: 'brand.600',
     _hover: {
-      color: "#FFF",
-      bgColor: "brand.600",
+      color: '#fff',
+      bgColor: 'brand.600',
     },
-    flex: "1",
-    borderRadius: "20px",
-  };
+    flex: '1',
+    borderRadius: '20px',
+  }
 
   const SelectedButtonStyle = {
-    variant: "solid",
+    variant: 'solid',
     fontWeight: 700,
-    color: "#FFF",
-    borderColor: "brand.600",
-    bgColor: "brand.600",
-    flex: "1",
-    borderRadius: "20px",
-  };
+    color: '#fff',
+    borderColor: 'brand.600',
+    bgColor: 'brand.600',
+    flex: '1',
+    borderRadius: '20px',
+  }
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -175,7 +175,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
             </Button>
           </HStack>
           <Sticky
-            stickyClassName={"sticky-wallpaper-image"}
+            stickyClassName={'sticky-wallpaper-image'}
             z-index='99'
             onFixedToggle={() => setDisplayCate(!displayCate)}
           >
@@ -190,7 +190,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
             >
               <Link
                 href={`${process.env.PUBLIC_URL}${download}`}
-                download={download.split("/").pop()}
+                download={download.split('/').pop()}
                 isExternal
               >
                 {isShown && (
@@ -204,10 +204,10 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                   >
                     <Center w='100%' h='100%'>
                       <VStack>
-                        <Text as='h3' color='#FFF'>
+                        <Text as='h3' color='#fff'>
                           <strong>點擊確認下載圖片</strong>
                         </Text>
-                        <small style={{ color: "#FFF" }}>
+                        <small style={{ color: '#fff' }}>
                           * 如果下載程序沒有自動開始，請長按圖片並選擇下載圖片
                         </small>
                       </VStack>
@@ -215,7 +215,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                   </Box>
                 )}
                 <Box pos='absolute' left='8px' top='8px' zIndex='1'>
-                  <DownloadIcon color='#FFF' w={8} h={8} />
+                  <DownloadIcon color='#fff' w={8} h={8} />
                 </Box>
                 <Box pos='absolute' {...downloadButtonStyle}></Box>
                 <LazyLoad height={200} once offset={100}>
@@ -261,7 +261,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                 <Box
                   pos='relative'
                   key={i}
-                  _hover={{ cursor: "pointer", opacity: 0.8 }}
+                  _hover={{ cursor: 'pointer', opacity: 0.8 }}
                   onClick={() => handleSetDownload(d)}
                 >
                   {/* <Link
@@ -275,12 +275,12 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                 _hover={{cursor: 'pointer', opacity: .8}}
                 pos="relative"
               >
-              <Box pos="absolute" bottom="6px" right="6px" zIndex={2}><DownloadIcon color="#FFF" w={4} h={4}/></Box>
+              <Box pos="absolute" bottom="6px" right="6px" zIndex={2}><DownloadIcon color="#fff" w={4} h={4}/></Box>
               <Box pos="absolute" {...mobileDownloadButtonStyle} zIndex={1}></Box>
             </Box> */}
                   <LazyLoad height={240} once offset={100}>
                     {/* <Box pos="absolute" left="4px" top="4px">
-                      <DownloadIcon color="#FFF" w={4} h={4} />
+                      <DownloadIcon color="#fff" w={4} h={4} />
                     </Box>
                     <Box pos="absolute" {...mobileDownloadButtonStyle}></Box>
                     */}
@@ -297,8 +297,8 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
                   key={i}
                   bgImage={`url(${process.env.PUBLIC_URL}${d})`}
                   bgSize='cover'
-                  height={{ base: "240px", sm: "180px" }}
-                  _hover={{ cursor: "pointer", opacity: 0.8 }}
+                  height={{ base: '240px', sm: '180px' }}
+                  _hover={{ cursor: 'pointer', opacity: 0.8 }}
                   onClick={() => handleSetDownload(d)}
                 ></Box>
               ))}
@@ -318,25 +318,25 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
       </SimpleGrid>
       <Footer />
     </ChakraProvider>
-  );
-};
+  )
+}
 
 const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-  };
-};
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
     },
     selectedImage: (src) => {
-      dispatch({ type: themeActions.SWITCH_SELECTED_IMAGE, src });
+      dispatch({ type: themeActions.SWITCH_SELECTED_IMAGE, src })
     },
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Index);
+export default connect(mapStateToProps, mapDispatchToProps)(Index)
