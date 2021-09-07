@@ -1,24 +1,22 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 const mainShare = () => {
   const fbShare = () => {
-    var baseURL = 'https://www.facebook.com/sharer/sharer.php';
-    var u = 'https://act.gp/3bLDMwF';
+    var baseURL = "https://www.facebook.com/sharer/sharer.php";
+    var u = "https://act.gp/3eG7pTl";
     var t = (window.innerHeight - 436) / 2;
     var l = (window.innerWidth - 626) / 2;
     window.open(
-      baseURL + '?u=' + encodeURIComponent(u),
-      '_blank',
-      'width=626,height=436,top=' + t + ',left=' + l
+      baseURL + "?u=" + encodeURIComponent(u),
+      "_blank",
+      "width=626,height=436,top=" + t + ",left=" + l
     );
   };
   // WEB SHARE API
   if (navigator.share) {
     navigator
       .share({
-        title: '',
-        text: '多年來，綠色和平以建立30%海洋保護區為目標，立即聯署守護海洋，攜手成立全球海洋保護區！👉 ',
-        url: 'https://act.gp/3l2XZCq',
+        title: "",
+        text: "多年來，綠色和平以建立30%海洋保護區為目標，立即聯署守護海洋，攜手成立全球海洋保護區！👉 ",
+        url: "https://act.gp/3l2XZCq",
       })
       .then()
       .catch();

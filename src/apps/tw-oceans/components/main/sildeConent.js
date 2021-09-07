@@ -77,7 +77,7 @@ const SlideContent = ({
           >
             <span>
               <FontAwesomeIcon icon={['fas', 'arrow-left']} />
-            </span>{' '}
+            </span>
           </div>
           <div
             className='hsc hsc-next'
