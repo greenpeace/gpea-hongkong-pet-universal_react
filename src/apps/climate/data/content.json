@@ -1,0 +1,36 @@
+{
+  "label_first_name": "名字",
+  "label_last_name": "姓氏",
+  "label_email": "電郵地址",
+  "label_phone": "手提號碼（接收活動SMS提示）",
+  "label_phone_optional": "手提號碼（選填）",
+  "label_year_of_birth": "出生年份",
+  "label_year_of_birth_optional": "出生年份（選填）",
+  "select": "請選擇",
+
+  "empty_data_alert": "請填寫資料",
+  "empty_select_data_alert": "請選擇",
+  "invalid_email_alert": "請填上有效電郵地址",
+  "invalid_format_alert": "請輸入有效格式",
+  "minimum_8_characters": "請輸入8位數字",
+
+  "form_header": "立即免費登記「減碳生活節」！",
+  "form_description": "登記參與在10月1日及2日的「Coffee Meets Climate」體驗日，並獲取日常減碳小貼士，一同減緩氣候危機，齊做「減碳小先峰」！",
+  "form_remind": "登記是次活動即代表我願意收到綠色和平發送的通訊，讓我能掌握環保工作的最新脈動！我同意綠色和平按照個人資料政策與我聯絡，包括提供環保工作資訊及捐款呼籲等。",
+
+  "submit_text": "立即登記",
+
+  "thanks_title": "感謝您報名參加！",
+  "thanks_content": "",
+  "thanks_content_top_section": "您將會收到電郵通知，與您分享日常減碳小貼士及體驗日的活動優先報名表。",
+  "thanks_content_center_section": "期待在 「Coffee Meets Climate」體驗日 與您慶祝您14天的減碳生活！",
+  "thanks_content_bottom_section": "<img src='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/09/1a219901-climate-workshop-grid2.jpg'/><br/>除了您在日常對減碳的承諾外，綠色和平堅持關注並以實質行動應對氣候問題，我們希望能持續游說企業及政府善用清潔能源，減用煤炭、石油等污染能源。同時，若今天得到您的捐助支持，您將獲得：<br/><br/>- <b>會員咖啡品嘗班</b> (月捐$300或以上，每日約$10 )<br/>- <b>咖啡渣環保肥皂、彩虹勇士號襟章</b> (月捐$150或以上，每日約$5 )<br/><u>您願意每月小額捐助，支持綠色和平團隊的工作嗎？</u>",
+  "thanks_content_after_button_section": "為在環境工作上保持100%公正獨立，綠色和平堅持不接受政商界捐助，所以您捐助的一分一毫，也是支持我們項目工作的關鍵力量！",
+  "share_button": "分享出去",
+  "donate_button": "捐助支持",
+  "donateURL": "https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=climate&ref=climatexfood-registration-thankyou",
+  "shareMessage": "",
+  "fbURL": "https://act.gp/3BmbZik",
+  "mainURL": "https://act.gp/3BnX1Iw",
+  "whatsappURL": "https://act.gp/3eBQpwv"
+}
