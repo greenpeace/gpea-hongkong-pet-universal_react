@@ -15,10 +15,9 @@ import {
   SimpleGrid,
   Stack,
   List,
+  OrderedList,
   ListItem,
-  ListIcon,
 } from '@chakra-ui/react';
-import { MdDateRange, MdAccessTime, MdLocalPlay } from 'react-icons/md';
 import SEO from '../SEO';
 import content from '../data/content';
 import Nav from '../components/header/nav';
@@ -29,9 +28,7 @@ import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm';
 import Panel from 'components/panel/newFormPanel';
 import themeConfig from '../../../theme';
 
-import kv from '../assets/images/kv.jpg';
-import desktopflow from '../assets/images/climate-challenge-flow-desktop.jpg';
-import mobileflow from '../assets/images/climate-challenge-flow.jpg';
+import kv from '../assets/images/GP02KCC_High_res.jpg';
 
 const Landing = ({ submitted, togglePanel }) => {
   const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' });
@@ -68,96 +65,52 @@ const Landing = ({ submitted, togglePanel }) => {
                   color='gray.900'
                   lineHeight={1.1}
                 >
-                  您有想過，
-                  <br />
-                  香港人也可以為氣候危機出一分力嗎？
+                  緩解氣候危機 刻不容緩
                 </Text>
               </Box>
             </Stack>
 
             <Flex direction={{ base: 'column', sm: 'row' }}>
               <Box flex='1'>
-                <Flex direction='row' align='center'>
-                  <Box>
-                    <Text {...pStyle}>
-                      美加熱浪、洪水侵襲歐洲、亞洲多國...從前看似遠在天邊的氣候危機，其實已日漸影響香港人的日常生活。身處香港，我們都可以出一分力，為地球減緩氣候危機！
-                    </Text>
-                    <Text {...pStyle}>
-                      今年9月，綠色和平將舉辦「減碳生活節」，帶領更多市民在日常中實踐減碳生活。現只需在網上登記，即能參與「減碳生活節」，並送您更多日常減碳小貼士！
-                    </Text>
-                    <Text {...pStyle}>
-                      同時，
-                      <b>
-                        為答謝您對地球減碳的承諾，您將獲邀參加「Coffee Meets
-                        Climate」體驗日。
-                      </b>
-                    </Text>
-                    <Text {...pStyle} fontSize={'xl'}>
-                      活動詳情：
-                    </Text>
-                    <List spacing={4} px={4} pt={8} pb={4} fontSize={'lg'}>
-                      <ListItem alignItems={'center'}>
-                        <ListIcon
-                          as={MdDateRange}
-                          color={'gray.700'}
-                          mb={1}
-                          mr={'4'}
-                        />
-                        日期：10月1日及2日
-                      </ListItem>
-                      <ListItem>
-                        <ListIcon
-                          as={MdAccessTime}
-                          color={'gray.700'}
-                          mb={1}
-                          mr={'4'}
-                        />
-                        時間：上午11時至下午7時
-                      </ListItem>
-                      <ListItem>
-                        <ListIcon
-                          as={MdLocalPlay}
-                          color={'gray.700'}
-                          mb={1}
-                          mr={'4'}
-                        />
-                        地點：美孚饒宗頤文化館
-                      </ListItem>
-                    </List>
-                    <Text {...pStyle}>
-                      屆時會以多項有趣活動，讓您及公眾感受怎樣在日常生活中輕鬆地減低碳足跡，及認識眾多您不知道有關食物及氣候變化的關係，
-                      <b>
-                        趕在9月28日前登記，免費體驗減碳生活，給地球一個coffee
-                        break！
-                      </b>
-                    </Text>
-                    <List px={4} pt={8} pb={4} spacing={4} fontSize={'lg'}>
-                      <ListItem>- 太陽能咖啡店</ListItem>
-                      <ListItem>- 環保單車</ListItem>
-                      <ListItem>- 咖啡品嘗班</ListItem>
-                      <ListItem>- 氣候危機知多啲 展覽及攤位遊戲</ListItem>
-                      <ListItem>- 咖啡渣環保手作工作坊</ListItem>
-                      <ListItem>- 「童您講故事」氣候與環境繪本共讀會</ListItem>
-                      <ListItem>
-                        - 「氣候危機警告現正生效：點樣影響香港人？」氣候講座
-                      </ListItem>
-                    </List>
-                    <Image
-                      mt={'md'}
-                      borderRadius='4px'
-                      src={mobileflow}
-                      alignSelf='center'
-                    />
-
-                    {/* <Image
-                      className='pure-visible-desktop'
-                      mt={'md'}
-                      borderRadius='4px'
-                      src={desktopflow}
-                      alignSelf='center'
-                    /> */}
-                  </Box>
-                </Flex>
+                <Text {...pStyle}>
+                  氣候危機已經對全球構成威脅，聯合國政府間氣候變化專門委員會（IPCC）發表最新氣候報告，指出如果人類無法將全球升溫控制在1.5°C內，我們將可能面對更強、更頻繁的極端天氣事件。綠色和平作為IPCC的官方觀察員，除了出席氣候報告審核會議，更無間斷地督促各地政府堅守1.5°C臨界值目標，落實減碳目標。
+                </Text>
+                <Text {...pStyle}>
+                  這份報告是人類生存的「紅色警報」，緩解氣候危機刻不容緩，我們必須在更多破壞發生前力挽狂瀾。立即行動，加入聯署，一同攜手拯救氣候。
+                </Text>
+                <Divider />
+                <Text {...pStyle}>
+                  綠色和平一直敦促全球各地政府、企業減排節能，推動成立綠色政策。過去，我們成功在不少氣候行動中取得成果，例如：
+                </Text>
+                <OrderedList>
+                  <ListItem>
+                    推動韓國成為東亞區內首個支持「綠色新政」的地方，並於2021年通過電氣法修法，加速企業能源轉型；
+                  </ListItem>
+                  <ListItem>
+                    勝出法國世紀氣候訴訟，此勝利為法國司法部門首次承認該國應對氣候危機負有責任；
+                  </ListItem>
+                  <ListItem>
+                    歷史性勝出訴訟化石能源企業Shell，法庭判決Shell須為氣候危機負責，其2030年的碳排放量，要從2019年的水平大幅減少45％。
+                  </ListItem>
+                </OrderedList>
+                <Divider />
+                <Text {...pStyle}>
+                  綠色和平致力推動全球於2050年達致淨零碳排放，並就氣候政策向香港政府提出多項建議，其中包括：
+                </Text>
+                <OrderedList>
+                  <ListItem>
+                    要求政府將「氣候行動藍圖」列為首要落實的環保政策，盡快訂立清晰的碳中和路線圖；
+                  </ListItem>
+                  <ListItem>
+                    2022年或之前，制定具有法律約束力並以科學為基礎的氣候目標，展示聯同國際社會將全球暖化限制在1.5°C的決心；
+                  </ListItem>
+                  <ListItem>
+                    2030年或之前實現使用至少10%可再生能源的目標。
+                  </ListItem>
+                </OrderedList>
+                <Text {...pStyle}>
+                  推動綠色政策需要你我力量達成！立即聯署，守護氣候。
+                </Text>
               </Box>
             </Flex>
 
