@@ -23,37 +23,39 @@ const Landing = ({ submitted, togglePanel }) => {
     <ChakraProvider theme={themeConfig}>
       <SEO />
       <Nav showButton={false} />
-      <Flex
-        pos='relative'
-        zIndex={2}
-        style={{ maxWidth: '1400px', margin: '0 auto' }}
-      >
-        <Box className='wrap' flex='1' style={{ minWidth: '0px' }}>
-          <Content />
-        </Box>
-        <Box
-          w={{ base: 0, md: '50%', lg: '450px', xl: '500px' }}
-          px={{ base: 4 }}
-          py='4'
-          d={{ base: 'none', md: 'block' }}
-          className='stickyContent'
+      <Box backgroundColor={'#333333'}>
+        <Flex
+          pos='relative'
+          zIndex={2}
+          style={{ maxWidth: '1400px', margin: '0 auto' }}
         >
-          <Sticky stickyStyle={{ zIndex: 10 }}>
-            {submitted ? (
-              <NewFrameSubmittedForm formContent={content} />
-            ) : (
-              <NewFrameForm
-                formContent={content}
-                version={true}
-                showProgress={false}
-                newsLetter={false}
-                birthDate={true}
-                thanksScreen={false}
-              />
-            )}
-          </Sticky>
-        </Box>
-      </Flex>
+          <Box className='wrap' flex='1' style={{ minWidth: '0px' }}>
+            <Content />
+          </Box>
+          <Box
+            w={{ base: 0, md: '50%', lg: '450px', xl: '500px' }}
+            px={{ base: 4 }}
+            py='4'
+            d={{ base: 'none', md: 'block' }}
+            className='stickyContent'
+          >
+            <Sticky stickyStyle={{ zIndex: 10 }}>
+              {submitted ? (
+                <NewFrameSubmittedForm formContent={content} />
+              ) : (
+                <NewFrameForm
+                  formContent={content}
+                  version={true}
+                  showProgress={false}
+                  newsLetter={false}
+                  birthDate={true}
+                  thanksScreen={false}
+                />
+              )}
+            </Sticky>
+          </Box>
+        </Flex>
+      </Box>
       <Box
         pos='fixed'
         bottom={0}

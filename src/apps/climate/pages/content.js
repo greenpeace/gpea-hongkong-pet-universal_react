@@ -16,14 +16,14 @@ import styled from '@emotion/styled';
 
 import ParallaxBackground from '../../../components/ParallaxBanner/ParallaxBanner';
 
-import kv from '../assets/images/GP0STORVB_High_res.JPG';
+import kv from '../assets/images/20210913_climate_launchvisual-01.jpg';
 import img0 from '../assets/images/GP0STTB7D_High_res.jpg';
 import img1 from '../assets/images/GP0STRAJX_High_res.jpg';
 import img2 from '../assets/images/GP0STQF5I_High_res.jpg';
 
-import icon1 from '../assets/images/global-warming.svg';
-import icon2 from '../assets/images/melting.svg';
-import icon3 from '../assets/images/money-bag.svg';
+import icon1 from '../assets/images/Asset1-earth.png';
+import icon2 from '../assets/images/Asset1-icemelt.png';
+import icon3 from '../assets/images/Asset1-moneybag.png';
 
 import banner from '../assets/images/GP0STT4OQ_High_res.jpg';
 
@@ -32,7 +32,6 @@ const TextWrapper = styled.div`
   text-align: justify;
   letter-spacing: 0.022em;
   p {
-    color: #333333;
     font-size: 16px;
     line-height: 1.5;
     margin-top: 20px;
@@ -50,8 +49,6 @@ const Feature = ({ title, text, icon }) => {
     fontSize: '36px',
     fontWeight: 900,
     letterSpacing: '2px',
-    color: '#333',
-    // color: '#ffbe00',
   };
   return (
     <Stack alignItems={'center'}>
@@ -65,10 +62,10 @@ const Feature = ({ title, text, icon }) => {
       >
         {icon}
       </Flex>
-      <Heading {...numberFont} py={4}>
+      <Heading {...numberFont} pt={6} pb={4}>
         {title}
       </Heading>
-      <Text color={'gray.700'} fontSize={'sm'}>
+      <Text fontSize={'sm'} textAlign='center' lineHeight='2'>
         {text}
       </Text>
     </Stack>
@@ -78,16 +75,15 @@ const Feature = ({ title, text, icon }) => {
 const Content = () => {
   return (
     <Box>
-      <ParallaxBackground image={kv} />
-
-      <Stack spacing={4} py={6}>
+      <Image mt={4} src={kv} loading='lazy' />
+      <Stack spacing={4} py={6} backgroundColor={'#333333'} color={'#ffffff'}>
         <TextWrapper>
           <Heading
             as='h1'
             fontSize={{ base: '3xl', md: '4xl' }}
             fontWeight='bold'
-            color='gray.900'
             lineHeight={1.1}
+            color='#ffc700'
           >
             緩解氣候危機 刻不容緩
           </Heading>
@@ -102,32 +98,34 @@ const Content = () => {
         <ParallaxBackground image={img0} />
 
         <TextWrapper>
-          <Heading as='h3' mb={4}>
+          <Heading as='h3' mb={6} color='#ffc700'>
             氣候危機影響 無孔不入
           </Heading>
           <SimpleGrid columns={{ base: 1, lg: 3 }} pt={8} pb={2} spacing={8}>
             <Feature
-              icon={<Image src={icon1} w={20} h={20} />}
+              icon={<Image src={icon1} w={20} />}
               title={'200萬'}
               text={'大氣中的二氧化碳是至少 200 萬年來的最高濃度'}
             />
             <Feature
-              icon={<Image src={icon2} w={20} h={20} />}
+              icon={<Image src={icon2} w={20} />}
               title={'2050'}
               text={'2050年前，北極可能經歷最少一次「9月無海冰」'}
             />
             <Feature
-              icon={<Image src={icon3} w={20} h={20} />}
+              icon={<Image src={icon3} w={20} />}
               title={'7,240億'}
               text={
-                '海平面上升威脅下，東亞7個城市未來或有1,500萬人與7,240億美元GDP受影響'
+                '海平面上升威脅下，亞洲7個城市未來或有1,500萬人與7,240億美元GDP受影響'
               }
             />
           </SimpleGrid>
         </TextWrapper>
 
         <TextWrapper>
-          <Heading as='h3'>拯救氣候 迎難而上</Heading>
+          <Heading as='h3' color='#ffc700'>
+            拯救氣候 迎難而上
+          </Heading>
 
           <Text>
             綠色和平一直敦促全球各地政府、企業減排節能，推動成立綠色政策。過去，我們成功在不少氣候行動中取得成果，例如：
@@ -156,7 +154,9 @@ const Content = () => {
         <ParallaxBackground image={img1} />
 
         <TextWrapper>
-          <Heading as='h3'>拯救氣候 迎難而上</Heading>
+          <Heading as='h3' color='#ffc700'>
+            拯救氣候 迎難而上
+          </Heading>
 
           <Text>
             綠色和平致力推動全球於2050年達致淨零碳排放，並就氣候政策向香港政府提出多項建議，其中包括：
@@ -177,10 +177,10 @@ const Content = () => {
         <ParallaxBackground image={img2} />
 
         <TextWrapper>
-          <Heading as='h3'>
+          <Heading as='h3' color='#ffc700'>
             立即聯署
             <br />
-            2050年達致碳中和
+            推動香港2050年達致碳中和
           </Heading>
 
           <Text>

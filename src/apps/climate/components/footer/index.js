@@ -7,7 +7,7 @@ import {
   Text,
   useColorModeValue,
   Flex,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
 
 const Logo = (props) => {
   return (
@@ -18,15 +18,14 @@ const Logo = (props) => {
         src='https://api.greenpeace.org.hk/general/logo/GP-logo-2019-TC-white-%5bweb%5d-01.png'
       />
     </Box>
-  )
-}
+  );
+};
 
 export default function SmallCentered() {
   return (
     <Flex
       bg={'darkblue'}
       color={useColorModeValue('gray.700', 'gray.200')}
-      mt={{ base: 20, sm: 0 }}
       py={{ base: 10 }}
       pos={'relative'}
       zIndex={1}
@@ -98,5 +97,5 @@ export default function SmallCentered() {
         </Box>
       </Container>
     </Flex>
-  )
+  );
 }

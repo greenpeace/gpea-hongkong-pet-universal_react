@@ -33,7 +33,7 @@ const SEO = () => {
       {/* meta image */}
       <meta
         property='og:image'
-        content='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/09/cb20c60b-20210913_climate_launchvisual-01.jpg'
+        content='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/09/0a6fc2b2-20210913_climate_launchvisual-01.jpg'
       />
     </Helmet>
   );
