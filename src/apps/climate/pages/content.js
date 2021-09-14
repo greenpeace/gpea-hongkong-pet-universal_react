@@ -4,6 +4,7 @@ import {
   Button,
   Image,
   Text,
+  Flex,
   Heading,
   SimpleGrid,
   Stack,
@@ -20,12 +21,20 @@ import img0 from '../assets/images/GP0STTB7D_High_res.jpg';
 import img1 from '../assets/images/GP0STRAJX_High_res.jpg';
 import img2 from '../assets/images/GP0STQF5I_High_res.jpg';
 
+import icon1 from '../assets/images/global-warming.svg';
+import icon2 from '../assets/images/melting.svg';
+import icon3 from '../assets/images/money-bag.svg';
+
 import banner from '../assets/images/GP0STT4OQ_High_res.jpg';
 
 const TextWrapper = styled.div`
   padding: 20px;
+  text-align: justify;
+  letter-spacing: 0.022em;
   p {
-    line-height: 1.7;
+    color: #333333;
+    font-size: 16px;
+    line-height: 1.5;
     margin-top: 20px;
     margin-bottom: 20px;
     &:last-child {
@@ -33,6 +42,38 @@ const TextWrapper = styled.div`
     }
   }
 `;
+
+const Feature = ({ title, text, icon }) => {
+  const numberFont = {
+    fontFamily:
+      "'Montserrat', 'Open Sans', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    fontSize: '36px',
+    fontWeight: 900,
+    letterSpacing: '2px',
+    color: '#333',
+    // color: '#ffbe00',
+  };
+  return (
+    <Stack alignItems={'center'}>
+      <Flex
+        w={20}
+        h={20}
+        align={'center'}
+        justify={'center'}
+        color={'white'}
+        rounded={'full'}
+      >
+        {icon}
+      </Flex>
+      <Heading {...numberFont} py={4}>
+        {title}
+      </Heading>
+      <Text color={'gray.700'} fontSize={'sm'}>
+        {text}
+      </Text>
+    </Stack>
+  );
+};
 
 const Content = () => {
   return (
@@ -61,7 +102,32 @@ const Content = () => {
         <ParallaxBackground image={img0} />
 
         <TextWrapper>
-          <Heading as='h3'>氣候危機影響 無孔不入</Heading>
+          <Heading as='h3' mb={4}>
+            氣候危機影響 無孔不入
+          </Heading>
+          <SimpleGrid columns={{ base: 1, lg: 3 }} pt={8} pb={2} spacing={8}>
+            <Feature
+              icon={<Image src={icon1} w={20} h={20} />}
+              title={'200萬'}
+              text={'大氣中的二氧化碳是至少 200 萬年來的最高濃度'}
+            />
+            <Feature
+              icon={<Image src={icon2} w={20} h={20} />}
+              title={'2050'}
+              text={'2050年前，北極可能經歷最少一次「9月無海冰」'}
+            />
+            <Feature
+              icon={<Image src={icon3} w={20} h={20} />}
+              title={'7,240億'}
+              text={
+                '海平面上升威脅下，東亞7個城市未來或有1,500萬人與7,240億美元GDP受影響'
+              }
+            />
+          </SimpleGrid>
+        </TextWrapper>
+
+        <TextWrapper>
+          <Heading as='h3'>拯救氣候 迎難而上</Heading>
 
           <Text>
             綠色和平一直敦促全球各地政府、企業減排節能，推動成立綠色政策。過去，我們成功在不少氣候行動中取得成果，例如：
@@ -93,7 +159,7 @@ const Content = () => {
           <Heading as='h3'>拯救氣候 迎難而上</Heading>
 
           <Text>
-            綠色和平一直敦促全球各地政府、企業減排節能，推動成立綠色政策。過去，我們成功在不少氣候行動中取得成果，例如：
+            綠色和平致力推動全球於2050年達致淨零碳排放，並就氣候政策向香港政府提出多項建議，其中包括：
           </Text>
           <OrderedList spacing={4} px={4}>
             <ListItem>
@@ -111,7 +177,11 @@ const Content = () => {
         <ParallaxBackground image={img2} />
 
         <TextWrapper>
-          <Heading as='h3'>立即聯署 2050年達致碳中和</Heading>
+          <Heading as='h3'>
+            立即聯署
+            <br />
+            2050年達致碳中和
+          </Heading>
 
           <Text>
             綠色和平致力推動全球於2050年達致淨零碳排放，並就氣候政策向香港政府提出多項建議，其中包括：
