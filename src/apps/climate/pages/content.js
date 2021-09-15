@@ -122,7 +122,7 @@ const Content = () => {
           </SimpleGrid>
         </TextWrapper>
 
-        <TextWrapper>
+        {/* <TextWrapper>
           <Heading as='h3' color='#ffc700'>
             拯救氣候 迎難而上
           </Heading>
@@ -149,7 +149,7 @@ const Content = () => {
               氣候變化或會導致主糧產量下跌33%，當中包括我們賴以為生的小麥、大米、大麥等；大米及小麥等主糧在二氧化碳濃度高的環境下種植，營養成分亦會受影響。
             </ListItem>
           </OrderedList>
-        </TextWrapper>
+        </TextWrapper> */}
 
         <ParallaxBackground image={img1} />
 
@@ -159,7 +159,7 @@ const Content = () => {
           </Heading>
 
           <Text>
-            綠色和平致力推動全球於2050年達致淨零碳排放，並就氣候政策向香港政府提出多項建議，其中包括：
+            綠色和平一直敦促全球各地政府、企業減排節能，推動成立綠色政策。過去，我們成功在不少氣候行動中取得成果，例如：
           </Text>
           <OrderedList spacing={4} px={4}>
             <ListItem>
