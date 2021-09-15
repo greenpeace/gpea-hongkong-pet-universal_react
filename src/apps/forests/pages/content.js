@@ -75,7 +75,7 @@ const Feature = ({ title, text, icon }) => {
 const Content = () => {
   return (
     <Box>
-      <Image mt={4} src={kv} loading='lazy' />
+      <Image mt={{ base: 0, md: 4 }} src={kv} loading='lazy' />
       <Stack spacing={4} py={6} backgroundColor={'#333333'} color={'#ffffff'}>
         <TextWrapper>
           <Heading
