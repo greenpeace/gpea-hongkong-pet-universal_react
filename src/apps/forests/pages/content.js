@@ -93,13 +93,11 @@ const Content = () => {
           </OrderedList>
         </TextWrapper>
 
-        <ParallaxBackground image={img2} />
-
         <TextWrapper>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
             <Image borderRadius='4px' src={banner} />
             <Stack spacing={4}>
-              <Heading as='h3' fontSize='lg' style={{ lineHeight: '1.2' }}>
+              <Heading as='h3' fontSize='2xl' style={{ lineHeight: '1.2' }}>
                 世上僅餘 15%
                 <br />
                 森林完好無損
@@ -115,8 +113,8 @@ const Content = () => {
               <Button
                 mt='2'
                 color='#fff'
-                bg='brand.500'
-                _hover={{ bg: 'brand.400', textDecoration: 'none' }}
+                bg='orange.500'
+                _hover={{ textDecoration: 'none' }}
                 borderRadius='4px'
                 fontSize='md'
                 letterSpacing={2}

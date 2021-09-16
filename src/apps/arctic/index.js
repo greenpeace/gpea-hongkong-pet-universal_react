@@ -1,8 +1,8 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { useMediaQuery } from 'react-responsive'
-import Sticky from 'react-sticky-el'
-import content from './data/content'
+import React from 'react';
+import { connect } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+import Sticky from 'react-sticky-el';
+import content from './data/content';
 import {
   ChakraProvider,
   Circle,
@@ -20,20 +20,20 @@ import {
   Link,
   Center,
   VStack,
-} from '@chakra-ui/react'
-import SEO from './SEO'
-import Nav from './components/header/nav'
-import Footer from './components/footer'
-import NewFrameForm from 'components/form/newFrameForm'
-import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
-import Panel from 'components/panel/newFormPanel'
+} from '@chakra-ui/react';
+import SEO from './SEO';
+import Nav from './components/header/nav';
+import Footer from './components/footer';
+import NewFrameForm from 'components/form/newFrameForm';
+import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm';
+import Panel from 'components/panel/newFormPanel';
 
-import * as themeActions from 'store/actions/action-types/theme-actions'
-import themeConfig from './theme.js'
-import ImageWithColumn from './components/feature/imageWithColumn'
+import * as themeActions from 'store/actions/action-types/theme-actions';
+import themeConfig from './theme.js';
+import ImageWithColumn from './components/feature/imageWithColumn';
 
-import { IoCalendarOutline, IoTimeSharp, IoVideocam } from 'react-icons/io5'
-import { motion, useViewportScroll, useTransform } from 'framer-motion'
+import { IoCalendarOutline, IoTimeSharp, IoVideocam } from 'react-icons/io5';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
 
 const Index = ({ submitted, togglePanel }) => {
   const Feature = ({ text, icon, iconBg }) => {
@@ -46,10 +46,10 @@ const Index = ({ submitted, togglePanel }) => {
           {text}
         </Text>
       </Stack>
-    )
-  }
+    );
+  };
 
-  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
+  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' });
 
   const captionStyle = {
     as: 'span',
@@ -57,7 +57,7 @@ const Index = ({ submitted, togglePanel }) => {
     paddingLeft: '12px',
     size: 'sm',
     color: 'gary.500',
-  }
+  };
 
   const pStyle = {
     as: 'p',
@@ -65,7 +65,7 @@ const Index = ({ submitted, togglePanel }) => {
     color: 'gray.700',
     fontSize: { base: 'sm', sm: 'md' },
     lineHeight: '1.7',
-  }
+  };
 
   const flexBoxStyle = {
     align: 'center',
@@ -74,7 +74,7 @@ const Index = ({ submitted, togglePanel }) => {
     rounded: 'full',
     bg: 'gray.100',
     mb: 1,
-  }
+  };
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -177,8 +177,8 @@ const Index = ({ submitted, togglePanel }) => {
         <Button
           w='80%'
           color='#fff'
-          bg='orange'
-          _hover={{ bg: 'campaign.oceans' }}
+          bg='orange.500'
+
           borderRadius='24px'
           fontSize='xl'
           letterSpacing={4}
@@ -191,21 +191,21 @@ const Index = ({ submitted, togglePanel }) => {
       <Panel formContent={content} />
       {/* <Footer /> */}
     </ChakraProvider>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
     },
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Index)
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

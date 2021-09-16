@@ -256,7 +256,7 @@ const Landing = ({ submitted, togglePanel }) => {
         <Button
           w='90%'
           color='#fff'
-          bg='orange'
+          bg='orange.500'
           borderRadius='24px'
           fontSize='xl'
           letterSpacing={4}
