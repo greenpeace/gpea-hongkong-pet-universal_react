@@ -10,22 +10,17 @@ import {
   Stack,
   OrderedList,
   ListItem,
-  Link,
 } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 
 import ParallaxBackground from '../../../components/ParallaxBanner/ParallaxBanner';
 
 import kv from '../assets/images/20210913_climate_launchvisual-01.jpg';
-import img0 from '../assets/images/GP0STTB7D_High_res.jpg';
-import img1 from '../assets/images/GP0STRAJX_High_res.jpg';
-import img2 from '../assets/images/GP0STQF5I_High_res.jpg';
+import img0 from '../assets/images/20210913_climate_launchvisual-01.jpg';
+import img1 from '../assets/images/20210913_climate_launchvisual-01.jpg';
+import img2 from '../assets/images/20210913_climate_launchvisual-01.jpg';
 
-import icon1 from '../assets/images/Asset1-earth.png';
-import icon2 from '../assets/images/Asset1-icemelt.png';
-import icon3 from '../assets/images/Asset1-moneybag.png';
-
-import banner from '../assets/images/GP0STT4OQ_High_res.jpg';
+import banner from '../assets/images/20210913_climate_launchvisual-01.jpg';
 
 const TextWrapper = styled.div`
   padding: 20px;
@@ -76,80 +71,32 @@ const Content = () => {
   return (
     <Box>
       <Image mt={{ base: 0, md: 4 }} src={kv} loading='lazy' />
-      <Stack spacing={4} py={6} backgroundColor={'#333333'} color={'#ffffff'}>
+      <Stack spacing={4} py={6}>
         <TextWrapper>
           <Heading
             as='h1'
             fontSize={{ base: '3xl', md: '4xl' }}
             fontWeight='bold'
             lineHeight={1.1}
-            color='#ffc700'
           >
-            緩解氣候危機 刻不容緩
+            全球僅餘 15%森林被完整保存
           </Heading>
           <Text>
-            氣候危機已經對全球構成威脅，聯合國政府間氣候變化專門委員會（IPCC）發表最新氣候報告，指出如果人類無法將全球升溫控制在1.5°C內，我們將可能面對更強、更頻繁的極端天氣事件。綠色和平作為IPCC的官方觀察員，除了出席氣候報告審核會議，更無間斷地督促各地政府堅守1.5°C臨界值目標，落實減碳目標。
+            熱帶森林、溫帶雨林和北方森林，調節氣候、提供淡水和氧氣，更是地球約三分之二陸生動植物的棲息地。
           </Text>
           <Text>
-            這份報告是人類生存的「紅色警報」，緩解氣候危機刻不容緩，我們必須在更多破壞發生前力挽狂瀾。立即行動，加入聯署，一同攜手拯救氣候。
+            但不法分子、無良企業非法砍伐與毁林，加上氣候危機加劇森林大火，令全球每2秒就有相約1個足球場面積的森林消失、僅餘
+            15%森林被完整保護。
+          </Text>
+          <Text>
+            綠色和平正發起全球守護森林行動，要求各國政府訂立與加強護林政策、制止企業毁林行為，為森林提供復原空間。
+          </Text>
+          <Text>
+            森林關乎人類、野生動植物，以至整個地球的健康與福祉，令企業與政府無法忽視我們的護林訴求，讓森林得到及時保護，請立即加入聯署！
           </Text>
         </TextWrapper>
 
         <ParallaxBackground image={img0} />
-
-        <TextWrapper>
-          <Heading as='h3' mb={6} color='#ffc700'>
-            氣候危機影響 無孔不入
-          </Heading>
-          <SimpleGrid columns={{ base: 1, lg: 3 }} pt={8} pb={2} spacing={8}>
-            <Feature
-              icon={<Image src={icon1} w={20} />}
-              title={'200萬'}
-              text={'大氣中的二氧化碳是至少 200 萬年來的最高濃度'}
-            />
-            <Feature
-              icon={<Image src={icon2} w={20} />}
-              title={'2050'}
-              text={'2050年前，北極可能經歷最少一次「9月無海冰」'}
-            />
-            <Feature
-              icon={<Image src={icon3} w={20} />}
-              title={'7,240億'}
-              text={
-                '海平面上升威脅下，亞洲7個城市未來或有1,500萬人與7,240億美元GDP受影響'
-              }
-            />
-          </SimpleGrid>
-        </TextWrapper>
-
-        {/* <TextWrapper>
-          <Heading as='h3' color='#ffc700'>
-            拯救氣候 迎難而上
-          </Heading>
-
-          <Text>
-            綠色和平一直敦促全球各地政府、企業減排節能，推動成立綠色政策。過去，我們成功在不少氣候行動中取得成果，例如：
-          </Text>
-          <OrderedList spacing={4} px={4}>
-            <ListItem>
-              北極「年度海冰最小值」已經錄得歷來第二低點。參考各種溫室氣體濃度情境，北極可能在2050年前經歷最少一次「9月無海冰」。
-            </ListItem>
-            <ListItem>
-              根據綠色和平
-              <Link
-                href='https://www.greenpeace.org/hongkong/issues/climate/update/28869/%e9%a2%a8%e9%ab%98%e6%b5%aa%e6%80%a5%ef%bc%8c%e6%b5%b7%e5%b9%b3%e9%9d%a2%e4%b8%8a%e5%8d%87%e8%a1%9d%e6%93%8a%e4%ba%9e%e6%b4%b2%e7%9a%84%e7%9c%9f%e7%9b%b8/'
-                target='_blank'
-                color={'blue'}
-              >
-                調查報告
-              </Link>
-              ，海平面上升或於2030年衝擊亞洲，若不採取緊急行動，7個主要城市將有1,500萬人與7,240億美元GDP受威脅。
-            </ListItem>
-            <ListItem>
-              氣候變化或會導致主糧產量下跌33%，當中包括我們賴以為生的小麥、大米、大麥等；大米及小麥等主糧在二氧化碳濃度高的環境下種植，營養成分亦會受影響。
-            </ListItem>
-          </OrderedList>
-        </TextWrapper> */}
 
         <ParallaxBackground image={img1} />
 

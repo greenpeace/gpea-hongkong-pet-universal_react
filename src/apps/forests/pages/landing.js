@@ -23,7 +23,7 @@ const Landing = ({ submitted, togglePanel }) => {
     <ChakraProvider theme={themeConfig}>
       <SEO />
       <Nav showButton={false} />
-      <Box backgroundColor={'#333333'}>
+      <Box>
         <Flex
           pos='relative'
           zIndex={2}
