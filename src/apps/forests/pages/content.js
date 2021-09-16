@@ -15,12 +15,12 @@ import styled from '@emotion/styled';
 
 import ParallaxBackground from '../../../components/ParallaxBanner/ParallaxBanner';
 
-import kv from '../assets/images/20210913_climate_launchvisual-01.jpg';
-import img0 from '../assets/images/20210913_climate_launchvisual-01.jpg';
-import img1 from '../assets/images/20210913_climate_launchvisual-01.jpg';
-import img2 from '../assets/images/20210913_climate_launchvisual-01.jpg';
+import kv from '../assets/images/GP0STU04Y_Medium_res.jpg';
+import img0 from '../assets/images/GP0STUG5D_Medium_res.jpg';
+import img1 from '../assets/images/GP1STT80_Medium_res.jpg';
+import img2 from '../assets/images/GP1SU5AH_Medium_res.jpg';
 
-import banner from '../assets/images/20210913_climate_launchvisual-01.jpg';
+import banner from '../assets/images/GP1SU5JN_Medium_res.jpg';
 
 const TextWrapper = styled.div`
   padding: 20px;
