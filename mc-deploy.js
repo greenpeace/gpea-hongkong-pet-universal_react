@@ -41,7 +41,7 @@ const buildFolder = path.join(__dirname, 'build');
 // New websign endpoint can accept optional fields
 const EndpointURL = 'https://cloud.greenhk.greenpeace.org/websign';
 const CampaignId = '7012u000000Ou77AAC';
-const interests = ['Forest']; // Arctic, Climate, Forest, Health, Oceans, Plastics
+const interests = ['Climate']; // Arctic, Climate, Forest, Health, Oceans, Plastics
 const ftpConfigName = 'ftp_hk'; // refer to ~/.npm-en-uploader-secret
 const ftpRemoteDir = '/2021/climate';
 
