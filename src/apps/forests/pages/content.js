@@ -4,7 +4,6 @@ import {
   Button,
   Image,
   Text,
-  Flex,
   Heading,
   SimpleGrid,
   Stack,
@@ -36,36 +35,6 @@ const TextWrapper = styled.div`
     }
   }
 `;
-
-const Feature = ({ title, text, icon }) => {
-  const numberFont = {
-    fontFamily:
-      "'Montserrat', 'Open Sans', Roboto, 'Helvetica Neue', Arial, sans-serif",
-    fontSize: '36px',
-    fontWeight: 900,
-    letterSpacing: '2px',
-  };
-  return (
-    <Stack alignItems={'center'}>
-      <Flex
-        w={20}
-        h={20}
-        align={'center'}
-        justify={'center'}
-        color={'white'}
-        rounded={'full'}
-      >
-        {icon}
-      </Flex>
-      <Heading {...numberFont} pt={6} pb={4}>
-        {title}
-      </Heading>
-      <Text fontSize={'sm'} textAlign='center' lineHeight='2'>
-        {text}
-      </Text>
-    </Stack>
-  );
-};
 
 const Content = () => {
   return (
