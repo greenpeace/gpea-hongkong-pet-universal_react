@@ -10,30 +10,30 @@ const SEO = () => {
         {`
           var dataLayer = (window.dataLayer = window.dataLayer || []);
           dataLayer.push({
-            gCampaign: "climate",
-            gBasket: "climate-emergency",
+            gCampaign: "forests",
+            gBasket: "forests",
           });
         `}
       </script>
       {/* title */}
-      <title>全球氣候告急 攜手拯救 - Greenpeace 綠色和平 | 香港</title>
+      <title>守護森林 立即加入全球行動 - Greenpeace 綠色和平 | 香港</title>
       <meta
         property='og:title'
-        content='全球氣候告急 攜手拯救 - Greenpeace 綠色和平 | 香港'
+        content='守護森林 立即加入全球行動 - Greenpeace 綠色和平 | 香港'
       />
       {/* description */}
       <meta
         name='description'
-        content='氣候危機已經威脅全球，極端天氣事件頻頻發生，包括水災、海冰融化、熱浪等。專家亦警告如地球持續升溫，將會帶來更強、更頻繁的極端天氣。請即聯署守護氣候，推動落實氣候政策。'
+        content='熱帶森林、溫帶雨林和北方森林，調節氣候、提供淡水和氧氣，更是地球約三分之二陸生動植物的棲息地。'
       />
       <meta
         property='og:description'
-        content='氣候危機已經威脅全球，極端天氣事件頻頻發生，包括水災、海冰融化、熱浪等。專家亦警告如地球持續升溫，將會帶來更強、更頻繁的極端天氣。請即聯署守護氣候，推動落實氣候政策。'
+        content='熱帶森林、溫帶雨林和北方森林，調節氣候、提供淡水和氧氣，更是地球約三分之二陸生動植物的棲息地。'
       />
       {/* meta image */}
       <meta
         property='og:image'
-        content='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/09/0a6fc2b2-20210913_climate_launchvisual-01.jpg'
+        content='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/09/28650ec4-1-gp1su5ja_high_res.jpg'
       />
     </Helmet>
   );
