@@ -19,7 +19,7 @@ import SEO from '../SEO';
 import content from '../data/content';
 import Nav from '../components/header/nav';
 import Footer from '../components/footer';
-import SimpleCarousel from 'components/banner/imageCarousel';
+import ImageCarousel from 'components/banner/imageCarousel';
 import Webinar from 'components/sections/webinar';
 import NewFrameForm from 'components/form/newFrameForm';
 import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm';
@@ -288,7 +288,7 @@ const Landing = ({ submitted, togglePanel }) => {
               spacing={{ base: 10 }}
             >
               <Box flex='1' minWidth='0px'>
-                <SimpleCarousel
+                <ImageCarousel
                   swiperData={simpleSwiperData}
                   style={{ borderRadius: '8px' }}
                 />
