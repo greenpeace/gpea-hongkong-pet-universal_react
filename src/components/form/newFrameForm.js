@@ -107,7 +107,7 @@ const MyForm = (props) => {
     async function fetchOptionYear() {
       let nowYear = new Date().getFullYear();
       let targetYear = nowYear - 110;
-      for (var i = nowYear - 20; i >= targetYear; i--) {
+      for (var i = nowYear - 18; i >= targetYear; i--) {
         await optionYear.push({ label: i, value: i.toString() });
       }
       setBirthDateYear(optionYear);
@@ -302,22 +302,26 @@ const MyForm = (props) => {
           </Box>
 
           <Box>
-            <HStack align='flex-start'>
-              <Box pt={5} pb={4}>
-                <FormControl id='optIn'>
-                  {newsLetter ? (
-                    <Checkbox name='OptIn' onChange={handleChange}>
-                      <Text fontSize='xs'>{formContent.form_remind}</Text>
-                    </Checkbox>
-                  ) : (
-                    <Text fontSize='sm' lineHeight={1.5} color='gray.700'>
-                      <sup> * </sup>
-                      {formContent.form_remind}
-                    </Text>
-                  )}
-                </FormControl>
-              </Box>
-            </HStack>
+            <Box pt={4} pb={4}>
+              <FormControl id='optIn'>
+                {newsLetter ? (
+                  <Checkbox
+                    name='OptIn'
+                    defaultChecked
+                    iconColor='brand.500'
+                    onChange={handleChange}
+                    alignItems={'flex-start'}
+                  >
+                    <Text fontSize='xs'>{formContent.form_remind}</Text>
+                  </Checkbox>
+                ) : (
+                  <Text fontSize='sm' lineHeight={1.5} color='gray.700'>
+                    <sup> * </sup>
+                    {formContent.form_remind}
+                  </Text>
+                )}
+              </FormControl>
+            </Box>
           </Box>
         </Flex>
       </Form>
@@ -405,12 +409,10 @@ const MyEnhancedForm = withFormik({
   handleSubmit: (values, { setSubmitting, props }) => {
     const { hiddenFormValue } = props.theme;
     let birthdateValue = values.Birthdate ? `${values.Birthdate}-01-01` : '';
-    // issue: form submit with '-01-01' will cause submission error
     const submitData = {
       ...hiddenFormValue,
       ...values,
       Birthdate: birthdateValue,
-      // Birthdate: `${values.Birthdate}-01-01`,
     };
     props.submitForm(submitData);
   },

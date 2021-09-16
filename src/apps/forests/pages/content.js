@@ -39,7 +39,9 @@ const TextWrapper = styled.div`
 const Content = () => {
   return (
     <Box>
-      <Image mt={{ base: 0, md: 4 }} src={kv} loading='lazy' />
+      <Box mt={{ base: 0, md: 4 }}>
+        <Image src={kv} objectFit='cover' loading='lazy' />
+      </Box>
       <Stack spacing={4} py={6}>
         <TextWrapper>
           <Heading
@@ -70,12 +72,13 @@ const Content = () => {
         <ParallaxBackground image={img1} />
 
         <TextWrapper>
-          <Heading as='h3' color='#ffc700'>
-            拯救氣候 迎難而上
-          </Heading>
-
           <Text>
-            綠色和平一直敦促全球各地政府、企業減排節能，推動成立綠色政策。過去，我們成功在不少氣候行動中取得成果，例如：
+            熱帶森林、溫帶雨林和北方森林，調節氣候、提供淡水和氧氣，更是地球約三分之二陸生動植物的棲息地，
+            但因人類破壞令森林大火四起，並以驚人的速度消失...
+          </Text>
+          <Text>
+            您的捐助，幫助綠色和平督促全球政府加強森林保護政策，要求企業終止砍伐、焚燒等毀林行為，採用生態友善且永續的方式管理森林。
+            過去50年，綠色和平堅持不接受政商界捐助，以公正獨立的身份守護全球森林，因為您，綠色和平守護環境的使命得以延續！
           </Text>
           <OrderedList spacing={4} px={4}>
             <ListItem>
@@ -93,50 +96,21 @@ const Content = () => {
         <ParallaxBackground image={img2} />
 
         <TextWrapper>
-          <Heading as='h3' color='#ffc700'>
-            立即聯署
-            <br />
-            推動香港2050年達致碳中和
-          </Heading>
-
-          <Text>
-            綠色和平致力推動全球於2050年達致淨零碳排放，並就氣候政策向香港政府提出多項建議，其中包括：
-          </Text>
-
-          <OrderedList spacing={4} px={4}>
-            <ListItem>
-              要求政府將「氣候行動藍圖」列為首要落實的環保政策，盡快訂立清晰的碳中和路線圖；
-            </ListItem>
-            <ListItem>
-              2022年或之前，制定具有法律約束力並以科學為基礎的氣候目標，展示聯同國際社會將全球暖化限制在1.5°C的決心；
-            </ListItem>
-            <ListItem>2030年或之前實現使用至少10%可再生能源的目標。</ListItem>
-          </OrderedList>
-
-          <Text fontWeight={'bold'}>
-            推動綠色政策需要你我力量達成！立即聯署，守護氣候。
-          </Text>
-        </TextWrapper>
-
-        <TextWrapper>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
             <Image borderRadius='4px' src={banner} />
             <Stack spacing={4}>
-              <Heading
-                as='h3'
-                size='md'
-                color='brand.500'
-                style={{ lineHeight: '1.2' }}
-              >
-                推動守護氣候
+              <Heading as='h3' fontSize='lg' style={{ lineHeight: '1.2' }}>
+                世上僅餘 15%
                 <br />
-                需要你的熱心支持！
+                森林完好無損
               </Heading>
               <Text>
-                氣候危機逼在眉睫，冰川融化、海平面上升、導致更多極端天氣等都是其帶來的惡果。甚至影響我們賴以為生的食物，直接影響您我的生活，我們必須關注並以實質行動應對氣候問題。
+                熱帶森林、溫帶雨林和北方森林，調節氣候、提供淡水和氧氣，更是地球約三分之二陸生動植物的棲息地，
               </Text>
+              <Text>但因人類破壞令森林大火四起，並以驚人的速度消失...</Text>
               <Text>
-                綠色和平一直積極採取應對氣候危機的行動，今年請攜手推動各國企業、政府實現能源轉型，加速發展可再生能源，設法讓全球暖化控制在攝氏1.5度，減緩影響一代又一代人類、物種存亡的氣候危機。
+                您的捐助，幫助綠色和平督促全球政府加強森林保護政策，要求企業終止砍伐、焚燒等毀林行為，採用生態友善且永續的方式管理森林。
+                過去50年，綠色和平堅持不接受政商界捐助，以公正獨立的身份守護全球森林，因為您，綠色和平守護環境的使命得以延續！
               </Text>
               <Button
                 mt='2'
@@ -154,9 +128,6 @@ const Content = () => {
               >
                 立即捐助
               </Button>
-              <Text>
-                綠色和平成立50年以來，堅持不接受政府、企業捐助，您捐助的一分一毫，能支持我們以公正獨立的身份，持續推動環境工作！
-              </Text>
             </Stack>
           </SimpleGrid>
         </TextWrapper>

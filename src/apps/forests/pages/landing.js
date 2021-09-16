@@ -33,7 +33,7 @@ const Landing = ({ submitted, togglePanel }) => {
             <Content />
           </Box>
           <Box
-            w={{ base: 0, md: '50%', lg: '450px', xl: '500px' }}
+            w={{ base: 0, md: '50%', lg: '440px', xl: '520px' }}
             px={{ base: 4 }}
             py='4'
             d={{ base: 'none', md: 'block' }}
@@ -47,7 +47,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   formContent={content}
                   version={true}
                   showProgress={false}
-                  newsLetter={false}
+                  newsLetter={true}
                   birthDate={true}
                   thanksScreen={false}
                 />
@@ -85,12 +85,7 @@ const Landing = ({ submitted, togglePanel }) => {
           {content.submit_text}
         </Button>
       </Box>
-      <Panel
-        formContent={content}
-        showProgress={false}
-        newsLetter={false}
-        birthDate={true}
-      >
+      <Panel formContent={content}>
         {submitted && isMobile && (
           <HeroSwiper isMobile={isMobile} swiperHeight='480px' />
         )}
