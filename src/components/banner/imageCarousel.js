@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SwiperCore, { Mousewheel, Scrollbar, A11y, Autoplay } from 'swiper';
 import { AspectRatio, Image } from '@chakra-ui/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectFade } from 'swiper';
 
 SwiperCore.use([Scrollbar, A11y, Autoplay, Mousewheel]);
 
@@ -23,10 +24,11 @@ const ImageCarousel = ({ swiperData, slideIndex, style }) => {
 
   return (
     <Swiper
-      allowTouchMove={false}
       autoplay={{ delay: 3000 }}
       slidesPerView={1}
       className={'simple-swiper'}
+      modules={[EffectFade]}
+      effect='fade'
     >
       {(swiperData || []).map((d, i) => {
         return (

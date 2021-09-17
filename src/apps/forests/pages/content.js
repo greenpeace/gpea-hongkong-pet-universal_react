@@ -17,8 +17,8 @@ import kv from '../assets/images/GP1SU5JN_Medium_res.jpg';
 import img0 from '../assets/images/GP0STUG5D_Medium_res.jpg';
 import img1 from '../assets/images/GP1STT80_Medium_res.jpg';
 
-import banner from '../assets/images/shutterstock_1256493772.jpg';
-import banner2 from '../assets/images/GP0STRVIU_PressMedia.jpg';
+import banner from '../assets/images/GP1SU5AH_Medium_res.jpg';
+import banner2 from '../assets/images/GP0STU04Y_Medium_res.jpg';
 
 const SwiperData = [kv, img0, img1];
 
@@ -41,10 +41,8 @@ const Content = () => {
   return (
     <Box>
       <ImageCarousel swiperData={SwiperData} />
-      {/* <AspectRatio ratio={16 / 9}>
-        <Image src={kv} objectFit='cover' loading='lazy' />
-      </AspectRatio> */}
-      <Stack spacing={4} py={6}>
+
+      <Stack py={6}>
         <TextWrapper>
           <Heading
             as='h1'
@@ -53,8 +51,6 @@ const Content = () => {
             lineHeight={1.1}
           >
             全球僅餘 15%森林被完整保存
-            <br />
-            守護森林 立即加入全球行動
           </Heading>
           <Text>
             熱帶森林、溫帶雨林和北方森林，調節氣候、提供淡水和氧氣，更是地球約三分之二陸生動植物的棲息地。
@@ -68,28 +64,22 @@ const Content = () => {
           <Text>
             綠色和平正發起全球守護森林行動，要求各國政府訂立與加強護林政策、制止企業毁林行為，為森林提供復原空間。
           </Text>
+        </TextWrapper>
+
+        <ParallaxBackground image={banner2} />
+
+        <TextWrapper>
+          <Heading as='h3' fontSize={'2xl'}>
+            守護動物們的關鍵棲息地
+          </Heading>
           <Text>
-            森林關乎人類、野生動植物，以至整個地球的健康與福祉，
-            <b>
-              令企業與政府無法忽視我們的護林訴求，讓森林得到及時保護，請立即加入聯署！
-            </b>
+            聯合國報告指出：全球八百多萬物種中，就有一百多萬面臨滅絕危機，包含美洲豹、蘇門答臘犀牛、紅毛猩猩等...
           </Text>
         </TextWrapper>
 
         <ParallaxBackground image={banner} />
 
-        <TextWrapper>
-          <Text>
-            熱帶森林、溫帶雨林和北方森林，調節氣候、提供淡水和氧氣，更是地球約三分之二陸生動植物的棲息地，
-            但因人類破壞令森林大火四起，並以驚人的速度消失...
-          </Text>
-          <Text>
-            您的捐助，幫助綠色和平督促全球政府加強森林保護政策，要求企業終止砍伐、焚燒等毀林行為，採用生態友善且永續的方式管理森林。
-            過去50年，綠色和平堅持不接受政商界捐助，以公正獨立的身份守護全球森林，因為您，綠色和平守護環境的使命得以延續！
-          </Text>
-        </TextWrapper>
-
-        <TextWrapper>
+        {/* <TextWrapper>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
             <Image borderRadius='4px' src={banner2} />
             <Stack spacing={4}>
@@ -124,7 +114,7 @@ const Content = () => {
               </Button>
             </Stack>
           </SimpleGrid>
-        </TextWrapper>
+        </TextWrapper> */}
       </Stack>
     </Box>
   );
