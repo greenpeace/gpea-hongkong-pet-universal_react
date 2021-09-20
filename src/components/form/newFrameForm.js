@@ -136,7 +136,7 @@ const MyForm = (props) => {
     >
       <Form onSubmit={handleSubmit}>
         <Stack spacing={4} mb={4}>
-          <Heading as='h2' variant='heading' fontSize='3xl' color='gray.900'>
+          <Heading as='h2' variant='heading' fontSize='2xl' color='gray.900'>
             <span
               dangerouslySetInnerHTML={{ __html: formContent.form_header }}
             />
