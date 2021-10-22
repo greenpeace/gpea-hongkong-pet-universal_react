@@ -1,9 +1,9 @@
-import React, { useRef, useEffect, useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimesCircle, faPen } from '@fortawesome/free-solid-svg-icons'
-import { connect } from 'react-redux'
-import * as themeActions from 'store/actions/action-types/theme-actions'
-import mailcheck from 'mailcheck'
+import React, { useRef, useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle, faPen } from '@fortawesome/free-solid-svg-icons';
+import { connect } from 'react-redux';
+import * as themeActions from 'store/actions/action-types/theme-actions';
+import mailcheck from 'mailcheck';
 import {
   Form,
   FormGroup,
@@ -15,12 +15,12 @@ import {
   Row,
   Col,
   Schema,
-} from 'rsuite'
-import 'rsuite/lib/styles/index.less'
-import ProgressBar from 'components/progress'
-import SubmittedForm from './submittedForm'
+} from 'rsuite';
+import 'rsuite/lib/styles/index.less';
+import ProgressBar from 'components/progress';
+import SubmittedForm from './submittedForm';
 
-import content from './content.json'
+import content from './content.json';
 
 // for email correctness
 let domains = [
@@ -36,8 +36,8 @@ let domains = [
   'yahoo.com',
   'yahoo.com.tw',
   'yahoo.com.hk',
-]
-let topLevelDomains = ['com', 'net', 'org']
+];
+let topLevelDomains = ['com', 'net', 'org'];
 
 let RegistrationForm = ({
   togglePanel,
@@ -48,25 +48,25 @@ let RegistrationForm = ({
   activeABTesting,
   variant,
 }) => {
-  const refForm = useRef()
-  const refCheckbox = useRef()
-  const refMobileCountryCode = useRef()
-  const [hiddenFormValues, setHiddenFormValues] = useState([])
-  const [emailSuggestion, setEmailSuggestion] = useState('內容')
-  const [numSignupTarget, setNumSignupTarget] = useState(100000)
-  const [numResponses, setNumResponses] = useState(0)
+  const refForm = useRef();
+  const refCheckbox = useRef();
+  const refMobileCountryCode = useRef();
+  const [hiddenFormValues, setHiddenFormValues] = useState([]);
+  const [emailSuggestion, setEmailSuggestion] = useState('內容');
+  const [numSignupTarget, setNumSignupTarget] = useState(100000);
+  const [numResponses, setNumResponses] = useState(0);
   const [mobileCountryCode, setMobileCountryCode] = useState([
     { label: '+852', value: '852' },
     { label: '+853', value: '853' },
-  ])
+  ]);
   const [formDefaultValue, setFormDefaultValue] = useState({
     MobileCountryCode: '852',
-  })
-  const [birthDateYear, setBirthDateYear] = useState([])
-  const { StringType, NumberType } = Schema.Types
+  });
+  const [birthDateYear, setBirthDateYear] = useState([]);
+  const { StringType, NumberType } = Schema.Types;
   const progress = [
     { bgcolor: '#66cc00', completed: numResponses, target: numSignupTarget },
-  ]
+  ];
 
   const modelVersionA = Schema.Model({
     Email: StringType()
@@ -79,20 +79,20 @@ let RegistrationForm = ({
       .isInteger(formContent.invalid_format_alert)
       .isRequired(formContent.empty_data_alert)
       .addRule((value) => {
-        return value.toString().length === 8
+        return value.toString().length === 8;
       }, formContent.minimum_8_characters)
       .addRule((value) => {
-        let regex
-        const { MobileCountryCode } = refForm.current.state.formValue
+        let regex;
+        const { MobileCountryCode } = refForm.current.state.formValue;
         if (!MobileCountryCode || MobileCountryCode === '852') {
-          regex = /^[2,3,5,6,8,9]{1}[0-9]{7}$/i
+          regex = /^[2,3,5,6,8,9]{1}[0-9]{7}$/i;
         } else if (MobileCountryCode === '853') {
-          regex = /^[6]{1}[0-9]{7}$/i
+          regex = /^[6]{1}[0-9]{7}$/i;
         }
-        return regex.test(value)
+        return regex.test(value);
       }, formContent.invalid_format_alert),
     Birthdate: StringType().isRequired(formContent.empty_data_alert),
-  })
+  });
 
   const modelVersionB = Schema.Model({
     Email: StringType()
@@ -100,33 +100,33 @@ let RegistrationForm = ({
       .isRequired(formContent.empty_data_alert),
     LastName: StringType().isRequired(formContent.empty_data_alert),
     FirstName: StringType().isRequired(formContent.empty_data_alert),
-  })
+  });
 
   const setModel = activeABTesting
     ? variant == 0
       ? modelVersionA
       : modelVersionB
-    : modelVersionA
+    : modelVersionA;
 
   const closeAll = () => {
-    togglePanel(false)
-    toggleTheme(false)
-  }
+    togglePanel(false);
+    toggleTheme(false);
+  };
 
   const handleSubmit = (isValid) => {
-    const OptIn = refCheckbox.current.state?.checked
+    const OptIn = refCheckbox.current.state?.checked;
 
     if (isValid) {
-      const { formValue } = refForm.current.state
+      const { formValue } = refForm.current.state;
       let birthdateValue = formValue.Birthdate
         ? `${formValue.Birthdate}-01-01`
-        : ''
+        : '';
       submitForm({
         ...hiddenFormValues,
         ...formValue,
         OptIn,
         Birthdate: birthdateValue,
-      })
+      });
       // Check submit value
       /*
       console.log("Submitting", {
@@ -137,11 +137,11 @@ let RegistrationForm = ({
       });
       */
     }
-  }
+  };
 
   const TextField = (props) => {
     const { name, label, placeholder, accepter, handleOnChange, ...rest } =
-      props
+      props;
     return (
       <FormGroup>
         {label && <ControlLabel>{label} </ControlLabel>}
@@ -153,44 +153,46 @@ let RegistrationForm = ({
           checkTrigger={'blur'}
         />
       </FormGroup>
-    )
-  }
+    );
+  };
 
   useEffect(() => {
     let getHiddenFields = document.querySelectorAll(
       'input[value][type="hidden"]:not([value=""])'
-    )
+    );
     setHiddenFormValues(
       [...getHiddenFields].reduce(
         (obj, e) => ({ ...obj, [e.name]: e.value }),
         {}
       )
-    )
+    );
 
-    const signupTarget = document.querySelector("input[name='numSignupTarget']")
-    const numResponses = document.querySelector("input[name='numResponses']")
+    const signupTarget = document.querySelector(
+      "input[name='numSignupTarget']"
+    );
+    const numResponses = document.querySelector("input[name='numResponses']");
 
     if (signupTarget) {
-      setNumSignupTarget(signupTarget.value)
+      setNumSignupTarget(signupTarget.value);
     }
     if (numResponses) {
-      setNumResponses(numResponses.value)
+      setNumResponses(numResponses.value);
     }
     //
-    let optionYear = []
+    let optionYear = [];
     async function fetchOptionYear() {
-      let nowYear = new Date().getFullYear()
-      let targetYear = nowYear - 110
-      for (var i = nowYear - 20; i >= targetYear; i--) {
-        await optionYear.push({ label: i, value: i.toString() })
+      let nowYear = new Date().getFullYear();
+      let targetYear = nowYear - 110;
+      for (var i = nowYear - 18; i >= targetYear; i--) {
+        await optionYear.push({ label: i, value: i.toString() });
       }
-      setBirthDateYear(optionYear)
+      setBirthDateYear(optionYear);
     }
-    fetchOptionYear(optionYear)
-  }, [])
+    fetchOptionYear(optionYear);
+  }, []);
   class CustomField extends React.PureComponent {
     render() {
-      const { name, message, label, accepter, error, ...props } = this.props
+      const { name, message, label, accepter, error, ...props } = this.props;
       return (
         <FormGroup className={error ? 'has-error' : ''}>
           <FormControl
@@ -200,7 +202,7 @@ let RegistrationForm = ({
             {...props}
           />
         </FormGroup>
-      )
+      );
     }
   }
 
@@ -372,8 +374,8 @@ let RegistrationForm = ({
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ theme }) => {
   return {
@@ -381,24 +383,24 @@ const mapStateToProps = ({ theme }) => {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
     activeABTesting: theme.abTesting,
     variant: theme.variant,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleTheme: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_FORM, bol })
+      dispatch({ type: themeActions.TOGGLE_FORM, bol });
     },
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
     },
     setForm: (value) => {
-      dispatch({ type: themeActions.SET_FORM_VALUE, value })
+      dispatch({ type: themeActions.SET_FORM_VALUE, value });
     },
     submitForm: (form) => {
-      dispatch({ type: themeActions.SUBMIT_FORM, form })
+      dispatch({ type: themeActions.SUBMIT_FORM, form });
     },
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(RegistrationForm)
+export default connect(mapStateToProps, mapDispatchToProps)(RegistrationForm);

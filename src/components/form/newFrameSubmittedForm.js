@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import whatsapp from 'assets/images/social/whatsapp_icon.svg'
-import { connect } from 'react-redux'
-import * as themeActions from 'store/actions/action-types/theme-actions'
-import { mainShare, whatsAppShare } from '../../share'
-import content from './newFormContent.json'
+import React, { useEffect, useState } from 'react';
+import whatsapp from 'assets/images/social/whatsapp_icon.svg';
+import { connect } from 'react-redux';
+import * as themeActions from 'store/actions/action-types/theme-actions';
+import { mainShare, whatsAppShare } from '../../share';
+import content from './newFormContent.json';
 import {
   Button,
   Flex,
@@ -12,26 +12,28 @@ import {
   Stack,
   Text,
   Box,
-} from '@chakra-ui/react'
-import DonateForm from '../donate/donateForm'
-import MiniDonateForm from '../donate/miniDonateForm'
+} from '@chakra-ui/react';
+import DonateForm from '../donate/donateForm';
+import MiniDonateForm from '../donate/miniDonateForm';
 
 const MyForm = ({ formContent = content }) => {
-  const [numSignupTarget, setNumSignupTarget] = useState(100000)
-  const [numResponses, setNumResponses] = useState(0)
-  const [showDonate, setShowDonate] = useState(false)
+  const [numSignupTarget, setNumSignupTarget] = useState(100000);
+  const [numResponses, setNumResponses] = useState(0);
+  const [showDonate, setShowDonate] = useState(false);
 
   useEffect(() => {
-    const signupTarget = document.querySelector("input[name='numSignupTarget']")
-    const numResponses = document.querySelector("input[name='numResponses']")
+    const signupTarget = document.querySelector(
+      "input[name='numSignupTarget']"
+    );
+    const numResponses = document.querySelector("input[name='numResponses']");
 
     if (signupTarget) {
-      setNumSignupTarget(signupTarget.value)
+      setNumSignupTarget(signupTarget.value);
     }
     if (numResponses) {
-      setNumResponses(numResponses.value)
+      setNumResponses(numResponses.value);
     }
-  }, [])
+  }, []);
 
   return (
     <Box
@@ -61,16 +63,15 @@ const MyForm = ({ formContent = content }) => {
         </Fade>
       )} */}
       {!showDonate && (
-        <Flex direction='column'>
+        <Stack spacing={4}>
           <Text
             variant='heading'
-            fontSize='2xl'
+            fontSize='3xl'
             dangerouslySetInnerHTML={{ __html: formContent.thanks_title }}
           />
           <Text
             as='p'
             variant='paragraph'
-            py={2}
             dangerouslySetInnerHTML={{
               __html: formContent.thanks_content_top_section,
             }}
@@ -119,15 +120,18 @@ const MyForm = ({ formContent = content }) => {
             </Button>
           </Stack>
             */}
-          <Text as='p' variant='paragraph' py={2}>
-            <span
-              dangerouslySetInnerHTML={{
-                __html: formContent.thanks_content_bottom_section,
-              }}
-            />
-          </Text>
-          <MiniDonateForm />
-
+          {document.location.search.indexOf('utm_source=dd') === -1 && (
+            <>
+              <Text as='p' variant='paragraph'>
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: formContent.thanks_content_bottom_section,
+                  }}
+                />
+              </Text>
+              <MiniDonateForm />
+            </>
+          )}
           {/* <DonateForm /> */}
           {/* <Button
             variant='donateButton'
@@ -140,37 +144,37 @@ const MyForm = ({ formContent = content }) => {
           >
             {formContent.donate_button}
           </Button> */}
-        </Flex>
+        </Stack>
       )}
     </Box>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleTheme: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_FORM, bol })
+      dispatch({ type: themeActions.TOGGLE_FORM, bol });
     },
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
     },
     setForm: (value) => {
-      dispatch({ type: themeActions.SET_FORM_VALUE, value })
+      dispatch({ type: themeActions.SET_FORM_VALUE, value });
     },
     setHiddenForm: (value) => {
-      dispatch({ type: themeActions.SET_HIDDEN_FORM_VALUE, value })
+      dispatch({ type: themeActions.SET_HIDDEN_FORM_VALUE, value });
     },
     submitForm: (form) => {
-      dispatch({ type: themeActions.SUBMIT_FORM, form })
+      dispatch({ type: themeActions.SUBMIT_FORM, form });
     },
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyForm)
+export default connect(mapStateToProps, mapDispatchToProps)(MyForm);

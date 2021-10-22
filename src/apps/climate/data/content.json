@@ -1,0 +1,35 @@
+{
+  "label_first_name": "名字",
+  "label_last_name": "姓氏",
+  "label_email": "電郵地址",
+  "label_phone": "手提號碼",
+  "label_phone_optional": "手提號碼（選填）",
+  "label_year_of_birth": "出生年份",
+  "label_year_of_birth_optional": "出生年份（選填）",
+  "select": "請選擇",
+
+  "empty_data_alert": "請填寫資料",
+  "empty_select_data_alert": "請選擇",
+  "invalid_email_alert": "請填上有效電郵地址",
+  "invalid_format_alert": "請輸入有效格式",
+  "minimum_8_characters": "請輸入8位數字",
+
+  "form_header": "氣候危機加劇 攜手拯救",
+  "form_description": "全球氣候告急，一同爭取2050年淨零碳排放，緊守升溫1.5°C臨界值",
+  "form_remind": "我願意收到綠色和平發送的通訊，讓我能掌握環保工作的最新脈動！綠色和平尊重並保障您的個人資料，您隨時可取消訂閱，請參考私隱政策。",
+
+  "submit_text": "立即聯署",
+
+  "thanks_title": "感謝您的加入！",
+  "thanks_content": "",
+  "thanks_content_top_section": "謝謝您的聯署支持！綠色和平將持續督促企業與各國政府制訂、兌現減碳排承諾發展，加速淘汰代石能源，以發展可再生能為首，趕在2050年前達致淨零碳排放，以控制全球升溫於1.5°C以內。",
+  "thanks_content_bottom_section": "<p><b>如您在11月30日前以每月$200捐款，支持綠色和平氣候項目，您將獲得2張「香港法國電影節」的放映會門票，更能參與映後分享會，與特別嘉賓林超英先生交流。</b></p><p><b>放映會詳情：</b></p><p><b>紀錄片名稱：</b>《動物：生命之匙》<br/><b>日期：</b>12月4日（星期六）<br/><b>時間：</b><span style='display: inline-flex'>13:30 - 15:30 電影放映會<br/>15:30 - 16:10 映後座談會</span></p>",
+  "thanks_content_after_button_section": "",
+  "share_button": "分享出去",
+  "donate_button": "捐助支持",
+  "donateURL": "https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=climate&ref=climate-registration-thankyou",
+  "shareMessage": "",
+  "fbURL": "https://act.gp/3nE5vqN",
+  "mainURL": "https://act.gp/2Xsz4Rl",
+  "whatsappURL": "https://act.gp/3hyctJO"
+}

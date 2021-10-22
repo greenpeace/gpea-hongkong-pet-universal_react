@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
-import Banner from "../banner";
-import Carousel from "../carousel";
-import * as swiperActions from "store/actions/action-types/swiper-actions";
-import * as themeActions from "store/actions/action-types/theme-actions";
-import { connect } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import swiperContent from "../../data/swiper.json";
+import React, { useEffect } from 'react';
+import Banner from '../banner';
+import Carousel from '../carousel';
+import * as swiperActions from 'store/actions/action-types/swiper-actions';
+import * as themeActions from 'store/actions/action-types/theme-actions';
+import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import swiperContent from '../../data/swiper.json';
 
-import videoBG from "../../../../assets/videos/e96a2abcec677ba251bdd4e8c9ddb5ef.mp4";
+import videoBG from '../../../../assets/videos/e96a2abcec677ba251bdd4e8c9ddb5ef.mp4';
 
-console.log('swiperContent--',swiperContent)
+console.log('swiperContent--', swiperContent);
 
 const SlideContent = ({
   swiper,
@@ -32,11 +32,11 @@ const SlideContent = ({
   const handleUpdateSlide = (direction) => {
     let updateSlide = 0;
     switch (direction) {
-      case "prev":
+      case 'prev':
         updateSlide = slideIndex === 0 ? swiper.length : slideIndex--;
         updateSwiperSlide(updateSlide - 1);
         break;
-      case "next":
+      case 'next':
         updateSlide = slideIndex + 1 >= swiper.length ? 0 : (slideIndex += 1);
         updateSwiperSlide(updateSlide);
         break;
@@ -47,16 +47,6 @@ const SlideContent = ({
 
   return (
     <>
-<<<<<<< HEAD
-      <div className="hero-wrapper fl-wrap full-height hidden-item">
-        {/* <div className="video-wrap">
-          <div className="videobg">
-          </div>
-        </div> */}
-        <span className="hc_dec"></span>
-        <div className="hero-slider-wrap home-half-slider fl-wrap full-height">
-          <div className="hero-slider fs-gallery-wrap fl-wrap full-height">
-=======
       <div className='hero-wrapper fl-wrap full-height hidden-item'>
         <div className='video-wrap'>
           <div className='videobg'>
@@ -68,7 +58,6 @@ const SlideContent = ({
         <span className='hc_dec'></span>
         <div className='hero-slider-wrap home-half-slider fl-wrap full-height'>
           <div className='hero-slider fs-gallery-wrap fl-wrap full-height'>
->>>>>>> b3a76c9d1bcda93e86b0f586060c2bf31cb6f46b
             <Banner />
           </div>
         </div>
@@ -86,18 +75,18 @@ const SlideContent = ({
         <div className='hero-slider_control-wrap'>
           <div
             className='hsc hsc-prev'
-            onClick={() => handleUpdateSlide("prev")}
+            onClick={() => handleUpdateSlide('prev')}
           >
             <span>
-              <FontAwesomeIcon icon={["fas", "arrow-left"]} />
-            </span>{" "}
+              <FontAwesomeIcon icon={['fas', 'arrow-left']} />
+            </span>{' '}
           </div>
           <div
             className='hsc hsc-next'
-            onClick={() => handleUpdateSlide("next")}
+            onClick={() => handleUpdateSlide('next')}
           >
             <span>
-              <FontAwesomeIcon icon={["fas", "arrow-right"]} />
+              <FontAwesomeIcon icon={['fas', 'arrow-right']} />
             </span>
           </div>
         </div>

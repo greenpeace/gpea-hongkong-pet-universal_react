@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import * as themeActions from "store/actions/action-types/theme-actions";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import * as themeActions from 'store/actions/action-types/theme-actions';
 
 const Index = ({ toggleTheme }) => {
   useEffect(() => {
