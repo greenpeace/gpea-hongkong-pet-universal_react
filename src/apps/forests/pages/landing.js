@@ -74,11 +74,11 @@ const Landing = ({ submitted, togglePanel }) => {
       >
         <Button
           w='90%'
-          color='#fff'
-          bg='orange'
-          borderRadius='24px'
+          color='white'
+          bg='orange.500'
+          borderRadius='md'
           fontSize='xl'
-          letterSpacing={4}
+          letterSpacing={2}
           style={{ zIndex: 999 }}
           onClick={() => togglePanel(true)}
         >

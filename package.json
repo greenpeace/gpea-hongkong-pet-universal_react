@@ -69,7 +69,8 @@
     "eject": "react-scripts eject",
     "deploy": "yarn build:en && node mc-deploy.js && react-snap && purgecss && node mc-deploy.js",
     "postbuild": "react-snap && node mc-deploy.js && purgecss",
-    "purgecss": "purgecss --css build/static/css/*.css --content build/index.html build/static/js/*.js --output build/static/css"
+    "purgecss": "purgecss --css build/static/css/*.css --content build/index.html build/static/js/*.js --output build/static/css",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
@@ -102,6 +103,7 @@
   "devDependencies": {
     "babel-plugin-module-resolver": "^4.1.0",
     "eslint-plugin-import": "^2.22.1",
+    "husky": "^7.0.0",
     "less": "^4.1.0",
     "less-loader": "^7.2.1",
     "prettier": "^2.3.2",

@@ -136,7 +136,7 @@ const MyForm = (props) => {
     >
       <Form onSubmit={handleSubmit}>
         <Stack spacing={4} mb={4}>
-          <Heading as='h2' variant='heading' fontSize='3xl' color='gray.900'>
+          <Heading as='h2' variant='heading' fontSize='2xl' color='gray.900'>
             <span
               dangerouslySetInnerHTML={{ __html: formContent.form_header }}
             />
@@ -289,13 +289,11 @@ const MyForm = (props) => {
               isLoading={isSubmitting}
               type='submit'
               height='48px'
-              borderRadius='8'
-              fontSize='xl'
+              borderRadius='md'
+              fontSize='lg'
               color='#fff'
-              letterSpacing={4}
-              bg='#ff8100'
-              _hover={{ bg: 'campaign.climate' }}
-              type='submit'
+              bg='orange.500'
+              letterSpacing={2}
             >
               {formContent.submit_text}
             </Button>
