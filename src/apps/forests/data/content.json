@@ -14,17 +14,17 @@
   "invalid_format_alert": "請輸入有效格式",
   "minimum_8_characters": "請輸入8位數字",
 
-  "form_header": "守護動物們的關鍵棲息地",
-  "form_description": "聯合國報告指出：全球八百多萬物種中，就有一百多萬面臨滅絕危機，包含美洲豹、蘇門答臘犀牛、紅毛猩猩等...",
+  "form_header": "守護森林 立即加入全球行動",
+  "form_description": "森林關乎人類、野生動植物，以至整個地球的健康與福祉，<b>令企業與政府無法忽視我們的護林訴求，讓森林得到及時保護，請立即加入聯署！</b>",
   "form_remind": "我願意收到綠色和平發送的通訊，讓我能掌握環保工作的最新脈動！綠色和平尊重並保障您的個人資料，您隨時可取消訂閱，請參考私隱政策。",
 
   "submit_text": "立即聯署",
 
   "thanks_title": "感謝您的加入！",
   "thanks_content": "",
-  "thanks_content_top_section": "綠色和平堅持以行動減緩氣候危機，我們將持續督促企業與各地國政府制訂、兌現減碳排承諾發展，加速淘汰代石能源，以發展可再生能為首，趕在2050年前達致淨零碳排放，以控制全球升溫於1.5°C以內。",
+  "thanks_content_top_section": "綠色和平堅持以行動，<b>督促全球政府加強森林保護政策，要求企業終止砍伐、焚燒等毀林行為</b>，採用生態友善且永續的方式管理森林，為森林提供復原空間。",
   "thanks_content_center_section": "",
-  "thanks_content_bottom_section": "懇請您以每月$100 [每日約$3] 小額捐款，支持綠色和平減緩氣候危機的工作！",
+  "thanks_content_bottom_section": "因為您，綠色和平得以維持環境工作的公正獨立性，<b>懇請您今天就以小額捐款，支持守護森林全球行動！</b>",
   "thanks_content_after_button_section": "",
   "share_button": "分享出去",
   "donate_button": "捐助支持",

@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import * as themeActions from 'store/actions/action-types/theme-actions'
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import * as themeActions from 'store/actions/action-types/theme-actions';
 import {
   Box,
   Button,
@@ -9,52 +9,52 @@ import {
   Stack,
   Grid,
   GridItem,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
 
 const buttonStyle = {
   h: '48px',
   fontWeight: '400',
-}
+};
 
 // Donation types
 const TYPES = [
   { label: '每月捐款', value: 'monthly' },
   { label: '單次捐款', value: 'single' },
-]
+];
 const AMOUNT_ONETIME = [
   { label: 'HKD 500', value: 500 },
   { label: 'HKD 700', value: 700 },
   { label: 'HKD 900', value: 900 },
   { label: '其他金額', value: '' },
-]
+];
 const AMOUNT_MONTHLY = [
   { label: 'HKD 100', value: 100 },
   { label: 'HKD 150', value: 150 },
   { label: 'HKD 200', value: 200 },
   { label: '其他金額', value: '' },
-]
+];
 
 const MiniDonateForm = (props) => {
-  const [donateType, setDonateType] = useState('monthly')
-  const [amount, setAmount] = useState(100)
-  const [url, setURL] = useState({ type: donateType, amount: amount })
+  const [donateType, setDonateType] = useState('monthly');
+  const [amount, setAmount] = useState(100);
+  const [url, setURL] = useState({ type: donateType, amount: amount });
   const amountOption =
-    donateType === 'monthly' ? AMOUNT_MONTHLY : AMOUNT_ONETIME
+    donateType === 'monthly' ? AMOUNT_MONTHLY : AMOUNT_ONETIME;
 
   const handleSetDonateType = (value) => {
-    setDonateType(value)
+    setDonateType(value);
     setAmount(
       value === 'monthly' ? AMOUNT_MONTHLY[0].value : AMOUNT_ONETIME[0].value
-    )
-    setURL({ ...url, type: value })
-  }
+    );
+    setURL({ ...url, type: value });
+  };
 
   const targetDonateURL =
-    'https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=climate'
+    'https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=forests';
 
   const handleOpenLink = (value) => {
-    window.open(`${targetDonateURL}&donate_amt=${donateType}:${amount}`)
-  }
+    window.open(`${targetDonateURL}&donate_amt=${donateType}:${amount}`);
+  };
 
   return (
     <Box>
@@ -88,8 +88,7 @@ const MiniDonateForm = (props) => {
           <Box>
             <Grid templateColumns='repeat(3, 1fr)' gap={2}>
               {amountOption.map((d, i) => {
-                const colSpan = amountOption.length === i + 1 ? 3 : 1
-
+                const colSpan = amountOption.length === i + 1 ? 3 : 1;
                 return (
                   <GridItem colSpan={colSpan} key={i}>
                     <Button
@@ -108,18 +107,18 @@ const MiniDonateForm = (props) => {
                       {d.label}
                     </Button>
                   </GridItem>
-                )
+                );
               })}
             </Grid>
           </Box>
           <Box align='center' py={6}>
             {props.mode === 'dark' ? (
               <Text fontSize={'md'} color={'#fff'}>
-                您的捐款，將幫助綠色和平為環境問題找到出路，並在全球各地落實環保工作。謝謝！
+                您的捐款，為綠色和平守護森林項目帶來穩定力量，為我們與下一代守護這片盎然綠野，謝謝！
               </Text>
             ) : (
               <Text fontSize={'md'}>
-                您的捐款，將幫助綠色和平為環境問題找到出路，並在全球各地落實環保工作。謝謝！
+                您的捐款，為綠色和平守護森林項目帶來穩定力量，為我們與下一代守護這片盎然綠野，謝謝！
               </Text>
             )}
           </Box>
@@ -127,6 +126,8 @@ const MiniDonateForm = (props) => {
             <Button
               variant='formSubmitButton'
               {...buttonStyle}
+              backgroundColor={'orange.500'}
+              _hover={{ bg: 'orange.300' }}
               fontWeight={700}
               fontSize={'lg'}
               letterSpacing={'2px'}
@@ -137,34 +138,34 @@ const MiniDonateForm = (props) => {
         </Flex>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleTheme: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_FORM, bol })
+      dispatch({ type: themeActions.TOGGLE_FORM, bol });
     },
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
     },
     setForm: (value) => {
-      dispatch({ type: themeActions.SET_FORM_VALUE, value })
+      dispatch({ type: themeActions.SET_FORM_VALUE, value });
     },
     setHiddenForm: (value) => {
-      dispatch({ type: themeActions.SET_HIDDEN_FORM_VALUE, value })
+      dispatch({ type: themeActions.SET_HIDDEN_FORM_VALUE, value });
     },
     submitForm: (form) => {
-      dispatch({ type: themeActions.SUBMIT_FORM, form })
+      dispatch({ type: themeActions.SUBMIT_FORM, form });
     },
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(MiniDonateForm)
+export default connect(mapStateToProps, mapDispatchToProps)(MiniDonateForm);

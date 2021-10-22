@@ -439,7 +439,7 @@ const Index = ({ submitted, togglePanel }) => {
         w='100%'
         color='#fff'
         bg='campaign.arctic'
-        _hover={{ bg: 'campaign.oceans' }}
+
         height='60px'
         borderRadius='0'
         size='lg'

@@ -103,7 +103,7 @@ const Tab = () => {
                       size='lg'
                       color='#fff'
                       bg='campaign.arctic'
-                      _hover={{ bg: 'campaign.oceans' }}
+
                     >
                       立即聯署
                     </Button>
