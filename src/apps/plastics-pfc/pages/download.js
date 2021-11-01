@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
-import { useMediaQuery } from 'react-responsive'
-import Sticky from 'react-sticky-el'
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+import Sticky from 'react-sticky-el';
 import {
   ChakraProvider,
   Box,
@@ -14,37 +14,37 @@ import {
   Center,
   VStack,
   HStack,
-} from '@chakra-ui/react'
-import Nav from '../components/header/nav'
-import Footer from '../components/footer'
-import * as themeActions from 'store/actions/action-types/theme-actions'
-import themeConfig from '../../../theme'
-import { animateScroll as scroll, scroller } from 'react-scroll'
-import { DownloadIcon } from '@chakra-ui/icons'
+} from '@chakra-ui/react';
+import Nav from '../components/header/nav';
+import Footer from '../components/footer';
+import * as themeActions from 'store/actions/action-types/theme-actions';
+import themeConfig from '../../../theme';
+import { animateScroll as scroll, scroller } from 'react-scroll';
+import { DownloadIcon } from '@chakra-ui/icons';
 
-import LazyLoad from 'react-lazyload'
+import LazyLoad from 'react-lazyload';
 
-import wallpaper from '../../../data/wallpaper.json'
+import wallpaper from '../../../data/wallpaper.json';
 
-import '../index.css'
+import '../index.css';
 
 const Index = ({ submitted, togglePanel, selectedImage }) => {
-  const [Arctic, setArctic] = useState([])
-  const [Forests, setForests] = useState([])
-  const [Oceans, setOceans] = useState([])
-  const [current, setCurrent] = useState([])
-  const [displayCate, setDisplayCate] = useState(false)
-  const [isShown, setIsShown] = useState(false)
+  const [Arctic, setArctic] = useState([]);
+  const [Forests, setForests] = useState([]);
+  const [Oceans, setOceans] = useState([]);
+  const [current, setCurrent] = useState([]);
+  const [displayCate, setDisplayCate] = useState(false);
+  const [isShown, setIsShown] = useState(false);
   const [download, setDownload] = useState(
     wallpaper.data[3].content.wallpaperList[0]
-  )
+  );
   const campaignButton = [
     { label_zh: '北極', label: 'Arctic', value: Arctic },
     { label_zh: '森林', label: 'Forests', value: Forests },
     { label_zh: '海洋', label: 'Oceans', value: Oceans },
-  ]
+  ];
 
-  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
+  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' });
 
   const scrollTo = (d) => {
     scroller.scrollTo(d, {
@@ -52,27 +52,27 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
       delay: 0,
       smooth: true,
       offset: -200, // TODO: Need double check the value
-    })
-  }
+    });
+  };
 
   const handleSwitchDownload = (cate) => {
-    console.log('clicked', cate)
-    const getFirstItem = cate.content?.wallpaperList[0]
-    setDownload(getFirstItem)
-    selectedImage(getFirstItem)
-    setCurrent(cate)
-  }
+    console.log('clicked', cate);
+    const getFirstItem = cate.content?.wallpaperList[0];
+    setDownload(getFirstItem);
+    selectedImage(getFirstItem);
+    setCurrent(cate);
+  };
 
   const handleSetDownload = (d) => {
-    setDownload(d)
-    selectedImage(d)
-    scrollTo(d)
-  }
+    setDownload(d);
+    selectedImage(d);
+    scrollTo(d);
+  };
 
   const whatsAppShare = () => {
-    var w = 'https://act.gp/39fBmX6'
-    window.open(w)
-  }
+    var w = 'https://act.gp/39fBmX6';
+    window.open(w);
+  };
   const mainShare = () => {
     // WEB SHARE API
     if (navigator.share) {
@@ -83,38 +83,38 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
           url: 'https://act.gp/2YaXfQW',
         })
         .then()
-        .catch()
+        .catch();
     } else {
-      whatsAppShare()
+      whatsAppShare();
     }
-  }
+  };
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-    setArctic(wallpaper.data.find((d) => d.issue === 'Biodiversity'))
-    setForests(wallpaper.data.find((d) => d.issue === 'Forests'))
-    setOceans(wallpaper.data.find((d) => d.issue === 'Oceans'))
-  }, [])
+    window.scrollTo(0, 0);
+    setArctic(wallpaper.data.find((d) => d.issue === 'Biodiversity'));
+    setForests(wallpaper.data.find((d) => d.issue === 'Forests'));
+    setOceans(wallpaper.data.find((d) => d.issue === 'Oceans'));
+  }, []);
 
   useEffect(() => {
-    const getFirstItem = Arctic.content?.wallpaperList[0]
-    setCurrent(Arctic)
-    selectedImage(getFirstItem)
-  }, [Arctic])
+    const getFirstItem = Arctic.content?.wallpaperList[0];
+    setCurrent(Arctic);
+    selectedImage(getFirstItem);
+  }, [Arctic]);
 
   const downloadButtonStyle = {
     top: '0px',
     left: '0px',
     borderTop: '80px solid #66cc00',
     borderRight: '80px solid transparent',
-  }
+  };
 
   const mobileDownloadButtonStyle = {
     top: '0px',
     left: '0px',
     borderTop: '48px solid #66cc00',
     borderRight: '48px solid transparent',
-  }
+  };
 
   const SelectButtonStyle = {
     variant: 'outline',
@@ -127,7 +127,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
     },
     flex: '1',
     borderRadius: '20px',
-  }
+  };
 
   const SelectedButtonStyle = {
     variant: 'solid',
@@ -137,7 +137,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
     bgColor: 'brand.600',
     flex: '1',
     borderRadius: '20px',
-  }
+  };
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -160,7 +160,7 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
               href='https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&ref=wallpaper-thankyou'
               isExternal
             >
-              <Button backgroundColor='orange' color='white' px='10' py='4'>
+              <Button backgroundColor='orange.500' color='white' px='10' py='4'>
                 捐助支持
               </Button>
             </Link>
@@ -318,25 +318,25 @@ const Index = ({ submitted, togglePanel, selectedImage }) => {
       </SimpleGrid>
       <Footer />
     </ChakraProvider>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
     },
     selectedImage: (src) => {
-      dispatch({ type: themeActions.SWITCH_SELECTED_IMAGE, src })
+      dispatch({ type: themeActions.SWITCH_SELECTED_IMAGE, src });
     },
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Index)
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

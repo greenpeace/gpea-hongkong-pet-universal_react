@@ -1,0 +1,50 @@
+.sticky-wallpaper-image {
+  background-color: #fff;
+  z-index: 999;
+}
+
+.fade-in {
+  animation: fadeIn 0.4s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.slide-pane_from_bottom {
+  margin-top: 8vh;
+}
+
+@media (min-width: 980px) {
+  .pure-visible-mobile {
+    display: none;
+  }
+  .pure-visible-tablet {
+    display: none;
+  }
+  .pure-hidden-desktop {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .pure-hidden-mobile {
+    display: none;
+  }
+  .pure-visible-desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .pure-hidden-tablet {
+    display: none;
+  }
+  .pure-visible-desktop {
+    display: none;
+  }
+}

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { connect } from 'react-redux'
-import { useMediaQuery } from 'react-responsive'
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 import {
   ChakraProvider,
   Grid,
@@ -16,18 +16,18 @@ import {
   useColorModeValue,
   Container,
   Spacer,
-} from '@chakra-ui/react'
-import Footer from './components/footer'
-import NewFrameForm from 'components/form/newFrameForm'
-import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
-import Panel from 'components/panel/newFormPanel'
-import Tab from './components/sticky/tab'
-import * as themeActions from 'store/actions/action-types/theme-actions'
-import Sticky from 'react-sticky-el'
-import themeConfig from '../../../theme'
+} from '@chakra-ui/react';
+import Footer from './components/footer';
+import NewFrameForm from 'components/form/newFrameForm';
+import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm';
+import Panel from 'components/panel/newFormPanel';
+import Tab from './components/sticky/tab';
+import * as themeActions from 'store/actions/action-types/theme-actions';
+import Sticky from 'react-sticky-el';
+import themeConfig from '../../../theme';
 
-import { images, otherImages } from './components/parallex/images'
-import ParallaxImage from './components/parallex/parallexImages'
+import { images, otherImages } from './components/parallex/images';
+import ParallaxImage from './components/parallex/parallexImages';
 
 import {
   Link,
@@ -36,30 +36,30 @@ import {
   animateScroll as scroll,
   scrollSpy,
   scroller,
-} from 'react-scroll'
+} from 'react-scroll';
 
-import SwiperCore, { Mousewheel, Scrollbar, A11y, Autoplay } from 'swiper'
+import SwiperCore, { Mousewheel, Scrollbar, A11y, Autoplay } from 'swiper';
 
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/swiper.scss'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.scss';
 
-SwiperCore.use([Scrollbar, A11y, Autoplay, Mousewheel])
+SwiperCore.use([Scrollbar, A11y, Autoplay, Mousewheel]);
 
 const Index = ({ submitted, togglePanel }) => {
-  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
+  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' });
   const textStyle = {
     fontSize: { base: 'md', sm: '18px' },
     color: 'rgba(0,0,0,.65)',
     lineHeight: 1.8,
-  }
+  };
 
   const textStyleOther = {
     fontSize: { base: 'sm', sm: 'md' },
     color: 'rgba(0,0,0,.65)',
     lineHeight: 1.5,
-  }
+  };
 
-  const [currentTab, setCurrentTab] = useState(0)
+  const [currentTab, setCurrentTab] = useState(0);
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -439,7 +439,6 @@ const Index = ({ submitted, togglePanel }) => {
         w='100%'
         color='#fff'
         bg='campaign.arctic'
-        _hover={{ bg: 'campaign.oceans' }}
         height='60px'
         borderRadius='0'
         size='lg'
@@ -455,21 +454,21 @@ const Index = ({ submitted, togglePanel }) => {
       <Panel />
       <Footer />
     </ChakraProvider>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
     },
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Index)
+export default connect(mapStateToProps, mapDispatchToProps)(Index);
