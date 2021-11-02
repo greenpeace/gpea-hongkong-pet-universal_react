@@ -1,9 +1,9 @@
 // import "swiper/swiper.scss";
-import * as themeActions from 'store/actions/action-types/theme-actions'
-import React from 'react'
-import { connect } from 'react-redux'
-import { useMediaQuery } from 'react-responsive'
-import Sticky from 'react-sticky-el'
+import * as themeActions from 'store/actions/action-types/theme-actions';
+import React from 'react';
+import { connect } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+import Sticky from 'react-sticky-el';
 import {
   ChakraProvider,
   Avatar,
@@ -18,26 +18,26 @@ import {
   SimpleGrid,
   Stack,
   Icon,
-} from '@chakra-ui/react'
-import SEO from '../SEO'
-import content from '../data/content'
-import Nav from '../components/header/nav'
-import HeroSwiper from '../components/feature/heroSwiper'
-import Footer from '../components/footer'
-import NewFrameForm from 'components/form/newFrameForm'
-import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
-import Panel from 'components/panel/newFormPanel'
-import TestmonialCard from 'components/sections/testimonial'
-import themeConfig from '../../../theme'
+} from '@chakra-ui/react';
+import SEO from '../SEO';
+import content from '../data/content';
+import Nav from '../components/header/nav';
+import HeroSwiper from '../components/feature/heroSwiper';
+import Footer from '../components/footer';
+import NewFrameForm from 'components/form/newFrameForm';
+import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm';
+import Panel from 'components/panel/newFormPanel';
+import TestmonialCard from 'components/sections/testimonial';
+import themeConfig from '../../../theme';
 
-import amos from '../assets/images/8.png'
-import tom from '../assets/images/9.png'
-import info01 from '../assets/images/info-01.jpeg'
-import info02 from '../assets/images/info-02.jpg'
+import amos from '../assets/images/8.png';
+import tom from '../assets/images/9.png';
+import info01 from '../assets/images/info-01.jpeg';
+import info02 from '../assets/images/info-02.jpg';
 
-import { IoTimeSharp } from 'react-icons/io5'
-import { SiAirplayvideo } from 'react-icons/si'
-import { BiCalendar } from 'react-icons/bi'
+import { IoTimeSharp } from 'react-icons/io5';
+import { SiAirplayvideo } from 'react-icons/si';
+import { BiCalendar } from 'react-icons/bi';
 
 const amosContent = [
   {
@@ -47,7 +47,7 @@ const amosContent = [
       '大氣科學家、中文大學地球系統科學課程副教授，曾獲聯合國頒發「世界氣象組織青年科學家研究獎」，是全港首位奪得此獎的科學家。Amos專門研究氣候變化、空氣污染、農業與人類健康的關係，同時探究如何以可持續森林與土地管理等方法，緩解氣候危機。Amos曾於去年與綠色和平和少年氣候行動者Lance合作，拍攝氣候變化課堂。今年，Amos繼續向大眾推廣氣候教育，網上分享氣候變化對香港的影響。',
     avatar: amos,
   },
-]
+];
 
 const tomContent = [
   {
@@ -57,10 +57,10 @@ const tomContent = [
       '綠色和平項目主任，倡議及推動政府尋求應對氣候危機的方案。亦希望集合社會各界的每一份力量，為拯救脆弱的氣候出一分力，一起發聲，壯大守護氣候的聲音。',
     avatar: tom,
   },
-]
+];
 
 const Landing = ({ submitted, togglePanel }) => {
-  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
+  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' });
   const Speaker = ({ image, name, title, content, other }) => (
     <Box mt={6} py={4}>
       <SimpleGrid
@@ -108,14 +108,14 @@ const Landing = ({ submitted, togglePanel }) => {
         </Box>
       </SimpleGrid>
     </Box>
-  )
+  );
   const pStyle = {
     as: 'p',
     marginTop: '20px',
     color: 'gray.900',
     lineHeight: '1.5',
     fontSize: '16px',
-  }
+  };
 
   const subStyle = {
     as: 'p',
@@ -123,7 +123,7 @@ const Landing = ({ submitted, togglePanel }) => {
     color: 'gray.700',
     lineHeight: '1.5',
     fontSize: '14px',
-  }
+  };
 
   const dividerProps = {
     orientation: { base: 'horizontal', xl: 'vertical' },
@@ -132,13 +132,13 @@ const Landing = ({ submitted, togglePanel }) => {
     w: { base: '100%', xl: '1px' },
     my: { base: 2, md: 4 },
     opacity: { base: 0.2 },
-  }
+  };
 
   const webinarProps = {
     fontSize: { base: 18, xl: 20 },
     fontWeight: 700,
     pl: 2,
-  }
+  };
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -214,7 +214,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   fontSize={{ base: '2xl', sm: '3xl', xl: '4xl' }}
                   fontWeight='bold'
                   color='gray.900'
-                  lineHeight={1.2}
+                  lineHeight={1.3}
                 >
                   <Text color='#FA6A11'>網上科學 101</Text>
                   <Text>氣候危機警告現正生效：點樣影響香港人？</Text>
@@ -358,7 +358,7 @@ const Landing = ({ submitted, togglePanel }) => {
         <Button
           w='90%'
           color='#fff'
-          bg='orange'
+          bg='orange.500'
           borderRadius='24px'
           fontSize='xl'
           letterSpacing={4}
@@ -380,21 +380,21 @@ const Landing = ({ submitted, togglePanel }) => {
       </Panel>
       <Footer />
     </ChakraProvider>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
     },
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Landing)
+export default connect(mapStateToProps, mapDispatchToProps)(Landing);

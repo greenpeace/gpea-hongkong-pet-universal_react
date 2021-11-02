@@ -63,16 +63,15 @@ const MyForm = ({ formContent = content }) => {
         </Fade>
       )} */}
       {!showDonate && (
-        <Flex direction='column'>
+        <Stack spacing={4}>
           <Text
             variant='heading'
-            fontSize='2xl'
+            fontSize='3xl'
             dangerouslySetInnerHTML={{ __html: formContent.thanks_title }}
           />
           <Text
             as='p'
             variant='paragraph'
-            py={2}
             dangerouslySetInnerHTML={{
               __html: formContent.thanks_content_top_section,
             }}
@@ -123,7 +122,7 @@ const MyForm = ({ formContent = content }) => {
             */}
           {document.location.search.indexOf('utm_source=dd') === -1 && (
             <>
-              <Text as='p' variant='paragraph' py={2}>
+              <Text as='p' variant='paragraph'>
                 <span
                   dangerouslySetInnerHTML={{
                     __html: formContent.thanks_content_bottom_section,
@@ -145,7 +144,7 @@ const MyForm = ({ formContent = content }) => {
           >
             {formContent.donate_button}
           </Button> */}
-        </Flex>
+        </Stack>
       )}
     </Box>
   );

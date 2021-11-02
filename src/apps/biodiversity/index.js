@@ -1,8 +1,8 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { useMediaQuery } from 'react-responsive'
-import Sticky from 'react-sticky-el'
-import content from './data/content'
+import React from 'react';
+import { connect } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+import Sticky from 'react-sticky-el';
+import content from './data/content';
 import {
   ChakraProvider,
   Circle,
@@ -19,21 +19,21 @@ import {
   Stack,
   Icon,
   Center,
-} from '@chakra-ui/react'
-import SEO from './SEO'
-import Nav from './components/header/nav'
-import Countdown from './components/feature/countdown'
-import ContentSwiper from './components/feature/swiperContent'
-import Footer from './components/footer'
-import NewFrameForm from 'components/form/newFrameForm'
-import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
-import Panel from 'components/panel/newFormPanel'
-import * as themeActions from 'store/actions/action-types/theme-actions'
-import themeConfig from '../../../theme'
-import { IoCalendarOutline, IoTimeSharp, IoVideocam } from 'react-icons/io5'
+} from '@chakra-ui/react';
+import SEO from './SEO';
+import Nav from './components/header/nav';
+import Countdown from './components/feature/countdown';
+import ContentSwiper from './components/feature/swiperContent';
+import Footer from './components/footer';
+import NewFrameForm from 'components/form/newFrameForm';
+import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm';
+import Panel from 'components/panel/newFormPanel';
+import * as themeActions from 'store/actions/action-types/theme-actions';
+import themeConfig from '../../../theme';
+import { IoCalendarOutline, IoTimeSharp, IoVideocam } from 'react-icons/io5';
 
 // Import Swiper styles
-import 'swiper/swiper.scss'
+import 'swiper/swiper.scss';
 
 const Index = ({ submitted, togglePanel }) => {
   const Feature = ({ text, icon, iconBg }) => {
@@ -46,10 +46,10 @@ const Index = ({ submitted, togglePanel }) => {
           {text}
         </Text>
       </Stack>
-    )
-  }
+    );
+  };
 
-  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
+  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' });
 
   const captionStyle = {
     as: 'span',
@@ -57,7 +57,7 @@ const Index = ({ submitted, togglePanel }) => {
     paddingLeft: '12px',
     size: 'sm',
     color: 'gary.500',
-  }
+  };
 
   const pStyle = {
     as: 'p',
@@ -65,7 +65,7 @@ const Index = ({ submitted, togglePanel }) => {
     color: 'gray.900',
     lineHeight: '1.7',
     fontSize: '16px',
-  }
+  };
 
   const flexBoxStyle = {
     align: 'center',
@@ -74,7 +74,7 @@ const Index = ({ submitted, togglePanel }) => {
     rounded: 'full',
     bg: 'gray.100',
     mb: 1,
-  }
+  };
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -91,7 +91,7 @@ const Index = ({ submitted, togglePanel }) => {
                   fontSize={{ base: '2xl', sm: '3xl', xl: '4xl' }}
                   fontWeight='bold'
                   color='gray.900'
-                  lineHeight={1.2}
+                  lineHeight={1.3}
                 >
                   <Text color='brand.500'>立即登記</Text>
                   與生態專家探索香港「野」網上教室
@@ -423,7 +423,7 @@ const Index = ({ submitted, togglePanel }) => {
         <Button
           w='80%'
           color='#fff'
-          bg='orange'
+          bg='orange.500'
           borderRadius='24px'
           fontSize='xl'
           letterSpacing={4}
@@ -438,21 +438,21 @@ const Index = ({ submitted, togglePanel }) => {
       </Panel>
       <Footer />
     </ChakraProvider>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
     },
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Index)
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

@@ -1,8 +1,8 @@
-import 'swiper/swiper.scss'
-import React from 'react'
-import { connect } from 'react-redux'
-import { useMediaQuery } from 'react-responsive'
-import Sticky from 'react-sticky-el'
+import 'swiper/swiper.scss';
+import React from 'react';
+import { connect } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+import Sticky from 'react-sticky-el';
 import {
   ChakraProvider,
   Avatar,
@@ -17,53 +17,53 @@ import {
   Link,
   SimpleGrid,
   Stack,
-} from '@chakra-ui/react'
-import SEO from '../SEO'
-import content from '../data/content'
-import Nav from '../components/header/nav'
-import HeroSwiper from '../components/feature/heroSwiper'
-import Footer from '../components/footer'
-import NewFrameForm from 'components/form/newFrameForm'
-import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
-import Panel from 'components/panel/newFormPanel'
-import { FaFacebookSquare, FaInstagram } from 'react-icons/fa'
-import * as themeActions from 'store/actions/action-types/theme-actions'
-import themeConfig from '../../../theme'
+} from '@chakra-ui/react';
+import SEO from '../SEO';
+import content from '../data/content';
+import Nav from '../components/header/nav';
+import HeroSwiper from '../components/feature/heroSwiper';
+import Footer from '../components/footer';
+import NewFrameForm from 'components/form/newFrameForm';
+import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm';
+import Panel from 'components/panel/newFormPanel';
+import { FaFacebookSquare, FaInstagram } from 'react-icons/fa';
+import * as themeActions from 'store/actions/action-types/theme-actions';
+import themeConfig from '../../../theme';
 
-import shing from '../assets/images/shing_2x_icon.png'
-import banner from '../assets/images/73.jpg'
-import subImage from '../assets/images/wallpaper_removed.jpg'
-import submitImage from '../assets/images/submit.png'
-import videoCallImage from '../assets/images/video-call.png'
-import cloudImage from '../assets/images/cloud.png'
+import shing from '../assets/images/shing_2x_icon.png';
+import banner from '../assets/images/73.jpg';
+import subImage from '../assets/images/wallpaper_removed.jpg';
+import submitImage from '../assets/images/submit.png';
+import videoCallImage from '../assets/images/video-call.png';
+import cloudImage from '../assets/images/cloud.png';
 
 const Landing = ({ submitted, togglePanel }) => {
-  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
+  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' });
   const pStyle = {
     as: 'p',
     marginTop: '20px',
     color: 'gray.900',
     lineHeight: '1.7',
     fontSize: '16px',
-  }
+  };
   const stepRow = {
     align: 'center',
     pb: 10,
     pt: { base: 5, md: 0 },
     direction: { base: 'column', md: 'row' },
-  }
+  };
 
   const stepImageWrapProps = {
     flex: 1,
     pb: { base: 5, md: 0 },
     textAlign: '-webkit-center',
     maxWidth: '200px',
-  }
+  };
 
   const stepImageProps = {
     maxWidth: '100px',
     flex: 1,
-  }
+  };
 
   const stepContentProps = {
     as: 'h3',
@@ -73,7 +73,7 @@ const Landing = ({ submitted, togglePanel }) => {
     fontWeight: 700,
     pt: { base: 5, md: 0 },
     textAlign: { base: 'center', md: 'left' },
-  }
+  };
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -99,7 +99,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   fontSize={{ base: '2xl', sm: '3xl', xl: '4xl' }}
                   fontWeight='bold'
                   color='gray.900'
-                  lineHeight={1.2}
+                  lineHeight={1.3}
                 >
                   <Text color='brand.500' mt={4} mb={2}>
                     精選香港動物奇妙時刻
@@ -331,7 +331,7 @@ const Landing = ({ submitted, togglePanel }) => {
         <Button
           w='80%'
           color='#fff'
-          bg='orange'
+          bg='orange.500'
           borderRadius='24px'
           fontSize='xl'
           letterSpacing={4}
@@ -353,22 +353,22 @@ const Landing = ({ submitted, togglePanel }) => {
       </Panel>
       <Footer />
     </ChakraProvider>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
     // submitted: false, // TEST submitted
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
     },
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Landing)
+export default connect(mapStateToProps, mapDispatchToProps)(Landing);

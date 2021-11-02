@@ -1,7 +1,7 @@
-import 'swiper/swiper.scss'
-import React, { useRef } from 'react'
-import { connect } from 'react-redux'
-import Sticky from 'react-sticky-el'
+import 'swiper/swiper.scss';
+import React, { useRef } from 'react';
+import { connect } from 'react-redux';
+import Sticky from 'react-sticky-el';
 import {
   ChakraProvider,
   Box,
@@ -14,43 +14,43 @@ import {
   Link,
   Stack,
   Center,
-} from '@chakra-ui/react'
-import SEO from '../SEO'
-import content from '../data/content'
-import Nav from '../components/header/nav'
-import Footer from '../components/footer'
-import SimpleCarousel from 'components/banner/imageCarousel'
-import Webinar from 'components/sections/webinar'
-import NewFrameForm from 'components/form/newFrameForm'
-import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
-import Panel from 'components/panel/newFormPanel'
+} from '@chakra-ui/react';
+import SEO from '../SEO';
+import content from '../data/content';
+import Nav from '../components/header/nav';
+import Footer from '../components/footer';
+import ImageCarousel from 'components/banner/imageCarousel';
+import Webinar from 'components/sections/webinar';
+import NewFrameForm from 'components/form/newFrameForm';
+import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm';
+import Panel from 'components/panel/newFormPanel';
 
-import * as themeActions from 'store/actions/action-types/theme-actions'
-import themeConfig from '../../../theme'
-import { HiArrowNarrowRight, HiArrowNarrowLeft } from 'react-icons/hi'
+import * as themeActions from 'store/actions/action-types/theme-actions';
+import themeConfig from '../../../theme';
+import { HiArrowNarrowRight, HiArrowNarrowLeft } from 'react-icons/hi';
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
-import 'swiper/swiper.min.css'
-import 'swiper/components/navigation/navigation.min.css'
+import 'swiper/swiper.min.css';
+import 'swiper/components/navigation/navigation.min.css';
 
 // import Swiper core and required modules
-import SwiperCore, { Navigation } from 'swiper/core'
+import SwiperCore, { Navigation } from 'swiper/core';
 
-import banner from '../assets/images/hero_v2.jpg'
-import kellyProfile from '../assets/images/MD-GP-PORTRAITKELLYHUANG001.jpg'
-import thumbnail from '../assets/images/GP0STUTFE_Medium_res.jpg'
-import thumbnailTwo from '../assets/images/GP1SUZTO_Medium_res.jpg'
-import thumbnailThree from '../assets/images/GP1SV4UD_High_res.jpg'
-import swiper1 from '../assets/images/swiper1.jpg'
-import swiper2 from '../assets/images/swiper2.jpg'
-import swiper3 from '../assets/images/swiper3.jpg'
-import swiper4 from '../assets/images/swiper4.jpg'
-import swiper5 from '../assets/images/swiper5.jpg'
+import banner from '../assets/images/hero_v2.jpg';
+import kellyProfile from '../assets/images/MD-GP-PORTRAITKELLYHUANG001.jpg';
+import thumbnail from '../assets/images/GP0STUTFE_Medium_res.jpg';
+import thumbnailTwo from '../assets/images/GP1SUZTO_Medium_res.jpg';
+import thumbnailThree from '../assets/images/GP1SV4UD_High_res.jpg';
+import swiper1 from '../assets/images/swiper1.jpg';
+import swiper2 from '../assets/images/swiper2.jpg';
+import swiper3 from '../assets/images/swiper3.jpg';
+import swiper4 from '../assets/images/swiper4.jpg';
+import swiper5 from '../assets/images/swiper5.jpg';
 
 const Landing = ({ submitted, togglePanel }) => {
-  const swiperRef = useRef(null)
+  const swiperRef = useRef(null);
   const subHeadline = {
     color: 'gray.700',
     fontSize: 'sm',
@@ -59,10 +59,10 @@ const Landing = ({ submitted, togglePanel }) => {
     mb: '4',
     pl: '2',
     borderLeft: '4px solid #00b474',
-  }
+  };
   const creditLine = {
     mt: '4',
-  }
+  };
 
   const WebinarContent = {
     title: '分享會詳情',
@@ -70,7 +70,7 @@ const Landing = ({ submitted, togglePanel }) => {
     time: '時間：下午2時半至3時半',
     description: '線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）',
     other: '注意事項：活動將以普通話及粵語進行',
-  }
+  };
 
   const thumbnailContent = [
     {
@@ -91,12 +91,12 @@ const Landing = ({ submitted, togglePanel }) => {
       content:
         'Kelly與團隊24小時站崗，觀察採礦機器的一舉一動，揭露企業污染海洋的真相。',
     },
-  ]
+  ];
 
-  const simpleSwiperData = [swiper1, swiper2, swiper3, swiper4, swiper5]
+  const simpleSwiperData = [swiper1, swiper2, swiper3, swiper4, swiper5];
 
   // install Swiper modules
-  SwiperCore.use([Navigation])
+  SwiperCore.use([Navigation]);
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -126,7 +126,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 fontSize={{ base: '2xl', sm: '3xl', xl: '4xl' }}
                 fontWeight='bold'
                 color='gray.900'
-                lineHeight={1.2}
+                lineHeight={1.3}
               >
                 <Text color='brand.500' mb={2} maxWidth='780px'>
                   直擊「彩虹勇士號」工作：3個月的海上任務
@@ -288,7 +288,7 @@ const Landing = ({ submitted, togglePanel }) => {
               spacing={{ base: 10 }}
             >
               <Box flex='1' minWidth='0px'>
-                <SimpleCarousel
+                <ImageCarousel
                   swiperData={simpleSwiperData}
                   style={{ borderRadius: '8px' }}
                 />
@@ -374,7 +374,7 @@ const Landing = ({ submitted, togglePanel }) => {
         <Button
           w='80%'
           color='#fff'
-          bg='orange'
+          bg='orange.500'
           borderRadius='24px'
           fontSize='xl'
           letterSpacing={4}
@@ -392,21 +392,21 @@ const Landing = ({ submitted, togglePanel }) => {
       ></Panel>
       <Footer />
     </ChakraProvider>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
     },
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Landing)
+export default connect(mapStateToProps, mapDispatchToProps)(Landing);

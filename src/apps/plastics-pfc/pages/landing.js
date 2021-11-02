@@ -1,8 +1,8 @@
-import 'swiper/swiper.scss'
-import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
-import { useMediaQuery } from 'react-responsive'
-import Sticky from 'react-sticky-el'
+import 'swiper/swiper.scss';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+import Sticky from 'react-sticky-el';
 import {
   Avatar,
   ChakraProvider,
@@ -21,33 +21,33 @@ import {
   Icon,
   Grid,
   GridItem,
-} from '@chakra-ui/react'
-import SEO from '../SEO'
-import content from '../data/content'
-import Nav from '../components/header/nav'
-import Footer from '../components/footer'
-import Webinar from 'components/sections/webinar'
-import NewFrameForm from 'components/form/newFrameForm'
-import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm'
-import Panel from 'components/panel/newFormPanel'
-import * as themeActions from 'store/actions/action-types/theme-actions'
-import themeConfig from '../../../theme'
+} from '@chakra-ui/react';
+import SEO from '../SEO';
+import content from '../data/content';
+import Nav from '../components/header/nav';
+import Footer from '../components/footer';
+import Webinar from 'components/sections/webinar';
+import NewFrameForm from 'components/form/newFrameForm';
+import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm';
+import Panel from 'components/panel/newFormPanel';
+import * as themeActions from 'store/actions/action-types/theme-actions';
+import themeConfig from '../../../theme';
 
-import { IoCalendarOutline, IoTimeSharp, IoVideocam } from 'react-icons/io5'
+import { IoCalendarOutline, IoTimeSharp, IoVideocam } from 'react-icons/io5';
 
-import banner from '../assets/images/PFC-webinar-banner-2-banner.jpg'
-import Dalu from '../assets/images/Dalu.png'
-import DaluImage from '../assets/images/123.jpg'
-import Ann from '../assets/images/Ann.png'
-import AnnImage from '../assets/images/1111.jpg'
-import Kaman from '../assets/images/Kaman.png'
-import KamanImage from '../assets/images/20210508_SSPHunting_17_square.jpg'
-import Leanne from '../assets/images/Leanne.png'
-import LeanneImage from '../assets/images/news-sns-plastics-pfc.jpg'
-import frBanner from '../assets/images/20210508_SSPHunting_17.jpg'
+import banner from '../assets/images/PFC-webinar-banner-2-banner.jpg';
+import Dalu from '../assets/images/Dalu.png';
+import DaluImage from '../assets/images/123.jpg';
+import Ann from '../assets/images/Ann.png';
+import AnnImage from '../assets/images/1111.jpg';
+import Kaman from '../assets/images/Kaman.png';
+import KamanImage from '../assets/images/20210508_SSPHunting_17_square.jpg';
+import Leanne from '../assets/images/Leanne.png';
+import LeanneImage from '../assets/images/news-sns-plastics-pfc.jpg';
+import frBanner from '../assets/images/20210508_SSPHunting_17.jpg';
 
 const Landing = ({ submitted, togglePanel }) => {
-  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
+  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' });
   const Feature = ({ text, icon, iconBg }) => {
     return (
       <Stack direction={'row'} align={'center'}>
@@ -58,8 +58,8 @@ const Landing = ({ submitted, togglePanel }) => {
           {text}
         </Text>
       </Stack>
-    )
-  }
+    );
+  };
 
   const subHeadline = {
     color: 'gray.700',
@@ -68,7 +68,7 @@ const Landing = ({ submitted, togglePanel }) => {
     mt: '10',
     mb: '4',
     pl: '2',
-  }
+  };
 
   const pStyle = {
     as: 'p',
@@ -76,7 +76,7 @@ const Landing = ({ submitted, togglePanel }) => {
     color: 'gray.900',
     lineHeight: '1.7',
     fontSize: '16px',
-  }
+  };
 
   const switchButtonWrap = {
     flex: 1,
@@ -87,7 +87,7 @@ const Landing = ({ submitted, togglePanel }) => {
     cursor: 'pointer',
     h: { base: 'auto', sm: 'auto' },
     align: 'center',
-  }
+  };
 
   const switchButton = {
     borderRadius: '50%',
@@ -96,7 +96,7 @@ const Landing = ({ submitted, togglePanel }) => {
     w: { base: '58px', sm: '96px' },
     h: { base: '58px', sm: '96px' },
     pb: 8,
-  }
+  };
 
   const authorContent = [
     {
@@ -140,15 +140,15 @@ const Landing = ({ submitted, togglePanel }) => {
       content:
         '全城走塑社區外展主任，與「走塑小隊」捐窿捐罅，發掘社區走塑小店。疫情下，講環保，搞走塑，看似天方夜譚，但是我們「走塑小隊」發現，社區仍有好多街坊及小店堅持走塑。我們相信，落手落腳，邊玩邊學，今天一小步，社區一大步。成為我地走塑小隊一員啦，預埋你啦！！',
     },
-  ]
+  ];
 
   const WebinarContent = {
     date: '日期：2021年6月7日（星期一）',
     time: '時間：晚上8時至9時',
     description: '線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）',
-  }
+  };
 
-  const [current, setCurrent] = useState(authorContent[0])
+  const [current, setCurrent] = useState(authorContent[0]);
 
   return (
     <ChakraProvider theme={themeConfig}>
@@ -180,7 +180,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 fontSize={{ base: '2xl', sm: '3xl', xl: '4xl' }}
                 fontWeight='bold'
                 color='gray.900'
-                lineHeight={1.2}
+                lineHeight={1.3}
               >
                 <Text color='brand.500' mb={2} maxWidth='780px'>
                   「綠色社區點做起？達人同你渾身解塑」<Text>網上共學教室</Text>
@@ -432,7 +432,7 @@ const Landing = ({ submitted, togglePanel }) => {
         <Button
           w='80%'
           color='#fff'
-          bg='orange'
+          bg='orange.500'
           borderRadius='24px'
           fontSize='xl'
           letterSpacing={4}
@@ -454,22 +454,22 @@ const Landing = ({ submitted, togglePanel }) => {
       </Panel>
       <Footer />
     </ChakraProvider>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
     // submitted: false, // TEST submitted
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
     },
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Landing)
+export default connect(mapStateToProps, mapDispatchToProps)(Landing);

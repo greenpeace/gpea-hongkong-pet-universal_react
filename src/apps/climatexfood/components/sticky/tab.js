@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { connect } from 'react-redux'
-import { useMediaQuery } from 'react-responsive'
-import ProgressBar from 'components/progress'
-import { Box, Image, Flex, Button, Container, Spacer } from '@chakra-ui/react'
-import * as themeActions from 'store/actions/action-types/theme-actions'
-import Sticky from 'react-sticky-el'
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+import ProgressBar from 'components/progress';
+import { Box, Image, Flex, Button, Container, Spacer } from '@chakra-ui/react';
+import * as themeActions from 'store/actions/action-types/theme-actions';
+import Sticky from 'react-sticky-el';
 import {
   Link,
   Element,
@@ -12,34 +12,36 @@ import {
   animateScroll as scroll,
   scrollSpy,
   scroller,
-} from 'react-scroll'
+} from 'react-scroll';
 
 const Tab = () => {
-  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' })
-  const [numSignupTarget, setNumSignupTarget] = useState(100000)
-  const [numResponses, setNumResponses] = useState(0)
+  const isMobile = useMediaQuery({ query: '(max-device-width: 564px)' });
+  const [numSignupTarget, setNumSignupTarget] = useState(100000);
+  const [numResponses, setNumResponses] = useState(0);
   const progress = [
     { bgcolor: '#62cbd7', completed: numResponses, target: numSignupTarget },
-  ]
+  ];
   useEffect(() => {
-    const signupTarget = document.querySelector("input[name='numSignupTarget']")
-    const numResponses = document.querySelector("input[name='numResponses']")
+    const signupTarget = document.querySelector(
+      "input[name='numSignupTarget']"
+    );
+    const numResponses = document.querySelector("input[name='numResponses']");
 
     if (signupTarget) {
-      setNumSignupTarget(signupTarget.value)
+      setNumSignupTarget(signupTarget.value);
     }
     if (numResponses) {
-      setNumResponses(numResponses.value)
+      setNumResponses(numResponses.value);
     }
-  }, [])
+  }, []);
 
   const textStyle = {
     fontSize: { base: 'md', sm: '18px' },
     color: 'rgba(0,0,0,.65)',
     lineHeight: 1.8,
-  }
+  };
 
-  const [currentTab, setCurrentTab] = useState(0)
+  const [currentTab, setCurrentTab] = useState(0);
 
   return (
     <>
@@ -103,7 +105,6 @@ const Tab = () => {
                       size='lg'
                       color='#fff'
                       bg='campaign.arctic'
-                      _hover={{ bg: 'campaign.oceans' }}
                     >
                       立即聯署
                     </Button>
@@ -115,21 +116,21 @@ const Tab = () => {
         </Sticky>
       )}
     </>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ theme }) => {
   return {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
     },
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Tab)
+export default connect(mapStateToProps, mapDispatchToProps)(Tab);
