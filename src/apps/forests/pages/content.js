@@ -48,10 +48,9 @@ const Content = () => {
           <Heading
             as='h1'
             fontSize={{ base: '3xl', md: '4xl' }}
-            fontWeight='bold'
-            lineHeight={1.1}
+            lineHeight={1.3}
           >
-            全球僅餘 15%森林被完整保存
+            全球僅餘 15% 森林被完整保存
           </Heading>
           <Text>
             熱帶森林、溫帶雨林和北方森林，調節氣候、提供淡水和氧氣，更是地球約三分之二陸生動植物的棲息地。

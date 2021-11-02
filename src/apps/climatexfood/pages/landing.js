@@ -214,7 +214,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   fontSize={{ base: '2xl', sm: '3xl', xl: '4xl' }}
                   fontWeight='bold'
                   color='gray.900'
-                  lineHeight={1.2}
+                  lineHeight={1.3}
                 >
                   <Text color='#FA6A11'>網上科學 101</Text>
                   <Text>氣候危機警告現正生效：點樣影響香港人？</Text>

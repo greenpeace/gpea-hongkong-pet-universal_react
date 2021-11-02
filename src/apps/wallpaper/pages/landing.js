@@ -99,7 +99,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   fontSize={{ base: '2xl', sm: '3xl', xl: '4xl' }}
                   fontWeight='bold'
                   color='gray.900'
-                  lineHeight={1.2}
+                  lineHeight={1.3}
                 >
                   <Text color='brand.500' mt={4} mb={2}>
                     精選香港動物奇妙時刻
