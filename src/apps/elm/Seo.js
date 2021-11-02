@@ -1,5 +1,5 @@
-import { Helmet } from 'react-helmet-async'
-import React from 'react'
+import { Helmet } from 'react-helmet-async';
+import React from 'react';
 
 const SEO = () => {
   return (
@@ -36,7 +36,7 @@ const SEO = () => {
         content='https://aaf1a18515da0e792f78-c27fdabe952dfc357fe25ebf5c8897ee.ssl.cf5.rackcdn.com/1853/ecology-sharelink.jpg?v=1624962949576'
       />
     </Helmet>
-  )
-}
+  );
+};
 
-export default SEO
+export default SEO;

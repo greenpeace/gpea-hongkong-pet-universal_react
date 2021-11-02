@@ -365,7 +365,7 @@ let RegistrationForm = ({
                     type='submit'
                     className='custom-button custom-button-active'
                   >
-                    {formContent.submit_text} <FontAwesomeIcon icon={faPen} />
+                    {formContent.submit_text}
                   </button>
                 </Col>
               </Row>
