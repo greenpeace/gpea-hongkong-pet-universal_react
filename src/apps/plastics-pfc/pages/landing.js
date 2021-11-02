@@ -180,7 +180,7 @@ const Landing = ({ submitted, togglePanel }) => {
                 fontSize={{ base: '2xl', sm: '3xl', xl: '4xl' }}
                 fontWeight='bold'
                 color='gray.900'
-                lineHeight={1.2}
+                lineHeight={1.3}
               >
                 <Text color='brand.500' mb={2} maxWidth='780px'>
                   「綠色社區點做起？達人同你渾身解塑」<Text>網上共學教室</Text>

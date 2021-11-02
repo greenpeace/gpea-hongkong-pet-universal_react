@@ -66,7 +66,7 @@ const Landing = ({ submitted, togglePanel }) => {
                   fontSize={{ base: '2xl', sm: '3xl', xl: '4xl' }}
                   fontWeight='bold'
                   color='gray.900'
-                  lineHeight={1.1}
+                  lineHeight={1.3}
                 >
                   您有想過，
                   <br />

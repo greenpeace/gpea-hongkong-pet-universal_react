@@ -82,7 +82,7 @@ const Content = () => {
             as='h1'
             fontSize={{ base: '3xl', md: '4xl' }}
             fontWeight='bold'
-            lineHeight={1.1}
+            lineHeight={1.3}
             color='#ffc700'
           >
             緩解氣候危機 刻不容緩

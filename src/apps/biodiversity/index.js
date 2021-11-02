@@ -91,7 +91,7 @@ const Index = ({ submitted, togglePanel }) => {
                   fontSize={{ base: '2xl', sm: '3xl', xl: '4xl' }}
                   fontWeight='bold'
                   color='gray.900'
-                  lineHeight={1.2}
+                  lineHeight={1.3}
                 >
                   <Text color='brand.500'>立即登記</Text>
                   與生態專家探索香港「野」網上教室
