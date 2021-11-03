@@ -129,7 +129,7 @@ const MyForm = ({ formContent = content }) => {
                   }}
                 />
               </Text>
-              <MiniDonateForm />
+              <MiniDonateForm formContent={formContent} />
             </>
           )}
           {/* <DonateForm /> */}

@@ -35,6 +35,7 @@ const AMOUNT_MONTHLY = [
 ];
 
 const MiniDonateForm = (props) => {
+  const { formContent } = props;
   const [donateType, setDonateType] = useState('monthly');
   const [amount, setAmount] = useState(100);
   const [url, setURL] = useState({ type: donateType, amount: amount });
@@ -55,6 +56,10 @@ const MiniDonateForm = (props) => {
   const handleOpenLink = (value) => {
     window.open(`${targetDonateURL}&donate_amt=${donateType}:${amount}`);
   };
+
+  const bottomContent = formContent.thanks_content_after_button_section
+    ? formContent.thanks_content_after_button_section
+    : '您的捐款，為綠色和平守護森林項目帶來穩定力量，為我們與下一代守護這片盎然綠野，謝謝！';
 
   return (
     <Box>
@@ -112,14 +117,26 @@ const MiniDonateForm = (props) => {
             </Grid>
           </Box>
           <Box align='center' py={6}>
+            {/* <Text fontSize={'md'} color={'#fff'}>
+                您的捐款，為綠色和平守護森林項目帶來穩定力量，為我們與下一代守護這片盎然綠野，謝謝！
+              </Text> */}
+
             {props.mode === 'dark' ? (
-              <Text fontSize={'md'} color={'#fff'}>
-                您的捐款，為綠色和平守護森林項目帶來穩定力量，為我們與下一代守護這片盎然綠野，謝謝！
-              </Text>
+              <Text
+                as='p'
+                variant='paragraph'
+                dangerouslySetInnerHTML={{
+                  __html: bottomContent,
+                }}
+              />
             ) : (
-              <Text fontSize={'md'}>
-                您的捐款，為綠色和平守護森林項目帶來穩定力量，為我們與下一代守護這片盎然綠野，謝謝！
-              </Text>
+              <Text
+                as='p'
+                variant='paragraph'
+                dangerouslySetInnerHTML={{
+                  __html: bottomContent,
+                }}
+              />
             )}
           </Box>
           <Box onClick={() => handleOpenLink()}>
