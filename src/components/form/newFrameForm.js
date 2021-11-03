@@ -313,9 +313,13 @@ const MyForm = (props) => {
                     <Text fontSize='xs'>{formContent.form_remind}</Text>
                   </Checkbox>
                 ) : (
-                  <Text fontSize='sm' lineHeight={1.5} color='gray.700'>
+                  <Text fontSize='xs' lineHeight={1.5} color='gray.700'>
                     <sup> * </sup>
-                    {formContent.form_remind}
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: formContent.form_remind,
+                      }}
+                    />
                   </Text>
                 )}
               </FormControl>

@@ -1,0 +1,36 @@
+{
+  "label_first_name": "名字",
+  "label_last_name": "姓氏",
+  "label_email": "電郵地址",
+  "label_phone": "手提號碼(接收活動SMS提示)",
+  "label_phone_optional": "手提號碼（選填）",
+  "label_year_of_birth": "出生年份",
+  "label_year_of_birth_optional": "出生年份（選填）",
+  "select": "請選擇",
+
+  "empty_data_alert": "請填寫資料",
+  "empty_select_data_alert": "請選擇",
+  "invalid_email_alert": "請填上有效電郵地址",
+  "invalid_format_alert": "請輸入有效格式",
+  "minimum_8_characters": "請輸入8位數字",
+
+  "form_header": "立即報名<br/>COP26峰會分析暨氣候講座：全球氣候政策與未來",
+  "form_description": "",
+  "form_remind": "登記是次活動即代表我願意收到綠色和平發送的通訊，讓我能掌握環保工作的最新脈動！我同意綠色和平按照<u><a href='#'>個人資料政策</a></u>與我聯絡，包括提供環保工作資訊及捐款呼籲等。",
+
+  "submit_text": "立即聯署",
+
+  "thanks_title": "感謝您的加入！",
+  "thanks_content": "",
+  "thanks_content_top_section": "綠色和平堅持以行動，<b>督促全球政府加強森林保護政策，要求企業終止砍伐、焚燒等毀林行為</b>，採用生態友善且永續的方式管理森林，為森林提供復原空間。",
+  "thanks_content_center_section": "",
+  "thanks_content_bottom_section": "因為您，綠色和平得以維持環境工作的公正獨立性，<b>懇請您今天就以小額捐款，支持守護森林全球行動！</b>",
+  "thanks_content_after_button_section": "",
+  "share_button": "分享出去",
+  "donate_button": "捐助支持",
+  "donateURL": "https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=climate&ref=climate-registration-thankyou",
+  "shareMessage": "",
+  "fbURL": "https://act.gp/3nE5vqN",
+  "mainURL": "https://act.gp/2Xsz4Rl",
+  "whatsappURL": "https://act.gp/3hyctJO"
+}

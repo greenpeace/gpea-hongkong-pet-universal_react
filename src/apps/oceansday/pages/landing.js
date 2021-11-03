@@ -66,7 +66,7 @@ const Landing = ({ submitted, togglePanel }) => {
 
   const WebinarContent = {
     title: '分享會詳情',
-    date: '日期：2021年6月19日（星期六）',
+    date: '日期：2021年11月22日（星期一）',
     time: '時間：下午2時半至3時半',
     description: '線上分享會平台：Zoom（網上登記後會獲得相關鏈結和密碼）',
     other: '注意事項：活動將以普通話及粵語進行',
