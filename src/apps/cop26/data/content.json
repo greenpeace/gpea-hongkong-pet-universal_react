@@ -32,5 +32,21 @@
   "shareMessage": "",
   "fbURL": "https://act.gp/3nE5vqN",
   "mainURL": "https://act.gp/2Xsz4Rl",
-  "whatsappURL": "https://act.gp/3hyctJO"
+  "whatsappURL": "https://act.gp/3hyctJO",
+  "donate_type": [
+    { "label": "每月捐款", "value": "monthly" },
+    { "label": "單次捐款", "value": "single" }
+  ],
+  "amount_onetime": [
+    { "label": "HKD 500", "value": 500 },
+    { "label": "HKD 700", "value": 700 },
+    { "label": "HKD 900", "value": 900 },
+    { "label": "其他金額", "value": "" }
+  ],
+  "amount_monthly": [
+    { "label": "HKD 100", "value": 100 },
+    { "label": "HKD 150", "value": 150 },
+    { "label": "HKD 200", "value": 200 },
+    { "label": "其他金額", "value": "" }
+  ]
 }
