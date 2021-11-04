@@ -10,8 +10,8 @@ const SEO = () => {
         {`
           var dataLayer = (window.dataLayer = window.dataLayer || []);
           dataLayer.push({
-            gCampaign: "forests",
-            gBasket: "forests",
+            gCampaign: "climate",
+            gBasket: "cop26",
           });
         `}
       </script>
@@ -35,7 +35,7 @@ const SEO = () => {
       {/* meta image */}
       <meta
         property='og:image'
-        content='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/09/024889a6-2021-forests-relaunch.jpg'
+        content='https://www.greenpeace.org/static/planet4-hongkong-stateless/2021/11/2eda6a23-climate-food-webinar-banner-resize.jpg'
       />
     </Helmet>
   );

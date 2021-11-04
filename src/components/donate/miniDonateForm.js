@@ -51,7 +51,7 @@ const MiniDonateForm = (props) => {
   };
 
   const targetDonateURL =
-    'https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=forests';
+    'https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=climate';
 
   const handleOpenLink = (value) => {
     window.open(`${targetDonateURL}&donate_amt=${donateType}:${amount}`);
@@ -116,28 +116,14 @@ const MiniDonateForm = (props) => {
               })}
             </Grid>
           </Box>
-          <Box align='center' py={6}>
-            {/* <Text fontSize={'md'} color={'#fff'}>
-                您的捐款，為綠色和平守護森林項目帶來穩定力量，為我們與下一代守護這片盎然綠野，謝謝！
-              </Text> */}
-
-            {props.mode === 'dark' ? (
-              <Text
-                as='p'
-                variant='paragraph'
-                dangerouslySetInnerHTML={{
-                  __html: bottomContent,
-                }}
-              />
-            ) : (
-              <Text
-                as='p'
-                variant='paragraph'
-                dangerouslySetInnerHTML={{
-                  __html: bottomContent,
-                }}
-              />
-            )}
+          <Box py={6}>
+            <Text
+              as='p'
+              variant='paragraph'
+              dangerouslySetInnerHTML={{
+                __html: bottomContent,
+              }}
+            />
           </Box>
           <Box onClick={() => handleOpenLink()}>
             <Button

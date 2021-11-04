@@ -46,7 +46,7 @@ const subStyle = {
   as: 'p',
   marginTop: '20px',
   color: 'gray.700',
-  lineHeight: '1.5',
+  lineHeight: '1.7',
   fontSize: '14px',
 };
 
@@ -86,8 +86,7 @@ const Content = () => {
             第26屆聯合國氣候變化大會（COP26）於11月中結束，會議上，各地政府評量減緩氣候變化的進展，同時議定未來的氣候政策。聯合國已經警告，如果各地拒絕推出並實施更進取氣候政策，地球在本世紀末可能升溫高達2.7°C，因此是次會議是挽救氣候的關鍵時機！
           </Text>
           <Text>
-            綠色和平項目主任伍漢林(Tom)
-            將會與大家分析COP26的會議結果，節目內容包括：
+            綠色和平項目主任伍漢林（Tom）將會與大家分析COP26的會議結果，節目內容包括：
           </Text>
           <UnorderedList px={2}>
             <ListItem>分析COP26出爐政策，以及全球緩解氣候變化進度</ListItem>
@@ -104,37 +103,30 @@ const Content = () => {
           </Text>
         </TextWrapper>
 
-        <Divider my={{ base: 8 }} />
-
         <TextWrapper>
-          {/* <Heading as='h3' fontSize={'3xl'}>
-          「COP26峰會分析暨氣候講座：全球氣候政策與未來」詳情：
-          </Heading> */}
-
           <Box>
             <Webinar showTitle={false} content={WebinarContent} />
           </Box>
 
           <TestmonialCard content={tomContent} />
-        </TextWrapper>
-        <Divider my={{ base: 8 }} />
 
-        <Flex direction={{ base: 'column', sm: 'row' }} px={4}>
-          <Box flex={1} pr={{ base: 0, sm: 3 }}>
-            <Image borderRadius='4px' marginTop='6' src={info01} />
-            <Text {...subStyle}>
-              綠色和平行動者要求國際領袖馬上作出氣候行動。© Greenpeace / Lorenzo
-              Moscia
-            </Text>
-          </Box>
-          <Box flex={1} pl={{ base: 0, sm: 3 }}>
-            <Image borderRadius='4px' marginTop='6' src={info02} />
-            <Text {...subStyle}>
-              綠色和平倡議之一是立即淘汰化石燃料，敦促各地政府停止所有新的化石燃料計劃。©
-              Greenpeace / Mitja Kobal
-            </Text>
-          </Box>
-        </Flex>
+          <Flex direction={{ base: 'column', sm: 'row' }} px={4} mb={6}>
+            <Box flex={1} pr={{ base: 0, sm: 3 }}>
+              <Image borderRadius='4px' marginTop='6' src={info01} />
+              <Text {...subStyle}>
+                綠色和平行動者要求國際領袖馬上作出氣候行動。© Greenpeace /
+                Lorenzo Moscia
+              </Text>
+            </Box>
+            <Box flex={1} pl={{ base: 0, sm: 3 }}>
+              <Image borderRadius='4px' marginTop='6' src={info02} />
+              <Text {...subStyle}>
+                綠色和平倡議之一是立即淘汰化石燃料，敦促各地政府停止所有新的化石燃料計劃。©
+                Greenpeace / Mitja Kobal
+              </Text>
+            </Box>
+          </Flex>
+        </TextWrapper>
       </Stack>
     </Box>
   );
