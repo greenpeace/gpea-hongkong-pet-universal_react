@@ -40,7 +40,7 @@ const Landing = ({ submitted, togglePanel }) => {
             className='stickyContent'
           >
             <Sticky stickyStyle={{ zIndex: 10 }}>
-              {!submitted ? (
+              {submitted ? (
                 <NewFrameSubmittedForm formContent={content} />
               ) : (
                 <NewFrameForm
