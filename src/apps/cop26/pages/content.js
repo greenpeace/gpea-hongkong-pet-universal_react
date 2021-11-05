@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react';
 import tom from '../assets/images/9.png';
 import TestmonialCard from 'components/sections/testimonial';
-import Webinar from 'components/sections/webinar';
+import Webinar from 'components/sections/webinarTypeTwo';
 import styled from '@emotion/styled';
 
 import ImageCarousel from 'components/banner/imageCarousel';
@@ -103,14 +103,12 @@ const Content = () => {
           </Text>
         </TextWrapper>
 
-        <TextWrapper>
-          <Box>
-            <Webinar showTitle={false} content={WebinarContent} />
-          </Box>
+        <TextWrapper style={{ marginTop: 0, paddingTop: 0 }}>
+          <Webinar showTitle={false} content={WebinarContent} />
 
           <TestmonialCard content={tomContent} />
 
-          <Flex direction={{ base: 'column', sm: 'row' }} px={4} mb={6}>
+          <Flex direction={{ base: 'column', sm: 'row' }} mb={6}>
             <Box flex={1} pr={{ base: 0, sm: 3 }}>
               <Image borderRadius='4px' marginTop='6' src={info01} />
               <Text {...subStyle}>
