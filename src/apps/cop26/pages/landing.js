@@ -58,28 +58,24 @@ const Landing = ({ submitted, togglePanel }) => {
       </Box>
       <Box
         pos='fixed'
+        zIndex='999'
+        px={6}
+        py={2}
         bottom={0}
-        zIndex={9}
-        p='4'
-        w='100%'
-        style={{
-          background: 'rgba(255, 255, 255, 0.9)',
-          boxShadow: '0px 0px 20px 0px rgb(0 0 0 / 10%)',
-          paddingTop: '6px',
-          paddingBottom: '8px',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
+        left={0}
+        w={'100%'}
+        bg='rgba(255,255,255,0.95)'
         d={{ base: 'flex', md: 'none' }}
       >
         <Button
-          w='90%'
-          color='white'
-          bg='orange.500'
+          w='100%'
           borderRadius='md'
           fontSize='xl'
-          letterSpacing={2}
-          style={{ zIndex: 999 }}
+          px={2}
+          py={6}
+          color='white'
+          bg='orange.500'
+          _hover={{ bg: 'orange.300' }}
           onClick={() => togglePanel(true)}
         >
           {content.submit_text}

@@ -51,7 +51,7 @@ const MiniDonateForm = (props) => {
   const TYPES = donate_type ? donate_type : TYPES_LOCAL;
 
   const [donateType, setDonateType] = useState('monthly');
-  const [amount, setAmount] = useState(100);
+  const [amount, setAmount] = useState(200);
   const [url, setURL] = useState({ type: donateType, amount: amount });
   const amountOption =
     donateType === 'monthly' ? AMOUNT_MONTHLY : AMOUNT_ONETIME;
@@ -146,7 +146,7 @@ const MiniDonateForm = (props) => {
               backgroundColor={'orange.500'}
               _hover={{ bg: 'orange.300' }}
               fontWeight={700}
-              fontSize={'lg'}
+              fontSize={'xl'}
               letterSpacing={'2px'}
             >
               {donate_button ? donate_button : '立即捐款'}
