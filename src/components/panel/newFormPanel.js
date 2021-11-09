@@ -68,12 +68,14 @@ const NewFormPanel = ({
         {submitted ? (
           <NewFrameSubmittedForm formContent={formContent} />
         ) : (
-          <NewFrameForm
-            formContent={formContent}
-            showProgress={showProgress}
-            newsLetter={newsLetter}
-            birthDate={birthDate}
-          />
+          <Box p={1}>
+            <NewFrameForm
+              formContent={formContent}
+              showProgress={showProgress}
+              newsLetter={newsLetter}
+              birthDate={birthDate}
+            />
+          </Box>
         )}
       </SlidingPane>
     </>

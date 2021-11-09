@@ -23,23 +23,6 @@ import {
   Checkbox,
 } from '@chakra-ui/react';
 
-// For email correctness
-let domains = [
-  'me.com',
-  'outlook.com',
-  'netvigator.com',
-  'cloud.com',
-  'live.hk',
-  'msn.com',
-  'gmail.com',
-  'hotmail.com',
-  'ymail.com',
-  'yahoo.com',
-  'yahoo.com.tw',
-  'yahoo.com.hk',
-];
-let topLevelDomains = ['com', 'net', 'org'];
-
 const MyForm = (props) => {
   const {
     values,
@@ -59,6 +42,10 @@ const MyForm = (props) => {
     activeABTesting,
     variant,
     togglePanel,
+    initSuggestion,
+    suggestion,
+    setSuggestion,
+    setFieldValue,
   } = props;
 
   const [hiddenFormValues, setHiddenFormValues] = useState([]);
@@ -113,6 +100,7 @@ const MyForm = (props) => {
       setBirthDateYear(optionYear);
     }
     fetchOptionYear(optionYear);
+    initSuggestion();
   }, []);
 
   useEffect(() => {
@@ -124,6 +112,39 @@ const MyForm = (props) => {
       setSubmitting(false);
     }
   }, [submitted]);
+
+  const mailSuggestion = (value) => {
+    const domains = [
+      'me.com',
+      'outlook.com',
+      'netvigator.com',
+      'cloud.com',
+      'live.hk',
+      'msn.com',
+      'gmail.com',
+      'hotmail.com',
+      'ymail.com',
+      'yahoo.com',
+      'yahoo.com.tw',
+      'yahoo.com.hk',
+    ];
+    const topLevelDomains = ['com', 'net', 'org'];
+
+    if (value) {
+      Mailcheck.run({
+        email: value,
+        domains: domains, // optional
+        topLevelDomains: topLevelDomains, // optional
+        // secondLevelDomains: secondLevelDomains, // optional
+        // distanceFunction: superStringDistance,  // optional
+        suggested: function (suggestion) {
+          if (value !== suggestion.full) {
+            setSuggestion(suggestion.full);
+          }
+        },
+      });
+    }
+  };
 
   return (
     <Box
@@ -159,6 +180,46 @@ const MyForm = (props) => {
         <Flex direction='column'>
           <Box flex='1' pb={space}>
             <FormControl id='email' isInvalid={errors.Email && touched.Email}>
+              <Input
+                name='Email'
+                type='email'
+                placeholder={formContent.label_email}
+                onChange={handleChange}
+                onBlur={(e) => {
+                  // call the built-in handleBur
+                  handleBlur(e);
+                  // and do something about e
+                  mailSuggestion(e.target.value);
+                }}
+                value={values.Email}
+                _placeholder={{ fontSize: 16 }}
+              />
+              <FormErrorMessage color='red'>{errors.Email}</FormErrorMessage>
+              {suggestion && (
+                <Box
+                  onClick={() => {
+                    setFieldValue('Email', suggestion);
+                    initSuggestion();
+                  }}
+                  pt={2}
+                  pl={0}
+                  cursor={`pointer`}
+                >
+                  <Text fontSize={`sm`}>
+                    {formContent.suggestion_message}
+                    <Text
+                      as={'span'}
+                      textDecoration={`underline`}
+                      color={`#66cc00`}
+                      fontWeight={`bold`}
+                    >
+                      {suggestion}
+                    </Text>
+                  </Text>
+                </Box>
+              )}
+            </FormControl>
+            {/* <FormControl id='email' isInvalid={errors.Email && touched.Email}>
               <FormLabel {...labelStyle}>{formContent.label_email}</FormLabel>
               <Input
                 name='Email'
@@ -168,7 +229,7 @@ const MyForm = (props) => {
                 onBlur={handleBlur}
               />
               <FormErrorMessage color='red'>{errors.Email}</FormErrorMessage>
-            </FormControl>
+            </FormControl> */}
           </Box>
 
           <HStack>
@@ -428,6 +489,7 @@ const mapStateToProps = ({ theme }) => {
     submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
     activeABTesting: theme.abTesting,
     variant: theme.variant,
+    suggestion: theme.suggestion,
   };
 };
 
@@ -447,6 +509,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     submitForm: (form) => {
       dispatch({ type: themeActions.SUBMIT_FORM, form });
+    },
+    setSuggestion: (value) => {
+      dispatch({ type: themeActions.SET_SUGGESTION, data: value });
+    },
+    initSuggestion: () => {
+      dispatch({ type: themeActions.INIT_SUGGESTION });
     },
   };
 };

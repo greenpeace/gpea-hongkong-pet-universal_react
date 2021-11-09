@@ -13,6 +13,7 @@
   "invalid_email_alert": "請填上有效電郵地址",
   "invalid_format_alert": "請輸入有效格式",
   "minimum_8_characters": "請輸入8位數字",
+  "suggestion_message": "您是否想輸入",
 
   "form_header": "立即報名COP26峰會分析暨氣候講座：全球氣候政策與未來",
   "form_description": "",
