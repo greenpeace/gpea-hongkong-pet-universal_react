@@ -9,7 +9,7 @@ const ToggleFormButton = ({ content = '立即聯署', submitted, togglePanel }) 
   // }
   return (
     <Button
-      w='90%'
+      w='100%'
       color='white'
       bg='orange.500'
       borderRadius='md'
