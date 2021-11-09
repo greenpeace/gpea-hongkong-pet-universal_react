@@ -56,6 +56,13 @@ const MiniDonateForm = (props) => {
   const amountOption =
     donateType === 'monthly' ? AMOUNT_MONTHLY : AMOUNT_ONETIME;
 
+  const targetDonateURL =
+    'https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=climate';
+
+  const bottomContent = thanks_content_after_button_section
+    ? thanks_content_after_button_section
+    : '您的捐款，為綠色和平守護森林項目帶來穩定力量，為我們與下一代守護這片盎然綠野，謝謝！';
+
   const handleSetDonateType = (value) => {
     setDonateType(value);
     setAmount(
@@ -64,16 +71,9 @@ const MiniDonateForm = (props) => {
     setURL({ ...url, type: value });
   };
 
-  const targetDonateURL =
-    'https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=climate';
-
   const handleOpenLink = (value) => {
     window.open(`${targetDonateURL}&donate_amt=${donateType}:${amount}`);
   };
-
-  const bottomContent = thanks_content_after_button_section
-    ? thanks_content_after_button_section
-    : '您的捐款，為綠色和平守護森林項目帶來穩定力量，為我們與下一代守護這片盎然綠野，謝謝！';
 
   return (
     <Box>
@@ -146,7 +146,6 @@ const MiniDonateForm = (props) => {
               backgroundColor={'orange.500'}
               _hover={{ bg: 'orange.300' }}
               fontWeight={700}
-              fontSize={'lg'}
               letterSpacing={'2px'}
             >
               {donate_button ? donate_button : '立即捐款'}

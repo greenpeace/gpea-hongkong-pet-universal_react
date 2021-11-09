@@ -12,6 +12,7 @@ import Footer from '../components/footer';
 import NewFrameForm from 'components/form/newFrameForm';
 import NewFrameSubmittedForm from 'components/form/newFrameSubmittedForm';
 import Panel from 'components/panel/newFormPanel';
+import ToggleFormButton from 'components/button/toggleFormButton';
 import themeConfig from '../../../theme';
 
 import Content from './content';
@@ -72,18 +73,7 @@ const Landing = ({ submitted, togglePanel }) => {
         }}
         d={{ base: 'flex', md: 'none' }}
       >
-        <Button
-          w='90%'
-          color='white'
-          bg='orange.500'
-          borderRadius='md'
-          fontSize='xl'
-          letterSpacing={2}
-          style={{ zIndex: 999 }}
-          onClick={() => togglePanel(true)}
-        >
-          {content.submit_text}
-        </Button>
+        <ToggleFormButton content={content.submit_text} />
       </Box>
       <Panel formContent={content}>
         {submitted && isMobile && (
@@ -97,7 +87,7 @@ const Landing = ({ submitted, togglePanel }) => {
 
 const mapStateToProps = ({ theme }) => {
   return {
-    submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
+    submitted: theme.submitted,
   };
 };
 

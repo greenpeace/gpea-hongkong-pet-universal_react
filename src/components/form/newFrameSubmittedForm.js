@@ -39,7 +39,7 @@ const MyForm = ({ formContent = content }) => {
     <Box
       borderTop={{ base: null, sm: '4px solid #66cc00' }}
       boxShadow={{ base: null, sm: 'lg' }}
-      px={4}
+      px={{ sm: 4 }}
       py={4}
       rounded={{ base: 0, sm: 'md' }}
       bg='#fff'
@@ -153,7 +153,7 @@ const MyForm = ({ formContent = content }) => {
 const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
-    submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
+    submitted: theme.submitted,
   };
 };
 
