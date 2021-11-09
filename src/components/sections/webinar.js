@@ -1,5 +1,5 @@
-import 'swiper/swiper.scss'
-import React from 'react'
+import 'swiper/swiper.scss';
+import React from 'react';
 import {
   Box,
   Text,
@@ -7,12 +7,12 @@ import {
   useColorModeValue,
   Circle,
   Icon,
-} from '@chakra-ui/react'
-import { IoCalendarOutline, IoTimeSharp, IoVideocam } from 'react-icons/io5'
-import { GoBook } from 'react-icons/go'
-import { MdAccessTime } from 'react-icons/md'
-import { SiAirplayvideo } from 'react-icons/si'
-import { BiCalendar } from 'react-icons/bi'
+} from '@chakra-ui/react';
+import { IoCalendarOutline, IoTimeSharp, IoVideocam } from 'react-icons/io5';
+import { GoBook } from 'react-icons/go';
+import { MdAccessTime } from 'react-icons/md';
+import { SiAirplayvideo } from 'react-icons/si';
+import { BiCalendar } from 'react-icons/bi';
 
 const Webinar = ({ content }) => {
   const Feature = ({ text, icon, iconBg }) => {
@@ -25,8 +25,8 @@ const Webinar = ({ content }) => {
           {text}
         </Text>
       </Stack>
-    )
-  }
+    );
+  };
 
   const subHeadline = {
     color: 'gray.700',
@@ -36,11 +36,11 @@ const Webinar = ({ content }) => {
     mb: '4',
     pl: '2',
     borderLeft: '4px solid #00b474',
-  }
+  };
 
   return (
     <Box>
-      <Text {...subHeadline}>{content.title}</Text>
+      {content.title && <Text {...subHeadline}>{content.title}</Text>}
       <Stack spacing={4}>
         <Feature
           icon={<Icon as={BiCalendar} color={'brand.400'} w={5} h={5} />}
@@ -66,7 +66,7 @@ const Webinar = ({ content }) => {
         )}
       </Stack>
     </Box>
-  )
-}
+  );
+};
 
-export default Webinar
+export default Webinar;

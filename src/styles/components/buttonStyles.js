@@ -6,7 +6,7 @@ export const ButtonStyles = {
   // styles for different visual variants ("outline", "solid")
   variants: {
     donateButton: {
-      fontSize: { base: '16px' },
+      fontSize: 'xl',
       color: '#fff',
       fontWeight: 'bold',
       height: '50px',
@@ -14,18 +14,21 @@ export const ButtonStyles = {
       mb: 4,
     },
     formSubmitButton: {
-      fontSize: { base: '16px' },
-      color: '#fff',
       bgColor: 'brand.500',
       fontWeight: 'bold',
       w: '100%',
-      _hover: { bg: 'brand.700', color: '#fff' },
+      borderRadius: 'md',
+      fontSize: 'xl',
+      px: 2,
       py: 6,
+      color: 'white',
+      bg: 'orange.500',
+      _hover: { bg: 'orange.300' },
     },
   },
   // default values for `size` and `variant`
   defaultProps: {},
-}
+};
 
 export const HeadingStyles = {
   // style object for base or default style
@@ -36,4 +39,4 @@ export const HeadingStyles = {
   variants: {},
   // default values for `size` and `variant`
   defaultProps: {},
-}
+};

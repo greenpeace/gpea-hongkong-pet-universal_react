@@ -39,7 +39,7 @@ const MyForm = ({ formContent = content }) => {
     <Box
       borderTop={{ base: null, sm: '4px solid #66cc00' }}
       boxShadow={{ base: null, sm: 'lg' }}
-      px={4}
+      px={{ base: 2, sm: 6 }}
       py={4}
       rounded={{ base: 0, sm: 'md' }}
       bg='#fff'
@@ -129,7 +129,7 @@ const MyForm = ({ formContent = content }) => {
                   }}
                 />
               </Text>
-              <MiniDonateForm />
+              <MiniDonateForm formContent={formContent} />
             </>
           )}
           {/* <DonateForm /> */}
@@ -153,7 +153,7 @@ const MyForm = ({ formContent = content }) => {
 const mapStateToProps = ({ theme }) => {
   return {
     theme: theme,
-    submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
+    submitted: theme.submitted,
   };
 };
 

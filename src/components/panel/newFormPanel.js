@@ -1,22 +1,22 @@
-import React, { useEffect } from 'react'
-import SlidingPane from 'react-sliding-pane'
-import NewFrameForm from '../form/newFrameForm'
-import NewFrameSubmittedForm from '../form/newFrameSubmittedForm'
-import { connect } from 'react-redux'
-import { Box } from '@chakra-ui/react'
-import { SmallCloseIcon } from '@chakra-ui/icons'
-import * as themeActions from 'store/actions/action-types/theme-actions'
-import 'react-sliding-pane/dist/react-sliding-pane.css'
+import React, { useEffect } from 'react';
+import SlidingPane from 'react-sliding-pane';
+import NewFrameForm from '../form/newFrameForm';
+import NewFrameSubmittedForm from '../form/newFrameSubmittedForm';
+import { connect } from 'react-redux';
+import { Box } from '@chakra-ui/react';
+import { SmallCloseIcon } from '@chakra-ui/icons';
+import * as themeActions from 'store/actions/action-types/theme-actions';
+import 'react-sliding-pane/dist/react-sliding-pane.css';
 
 // Hook
 function usePrevious(value) {
-  const ref = React.useRef()
+  const ref = React.useRef();
 
   useEffect(() => {
-    ref.current = value
-  }, [value])
+    ref.current = value;
+  }, [value]);
 
-  return ref.current
+  return ref.current;
 }
 
 const NewFormPanel = ({
@@ -30,16 +30,16 @@ const NewFormPanel = ({
   newsLetter,
   birthDate,
 }) => {
-  const prevClosePanel = usePrevious(closePanel)
+  const prevClosePanel = usePrevious(closePanel);
 
   useEffect(() => {
     if (!closePanel) {
-      return
+      return;
     }
     if (closePanel !== prevClosePanel && closePanel === true) {
-      togglePanel(false)
+      togglePanel(false);
     }
-  }, [prevClosePanel, togglePanel, closePanel])
+  }, [prevClosePanel, togglePanel, closePanel]);
 
   return (
     <>
@@ -66,38 +66,42 @@ const NewFormPanel = ({
       >
         {/* {children} */}
         {submitted ? (
-          <NewFrameSubmittedForm formContent={formContent} />
+          <Box>
+            <NewFrameSubmittedForm formContent={formContent} />
+          </Box>
         ) : (
-          <NewFrameForm
-            formContent={formContent}
-            showProgress={showProgress}
-            newsLetter={newsLetter}
-            birthDate={birthDate}
-          />
+          <Box>
+            <NewFrameForm
+              formContent={formContent}
+              showProgress={showProgress}
+              newsLetter={newsLetter}
+              birthDate={birthDate}
+            />
+          </Box>
         )}
       </SlidingPane>
     </>
-  )
-}
+  );
+};
 
 const mapStateToProps = ({ swiper, theme }) => {
   return {
     swiper: swiper.data,
     slideIndex: swiper.slideIndex,
     theme: theme,
-    submitted: theme.lastAction === themeActions.SUBMIT_FORM_SUCCESS,
-  }
-}
+    submitted: theme.submitted,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleTheme: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_FORM, bol })
+      dispatch({ type: themeActions.TOGGLE_FORM, bol });
     },
     togglePanel: (bol) => {
-      dispatch({ type: themeActions.TOGGLE_PANEL, bol })
+      dispatch({ type: themeActions.TOGGLE_PANEL, bol });
     },
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewFormPanel)
+export default connect(mapStateToProps, mapDispatchToProps)(NewFormPanel);

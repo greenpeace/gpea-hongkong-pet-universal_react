@@ -1,4 +1,4 @@
-import * as Actions from "../actions";
+import * as Actions from '../actions';
 
 const initState = {
   data: [],
@@ -10,6 +10,8 @@ const initState = {
   submitted: false,
   abTesting: false,
   variant: 0,
+  suggestion: '',
+  lastAction: null,
 };
 
 const themeReducer = (state = initState, action) => {
@@ -81,6 +83,20 @@ const themeReducer = (state = initState, action) => {
       return {
         ...state,
         variant: action.value,
+      };
+
+    case Actions.INIT_SUGGESTION:
+      return {
+        ...state,
+        suggestion: '',
+        lastAction: action.type,
+      };
+
+    case Actions.SET_SUGGESTION:
+      return {
+        ...state,
+        suggestion: action.data,
+        lastAction: action.type,
       };
 
     default:

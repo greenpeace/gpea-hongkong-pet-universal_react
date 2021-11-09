@@ -17,17 +17,17 @@ const buttonStyle = {
 };
 
 // Donation types
-const TYPES = [
+const TYPES_LOCAL = [
   { label: '每月捐款', value: 'monthly' },
   { label: '單次捐款', value: 'single' },
 ];
-const AMOUNT_ONETIME = [
+const AMOUNT_ONETIME_LOCAL = [
   { label: 'HKD 500', value: 500 },
   { label: 'HKD 700', value: 700 },
   { label: 'HKD 900', value: 900 },
   { label: '其他金額', value: '' },
 ];
-const AMOUNT_MONTHLY = [
+const AMOUNT_MONTHLY_LOCAL = [
   { label: 'HKD 100', value: 100 },
   { label: 'HKD 150', value: 150 },
   { label: 'HKD 200', value: 200 },
@@ -35,11 +35,35 @@ const AMOUNT_MONTHLY = [
 ];
 
 const MiniDonateForm = (props) => {
+  const {
+    formContent: {
+      thanks_content_after_button_section,
+      donate_button,
+
+      amount_monthly,
+      amount_onetime,
+      donate_type,
+      donateURL,
+    },
+  } = props;
+
+  const AMOUNT_MONTHLY = amount_monthly ? amount_monthly : AMOUNT_MONTHLY_LOCAL;
+  const AMOUNT_ONETIME = amount_onetime ? amount_onetime : AMOUNT_ONETIME_LOCAL;
+  const TYPES = donate_type ? donate_type : TYPES_LOCAL;
+
   const [donateType, setDonateType] = useState('monthly');
-  const [amount, setAmount] = useState(100);
+  const [amount, setAmount] = useState(200);
   const [url, setURL] = useState({ type: donateType, amount: amount });
   const amountOption =
     donateType === 'monthly' ? AMOUNT_MONTHLY : AMOUNT_ONETIME;
+
+  const targetDonateURL = donateURL
+    ? donateURL
+    : 'https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=climate';
+
+  const bottomContent = thanks_content_after_button_section
+    ? thanks_content_after_button_section
+    : '您的捐款，為綠色和平守護森林項目帶來穩定力量，為我們與下一代守護這片盎然綠野，謝謝！';
 
   const handleSetDonateType = (value) => {
     setDonateType(value);
@@ -48,9 +72,6 @@ const MiniDonateForm = (props) => {
     );
     setURL({ ...url, type: value });
   };
-
-  const targetDonateURL =
-    'https://supporter.ea.greenpeace.org/hk/s/donate/donation-new?language=zh_HK&campaign=forests';
 
   const handleOpenLink = (value) => {
     window.open(`${targetDonateURL}&donate_amt=${donateType}:${amount}`);
@@ -111,16 +132,14 @@ const MiniDonateForm = (props) => {
               })}
             </Grid>
           </Box>
-          <Box align='center' py={6}>
-            {props.mode === 'dark' ? (
-              <Text fontSize={'md'} color={'#fff'}>
-                您的捐款，為綠色和平守護森林項目帶來穩定力量，為我們與下一代守護這片盎然綠野，謝謝！
-              </Text>
-            ) : (
-              <Text fontSize={'md'}>
-                您的捐款，為綠色和平守護森林項目帶來穩定力量，為我們與下一代守護這片盎然綠野，謝謝！
-              </Text>
-            )}
+          <Box py={6}>
+            <Text
+              as='p'
+              variant='paragraph'
+              dangerouslySetInnerHTML={{
+                __html: bottomContent,
+              }}
+            />
           </Box>
           <Box onClick={() => handleOpenLink()}>
             <Button
@@ -129,10 +148,10 @@ const MiniDonateForm = (props) => {
               backgroundColor={'orange.500'}
               _hover={{ bg: 'orange.300' }}
               fontWeight={700}
-              fontSize={'lg'}
+              fontSize={'xl'}
               letterSpacing={'2px'}
             >
-              立即捐款
+              {donate_button ? donate_button : '立即捐款'}
             </Button>
           </Box>
         </Flex>
