@@ -43,6 +43,7 @@ const MiniDonateForm = (props) => {
       amount_monthly,
       amount_onetime,
       donate_type,
+      donateURL,
     },
   } = props;
 
@@ -56,8 +57,9 @@ const MiniDonateForm = (props) => {
   const amountOption =
     donateType === 'monthly' ? AMOUNT_MONTHLY : AMOUNT_ONETIME;
 
-  const targetDonateURL =
-    'https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=climate';
+  const targetDonateURL = donateURL
+    ? donateURL
+    : 'https://supporter.ea.greenpeace.org/hk/s/donate?language=zh_HK&campaign=climate';
 
   const bottomContent = thanks_content_after_button_section
     ? thanks_content_after_button_section
