@@ -66,9 +66,11 @@ const NewFormPanel = ({
       >
         {/* {children} */}
         {submitted ? (
-          <NewFrameSubmittedForm formContent={formContent} />
+          <Box>
+            <NewFrameSubmittedForm formContent={formContent} />
+          </Box>
         ) : (
-          <Box p={1}>
+          <Box>
             <NewFrameForm
               formContent={formContent}
               showProgress={showProgress}

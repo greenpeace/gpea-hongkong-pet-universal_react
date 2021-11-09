@@ -39,7 +39,7 @@ const MyForm = ({ formContent = content }) => {
     <Box
       borderTop={{ base: null, sm: '4px solid #66cc00' }}
       boxShadow={{ base: null, sm: 'lg' }}
-      px={{ sm: 4 }}
+      px={{ base: 2, sm: 6 }}
       py={4}
       rounded={{ base: 0, sm: 'md' }}
       bg='#fff'

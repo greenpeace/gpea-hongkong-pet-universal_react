@@ -150,7 +150,7 @@ const MyForm = (props) => {
     <Box
       borderTop={{ base: null, sm: '4px solid #66cc00' }}
       boxShadow={{ base: null, sm: 'lg' }}
-      p={{ base: 0, sm: 6 }}
+      p={{ base: 2, sm: 6 }}
       rounded={{ base: 0, sm: 'md' }}
       bg='white'
       overflow='hidden'
