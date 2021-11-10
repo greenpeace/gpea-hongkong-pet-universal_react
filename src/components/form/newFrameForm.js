@@ -180,6 +180,7 @@ const MyForm = (props) => {
         <Flex direction='column'>
           <Box flex='1' pb={space}>
             <FormControl id='email' isInvalid={errors.Email && touched.Email}>
+              <FormLabel {...labelStyle}>{formContent.label_email}</FormLabel>
               <Input
                 name='Email'
                 type='email'
