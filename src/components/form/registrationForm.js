@@ -180,11 +180,13 @@ let RegistrationForm = ({
     }
     //
     let optionYear = [];
-    async function fetchOptionYear() {
+    function fetchOptionYear() {
+      const minYear = 18;
+      const maxYear = 110;
       let nowYear = new Date().getFullYear();
-      let targetYear = nowYear - 110;
-      for (var i = nowYear - 18; i >= targetYear; i--) {
-        await optionYear.push({ label: i, value: i.toString() });
+      let targetYear = nowYear - maxYear;
+      for (var i = nowYear - minYear; i >= targetYear; i--) {
+        optionYear.push({ label: i, value: i.toString() });
       }
       setBirthDateYear(optionYear);
     }
