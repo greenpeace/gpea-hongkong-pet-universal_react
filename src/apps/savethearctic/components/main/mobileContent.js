@@ -1,17 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { Grid, Row, Col } from 'rsuite'
-import swiperContent from '../../data/swiper.json'
+import React, { useState, useRef, useEffect } from 'react';
+import { Grid, Row, Col } from 'rsuite';
+import swiperContent from '../../data/swiper.json';
 
 function FadeInSection(props) {
-  const [isVisible, setVisible] = useState(false)
-  const domRef = useRef()
+  const [isVisible, setVisible] = useState(false);
+  const domRef = useRef();
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => setVisible(entry.isIntersecting))
-    })
-    observer.observe(domRef.current)
-    console.log('wow')
-  }, [])
+      entries.forEach((entry) => setVisible(entry.isIntersecting));
+    });
+    observer.observe(domRef.current);
+  }, []);
   return (
     <div
       className={`fade-in-section ${isVisible ? 'is-visible' : ''}`}
@@ -19,16 +18,16 @@ function FadeInSection(props) {
     >
       {props.children}
     </div>
-  )
+  );
 }
 
 const MobileContent = () => {
-  const { data = [] } = swiperContent
+  const { data = [] } = swiperContent;
   return (
     <div className='mobile-content-wrap'>
       <Grid fluid>
         {(data || []).map((d) => {
-          const { title, description } = d.content
+          const { title, description } = d.content;
           return (
             <FadeInSection key={d.id}>
               <Row>
@@ -52,11 +51,11 @@ const MobileContent = () => {
                 </Col>
               </Row>
             </FadeInSection>
-          )
+          );
         })}
       </Grid>
     </div>
-  )
-}
+  );
+};
 
-export default MobileContent
+export default MobileContent;

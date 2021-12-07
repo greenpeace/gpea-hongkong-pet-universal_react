@@ -1,6 +1,6 @@
-import React, {useState, useRef, useEffect} from "react";
-import { Grid, Row, Col } from "rsuite";
-import swiperContent from "../../data/swiper.json";
+import React, { useState, useRef, useEffect } from 'react';
+import { Grid, Row, Col } from 'rsuite';
+import swiperContent from '../../data/swiper.json';
 
 function FadeInSection(props) {
   const [isVisible, setVisible] = useState(false);
@@ -10,11 +10,10 @@ function FadeInSection(props) {
       entries.forEach((entry) => setVisible(entry.isIntersecting));
     });
     observer.observe(domRef.current);
-    console.log('wow')
   }, []);
   return (
     <div
-      className={`fade-in-section ${isVisible ? "is-visible" : ""}`}
+      className={`fade-in-section ${isVisible ? 'is-visible' : ''}`}
       ref={domRef}
     >
       {props.children}
@@ -43,7 +42,9 @@ const MobileContent = () => {
                   </Col>
                 )}
                 <Col xs={24}>
-                  {title && <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>}
+                  {title && (
+                    <h1 dangerouslySetInnerHTML={{ __html: title }}></h1>
+                  )}
                   <div className='mobile-content'>
                     <div dangerouslySetInnerHTML={{ __html: description }} />
                   </div>
